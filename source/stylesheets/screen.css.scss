@@ -462,6 +462,10 @@ html, body {
     @extend %code-font;
   }
 
+  td code {
+    white-space: nowrap;
+  }
+
   pre>code {
     background-color: transparent;
     padding: 0;
