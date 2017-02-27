@@ -11,6 +11,7 @@ toc_footers:
 includes:
   - introduction
 
+  - versioning
   - errors
   - objects
 
