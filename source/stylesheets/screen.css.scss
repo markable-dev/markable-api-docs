@@ -106,7 +106,7 @@ html, body {
       background: $nav-bg;
       border-width: 0 0 1px 0;
       border-color: $search-box-border-color;
-      padding: 6px 0 6px 20px;
+      padding: 6px 0 6px 25px; //left padding incrased to be 25px/
       box-sizing: border-box;
       margin: $nav-v-padding $nav-padding;
       width: $nav-width - 60; // -60
@@ -117,7 +117,7 @@ html, body {
 
     &:before {
       position: absolute;
-      top: 17px;
+      top: 10px;
       left: $nav-padding;
       color: $nav-text;
       @extend %icon-search;
@@ -277,7 +277,6 @@ html, body {
   z-index: 10;
   background-color: $main-bg;
   min-height: 100%;
-
   padding-bottom: 1px; // prevent margin overflow
 
   // The dark box is what gives the code samples their dark background.

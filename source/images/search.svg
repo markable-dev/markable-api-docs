@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="19px" height="20px" viewBox="0 0 19 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 41.2 (35397) - http://www.bohemiancoding.com/sketch -->
+    <title>SearchIcon</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="desktop-+-mobile" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Desktop" transform="translate(-513.000000, -35.000000)">
+            <g id="TopBar" transform="translate(246.000000, -5.000000)">
+                <g id="SearchBar" transform="translate(29.000000, 28.306818)">
+                    <g id="SearchIcon" transform="translate(246.742095, 26.568182) scale(-1, 1) translate(-246.742095, -26.568182) translate(231.742095, 6.568182)">
+                        <rect id="Rectangle-10" x="0.742094862" y="0.431818182" width="29" height="39.5681818"></rect>
+                        <ellipse id="Oval" stroke="#BCBCBC" cx="15.6452569" cy="13.5000674" rx="7.09683794" ry="7.50006737"></ellipse>
+                        <path d="M10.61833,18.8126151 L5.51372931,24.2072499" id="Line" stroke="#BCBCBC" stroke-linecap="square"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
