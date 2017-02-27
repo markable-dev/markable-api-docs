@@ -4,7 +4,7 @@
 > **Example:** Request
 
 ```http
-POST http://api.markable.ai/video/search HTTP/1.1
+POST https://api.markable.ai/video/search HTTP/1.1
 Authorization: Bearer 123abc
 {
 	"data": {
@@ -22,7 +22,7 @@ Authorization: Bearer 123abc
 ```
 
 ```shell
-curl -X POST http://api.markable.ai/video/search \
+curl -X POST https://api.markable.ai/video/search \
 -H 'Authorization: Bearer 123abc' \
 -d '
 {
@@ -213,7 +213,7 @@ Search a video - detect and retreive objects (products/logos/faces) based on vis
 
 ### HTTP Request
 
-`POST http://api.markable.ai/video/search`
+`POST https://api.markable.ai/video/search`
 
 
 ### HTTP Headers

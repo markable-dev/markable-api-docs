@@ -4,12 +4,12 @@
 > **Example:** Request
 
 ```http
-DELETE http://api.markable.ai/catalogs/catalog-1 HTTP/1.1
+DELETE https://api.markable.ai/catalogs/catalog-1 HTTP/1.1
 Authorization: Bearer 123abc
 ```
 
 ```shell
-curl -X DELETE http://api.markable.ai/catalogs/catalog-1 \
+curl -X DELETE https://api.markable.ai/catalogs/catalog-1 \
 -H 'Authorization: Bearer 123abc'
 ```
 
@@ -31,7 +31,7 @@ Delete an existing [catalog](#the-catalog-object).
 
 ### HTTP Request
 
-`DELETE http://api.markable.ai/catalogs/:catalogId`
+`DELETE https://api.markable.ai/catalogs/:catalogId`
 
 
 ### HTTP Headers

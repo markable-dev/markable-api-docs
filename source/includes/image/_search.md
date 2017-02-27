@@ -4,11 +4,11 @@
 > **Example:** Request
 
 ```http
-POST http://api.markable.ai/image/search HTTP/1.1
+POST https://api.markable.ai/image/search HTTP/1.1
 Authorization: Bearer 123abc
 {
 	"data": {
-        "image_uri": "https://example.com/products/1/a.png",
+        "image_uri": "https://example.com/images/1.png",
         "catalogs": [
             {
                 "name": "catalog-1"
@@ -22,12 +22,12 @@ Authorization: Bearer 123abc
 ```
 
 ```shell
-curl -X POST http://api.markable.ai/image/search \
+curl -X POST https://api.markable.ai/image/search \
 -H 'Authorization: Bearer 123abc' \
 -d '
 {
 	"data": {
-        "image_uri": "https://example.com/products/1/a.png",
+        "image_uri": "https://example.com/images/1.png",
         "catalogs": [
             {
                 "name": "catalog-1"
@@ -184,7 +184,7 @@ Search an image - detect and retreive objects (products/logos/faces) based on vi
 
 ### HTTP Request
 
-`POST http://api.markable.ai/image/search`
+`POST https://api.markable.ai/image/search`
 
 
 ### HTTP Headers

@@ -4,12 +4,12 @@
 > **Example:** Request
 
 ```http
-GET http://api.markable.ai/catalogs/catalog-1/items HTTP/1.1
+GET https://api.markable.ai/catalogs/catalog-1/items HTTP/1.1
 Authorization: Bearer 123abc
 ```
 
 ```shell
-curl -X GET http://api.markable.ai/catalogs/catalog-1/items \
+curl -X GET https://api.markable.ai/catalogs/catalog-1/items \
 -H 'Authorization: Bearer 123abc'
 ```
 
@@ -118,7 +118,7 @@ Get all existing [catalog items](#the-catalog-item-object).
 
 ### HTTP Request
 
-`GET http://api.markable.ai/catalogs/:catalogId/items`
+`GET https://api.markable.ai/catalogs/:catalogId/items`
 
 
 ### HTTP Headers

@@ -28,7 +28,7 @@ Attribute       	| Description
 > **Example:** Request
 
 ```http
-POST http://api.markable.ai/client/authorize HTTP/1.1
+POST https://api.markable.ai/client/authorize HTTP/1.1
 {
 	"data": {
 		"client_id": "abc",
@@ -38,7 +38,7 @@ POST http://api.markable.ai/client/authorize HTTP/1.1
 ```
 
 ```shell
-curl -X POST http://api.markable.ai/client/authorize \
+curl -X POST https://api.markable.ai/client/authorize \
 -d '
 {
 	"data": {
@@ -64,7 +64,7 @@ Create authorization (authentication token) for a client.
 
 ### HTTP Request
 
-`POST http://api.markable.ai/client/authorize`
+`POST https://api.markable.ai/client/authorize`
 
 
 ### HTTP Headers

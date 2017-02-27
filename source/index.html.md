@@ -1,12 +1,12 @@
 ---
-title: API Reference
+title: Markable Lens API Docs - for Developers
 
 language_tabs:
   - http
   - shell
 
 toc_footers:
-  - <a href='#'>Signup for Markable Lens API</a>
+  - <a href='https://markable.ai/signup'>Signup for Markable Lens API</a>
 
 includes:
   - introduction
