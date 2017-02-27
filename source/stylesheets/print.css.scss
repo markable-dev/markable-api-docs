@@ -21,7 +21,7 @@ under the License.
 
 $print-color: #999;
 $print-color-light: #ccc;
-$print-font-size: 12px;
+$print-font-size: 15px; /*start with changing the print font color and size*/
 
 body {
   @extend %default-font;
@@ -37,7 +37,7 @@ body {
 }
 
 .content {
-  font-size: 12px;
+  font-size: 15px; /*changing size from 12px to 15px*/
 
   pre, code {
     @extend %code-font;
@@ -130,7 +130,7 @@ body {
   aside:before {
     vertical-align: middle;
     padding-right: 0.5em;
-    font-size: 14px;
+    font-size: 15px; /*changing size from 14px to 15px*/
   }
 
   aside.notice:before {
