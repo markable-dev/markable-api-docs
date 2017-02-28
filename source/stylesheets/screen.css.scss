@@ -96,7 +96,7 @@ body:after {
   transition: left 0.3s ease-in-out;
   overflow-y: auto;
   overflow-x: hidden;
-  position: fixed;
+  position: fixed; /*changing from fixed to aboslute*/
   z-index: 30;
   top: 0;
   left: 0;
@@ -105,10 +105,11 @@ body:after {
   box-shadow: 1px 0 2px #DDF0EE; /*adding box shadow to make the box having side shadow*/
   background-color: $nav-bg;
   font-size: 18px; /*changing font size from 13px to 16px*/
-  font-weight: regular; //from bold to regular
+  font-weight: 400; //from bold to regular
 
 
-.tocify-wrapper::after {
+
+/*.tocify-wrapper::after {
 
    content: ' ';
     position: absolute;
@@ -119,21 +120,25 @@ body:after {
     width: 20px;
     z-index: 100;
 
- } /*adding gradient to the boarder*/
+ } adding gradient to the boarder */
 
   // language selector for mobile devices
   .lang-selector {
     display: none;
     a {
-      padding-top: 0.5em;
-      padding-bottom: 0.5em;
+      padding-top: 1em;
+      padding-bottom: 1em; /*0.5 > 1*/
     }
   }
 
   // This is the logo at the top of the ToC
+
   &>img {
+    flex: 0 0 auto;
     display: block;
+    border: none;
     max-width: 100%;
+    position:absolute;   /*setting the logo to be fixed*/
   }
 
   &>.search {
