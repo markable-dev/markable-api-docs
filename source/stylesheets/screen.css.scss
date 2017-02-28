@@ -281,7 +281,11 @@ body:after {
       text-decoration: none;
       font-weight: 400;
       padding:15px 28px 15px 28px;
+      font-size: 0.56em;
+      line-height: 1.7;
     }
+
+
 
     a {
 
@@ -290,7 +294,7 @@ body:after {
       text-decoration: none;
       border: 2px solid #5bc4b4;
       border-radius: 35px;
-      padding:10px 27px 10px 27px;
+      padding:10px 35px 10px 35px;
       text-align: center;
     }
 
@@ -301,7 +305,7 @@ body:after {
       font-weight:bold;
       border: 2px solid #5bc4b4;
       border-radius: 35px;
-      padding:11px 28px 11px 28px;
+      padding:11px 36px 11px 36px;
       transform-origin: center;
       -webkit-transition: all .1s ease-in-out;
       -moz-transition: all .1s ease-in-out;
@@ -313,11 +317,7 @@ body:after {
       //text-decoration: underline; //changinbg from underline to color change and size change
     }
 
-    li {
-      font-size: 0.57em;
-      line-height: 1.7;
-      text-decoration: none;
-    }
+
   }
 
 }
