@@ -211,13 +211,19 @@ body:after {
   }
 
 
-  .tocify-item>a, .toc-footer li {
+  .tocify-item > a, .toc-footer li {
     padding: $nav-v-padding $nav-padding $nav-v-padding  $nav-padding;
     display: block;
     overflow-x: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
   }
+
+ ul.toc-footer {
+
+  padding-left:0;
+
+ }
 
   // The Table of Contents is composed of multiple nested
   // unordered lists.  These styles remove the default
@@ -263,24 +269,52 @@ body:after {
   }
 
   .toc-footer {
-    padding: 1em 0;
+    padding-top: 0em;
+    padding-left: 1.8em;
+    padding-bottom:2em;
     margin-top: 1em;
     border-top: 0.3px dashed $nav-footer-border-color; /*changing from 1px to 0.3px*/
 
-    li,a {
+
+    li {
+      color: #bbd7d4; //changing color from $nav-text to #5bc4b4
+      text-decoration: none;
+      font-weight: 400;
+      padding:15px 28px 15px 28px;
+    }
+
+    a {
+
+      font-size:15px;
       color: #5bc4b4; //changing color from $nav-text to #5bc4b4
       text-decoration: none;
+      border: 2px solid #5bc4b4;
+      border-radius: 35px;
+      padding:10px 27px 10px 27px;
+      text-align: center;
     }
 
     a:hover {
 
-      color:#5bc4b4;
-      font-weight: bold;
+      color:#5fcebd;
+      text-decoration: none;
+      font-weight:bold;
+      border: 2px solid #5bc4b4;
+      border-radius: 35px;
+      padding:11px 28px 11px 28px;
+      transform-origin: center;
+      -webkit-transition: all .1s ease-in-out;
+      -moz-transition: all .1s ease-in-out;
+      -o-transition:all .1s ease-in-out;
+      transition: all .1s ease-in-out;
+      transform: translate3d(0,0,0);
+      text-align: center;
+
       //text-decoration: underline; //changinbg from underline to color change and size change
     }
 
     li {
-      font-size: 0.8em;
+      font-size: 0.57em;
       line-height: 1.7;
       text-decoration: none;
     }

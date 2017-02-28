@@ -7,6 +7,7 @@ language_tabs:
 
 toc_footers:
   - <a href='https://markable.ai/signup'>Sign Up</a>
+  - © 2017 Markable, Inc. all rights reserved.
 
 includes:
   - introduction
