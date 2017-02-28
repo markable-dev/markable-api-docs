@@ -25,7 +25,7 @@ under the License.
 
 html, body {
   color: $main-text;
-  padding: 0;
+  padding:0;
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -33,7 +33,44 @@ html, body {
   background-color: $main-bg;
   height: 100%;
   -webkit-text-size-adjust: none; /* Never autoresize text */
+
 }
+
+body {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: column;
+    -moz-flex-direction: column;
+    -o-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    padding: 4px 0 0 0;
+
+
+}
+
+body:after {
+    content: '';
+    display: block;
+    background-image: -webkit-linear-gradient(90deg, #5bc4b4 0%, #95dcd1 100%);
+    background-image: -moz-linear-gradient(90deg, #5bc4b4 0%, #95dcd1 100%);
+    background-image: -ms-linear-gradient(90deg, #5bc4b4 0%, #95dcd1 100%);
+    background-image: -o-linear-gradient(90deg, #5bc4b4 0%, #95dcd1 100%);
+    background-image: linear-gradient(90deg, #5bc4b4 0%, #95dcd1 100%);
+    height: 4px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    box-sizing:border-box;
+  }
+
+  /*added a top loading bar to keep the branding*/
 
 ////////////////////////////////////////////////////////////////////////////////
 // TABLE OF CONTENTS
