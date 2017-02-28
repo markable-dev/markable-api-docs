@@ -37,7 +37,7 @@ html, body {
 }
 
 body {
-    position: relative;
+    position: abosolute; // change from relative to absolute
     top: 0;
     right: 0;
     bottom: 0;
@@ -57,17 +57,19 @@ body {
 body:after {
     content: '';
     display: block;
-    background-image: -webkit-linear-gradient(90deg, #5bc4b4 0%, #95dcd1 100%);
-    background-image: -moz-linear-gradient(90deg, #5bc4b4 0%, #95dcd1 100%);
-    background-image: -ms-linear-gradient(90deg, #5bc4b4 0%, #95dcd1 100%);
-    background-image: -o-linear-gradient(90deg, #5bc4b4 0%, #95dcd1 100%);
+    //background-image: -webkit-linear-gradient(90deg, #5bc4b4 0%, #95dcd1 100%);
+    //background-image: -moz-linear-gradient(90deg, #5bc4b4 0%, #95dcd1 100%);
+    //background-image: -ms-linear-gradient(90deg, #5bc4b4 0%, #95dcd1 100%);
+    //background-image: -o-linear-gradient(90deg, #5bc4b4 0%, #95dcd1 100%);
     background-image: linear-gradient(90deg, #5bc4b4 0%, #95dcd1 100%);
     height: 4px;
+    display:flex;
     position: fixed;
     left: 0;
     top: 0;
     right: 0;
     box-sizing:border-box;
+    z-index: 100;
   }
 
   /*added a top loading bar to keep the branding*/ //need to fix the topbar part
@@ -133,16 +135,20 @@ body:after {
 
   // This is the logo at the top of the ToC
 
-  &>img {
+  & > img {
     flex: 0 0 auto;
     display: block;
     border: none;
     max-width: 100%;
-    position:absolute;   /*setting the logo to be fixed*/
+    height:100px;
+    position:fixed;   /*setting the logo to be fixed*/
+    z-index: 60; //adding z-index to set the position fixed
+    border-bottom: 1px solid #f0f4f7; //adding a border to seperate the logo and the nav
   }
 
   &>.search {
     position: relative;
+    padding-top:100px; // adding padding to the search so that the logo and index can be shown as full
 
     input {
       background: $nav-bg;
@@ -154,12 +160,13 @@ body:after {
       width: $nav-width - 60; // -60
       outline: none;
       color: $nav-text;
+      font-size: 15px; //making the font to be smaller than the navigation bar
       border-radius: 0; /* ios has a default border radius */
     }
 
     &:before {
       position: absolute;
-      top: 10px;
+      top: 110px; //+100 padding for the logo
       left: $nav-padding;
       color: $nav-text;
       @extend %icon-search;
@@ -258,12 +265,15 @@ body:after {
     border-top: 0.3px dashed $nav-footer-border-color; /*changing from 1px to 0.3px*/
 
     li,a {
-      color: $nav-text;
+      color: #5bc4b4; //changing color from $nav-text to #5bc4b4
       text-decoration: none;
     }
 
     a:hover {
-      text-decoration: underline;
+
+      color:#5bc4b4;
+      font-weight: bold;
+      //text-decoration: underline; //changinbg from underline to color change and size change
     }
 
     li {
@@ -297,6 +307,7 @@ body:after {
   font-weight: bold;
   opacity: 0.7;
   line-height: 16px;
+
   img {
     height: 16px;
     vertical-align: bottom;
