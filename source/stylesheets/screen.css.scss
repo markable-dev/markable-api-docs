@@ -107,7 +107,8 @@ body:after {
   box-shadow: 1px 0 2px #DDF0EE; /*adding box shadow to make the box having side shadow*/
   background-color: $nav-bg;
   font-size: 18px; /*changing font size from 13px to 16px*/
-  font-weight: 400; //from bold to regular
+  font-weight: 600; //from bold to semibold/regular
+
 
 
 
@@ -138,12 +139,13 @@ body:after {
   & > img {
     flex: 0 0 auto;
     display: block;
-    border: none;
+    // commenting out - border: none;
     max-width: 100%;
     height:100px;
     position:fixed;   /*setting the logo to be fixed*/
     z-index: 60; //adding z-index to set the position fixed
-    border-bottom: 1px solid #f0f4f7; //adding a border to seperate the logo and the nav
+    border-bottom: 1px solid #DDF0EE; //adding a border to seperate the logo and the nav
+    overflow: hidden; //to hide the scrollbar
   }
 
   &>.search {
@@ -329,7 +331,7 @@ body:after {
   position: relative;
   z-index: 10;
   background-color: $main-bg;
-  min-height: 100%;
+  // commenting out ->  min-height: 100%;
   padding-bottom: 1px; // prevent margin overflow
 
   // The dark box is what gives the code samples their dark background.

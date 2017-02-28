@@ -6,7 +6,7 @@ language_tabs:
   - shell
 
 toc_footers:
-  - <a href='https://markable.ai/signup'>Signup for Markable Lens API</a>
+  - <a href='https://markable.ai/signup'>Sign Up</a>
 
 includes:
   - introduction
