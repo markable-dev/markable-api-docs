@@ -238,7 +238,7 @@ body:after {
 
   // This is the currently selected ToC entry
   .tocify-focus {
-    box-shadow: 0px 0px 0px $nav-active-shadow;
+    //box-shadow: 0px 0px 0px $nav-active-shadow; - no shadow
     background-color: $nav-active-bg;
     color: $nav-active-text;
   }
@@ -249,16 +249,17 @@ body:after {
     display: none; // tocify will override this when needed
     background-color: $nav-subitem-bg;
     font-weight: 500;
+
     .tocify-item>a {
       padding-left: $nav-padding + $nav-indent;
       font-size: 13px; /*change text size from 12px to 13px*/
     }
 
     // for embossed look:
-    @include embossed-bg;
+   /* @include embossed-bg;
     &>li:last-child {
       box-shadow: none; // otherwise it'll overflow out of the subheader
-    }
+    } turning off the shadow*/
   }
 
   .toc-footer {
@@ -351,26 +352,30 @@ body:after {
   .lang-selector {
     position: fixed;
     z-index: 50;
-    border-bottom: 5px solid $lang-select-active-bg;
+    border-bottom: 0px solid $lang-select-active-bg; //changing from 50px to 0px, no border for the bottom
   }
 }
 
 .lang-selector {
   background-color: $lang-select-bg;
   width: 100%;
+  font-size:18px;
   font-weight: bold;
+  //padding: 20px 20px 20px 20px;
+
   a {
     display: block;
     float:left;
     color: $lang-select-text;
     text-decoration: none;
-    padding: 0 10px;
-    line-height: 30px;
+    padding: 0px 40px;
+    line-height: 68px;
     outline: 0;
 
     &:active, &:focus {
       background-color: $lang-select-pressed-bg;
       color: $lang-select-pressed-text;
+      padding: 0px 40px;
     }
 
     &.active {
@@ -407,7 +412,7 @@ body:after {
     padding: 0 $main-padding;
     box-sizing: border-box;
     display: block;
-    text-shadow: $main-embossed-text-shadow;
+    //text-shadow: $main-embossed-text-shadow; removing text shadow
 
     @extend %left-col;
   }
@@ -426,11 +431,13 @@ body:after {
     font-size: 30px;
     padding-top: 0.5em;
     padding-bottom: 0.5em;
-    border-bottom: 1px solid #ccc;
+    //commenting out -> border-bottom: 1px solid #ccc;
     margin-bottom: $h1-margin-bottom;
     margin-top: 2em;
-    border-top: 1px solid #ddd;
-    background-image: linear-gradient(to bottom, #fff, #f9f9f9);
+    border-top: 1px solid #DDF0EE; //changing from #ddd to #ddf0ee
+    background-image: linear-gradient(to bottom, #fafdfc, #fafdfc);
+
+    //commeting out to change backgroun -> background-image: linear-gradient(to bottom, #fff, #f9f9f9);
   }
 
   h1:first-child, div:first-child + h1 {
@@ -443,7 +450,7 @@ body:after {
     font-size: 20px;
     margin-top: 4em;
     margin-bottom: 0;
-    border-top: 1px solid #ccc;
+    border-top: 1px solid #dd0fee; //change the border color from #ccc to be #dd0fee
     padding-top: 1.2em;
     padding-bottom: 1.2em;
     background-image: linear-gradient(to bottom, rgba(#fff, 0.4), rgba(#fff, 0));
