@@ -1,4 +1,4 @@
-@font-face {
+/*@font-face {
   font-family: 'slate';
   src:font-url('slate.eot?-syv14m');
   src:font-url('slate.eot?#iefix-syv14m') format('embedded-opentype'),
@@ -10,8 +10,26 @@
   font-style: normal;
 }
 
+commented out slate font*/
+
+@import url('https://fonts.googleapis.com/css?family=Lato:400,700');
+
+@font-face {
+
+font-family: "Lato", sans-serif;
+src: url('../fonts/Lato-Regular.ttf') format ('truetype'),
+url('../fonts/Lato-Regular.woff') format ('woff'),
+url('../fonts/Lato-Regular.svg') format('svg'),
+url('../fonts/Lato-Bold.ttf') format ('truetype');
+font-weight: normal;
+font-style:normal;
+
+}
+
+/*dicky added the @font-face above hopeing the font will work^*/
+
 %icon {
-  font-family: 'slate';
+  font-family: 'Lato';
   speak: none;
   font-style: normal;
   font-weight: normal;

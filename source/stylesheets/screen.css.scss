@@ -37,7 +37,7 @@ html, body {
 }
 
 body {
-    position: absolute;
+    position: relative;
     top: 0;
     right: 0;
     bottom: 0;
@@ -63,14 +63,14 @@ body:after {
     background-image: -o-linear-gradient(90deg, #5bc4b4 0%, #95dcd1 100%);
     background-image: linear-gradient(90deg, #5bc4b4 0%, #95dcd1 100%);
     height: 4px;
-    position: absolute;
+    position: fixed;
     left: 0;
     top: 0;
     right: 0;
     box-sizing:border-box;
   }
 
-  /*added a top loading bar to keep the branding*/
+  /*added a top loading bar to keep the branding*/ //need to fix the topbar part
 
 ////////////////////////////////////////////////////////////////////////////////
 // TABLE OF CONTENTS
@@ -104,7 +104,7 @@ body:after {
   width: $nav-width;
   box-shadow: 1px 0 2px #DDF0EE; /*adding box shadow to make the box having side shadow*/
   background-color: $nav-bg;
-  font-size: 16px; /*changing font size from 13px to 16px*/
+  font-size: 18px; /*changing font size from 13px to 16px*/
   font-weight: regular; //from bold to regular
 
 
