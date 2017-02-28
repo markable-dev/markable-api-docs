@@ -34,10 +34,10 @@ $lang-select-bg: #222 !default;
 $lang-select-active-bg: $examples-bg !default; // feel free to change this to blue or something
 $lang-select-pressed-bg: #111 !default; // color of language tab bg when mouse is pressed
 $main-bg: #ffffff !default; //from #eaf2f6 to #fff
-$aside-notice-bg: #8fbcd4 !default;
-$aside-warning-bg: #c97a7e !default;
-$aside-success-bg: #6ac174 !default;
-$search-notice-bg: #c97a7e !default;
+$aside-notice-bg: #EFF7F6 !default;
+$aside-warning-bg: rgb(255, 170, 15) !default;
+$aside-success-bg: #CEF3EE !default;
+$search-notice-bg: #DDE3EE!default;
 
 
 // TEXT COLORS
@@ -88,7 +88,7 @@ $phone-width: $tablet-width - $nav-width !default; // min width before reverting
 ////////////////////
 $nav-active-shadow: #5bc4b4 !default; //changing from #000 to #5bc4b4
 $nav-footer-border-color: #f5fafa !default; //changing from #666 to #f5fafa
-$nav-embossed-border-top: #000 !default;
+$nav-embossed-border-top: #DDF0EE  !default;
 $nav-embossed-border-bottom: #DDF0EE !default;
 $main-embossed-text-shadow: 0px 0px 0px #fff !default; // no more shadow
 $search-box-border-color: #5bc4b4 !default; // from #666
