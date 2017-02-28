@@ -450,7 +450,7 @@ body:after {
     font-size: 20px;
     margin-top: 4em;
     margin-bottom: 0;
-    border-top: 1px solid #dd0fee; //change the border color from #ccc to be #dd0fee
+    border-top: 1px solid #DDF0EE; //change the border color from #ccc to be #dd0fee
     padding-top: 1.2em;
     padding-bottom: 1.2em;
     background-image: linear-gradient(to bottom, rgba(#fff, 0.4), rgba(#fff, 0));
@@ -479,6 +479,33 @@ body:after {
     border-top: 2px solid $examples-bg;
     border-bottom: 2px solid $main-bg;
   }
+
+
+  a {
+
+    border-bottom:2.5px solid #f5fafa;
+
+    &:link {
+    text-decoration: none;
+    color: #5bc4b4;
+    }
+
+    &:visited {
+    text-decoration: none;
+    color: #40AC9B;
+    }
+
+    &:hover {
+    text-decoration: none;
+    color: #5fcebd;
+    }
+
+    &:active{
+    text-decoration: none;
+    color: #40AC9B;
+    }
+
+   }
 
   table {
     margin-bottom: 1em;
@@ -623,7 +650,7 @@ body:after {
       text-decoration: none;
       border-bottom: dashed 1px #ccc;
     }
-  }
+ }
 
   pre {
     @extend %code-font;
