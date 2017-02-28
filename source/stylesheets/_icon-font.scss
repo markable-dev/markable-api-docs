@@ -40,15 +40,15 @@ font-style:normal;
 
 %icon-exclamation-sign {
   @extend %icon;
-  content: "\e600";
+  content: url('../images/warning.svg');
 }
 %icon-info-sign {
   @extend %icon;
-  content: "\e602";
+  content: url('../images/notice.svg');
 }
 %icon-ok-sign {
   @extend %icon;
-  content: "\e606";
+  content: url('../images/success.svg');
 }
 %icon-search {
   @extend %icon;
