@@ -107,7 +107,7 @@ body:after {
   box-shadow: 1px 0 2px #DDF0EE; /*adding box shadow to make the box having side shadow*/
   background-color: $nav-bg;
   font-size: 18px; /*changing font size from 13px to 16px*/
-  font-weight: 600; //from bold to semibold/regular
+  font-weight: 500; //from bold to semibold/regular
 
 
 
@@ -141,7 +141,7 @@ body:after {
     display: block;
     // commenting out - border: none;
     max-width: 100%;
-    height:auto;
+    width: $nav-width;
     position:fixed;   /*setting the logo to be fixed*/
     z-index: 60; //adding z-index to set the position fixed
     border-bottom: 1px solid #DDF0EE; //adding a border to seperate the logo and the nav
@@ -156,7 +156,7 @@ body:after {
       background: $nav-bg;
       border-width: 0 0 1px 0;
       border-color: $search-box-border-color;
-      padding: 6px 0 6px 25px; //left padding incrased to be 25px/
+      padding: 10px 0 10px 25px; //left padding incrased to be 25px/
       box-sizing: border-box;
       margin: $nav-v-padding $nav-padding;
       width: $nav-width - 60; // -60
@@ -168,7 +168,7 @@ body:after {
 
     &:before {
       position: absolute;
-      top: 110px; //+100 padding for the logo
+      top: 115px; //+100 padding for the logo
       left: $nav-padding;
       color: $nav-text;
       @extend %icon-search;
@@ -289,12 +289,13 @@ body:after {
 }
 
 // button to show navigation on mobile devices
+
 #nav-button {
   span {
     display: block;
     $side-pad: $main-padding / 2 - 8px;
     padding: $side-pad $side-pad $side-pad;
-    background-color: rgba($main-bg, 0.7);
+    background-color: rgba($nav-bg, 1); //changing to nav bg color
     transform-origin: 0 0;
     transform: rotate(-90deg) translate(-100%, 0);
     border-radius: 0 0 0 5px;
@@ -310,6 +311,7 @@ body:after {
   font-weight: bold;
   opacity: 0.7;
   line-height: 16px;
+  border-radius: 5px;
 
   img {
     height: 16px;
@@ -360,7 +362,7 @@ body:after {
   background-color: $lang-select-bg;
   width: 100%;
   font-size:18px;
-  font-weight: bold;
+  font-weight: 500;
   //padding: 20px 20px 20px 20px;
 
   a {
@@ -429,7 +431,7 @@ body:after {
   h1 {
     @extend %header-font;
     font-size: 30px;
-    padding-top: 0.5em;
+    padding-top: 0.7em;
     padding-bottom: 0.5em;
     //commenting out -> border-bottom: 1px solid #ccc;
     margin-bottom: $h1-margin-bottom;
@@ -517,10 +519,17 @@ body:after {
       line-height: 1.6;
     }
 
+    a {
+
+    border-bottom:2.5px solid #f5fafa;
+    font-weight: 400;   // adjusting the font-weight of the link under table to be 400 instead of 600
+    }
+
     th {
       padding: 5px 10px;
-      border-bottom: 1px solid #ccc;
+      border-bottom: 1px solid #e5f2f1; //changing from #ccc to #c3d0cf
       vertical-align: bottom;
+
     }
 
     td {
@@ -528,7 +537,7 @@ body:after {
     }
 
     tr:last-child {
-      border-bottom: 1px solid #ccc;
+      border-bottom: 1px solid #e5f2f1;
     }
 
     tr:nth-child(odd)>td {
@@ -684,6 +693,13 @@ body:after {
     }
   }
 
+ .content {
+
+  &>h1, &>h2, &>h3, &>h4, &>h5, &>h6, &>p, &>table, &>ul, &>ol, &>aside, &>dl {
+   padding-left: + 40px; //adding 20 px to the left
+   }
+ }
+
   .page-wrapper {
     margin-left: 0;
   }
@@ -702,6 +718,14 @@ body:after {
   .dark-box {
     display: none;
   }
+
+ .content {
+
+  &>h1, &>h2, &>h3, &>h4, &>h5, &>h6, &>p, &>table, &>ul, &>ol, &>aside, &>dl {
+   padding-left: + 40px; //adding 20 px to the left
+   }
+ }
+
 
   %left-col {
     margin-right: 0;
