@@ -141,7 +141,7 @@ body:after {
     display: block;
     // commenting out - border: none;
     max-width: 100%;
-    height:100px;
+    height:auto;
     position:fixed;   /*setting the logo to be fixed*/
     z-index: 60; //adding z-index to set the position fixed
     border-bottom: 1px solid #DDF0EE; //adding a border to seperate the logo and the nav
@@ -434,7 +434,7 @@ body:after {
     //commenting out -> border-bottom: 1px solid #ccc;
     margin-bottom: $h1-margin-bottom;
     margin-top: 2em;
-    border-top: 1px solid #DDF0EE; //changing from #ddd to #ddf0ee
+    border-top: 2px solid #DDF0EE; //changing from #ddd to #ddf0ee
     background-image: linear-gradient(to bottom, #fafdfc, #fafdfc);
 
     //commeting out to change backgroun -> background-image: linear-gradient(to bottom, #fff, #f9f9f9);
@@ -484,6 +484,7 @@ body:after {
   a {
 
     border-bottom:2.5px solid #f5fafa;
+    font-weight: 600;
 
     &:link {
     text-decoration: none;
@@ -710,9 +711,28 @@ body:after {
     display: block;
   }
 
+   .tocify-wrapper .lang-selector > a {
+    display: block;
+    padding-top:100px;
+    padding-bottom: 0px;
+  }
+
+  .tocify-wrapper > .search {
+
+    padding-top:10px;
+
+
+    &:before {
+
+      top:20px;
+    }
+  }
+
+
   .page-wrapper .lang-selector {
     display: none;
   }
+
 
   %right-col {
     width: auto;
