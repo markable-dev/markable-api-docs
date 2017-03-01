@@ -53,11 +53,11 @@ An error object **MAY** have the following members:
 
 Attribute 	| Description
 --------- 	| -------
-id 			| A unique identifier for this particular occurrence of the problem.
-links 		| A links object containing the following members.
-status 		| The HTTP status code applicable to this problem, expressed as a string value.
-code 		| An application-specific error code, expressed as a string value.
-title 		| A short, human-readable summary of the problem that SHOULD NOT change from occurrence to occurrence of the problem, except for purposes of localization.
-detail 		| A human-readable explanation specific to this occurrence of the problem. Like title, this field’s value can be localized.
-source 		| An object containing references to the source of the error.
-meta 		| A meta object containing non-standard meta-information about the error.
+`id` 		| A unique identifier for this particular occurrence of the problem.
+`links` 	| A links object containing the following members.
+`status` 	| The HTTP status code applicable to this problem, expressed as a string value.
+`code` 		| An application-specific error code, expressed as a string value.
+`title` 	| A short, human-readable summary of the problem that SHOULD NOT change from occurrence to occurrence of the problem, except for purposes of localization.
+`detail` 	| A human-readable explanation specific to this occurrence of the problem. Like title, this field’s value can be localized.
+`source` 	| An object containing references to the source of the error.
+`meta` 		| A meta object containing non-standard meta-information about the error.
