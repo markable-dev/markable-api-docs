@@ -87,10 +87,10 @@ body:after {
 
 @mixin embossed-bg {
   background:
-    linear-gradient(to bottom, rgba(#000, 0.2), rgba(#000, 0) 8px),
-    linear-gradient(to top, rgba(#000, 0.2), rgba(#000, 0) 8px),
-    linear-gradient(to bottom, rgba($nav-embossed-border-top, 1), rgba($nav-embossed-border-top, 0) 1.5px),
-    linear-gradient(to top, rgba($nav-embossed-border-bottom, 1), rgba($nav-embossed-border-bottom, 0) 1.5px),
+    linear-gradient(to bottom, rgba(#98b9b2 , 0.1), rgba(#98b9b2 , 0) 1px),
+    linear-gradient(to top, rgba(#98b9b2 , 0.1), rgba(#98b9b2 , 0) 1px),
+    linear-gradient(to bottom, rgba($nav-embossed-border-top, 0.5), rgba($nav-embossed-border-top, 0) 1.2px),
+    linear-gradient(to top, rgba($nav-embossed-border-bottom, 0.5), rgba($nav-embossed-border-bottom, 0) 1.2px),
     $nav-subitem-bg;
 }
 
@@ -181,14 +181,15 @@ body:after {
 
   .search-results {
     margin-top: 0;
+    padding-left:25px;
+    //border-left: #ddf0ee solid 9px;
+    font-size:15px;
     box-sizing: border-box;
     height: 0;
     overflow-y: auto;
     overflow-x: hidden;
     transition-property: height, margin;
     background-color: #ddf0ee;
-    border-top:#bccecc;
-    border-bottom:#bccecc;
     transition-duration: 180ms;
     transition-timing-function: ease-in-out;
     &.visible {
@@ -196,7 +197,7 @@ body:after {
       margin-bottom: 1em;
     }
 
-    //@include embossed-bg;
+    @include embossed-bg;
 
     li {
       margin: 1em $nav-padding;
@@ -580,11 +581,11 @@ body:after {
     }
 
     tr:nth-child(odd)>td {
-      background-color: lighten($main-bg,2.4%);
+      background-color: rgba(#ddf0ee, 0.19);
     }
 
     tr:nth-child(even)>td {
-      background-color: rgba(#ddf0ee, 0.2);
+      background-color: lighten($main-bg,2.4%);
     }
   }
 
