@@ -563,6 +563,7 @@ body:after {
       padding: 5px 10px;
       border-bottom: 1px solid #e5f2f1; //changing from #ccc to #c3d0cf
       vertical-align: bottom;
+      font-weight: 500;
 
     }
 
@@ -809,7 +810,9 @@ body:after {
   &>h1, &>h2, &>h3, &>h4, &>h5, &>h6, &>p, &>table, &>ul, &>ol, &>aside, &>dl {
    padding-left: 40px; //adding 20 px to the left
    }
+
  }
+
 
   .page-wrapper {
     margin-left: 0;
@@ -835,6 +838,11 @@ body:after {
   &>h1, &>h2, &>h3, &>h4, &>h5, &>h6, &>p, &>table, &>ul, &>ol, &>aside, &>dl {
    padding-left: 40px; //adding 20 px to the left
    }
+
+   &>blockquote>p {
+    color:#212525;
+
+   } //adding blockquote color
  }
 
 
