@@ -564,10 +564,10 @@ body:after {
     }
 
     th {
-      padding: 5px 10px;
+      padding: 10px 10px 5px 10px;
       border-bottom: 1px solid #e5f2f1; //changing from #ccc to #c3d0cf
       vertical-align: bottom;
-      font-weight: 500;
+      font-weight: 600;
 
     }
 
@@ -580,11 +580,11 @@ body:after {
     }
 
     tr:nth-child(odd)>td {
-      background-color: lighten($main-bg,4.2%);
+      background-color: lighten($main-bg,2.4%);
     }
 
     tr:nth-child(even)>td {
-      background-color: lighten($main-bg,2.4%);
+      background-color: rgba(#ddf0ee, 0.2);
     }
   }
 
