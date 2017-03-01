@@ -96,7 +96,7 @@ body:after {
 
 .tocify-wrapper {
   transition: left 0.3s ease-in-out;
-  overflow-y: auto;
+  overflow-y: visible;
   overflow-x: hidden;
   position: fixed; /*changing from fixed to aboslute*/
   z-index: 30;
@@ -214,7 +214,6 @@ body:after {
     }
   }
 
-
   .tocify-item > a, .toc-footer li {
     padding: $nav-v-padding $nav-padding $nav-v-padding  $nav-padding;
     display: block;
@@ -273,13 +272,17 @@ body:after {
     } turning off the shadow*/
   }
 
+ #toc {
+
+  width:$nav-width;
+ }
   .toc-footer {
     padding-top: 0em;
     padding-left: 1.8em;
     padding-bottom:2em;
     margin-top: 1em;
     border-top: 0.3px dashed $nav-footer-border-color; /*changing from 1px to 0.3px*/
-
+    width:$nav-width;
 
     li {
       color: #bbd7d4; //changing color from $nav-text to #5bc4b4
