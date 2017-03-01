@@ -851,12 +851,21 @@ body:after {
     color:#212525;
 
    } //adding blockquote color
+
  }
 
 
   %left-col {
     margin-right: 0;
   }
+
+   .content aside {
+
+
+    padding-left: 20px;
+    margin-right: 28px;
+
+   } //making the padding same as left
 
   .tocify-wrapper .lang-selector {
     display: block;
