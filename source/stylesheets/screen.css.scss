@@ -586,6 +586,7 @@ body:after {
   small {
 
    color:#ffc572; //change the small color to make it looks  more important *required
+
   }
 
   dt {
@@ -714,22 +715,29 @@ body:after {
 
 .content {
   pre, blockquote {
-    background-color: $code-bg;
+    background-color: transparent; //from $code-bg
     color: #fff;
 
-    padding: 2em $main-padding;
-    margin: 0;
+    //margin-left: 3%;
     width: $examples-width;
-
+    padding-left: 30px;
+    padding-bottom:20px;
+    padding-right:30px;
+    //direction: ltr;
+    white-space: pre-wrap;
+    //text-align:left;
     float:right;
     clear:right;
+    margin:0;
+    display: block;
 
     box-sizing: border-box;
-    text-shadow: 0px 1px 2px rgba(0,0,0,0.4);
+    //text-shadow: 0px 1px 2px rgba(0,0,0,0.4); commenting out text shadow
 
     @extend %right-col;
 
-    &>p { margin: 0; }
+    &>p {
+      margin: 0; }
 
     a {
       color: #fff;
@@ -740,16 +748,42 @@ body:after {
 
   pre {
     @extend %code-font;
+
   }
 
+  pre > code {
+    display: block;
+    background-color: #212525;
+    padding: 20px 40px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -o-border-radius: 5px;
+    -ms-border-radius: 5px;
+    border-radius: 5px;
+    -webkit-box-shadow: rgba(0,0,0,0.2) 0 0 2px inset;
+    -moz-box-shadow: rgba(0,0,0,0.2) 0 0 2px inset;
+    -o-box-shadow: rgba(0,0,0,0.2) 0 0 2px inset;
+    -ms-box-shadow: rgba(0,0,0,0.2) 0 0 2px inset;
+    box-shadow: rgba(0,0,0,0.2) 0 0 2px inset;
+    line-height: 1.5;
+    font-size: 12px;
+    font-family: "Monaco", "consolas", monospace;
+    white-space: pre-wrap;
+    word-break: break-all;
+  }
+
+
   blockquote {
+
+      padding-bottom:unset;
+
     &>p {
-      background-color: $code-annotation-bg;
+      background-color: transparent; //from $code-annotation-bg
       border-radius: 5px;
-      padding: $code-annotation-padding;
+      padding-bottom: 10px;// from  $code-annotation-padding
       color: #ccc;
-      border-top: 1px solid #000;
-      border-bottom: 1px solid #404040;
+      //border-top: 1px solid #000;
+      //border-bottom: 1px solid #404040;
     }
   }
 }
