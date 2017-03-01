@@ -300,21 +300,21 @@ body:after {
       border-radius: 35px;
       padding:10px 35px 10px 35px;
       text-align: center;
+      font-weight: bold;
     }
 
     a:hover {
 
-      color:#5fcebd;
+      color:#81d8cb;
       text-decoration: none;
-      font-weight:bold;
-      border: 2px solid #5bc4b4;
-      border-radius: 35px;
-      padding:11px 36px 11px 36px;
+      border: 2px solid #81d8cb;
+      //border-radius: 35px;
+      //padding:10px 36px 11px 36px;
       transform-origin: center;
-      -webkit-transition: all .1s ease-in-out;
-      -moz-transition: all .1s ease-in-out;
-      -o-transition:all .1s ease-in-out;
-      transition: all .1s ease-in-out;
+      -webkit-transition: all .2s ease-in-out;
+      -moz-transition: all .2s ease-in-out;
+      -o-transition:all .2s ease-in-out;
+      transition: all .2s ease-in-out;
       transform: translate3d(0,0,0);
       text-align: center;
 
