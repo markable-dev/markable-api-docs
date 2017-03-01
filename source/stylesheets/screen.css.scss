@@ -776,11 +776,12 @@ body:after {
   blockquote {
 
       padding-bottom:unset;
+      padding-left:40px;
 
     &>p {
       background-color: transparent; //from $code-annotation-bg
       border-radius: 5px;
-      padding-bottom: 10px;// from  $code-annotation-padding
+      //padding-bottom: 10px;// from  $code-annotation-padding
       color: #ccc;
       //border-top: 1px solid #000;
       //border-bottom: 1px solid #404040;
