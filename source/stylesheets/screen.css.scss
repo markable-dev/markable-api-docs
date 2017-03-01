@@ -111,7 +111,6 @@ body:after {
 
 
 
-
 /*.tocify-wrapper::after {
 
    content: ' ';
@@ -145,7 +144,7 @@ body:after {
     position:fixed;   /*setting the logo to be fixed*/
     z-index: 60; //adding z-index to set the position fixed
     border-bottom: 1px solid #DDF0EE; //adding a border to seperate the logo and the nav
-    overflow: hidden; //to hide the scrollbar
+    overflow-y: hidden; //to hide the scrollbar
   }
 
   &>.search {
@@ -178,6 +177,7 @@ body:after {
   img+.tocify, .lang-selector+.tocify {
     margin-top: $logo-margin;
   }
+
 
   .search-results {
     margin-top: 0;
@@ -236,6 +236,7 @@ body:after {
     margin: 0;
     padding: 0;
     line-height: 28px;
+    //-webkit-padding-start: 0px;
   }
 
   li {
@@ -330,9 +331,9 @@ body:after {
 #nav-button {
   span {
     display: block;
-    $side-pad: 10px;//$main-padding / 2 - 8px;
+    $side-pad: 10px;//$main-padding / 2 - 5px;
     padding: $side-pad 36px $side-pad 36px;
-    background-color: rgba($nav-bg, 1); //changing to nav bg color
+    background-color: rgba($nav-bg, 0.8); //changing to nav bg color
     transform-origin: 0 0;
     transform: rotate(-90deg) translate(-100%, 0);
     border-radius: 0 0 0 5px;
