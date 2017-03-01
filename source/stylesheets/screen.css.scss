@@ -620,14 +620,11 @@ body:after {
   aside {
     padding-top: 1em;
     padding-bottom: 1em;
-    text-shadow: 0 1px 0 lighten($aside-notice-bg, 15%);
+    //text-shadow: 0 1px 0 lighten($aside-notice-bg, 15%);
     margin-top: 1.5em;
     margin-bottom: 1.5em;
-    background: $aside-notice-bg;
     line-height: 1.6;
-
-    &.notice {
-      background-color: $aside-notice-bg;
+    background-color: $aside-notice-bg;
       background-image: initial;
       background-position-x: initial;
       background-position-y: initial;
@@ -637,9 +634,11 @@ body:after {
       background-attachment: initial;
       background-origin: initial;
       background-clip: initial;
-      //text-shadow: 0 1px 0 lighten($aside-success-bg, 15%);
+    border-radius: 6px;
+    font-weight: 500;
+    //color:#fff;
 
-    }
+
 
     &.warning {
       background-color: $aside-warning-bg;
