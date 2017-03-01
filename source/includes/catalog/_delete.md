@@ -25,7 +25,7 @@ curl -X DELETE https://api.markable.ai/catalogs/catalog-1 \
 Delete an existing [catalog](#the-catalog-object).
 
 <aside class="notice">
-	This operation requires a valid <code>access_token</code> - see [Authentication](#authentication).
+	This operation requires a valid <code>access_token</code> - see <a href="#authentication">Authentication</a>.
 </aside>
 
 
