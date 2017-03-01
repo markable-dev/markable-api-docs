@@ -327,8 +327,8 @@ body:after {
 #nav-button {
   span {
     display: block;
-    $side-pad: $main-padding / 2 - 8px;
-    padding: $side-pad $side-pad $side-pad;
+    $side-pad: 10px;//$main-padding / 2 - 8px;
+    padding: $side-pad 36px $side-pad 36px;
     background-color: rgba($nav-bg, 1); //changing to nav bg color
     transform-origin: 0 0;
     transform: rotate(-90deg) translate(-100%, 0);
