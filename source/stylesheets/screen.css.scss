@@ -154,7 +154,7 @@ body:after {
     input {
       background: $nav-bg;
       border-width: 0 0 1px 0;
-      border-color: $search-box-border-color;
+      border-color: rgba($search-box-border-color, 0.3);
       padding: 10px 0 10px 25px; //left padding incrased to be 25px/
       box-sizing: border-box;
       margin: $nav-v-padding $nav-padding;
@@ -163,6 +163,13 @@ body:after {
       color: $nav-text;
       font-size: 15px; //making the font to be smaller than the navigation bar
       border-radius: 0; /* ios has a default border radius */
+
+
+      &:hover {
+
+        border-color: rgba($search-box-border-color, 0.6);
+        background-image: linear-gradient(to top,rgba(#FFF,0.5), rgba(#FFF,0) 10px);
+      }
     }
 
     &:before {
