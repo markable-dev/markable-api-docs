@@ -139,12 +139,13 @@ body:after {
     flex: 0 0 auto;
     display: block;
     // commenting out - border: none;
-    max-width: 100%;
+    max-width: $nav-width;
     width: $nav-width;
     position:fixed;   /*setting the logo to be fixed*/
     z-index: 60; //adding z-index to set the position fixed
     border-bottom: 1px solid #DDF0EE; //adding a border to seperate the logo and the nav
     overflow-y: hidden; //to hide the scrollbar
+
   }
 
   &>.search {
