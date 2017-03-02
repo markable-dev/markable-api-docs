@@ -37,7 +37,7 @@ html, body {
 }
 
 body {
-    position: abosolute; // change from relative to absolute
+    position: absolute; // change from relative to absolute
     top: 0;
     right: 0;
     bottom: 0;
@@ -640,8 +640,7 @@ body:after {
   }
 
   aside {
-    padding-top: 1em;
-    padding-bottom: 1em;
+    padding: 1.5em;
     //text-shadow: 0 1px 0 lighten($aside-notice-bg, 15%);
     //margin-top: 1.5em;
     //margin-bottom: 1.5em;
@@ -697,8 +696,10 @@ body:after {
   }
 
   aside:before {
-    vertical-align: middle;
-    padding-right: 0.5em;
+
+    vertical-align: bottom;
+    padding-right: 0.4em;
+    //padding-bottom:unset;
     font-size: 14px;
   }
 

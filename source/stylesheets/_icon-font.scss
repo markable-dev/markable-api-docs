@@ -12,7 +12,7 @@
 
 commented out slate font*/
 
-@import url('https://fonts.googleapis.com/css?family=Lato:400,700');
+//@import url('https://fonts.googleapis.com/css?family=Lato:400,700'); commenting out the google fonts
 
 @font-face {
 
@@ -26,7 +26,7 @@ font-style:normal;
 
 }
 
-/*dicky added the @font-face above hopeing the font will work^*/
+/*added lato fonts here incase proxima-nova does not work*/
 
 %icon {
   font-family: "proxima-nova",'Lato';
