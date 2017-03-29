@@ -14,9 +14,9 @@ commented out slate font*/
 
 //@import url('https://fonts.googleapis.com/css?family=Lato:400,700'); commenting out the google fonts
 
-@font-face {
+//@font-face {
 
-font-family: "Lato", sans-serif;
+/*font-family: "Lato", sans-serif;
 src: url('../fonts/Lato-Regular.ttf') format ('truetype'),
 url('../fonts/Lato-Regular.woff') format ('woff'),
 url('../fonts/Lato-Regular.svg') format('svg'),
@@ -26,10 +26,10 @@ font-style:normal;
 
 }
 
-/*added lato fonts here incase proxima-nova does not work*/
+/*added lato fonts here incase proxima-nova does not work*/ // commented out the Lato font so it will not have Lato preloaded
 
 %icon {
-  font-family: "proxima-nova",'Lato';
+  font-family: "proxima-nova",sans-serif;
   speak: none;
   font-style: normal;
   font-weight: normal;
