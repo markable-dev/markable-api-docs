@@ -7,7 +7,7 @@
 
 ```json
 {
-	"image_uri": "https://example.com/videos/1.mp4",
+	"video_uri": "https://example.com/videos/1.mp4",
 	"catalogs": [
 	    {
 	        "name": "catalog-1"
