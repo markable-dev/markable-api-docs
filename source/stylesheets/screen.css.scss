@@ -249,7 +249,7 @@ body:after {
 
   li {
     color: $nav-text;
-    transition-property: background;
+    transition-property: all;
     transition-timing-function: linear;
     transition-duration: 230ms;
   }
@@ -257,6 +257,7 @@ body:after {
   // This is the currently selected ToC entry
   .tocify-focus {
     //box-shadow: 0px 0px 0px $nav-active-shadow; - no shadow
+    border-left:6px solid #4EB2A3;
     background-color: $nav-active-bg;
     color: $nav-active-text;
   }
