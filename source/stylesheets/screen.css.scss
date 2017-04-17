@@ -453,6 +453,17 @@ body:after {
   // to place content above the dark box
   position: relative;
   z-index: 30;
+  //background-image: url("~/source/images/welcome.png");
+
+
+  .welcome-image {
+    box-sizing: border-box;
+    display: block;
+    margin-right: 50%;
+
+    @extend %left-col;
+  }
+
 
   &:after {
     content: '';
@@ -495,7 +506,9 @@ body:after {
 
   h1:first-child, div:first-child + h1 {
     border-top-width: 0;
+    margin-bottom: 0; //so that the image could be close to the heading
     margin-top: 0;
+    //background-image: url("~/source/images/welcome.png");
   }
 
   h2 {
