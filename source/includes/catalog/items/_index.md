@@ -1,7 +1,7 @@
 
 # Catalog Items
 
-## The Catalog Item Object
+## <img src="images/catalog-items-objects_icon.png" alt="catalog-items-objects_icon" width="26px" height="auto"> The Catalog Item Object
 
 > **Example:** Catalog Item Object
 

@@ -1,5 +1,5 @@
 
-## List catalog items
+## <img src="images/list-catalog-item_icon.png" alt="list-catalog-item_icon" width="27px" height="auto"> List catalog items
 
 > **Example:** Request
 
