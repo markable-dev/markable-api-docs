@@ -1,5 +1,5 @@
 
-## Search
+## <img src="images/search-image_icon.png" alt="search-image_icon" width="28px" height="auto"> Search
 
 > **Example:** Request
 

@@ -509,6 +509,11 @@ body:after {
     margin-bottom: 0; //so that the image could be close to the heading
     margin-top: 0;
     //background-image: url("~/source/images/welcome.png");
+
+    &>img {
+
+      align:middle;
+    }
   }
 
   h2 {

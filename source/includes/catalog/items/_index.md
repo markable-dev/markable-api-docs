@@ -1,5 +1,5 @@
 
-# Catalog Items <img src="images/catalog-items.png" alt="Catalog-items" height="auto" width="100%">
+# Catalog Items <img src="images/catalog-items.png" alt="Catalog-items" height="auto" width="90%" align="center">
 
 ## <img src="images/catalog-items-objects_icon.png" alt="catalog-items-objects_icon" width="26px" height="auto"> The Catalog Item Object
 

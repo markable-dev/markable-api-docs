@@ -1,7 +1,7 @@
 
 # Video Search
 
-## The Video Search Query Object
+## <img src="images/video-search_icon.png" alt="video-search_icon" width="28px" height="auto"> The Video Search Query Object
 
 > **Example:** Video Search Query Object
 

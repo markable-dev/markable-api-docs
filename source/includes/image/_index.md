@@ -1,7 +1,7 @@
 
 # Image Search
 
-## The Image Search Query Object
+## <img src="images/image-search_icon.png" alt="image-search_icon" width="28px" height="auto"> The Image Search Query Object
 
 > **Example:** Image Search Query Object
 
