@@ -1,7 +1,7 @@
 
 # Catalogs <img src="images/catalog.png" alt="Catalogs" height="auto" width="100%">
 
-## The Catalog Object
+## <img src="images/catalog_icon.png" alt="catalog_icon" width="26px" height="auto"> The Catalog Object
 
 > **Example:** Catalog Object
 

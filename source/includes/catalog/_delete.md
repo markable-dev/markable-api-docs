@@ -1,5 +1,5 @@
 
-## Delete catalog
+## <img src="images/delete-catalog_icon.png" alt="delete-catalog_icon" width="28px" height="auto"> Delete catalog
 
 > **Example:** Request
 

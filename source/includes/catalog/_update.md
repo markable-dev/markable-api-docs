@@ -1,5 +1,5 @@
 
-## Update catalog
+## <img src="images/update-catalog_icon.png" alt="update-catalog_icon" width="28px" height="auto"> Update catalog
 
 > **Example:** Request
 

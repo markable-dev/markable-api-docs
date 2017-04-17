@@ -1,5 +1,5 @@
 
-## Create catalog
+## <img src="images/create-catalog_icon.png" alt="create-catalog_icon" width="28px" height="auto"> Create catalog
 
 > **Example:** Request
 
