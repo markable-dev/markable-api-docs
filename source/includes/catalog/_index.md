@@ -1,5 +1,5 @@
 
-# Catalogs
+# Catalogs <img src="images/catalog.png" alt="Catalogs" height="auto" width="100%">
 
 ## The Catalog Object
 
