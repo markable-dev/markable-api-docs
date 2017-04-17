@@ -520,6 +520,13 @@ body:after {
     padding-top: 1.2em;
     padding-bottom: 1.2em;
     background-image: linear-gradient(to bottom, rgba(#fff, 0.4), rgba(#fff, 0));
+
+    &>img {
+
+      vertical-align:middle;
+      padding-right:5px;
+      padding-bottom:3px;
+    }
   }
 
   // h2s right after h1s should bump right up

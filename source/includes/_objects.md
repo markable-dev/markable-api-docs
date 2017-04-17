@@ -3,7 +3,7 @@
 
 The object defintions to be aware of when working with **Markable Lens API**.
 
-## Catalog
+## <img src="images/catalog_icon.png" alt="catalog_icon" width="26px" height="auto"> Catalog
 
 > **Example:** Catalog Object
 
@@ -105,7 +105,7 @@ Attribute 		| Type 			| Description
 `updated_at`	| Date			| Updated date/time. **<small>read-only</small>**
 
 
-## Catalog Item
+## <img src="images/catalog-item_icon.png" alt="catalog-item_icon" width="26px" height="auto"> Catalog Item
 
 > **Example:** Catalog Item Object
 
@@ -302,7 +302,7 @@ Attribute 		| Type 							         | Description
 `updated_at`	| Date							         | Updated date/time. **<small>read-only</small>**
 
 
-## Image
+## <img src="images/image_icon.png" alt="image_icon" width="26px" height="auto"> Image
 
 An **Image** defines an image per definition.
 
@@ -385,7 +385,7 @@ Attribute 		| Type 					| Description
 `height` 		| Integer				| Image height in pixels. **<small>read-only</small>**
 
 
-## Category
+## <img src="images/category_icon.png" alt="category_icon" width="26px" height="auto"> Category
 
 An **Image** defines a category per definition.
 
@@ -444,7 +444,7 @@ Attribute 		| Type 					| Description
 `name` 			| String				| A custom unique name.
 
 
-## Bounding Box
+## <img src="images/bounding-box_icon.png" alt="bounding-box_icon" width="26px" height="auto"> Bounding Box
 
 An **Bounding Box** defines an rectangular area (within an image) which contains a visually detected object.
 
