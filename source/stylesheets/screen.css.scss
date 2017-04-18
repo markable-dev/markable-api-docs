@@ -395,7 +395,7 @@ body:after {
   // half of the content always this background color.
   .dark-box {
     width: $examples-width;
-    background-color: $examples-bg;
+    background-color:#237568;//$examples-bg;
     position: absolute;
     right: 0;
     top: 0;
@@ -410,7 +410,7 @@ body:after {
 }
 
 .lang-selector {
-  background-color: $lang-select-bg;
+  background-color: #0D594E;//$lang-select-bg;
   width: 100%;
   font-size:18px;
   font-weight: 500;
@@ -426,13 +426,13 @@ body:after {
     outline: 0;
 
     &:active, &:focus {
-      background-color: $lang-select-pressed-bg;
+      background-color: #196F62;//$lang-select-pressed-bg;
       color: $lang-select-pressed-text;
       padding: 0px 40px;
     }
 
     &.active {
-      background-color: $lang-select-active-bg;
+      background-color: #237568;//$lang-select-active-bg;
       color: $lang-select-active-text;
     }
   }
@@ -799,18 +799,18 @@ body:after {
 
   pre > code {
     display: block;
-    background-color: #212525;
+    background-color: #14695C; //#212525;
     padding: 20px 40px;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     -o-border-radius: 5px;
     -ms-border-radius: 5px;
     border-radius: 5px;
-    -webkit-box-shadow: rgba(0,0,0,0.2) 0 0 2px inset;
-    -moz-box-shadow: rgba(0,0,0,0.2) 0 0 2px inset;
-    -o-box-shadow: rgba(0,0,0,0.2) 0 0 2px inset;
-    -ms-box-shadow: rgba(0,0,0,0.2) 0 0 2px inset;
-    box-shadow: rgba(0,0,0,0.2) 0 0 2px inset;
+    -webkit-box-shadow: rgba(0,0,0,0.01) 0 0 2px inset;
+    -moz-box-shadow: rgba(0,0,0,0.01) 0 0 2px inset;
+    -o-box-shadow: rgba(0,0,0,0.01) 0 0 2px inset;
+    -ms-box-shadow: rgba(0,0,0,0.01) 0 0 2px inset;
+    box-shadow: rgba(0,0,0,0.01) 0 0 2px inset;
     line-height: 1.5;
     font-size: 12px;
     font-family: "Monaco", "consolas", monospace;
@@ -828,7 +828,7 @@ body:after {
       background-color: transparent; //from $code-annotation-bg
       border-radius: 5px;
       //padding-bottom: 10px;// from  $code-annotation-padding
-      color: #ccc;
+      color: rgba(245, 250, 249, 0.9);//#ccc;
       //border-top: 1px solid #000;
       //border-bottom: 1px solid #404040;
     }
@@ -950,5 +950,5 @@ body:after {
 }
 
 .highlight, .highlight .w {
-  background-color: $code-bg;
+  //background-color: $code-bg;
 }
