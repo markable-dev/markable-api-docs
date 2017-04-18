@@ -1,0 +1,106 @@
+/*
+Copyright 2008-2013 Concur Technologies, Inc.
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may
+not use this file except in compliance with the License. You may obtain
+a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+License for the specific language governing permissions and limitations
+under the License.
+*/
+
+
+////////////////////////////////////////////////////////////////////////////////
+// CUSTOMIZE SLATE
+////////////////////////////////////////////////////////////////////////////////
+// Use these settings to help adjust the appearance of Slate
+
+
+// BACKGROUND COLORS
+////////////////////
+$nav-bg: #f5fafa!default; //changing from #393939 to #f5fafa
+$examples-bg: #2b2f2f!default;
+$code-bg: #212525 !default; //changing from #292929 to #212525
+$code-annotation-bg: #1c1c1c !default;
+$nav-subitem-bg: #DDF0EE !default; // from #262626 to #DDF0EE
+$nav-active-bg: #5bc4b4 !default;
+$lang-select-border: #5bc4b4 !default; //from #000 to #5bc4b4
+$lang-select-bg: #0d1010 !default; //from #222
+$lang-select-active-bg: $examples-bg !default; // feel free to change this to blue or something
+$lang-select-pressed-bg: #111 !default; // color of language tab bg when mouse is pressed
+$main-bg: #ffffff !default; //from #eaf2f6 to #fff
+$aside-notice-bg: #e7f7f3 !default;
+$aside-warning-bg: #FFF4E2 !default;
+$aside-success-bg: #CEF3EE !default;
+$search-notice-bg: #DDE3EE!default;
+
+
+// TEXT COLORS
+////////////////////
+$main-text: #3d403f !default; // main content text color from #333 to #3d403f
+$nav-text: #3d403f !default; //changing from #fff to #3d403f
+$nav-active-text: #fff !default;
+$lang-select-text: #fff !default; // color of unselected language tab text
+$lang-select-active-text: #fff !default; // color of selected language tab text
+$lang-select-pressed-text: #fff !default; // color of language tab text when mouse is pressed
+
+
+// SIZES
+////////////////////
+$nav-width: 250px !default; // width of the navbar - changing from 230px to 250px
+$examples-width: 50% !default; // portion of the screen taken up by code examples
+$logo-margin: 25px !default; // margin between nav items and logo, ignored if search is active
+$main-padding: 28px !default; // padding to left and right of content & examples
+$nav-padding: 25px !default; // padding to left and right of navbar 15 > 25
+$nav-v-padding: 5px !default; // padding used vertically around search boxes and results 10 > 18
+$nav-indent: 12px !default; // extra padding for ToC subitems 10 > 12
+$code-annotation-padding: 13px !default; // padding inside code annotations
+$h1-margin-bottom: 21px !default; // padding under the largest header tags
+$tablet-width: 930px !default; // min width before reverting to tablet size
+$phone-width: $tablet-width - $nav-width !default; // min width before reverting to mobile size
+
+
+// FONTS
+////////////////////
+%default-font {
+  font-family:"proxima-nova", sans-serif; // removed the 'Lato' here to avoice fonts conflicting
+  font-size: 15px;
+}
+
+%header-font {
+  @extend %default-font;
+  font-weight: bold;
+}
+
+%code-font {
+  font-family: Consolas, Menlo, Monaco, "Lucida Console", "Liberation Mono", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Courier New", monospace, serif;
+  font-size: 12px;
+  line-height: 1.5;
+  font-weight:500;
+}
+
+
+// OTHER
+////////////////////
+$nav-active-shadow: #5bc4b4 !default; //changing from #000 to #5bc4b4
+$nav-footer-border-color: #f5fafa !default; //changing from #666 to #f5fafa
+$nav-embossed-border-top: #98b9b2 !default;
+$nav-embossed-border-bottom: #98b9b2 !default;
+$main-embossed-text-shadow: 0px 0px 0px #fff !default; // no more shadow
+$search-box-border-color: #5bc4b4 !default; // from #666
+
+
+////////////////////////////////////////////////////////////////////////////////
+// INTERNAL
+////////////////////////////////////////////////////////////////////////////////
+// These settings are probably best left alone.
+
+%break-words {
+    word-break: break-all;
+    hyphens: auto;
+}
