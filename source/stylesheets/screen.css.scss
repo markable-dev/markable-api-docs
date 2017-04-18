@@ -816,6 +816,7 @@ body:after {
     font-family: "Monaco", "consolas", monospace;
     white-space: pre-wrap;
     word-break: break-all;
+    -webkit-font-smoothing: antialiased;
   }
 
 
