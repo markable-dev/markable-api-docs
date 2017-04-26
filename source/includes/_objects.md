@@ -226,15 +226,6 @@ Attribute 		| Type 			| Description
                             }
                         ]
                     },
-                    "thumbnail_uri": {
-                        "type": "string",
-                        "format": "uri",
-                        "readOnly": true
-                    },
-                    "content_type": {
-                        "type": "string",
-                        "readOnly": true
-                    },
                     "width": {
                         "type": "integer",
                         "minimum": 0,
@@ -354,15 +345,6 @@ An **Image** defines an image per definition.
                     "format": "byte"
                 }
             ]
-        },
-        "thumbnail_uri": {
-            "type": "string",
-            "format": "uri",
-            "readOnly": true
-        },
-        "content_type": {
-            "type": "string",
-            "readOnly": true
         },
         "width": {
             "type": "integer",
