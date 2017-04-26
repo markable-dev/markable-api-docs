@@ -18,8 +18,9 @@ curl -X GET https://api.markable.ai/catalogs/catalog-1/items/item-1 \
 ```json
 {
 	"data": {
-	    "_type": "Product",
+	    "_type": "CatalogItem",
 	    "_id": "item-1",
+	    "schema": "product",
 	    "catalog": {
 	        "_type": "Catalog",
 	        "_id": "1",

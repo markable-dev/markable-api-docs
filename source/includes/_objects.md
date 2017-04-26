@@ -11,10 +11,10 @@ The object defintions to be aware of when working with **Markable Lens API**.
 {
     "_type": "Catalog",
     "_id": "1",
-    "_size": 5,
+    "size": 5,
     "name": "catalog-1",
     "description": "My first catalog",
-    "schema": "Product",
+    "schema": "product",
     "created_at": "2017-01-01T00:00:00Z",
     "updated_at": "2017-01-01T00:00:00Z"
 }
@@ -41,7 +41,7 @@ The object defintions to be aware of when working with **Markable Lens API**.
             "type": "string",
             "readOnly": true
         },
-        "_size": {
+        "size": {
             "type": "integer",
             "minimum": 0,
             "readOnly": true
@@ -70,11 +70,9 @@ The object defintions to be aware of when working with **Markable Lens API**.
         "schema": {
             "type": "string",
             "enum": [
-                "Face",
-                "Logo",
-                "Product"
+                "product"
             ],
-            "default": "Product"
+            "default": "product"
         },
         "created_at": {
             "type": "string",
@@ -97,10 +95,10 @@ Attribute 		| Type 			| Description
 ------- 		| ----------	| -------
 `_type` 		| String		| Type. **<small>read-only</small>**
 `_id` 			| String  		| A unique identifier. **<small>read-only</small>**
-`_size` 		| Integer 		| Number or items in this catalog. **<small>read-only</small>**
+`size` 		| Integer 		| Number or items in this catalog. **<small>read-only</small>**
 `name` 			| String  		| A custom unique name.
 `description`	| String 		| A custom description.
-`schema`		| String  		| The schema to be used for this catalog's items. <br>Can be: `Product`.
+`schema`		| String  		| The schema to be used for this catalog's items. <br>Can be: `product`.
 `created_at`	| Date    		| Creation date/time. **<small>read-only</small>**
 `updated_at`	| Date			| Updated date/time. **<small>read-only</small>**
 
@@ -111,8 +109,9 @@ Attribute 		| Type 			| Description
 
 ```json
 {
-    "_type": "Product",
+    "_type": "CatalogItem",
     "_id": "item-1",
+    "schema": "product",
     "catalog": {
         "_type": "Catalog",
         "_id": "1",
@@ -159,7 +158,7 @@ Attribute 		| Type 			| Description
 {
     "$schema": "http://json-schema.org/draft-04/schema",
     "type": "object",
-    "description": "Product",
+    "description": "CatalogItem",
     "required": [
         "catalog",
         "images",
@@ -169,11 +168,16 @@ Attribute 		| Type 			| Description
         "_type": {
             "type": "string",
             "readOnly": true,
-            "default": "Product"
+            "default": "CatalogItem"
         },
         "_id": {
             "type": "string",
             "readOnly": true
+        },
+        "schema": {
+            "type": "string",
+            "readOnly": true,
+            "default": "product"
         },
         "catalog": {
             "type": "object",

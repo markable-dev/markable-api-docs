@@ -7,8 +7,9 @@
 
 ```json
 {
-    "_type": "Product",
+    "_type": "CatalogItem",
     "_id": "item-1",
+    "schema": "product",
     "catalog": {
         "_type": "Catalog",
         "_id": "1",
@@ -16,8 +17,9 @@
     },
     "images": [
         {
-            "_type": "Image",
+            "_type": "CatalogItem",
             "_id": "1",
+            "schema": "product",
             "uri": "https://markable.ai/data/products/dress/1.png",
             "content_type": "image/png",
             "width": 100,
@@ -55,7 +57,7 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema",
     "type": "object",
-    "description": "Product",
+    "description": "CatalogItem",
     "required": [
         "catalog",
         "images",
@@ -65,11 +67,16 @@
         "_type": {
             "type": "string",
             "readOnly": true,
-            "default": "Product"
+            "default": "CatalogItem"
         },
         "_id": {
             "type": "string",
             "readOnly": true
+        },
+        "schema": {
+            "type": "string",
+            "readOnly": true,
+            "default": "product"
         },
         "catalog": {
             "type": "object",

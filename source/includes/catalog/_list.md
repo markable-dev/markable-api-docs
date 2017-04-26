@@ -28,6 +28,7 @@ curl -X GET https://api.markable.ai/catalogs \
             },
             "name": "catalog-1",
             "description": "My first catalog",
+            "schema": "product",
             "created_at": "2017-01-01T00:00:00.001Z",
             "updated_at": "2017-01-01T00:00:00.001Z"
         },
@@ -41,6 +42,7 @@ curl -X GET https://api.markable.ai/catalogs \
             },
             "name": "catalog-2",
             "description": "My second catalog",
+            "schema": "product",
             "created_at": "2017-01-01T00:00:00.001Z",
             "updated_at": "2017-01-01T00:00:00.001Z"
         }

@@ -27,7 +27,7 @@ curl -X GET https://api.markable.ai/catalogs/catalog-1 \
         },
         "name": "catalog-1",
         "description": "My first catalog",
-        "schema": "Product",
+        "schema": "product",
         "created_at": "2017-01-01T00:00:00.001Z",
         "updated_at": "2017-01-01T00:00:00.001Z"
     }

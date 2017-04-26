@@ -10,7 +10,7 @@ Authorization: Bearer 123abc
 	"data": {
         "name": "catalog-1",
         "description": "My first catalog",
-        "schema": "Product"
+        "schema": "product"
     }
 }
 ```
@@ -23,7 +23,7 @@ curl -X POST https://api.markable.ai/catalogs \
 	"data": {
         "name": "catalog-1",
         "description": "My first catalog",
-        "schema": "Product"
+        "schema": "product"
     }
 }
 '
@@ -43,7 +43,7 @@ curl -X POST https://api.markable.ai/catalogs \
         },
         "name": "catalog-1",
         "description": "My first catalog",
-        "schema": "Product",
+        "schema": "product",
         "created_at": "2017-01-01T00:00:00.001Z",
         "updated_at": "2017-01-01T00:00:00.001Z"
     }

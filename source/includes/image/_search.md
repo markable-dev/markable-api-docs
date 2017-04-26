@@ -59,15 +59,16 @@ curl -X POST https://api.markable.ai/image/search \
     "data": {
         "products": [
             {
-                "_type": "Product",
+                "_type": "CatalogItem",
                 "_id": "1",
-                "_score": 0.90,
-                "_category": {
+                "schema": "product",
+                "score": 0.90,
+                "category": {
                     "_type": "Category",
                     "_id": "1",
                     "name": "category-1"
                 },
-                "_bounding_box": {
+                "bounding_box": {
                     "_type": "BoundingBox",
                     "x": 0,
                     "y": 0,
@@ -84,8 +85,6 @@ curl -X POST https://api.markable.ai/image/search \
                         "_type": "Image",
                         "_id": "1",
                         "uri": "https://example.com/products/1/a.png",
-                        "thumbnail_uri": "https://example.com/products/1/a-thumb.png",
-                        "content_type": "image/png",
                         "width": 200,
                         "height": 300
                     },
@@ -93,8 +92,6 @@ curl -X POST https://api.markable.ai/image/search \
                         "_type": "Image",
                         "_id": "2",
                         "uri": "https://example.com/products/1/b.png",
-                        "thumbnail_uri": "https://example.com/products/1/b-thumb.png",
-                        "content_type": "image/png",
                         "width": 200,
                         "height": 300
                     }
@@ -115,15 +112,16 @@ curl -X POST https://api.markable.ai/image/search \
                 "updated_at": "2017-01-01T00:00:00.001Z"
             },
             {
-                "_type": "Product",
+                "_type": "CatalogItem",
                 "_id": "2",
-                "_score": 0.88,
-                "_category": {
+                "schema": "product",
+                "score": 0.88,
+                "category": {
                     "_type": "Category",
                     "_id": "1",
                     "name": "category-1"
                 },
-                "_bounding_box": {
+                "bounding_box": {
                     "_type": "BoundingBox",
                     "x": 0,
                     "y": 0,
@@ -140,8 +138,6 @@ curl -X POST https://api.markable.ai/image/search \
                         "_type": "Image",
                         "_id": "1",
                         "uri": "https://example.com/products/2/a.png",
-                        "thumbnail_uri": "https://example.com/products/2/a-thumb.png",
-                        "content_type": "image/png",
                         "width": 200,
                         "height": 300
                     },
@@ -149,8 +145,6 @@ curl -X POST https://api.markable.ai/image/search \
                         "_type": "Image",
                         "_id": "2",
                         "uri": "https://example.com/products/2/b.png",
-                        "thumbnail_uri": "https://example.com/products/2/b-thumb.png",
-                        "content_type": "image/png",
                         "width": 200,
                         "height": 300
                     }
@@ -203,4 +197,4 @@ None
 
 Attribute       | Type                                                      | Description
 -------         | ----------                                                | -------
-`data`          | [ImageSearchQuery](#the-image-search-query-object)    | A valid image search object.
+`data`          | [ImageSearchQuery](#the-image-search-query-object)        | A valid image search object.

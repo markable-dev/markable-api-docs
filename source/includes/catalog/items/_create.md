@@ -62,8 +62,9 @@ curl -X POST https://api.markable.ai/catalogs/catalog-1/items \
 ```json
 {
 	"data": {
-	    "_type": "Product",
+	    "_type": "CatalogItem",
 	    "_id": "item-1",
+	    "schema": "product",
 	    "catalog": {
 	        "_type": "Catalog",
 	        "_id": "1",

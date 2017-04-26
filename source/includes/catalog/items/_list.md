@@ -19,8 +19,9 @@ curl -X GET https://api.markable.ai/catalogs/catalog-1/items \
 {
 	"data": [
 	    {
-	        "_type": "Product",
+	        "_type": "CatalogItem",
 	        "_id": "item-1",
+	        "schema": "product",
 	        "catalog": {
 	            "_type": "Catalog",
 	            "_id": "1",
@@ -62,8 +63,9 @@ curl -X GET https://api.markable.ai/catalogs/catalog-1/items \
 	        "updated_at": "2017-01-01T00:00:00.001Z"
 	    },
 	    {
-	        "_type": "Product",
+	        "_type": "CatalogItem",
 	        "_id": "item-2",
+	        "schema": "product",
 	        "catalog": {
 	            "_type": "Catalog",
 	            "_id": "1",
