@@ -122,7 +122,6 @@ Attribute 		| Type 			| Description
             "_type": "Image",
             "_id": "1",
             "uri": "https://markable.ai/data/products/dress/1.png",
-            "content_type": "image/png",
             "width": 100,
             "height": 100
         },
@@ -130,7 +129,6 @@ Attribute 		| Type 			| Description
             "_type": "Image",
             "_id": "2",
             "uri": "https://markable.ai/data/products/dress/2.png",
-            "content_type": "image/png",
             "width": 100,
             "height": 100
         }
@@ -301,7 +299,6 @@ An **Image** defines an image per definition.
 	"_type": "Image",
 	"_id": "image-1",
 	"uri": "https://example.com/images/1.png",
-	"content_type": "image/png",
 	"width": 100,
 	"height": 100
 }

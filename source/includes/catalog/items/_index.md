@@ -21,7 +21,6 @@
             "_id": "1",
             "schema": "product",
             "uri": "https://markable.ai/data/products/dress/1.png",
-            "content_type": "image/png",
             "width": 100,
             "height": 100
         },
@@ -29,7 +28,6 @@
             "_type": "Image",
             "_id": "2",
             "uri": "https://markable.ai/data/products/dress/2.png",
-            "content_type": "image/png",
             "width": 100,
             "height": 100
         }
@@ -122,10 +120,6 @@
                                 "format": "byte"
                             }
                         ]
-                    },
-                    "content_type": {
-                        "type": "string",
-                        "readOnly": true
                     },
                     "width": {
                         "type": "integer",

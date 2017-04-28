@@ -32,7 +32,6 @@ curl -X GET https://api.markable.ai/catalogs/catalog-1/items \
 	                "_type": "Image",
 	                "_id": "1",
 	                "uri": "https://example.com/products/1/a.png",
-	                "content_type": "image/png",
 	                "width": 200,
 	                "height": 300
 	            },
@@ -40,7 +39,6 @@ curl -X GET https://api.markable.ai/catalogs/catalog-1/items \
 	                "_type": "Image",
 	                "_id": "2",
 	                "uri": "https://example.com/products/1/b.png",
-	                "content_type": "image/png",
 	                "width": 200,
 	                "height": 300
 	            }
@@ -72,7 +70,6 @@ curl -X GET https://api.markable.ai/catalogs/catalog-1/items \
 	                "_type": "Image",
 	                "_id": "1",
 	                "uri": "https://example.com/products/1/a.png",
-	                "content_type": "image/png",
 	                "width": 200,
 	                "height": 300
 	            },
@@ -80,7 +77,6 @@ curl -X GET https://api.markable.ai/catalogs/catalog-1/items \
 	                "_type": "Image",
 	                "_id": "2",
 	                "uri": "https://example.com/products/1/b.png",
-	                "content_type": "image/png",
 	                "width": 200,
 	                "height": 300
 	            }
