@@ -123,11 +123,6 @@
                             }
                         ]
                     },
-                    "thumbnail_uri": {
-                        "type": "string",
-                        "format": "uri",
-                        "readOnly": true
-                    },
                     "content_type": {
                         "type": "string",
                         "readOnly": true
