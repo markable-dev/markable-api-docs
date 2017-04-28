@@ -16,11 +16,9 @@ Authorization: Bearer 123abc
                 "uri": "https://example.com/products/1/b.png"
             }
         ],
-        "categories": [
-            {
-                "name": "sunglasses"
-            }
-        ],
+        "category": {
+            "name": "sunglasses"
+        },
         "data": {
             "id": "external-id-1",
             "foo": "bar"
@@ -43,11 +41,9 @@ curl -X POST https://api.markable.ai/catalogs/catalog-1/items \
                 "uri": "https://example.com/products/1/b.png"
             }
         ],
-        "categories": [
-            {
-                "name": "sunglasses"
-            }
-        ],
+        "category": {
+            "name": "sunglasses"
+        }
         "data": {
             "id": "external-id-1",
             "foo": "bar"
@@ -90,13 +86,11 @@ curl -X POST https://api.markable.ai/catalogs/catalog-1/items \
 	            "height": 300
 	        }
 	    ],
-	    "categories": [
-	        {
-	            "_type": "Category",
-	            "_id": "1",
-	            "name": "sunglasses"
-	        }
-	    ],
+	    "category": {
+          "_type": "Category",
+          "_id": "1",
+          "name": "sunglasses"
+      },
 	    "data": {
 	        "id": "external-id-1",
 	        "foo": "bar"

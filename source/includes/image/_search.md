@@ -96,13 +96,11 @@ curl -X POST https://api.markable.ai/image/search \
                         "height": 300
                     }
                 ],
-                "categories": [
-                    {
-                        "_type": "Category",
-                        "_id": "1",
-                        "name": "sunglasses"
-                    }
-                ],
+                "category": {
+                    "_type": "Category",
+                    "_id": "1",
+                    "name": "sunglasses"
+                },
                 "data": {
                     "id": "external-product-id-1",
                     "url": "https://company.xyz/external-product-id-1",
@@ -149,13 +147,11 @@ curl -X POST https://api.markable.ai/image/search \
                         "height": 300
                     }
                 ],
-                "categories": [
-                    {
-                        "_type": "Category",
-                        "_id": "1",
-                        "name": "sunglasses"
-                    }
-                ],
+                "category": {
+                    "_type": "Category",
+                    "_id": "1",
+                    "name": "sunglasses"
+                },
                 "data": {
                     "id": "external-product-id-2",
                     "url": "https://company.xyz/external-product-id-2",

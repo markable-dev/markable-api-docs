@@ -135,13 +135,11 @@ Attribute 		| Type 			| Description
             "height": 100
         }
     ],
-    "categories": [
-        {
-            "_type": "Category",
-            "_id": "1",
-            "name": "dress"
-        }
-    ],
+    "category": {
+      "_type": "Category",
+      "_id": "1",
+      "name": "dress"
+    }
     "data": {
         "id": "external-id-1",
         "url": "external-url-1",
@@ -242,27 +240,22 @@ Attribute 		| Type 			| Description
             "minItems": 1,
             "uniqueItems": true
         },
-        "categories": {
-            "type": "array",
-            "items": {
-                "type": "object",
-                "description": "Category",
-                "properties": {
-                    "_type": {
-                        "type": "string",
-                        "readOnly": true,
-                        "default": "Category"
-                    },
-                    "_id": {
-                        "type": "string"
-                    },
-                    "name": {
-                        "type": "string"
-                    }
+        "category": {
+            "type": "object",
+            "description": "Category",
+            "properties": {
+                "_type": {
+                    "type": "string",
+                    "readOnly": true,
+                    "default": "Category"
+                },
+                "_id": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
                 }
-            },
-            "minItems": 1,
-            "uniqueItems": true
+            }
         },
         "data": {
             "type": "object",
@@ -291,7 +284,7 @@ Attribute 		| Type 							         | Description
 `_id` 			| String						         | An unique identifier. **<small>read-only</small>**
 `catalog` 		| [Catalog](#catalog)			         | Reference to catalog containing this item.
 `images` 		| [Array&lt;Image&gt;](#image)          | List of images - visual representation of this item (object).
-`categories` 	| [Array&lt;Category&gt;](#category)    | List of categories - taxonomic classification of item (object).
+`category` 	| [Category](#category)    | Category - taxonomic classification of item (object).
 `data` 			| Object 					             | Custom data - semantic representation of this item (object).
 `created_at`	| Date    						         | Creation date/time. **<small>read-only</small>**
 `updated_at`	| Date							         | Updated date/time. **<small>read-only</small>**

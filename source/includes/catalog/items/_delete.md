@@ -46,13 +46,11 @@ curl -X DELETE https://api.markable.ai/catalogs/catalog-1/items/item-1 \
 	            "height": 300
 	        }
 	    ],
-	    "categories": [
-	        {
-	            "_type": "Category",
-	            "_id": "1",
-	            "name": "sunglasses"
-	        }
-	    ],
+	    "category": {
+          "_type": "Category",
+          "_id": "1",
+          "name": "sunglasses"
+      },
 	    "data": {
 	        "id": "external-id-1",
 	        "foo": "bar"
