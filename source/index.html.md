@@ -34,8 +34,8 @@ includes:
   - image/index
   - image/search
 
-  - video/index
-  - video/search
+  # - video/index
+  # - video/search
 
 search: true
 ---
