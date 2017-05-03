@@ -529,7 +529,6 @@
             </span><span class="s2">"_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Image"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://markable.ai/data/products/dress/1.png"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"content_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"image/png"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"width"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
             </span><span class="s2">"height"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="w">
         </span><span class="p">},</span><span class="w">
@@ -537,18 +536,15 @@
             </span><span class="s2">"_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Image"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://markable.ai/data/products/dress/2.png"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"content_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"image/png"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"width"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
             </span><span class="s2">"height"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">],</span><span class="w">
-    </span><span class="s2">"categories"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Category"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dress"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"category"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Category"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dress"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
     </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"external-id-1"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"external-url-1"</span><span class="p">,</span><span class="w">
@@ -648,27 +644,22 @@
             </span><span class="s2">"minItems"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
             </span><span class="s2">"uniqueItems"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
         </span><span class="p">},</span><span class="w">
-        </span><span class="s2">"categories"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"array"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"items"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"object"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Category"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"properties"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                    </span><span class="s2">"_type"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                        </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-                        </span><span class="s2">"readOnly"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-                        </span><span class="s2">"default"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Category"</span><span class="w">
-                    </span><span class="p">},</span><span class="w">
-                    </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                        </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
-                    </span><span class="p">},</span><span class="w">
-                    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                        </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
-                    </span><span class="p">}</span><span class="w">
+        </span><span class="s2">"category"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"object"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Category"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"properties"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"_type"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"readOnly"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"default"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Category"</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
                 </span><span class="p">}</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-            </span><span class="s2">"minItems"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"uniqueItems"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+            </span><span class="p">}</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"object"</span><span class="p">,</span><span class="w">
@@ -718,9 +709,9 @@
 <td>List of images - visual representation of this item (object).</td>
 </tr>
 <tr>
-<td><code class="prettyprint">categories</code></td>
-<td><a href="#category">Array&lt;Category&gt;</a></td>
-<td>List of categories - taxonomic classification of item (object).</td>
+<td><code class="prettyprint">category</code></td>
+<td><a href="#category">Category</a></td>
+<td>Category - taxonomic classification of item (object).</td>
 </tr>
 <tr>
 <td><code class="prettyprint">data</code></td>
@@ -750,7 +741,6 @@
     </span><span class="s2">"_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Image"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"image-1"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/images/1.png"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"content_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"image/png"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"width"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
     </span><span class="s2">"height"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -1673,7 +1663,6 @@
             </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"schema"</span><span class="p">:</span><span class="w"> </span><span class="s2">"product"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://markable.ai/data/products/dress/1.png"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"content_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"image/png"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"width"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
             </span><span class="s2">"height"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="w">
         </span><span class="p">},</span><span class="w">
@@ -1681,18 +1670,15 @@
             </span><span class="s2">"_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Image"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://markable.ai/data/products/dress/2.png"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"content_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"image/png"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"width"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
             </span><span class="s2">"height"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">],</span><span class="w">
-    </span><span class="s2">"categories"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Category"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dress"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"category"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Category"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dress"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
     </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"external-id-1"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"external-url-1"</span><span class="p">,</span><span class="w">
@@ -1776,15 +1762,6 @@
                             </span><span class="p">}</span><span class="w">
                         </span><span class="p">]</span><span class="w">
                     </span><span class="p">},</span><span class="w">
-                    </span><span class="s2">"thumbnail_uri"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                        </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-                        </span><span class="s2">"format"</span><span class="p">:</span><span class="w"> </span><span class="s2">"uri"</span><span class="p">,</span><span class="w">
-                        </span><span class="s2">"readOnly"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-                    </span><span class="p">},</span><span class="w">
-                    </span><span class="s2">"content_type"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                        </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-                        </span><span class="s2">"readOnly"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-                    </span><span class="p">},</span><span class="w">
                     </span><span class="s2">"width"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
                         </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
                         </span><span class="s2">"minimum"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
@@ -1801,27 +1778,22 @@
             </span><span class="s2">"minItems"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
             </span><span class="s2">"uniqueItems"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
         </span><span class="p">},</span><span class="w">
-        </span><span class="s2">"categories"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"array"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"items"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"object"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Category"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"properties"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                    </span><span class="s2">"_type"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                        </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-                        </span><span class="s2">"readOnly"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-                        </span><span class="s2">"default"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Category"</span><span class="w">
-                    </span><span class="p">},</span><span class="w">
-                    </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                        </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
-                    </span><span class="p">},</span><span class="w">
-                    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                        </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
-                    </span><span class="p">}</span><span class="w">
+        </span><span class="s2">"category"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"object"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Category"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"properties"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"_type"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"readOnly"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"default"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Category"</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
                 </span><span class="p">}</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-            </span><span class="s2">"minItems"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"uniqueItems"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+            </span><span class="p">}</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"object"</span><span class="p">,</span><span class="w">
@@ -1871,9 +1843,9 @@
 <td>List of images - visual representation of this item (object).</td>
 </tr>
 <tr>
-<td><code class="prettyprint">categories</code></td>
-<td><a href="#category">Array&lt;Category&gt;</a></td>
-<td>List of categories - taxonomic classification of item (object).</td>
+<td><code class="prettyprint">category</code></td>
+<td><a href="#category">Category</a></td>
+<td>Category - taxonomic classification of item (object).</td>
 </tr>
 <tr>
 <td><code class="prettyprint">data</code></td>
@@ -1909,11 +1881,9 @@
 <span class="s">                "uri": "https://example.com/products/1/b.png"</span>
 <span class="s">            }</span>
 <span class="s">        ],</span>
-<span class="s">        "categories": [</span>
-<span class="s">            {</span>
-<span class="s">                "name": "sunglasses"</span>
-<span class="s">            }</span>
-<span class="s">        ],</span>
+<span class="s">        "category": {</span>
+<span class="s">            "name": "sunglasses"</span>
+<span class="s">        },</span>
 <span class="s">        "data": {</span>
 <span class="s">            "id": "external-id-1",</span>
 <span class="s">            "foo": "bar"</span>
@@ -1933,11 +1903,9 @@
                 "uri": "https://example.com/products/1/b.png"
             }
         ],
-        "categories": [
-            {
-                "name": "sunglasses"
-            }
-        ],
+        "category": {
+            "name": "sunglasses"
+        }
         "data": {
             "id": "external-id-1",
             "foo": "bar"
@@ -1964,8 +1932,6 @@
                 </span><span class="s2">"_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Image"</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/products/1/a.png"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"thumbnail_uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/products/1/a-thumb.png"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"content_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"image/png"</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"width"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"height"</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="w">
             </span><span class="p">},</span><span class="w">
@@ -1973,19 +1939,15 @@
                 </span><span class="s2">"_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Image"</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/products/1/b.png"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"thumbnail_uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/products/1/b-thumb.png"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"content_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"image/png"</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"width"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"height"</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="w">
             </span><span class="p">}</span><span class="w">
         </span><span class="p">],</span><span class="w">
-        </span><span class="s2">"categories"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-            </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Category"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sunglasses"</span><span class="w">
-            </span><span class="p">}</span><span class="w">
-        </span><span class="p">],</span><span class="w">
+        </span><span class="s2">"category"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Category"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sunglasses"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
         </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"external-id-1"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"foo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bar"</span><span class="w">
@@ -2077,8 +2039,6 @@
                 </span><span class="s2">"_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Image"</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/products/1/a.png"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"thumbnail_uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/products/1/a-thumb.png"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"content_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"image/png"</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"width"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"height"</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="w">
             </span><span class="p">},</span><span class="w">
@@ -2086,19 +2046,15 @@
                 </span><span class="s2">"_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Image"</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/products/1/b.png"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"thumbnail_uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/products/1/b-thumb.png"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"content_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"image/png"</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"width"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"height"</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="w">
             </span><span class="p">}</span><span class="w">
         </span><span class="p">],</span><span class="w">
-        </span><span class="s2">"categories"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-            </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Category"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sunglasses"</span><span class="w">
-            </span><span class="p">}</span><span class="w">
-        </span><span class="p">],</span><span class="w">
+        </span><span class="s2">"category"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Category"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sunglasses"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
         </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"external-id-1"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"foo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bar"</span><span class="w">
@@ -2178,8 +2134,6 @@
                 </span><span class="s2">"_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Image"</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/products/1/a.png"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"thumbnail_uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/products/1/a-thumb.png"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"content_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"image/png"</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"width"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"height"</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="w">
             </span><span class="p">},</span><span class="w">
@@ -2187,19 +2141,15 @@
                 </span><span class="s2">"_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Image"</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/products/1/b.png"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"thumbnail_uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/products/1/b-thumb.png"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"content_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"image/png"</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"width"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"height"</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="w">
             </span><span class="p">}</span><span class="w">
         </span><span class="p">],</span><span class="w">
-        </span><span class="s2">"categories"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-            </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Category"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sunglasses"</span><span class="w">
-            </span><span class="p">}</span><span class="w">
-        </span><span class="p">],</span><span class="w">
+        </span><span class="s2">"category"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Category"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sunglasses"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
         </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"external-id-1"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"foo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bar"</span><span class="w">
@@ -2280,8 +2230,6 @@
                     </span><span class="s2">"_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Image"</span><span class="p">,</span><span class="w">
                     </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
                     </span><span class="s2">"uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/products/1/a.png"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"thumbnail_uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/products/1/a-thumb.png"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"content_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"image/png"</span><span class="p">,</span><span class="w">
                     </span><span class="s2">"width"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
                     </span><span class="s2">"height"</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="w">
                 </span><span class="p">},</span><span class="w">
@@ -2289,19 +2237,15 @@
                     </span><span class="s2">"_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Image"</span><span class="p">,</span><span class="w">
                     </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
                     </span><span class="s2">"uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/products/1/b.png"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"thumbnail_uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/products/1/b-thumb.png"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"content_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"image/png"</span><span class="p">,</span><span class="w">
                     </span><span class="s2">"width"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
                     </span><span class="s2">"height"</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="w">
                 </span><span class="p">}</span><span class="w">
             </span><span class="p">],</span><span class="w">
-            </span><span class="s2">"categories"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-                </span><span class="p">{</span><span class="w">
-                    </span><span class="s2">"_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Category"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sunglasses"</span><span class="w">
-                </span><span class="p">}</span><span class="w">
-            </span><span class="p">],</span><span class="w">
+            </span><span class="s2">"category"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+              </span><span class="s2">"_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Category"</span><span class="p">,</span><span class="w">
+              </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+              </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sunglasses"</span><span class="w">
+          </span><span class="p">},</span><span class="w">
             </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
                 </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"external-id-1"</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://company.xyz/external-product-id-1"</span><span class="p">,</span><span class="w">
@@ -2324,8 +2268,6 @@
                     </span><span class="s2">"_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Image"</span><span class="p">,</span><span class="w">
                     </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
                     </span><span class="s2">"uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/products/1/a.png"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"thumbnail_uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/products/1/a-thumb.png"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"content_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"image/png"</span><span class="p">,</span><span class="w">
                     </span><span class="s2">"width"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
                     </span><span class="s2">"height"</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="w">
                 </span><span class="p">},</span><span class="w">
@@ -2333,19 +2275,15 @@
                     </span><span class="s2">"_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Image"</span><span class="p">,</span><span class="w">
                     </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
                     </span><span class="s2">"uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/products/1/b.png"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"thumbnail_uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/products/1/b-thumb.png"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"content_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"image/png"</span><span class="p">,</span><span class="w">
                     </span><span class="s2">"width"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
                     </span><span class="s2">"height"</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="w">
                 </span><span class="p">}</span><span class="w">
             </span><span class="p">],</span><span class="w">
-            </span><span class="s2">"categories"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-                </span><span class="p">{</span><span class="w">
-                    </span><span class="s2">"_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Category"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sunglasses"</span><span class="w">
-                </span><span class="p">}</span><span class="w">
-            </span><span class="p">],</span><span class="w">
+            </span><span class="s2">"category"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+              </span><span class="s2">"_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Category"</span><span class="p">,</span><span class="w">
+              </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+              </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sunglasses"</span><span class="w">
+          </span><span class="p">},</span><span class="w">
             </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
                 </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"external-id-2"</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://company.xyz/external-product-id-2"</span><span class="p">,</span><span class="w">
@@ -2528,13 +2466,11 @@
                         </span><span class="s2">"height"</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="w">
                     </span><span class="p">}</span><span class="w">
                 </span><span class="p">],</span><span class="w">
-                </span><span class="s2">"categories"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-                    </span><span class="p">{</span><span class="w">
-                        </span><span class="s2">"_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Category"</span><span class="p">,</span><span class="w">
-                        </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-                        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sunglasses"</span><span class="w">
-                    </span><span class="p">}</span><span class="w">
-                </span><span class="p">],</span><span class="w">
+                </span><span class="s2">"category"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Category"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sunglasses"</span><span class="w">
+                </span><span class="p">},</span><span class="w">
                 </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
                     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"external-product-id-1"</span><span class="p">,</span><span class="w">
                     </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://company.xyz/external-product-id-1"</span><span class="p">,</span><span class="w">
@@ -2581,13 +2517,11 @@
                         </span><span class="s2">"height"</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="w">
                     </span><span class="p">}</span><span class="w">
                 </span><span class="p">],</span><span class="w">
-                </span><span class="s2">"categories"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-                    </span><span class="p">{</span><span class="w">
-                        </span><span class="s2">"_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Category"</span><span class="p">,</span><span class="w">
-                        </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-                        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sunglasses"</span><span class="w">
-                    </span><span class="p">}</span><span class="w">
-                </span><span class="p">],</span><span class="w">
+                </span><span class="s2">"category"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Category"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sunglasses"</span><span class="w">
+                </span><span class="p">},</span><span class="w">
                 </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
                     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"external-product-id-2"</span><span class="p">,</span><span class="w">
                     </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://company.xyz/external-product-id-2"</span><span class="p">,</span><span class="w">
@@ -2790,13 +2724,11 @@
                                 </span><span class="s2">"height"</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="w">
                             </span><span class="p">}</span><span class="w">
                         </span><span class="p">],</span><span class="w">
-                        </span><span class="s2">"categories"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-                            </span><span class="p">{</span><span class="w">
-                                </span><span class="s2">"_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Category"</span><span class="p">,</span><span class="w">
-                                </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-                                </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sunglasses"</span><span class="w">
-                            </span><span class="p">}</span><span class="w">
-                        </span><span class="p">],</span><span class="w">
+                        </span><span class="s2">"category"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                            </span><span class="s2">"_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Category"</span><span class="p">,</span><span class="w">
+                            </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+                            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sunglasses"</span><span class="w">
+                        </span><span class="p">},</span><span class="w">
                         </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
                             </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"external-product-id-1"</span><span class="p">,</span><span class="w">
                             </span><span class="s2">"foo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bar"</span><span class="w">
@@ -2842,13 +2774,11 @@
                                 </span><span class="s2">"height"</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="w">
                             </span><span class="p">}</span><span class="w">
                         </span><span class="p">],</span><span class="w">
-                        </span><span class="s2">"categories"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-                            </span><span class="p">{</span><span class="w">
-                                </span><span class="s2">"_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Category"</span><span class="p">,</span><span class="w">
-                                </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-                                </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sunglasses"</span><span class="w">
-                            </span><span class="p">}</span><span class="w">
-                        </span><span class="p">],</span><span class="w">
+                        </span><span class="s2">"category"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                            </span><span class="s2">"_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Category"</span><span class="p">,</span><span class="w">
+                            </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+                            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sunglasses"</span><span class="w">
+                        </span><span class="p">},</span><span class="w">
                         </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
                             </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"external-product-id-2"</span><span class="p">,</span><span class="w">
                             </span><span class="s2">"foo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bar"</span><span class="w">
