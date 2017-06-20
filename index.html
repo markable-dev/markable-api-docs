@@ -241,7 +241,7 @@
 
 <p>Welcome to the official documentation for <strong>Markable Lens API</strong> - for developers. This serves as a guide for developers integrate with Markable&rsquo;s visual search platform API, illustrated using API specifications and API integration code examples.</p>
 
-<p>To be able to use/access this API you will need to be a verified developer, please <strong><a href="https://markable.ai/signup">signup</a></strong> to get started.</p>
+<p>To be able to use/access this API you will need to be a verified developer, please <strong><a href="https://markable.ai/signup">signup</a></strong> to get started. We&rsquo;ll get back to you with your user credentials.</p>
 
 <p>This API and documentation is currently in <strong>private beta</strong> - subject for modifications.</p>
 
@@ -1031,14 +1031,149 @@
 
 <p>To access <strong>Markable Lens API</strong> you will need to be a registered developer, if you are not already you need to <strong><a href="https://markable.ai/signup">signup</a></strong> and get verified first.</p>
 
-<h2 id="the-client-credentials-object">The Client Credentials Object</h2>
+          <h2 id="user">User</h2>
+
+<p>Once you have your user account setup, (ie) your email and password ready, you can get your <code class="prettyprint">user_access_token</code>.</p>
+
+<p>These user access tokens can be further used to create <a href="#client-authentication">Clients</a>. Clients have access tokens
+of their own.</p>
+
+<blockquote>
+<p><strong>Example:</strong> User Credentials Object</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"developer@client.com"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"password"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<h2 id="user-authentication">User Authentication</h2>
+
+<blockquote>
+<p><strong>Example:</strong> Request</p>
+</blockquote>
+<pre class="highlight http tab-http"><code><span class="nf">POST</span> <span class="nn">https://api.markable.ai/user/authorize</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="s">{</span>
+<span class="s">    "data": {</span>
+<span class="s">        "email": "developer@client.com",</span>
+<span class="s">        "password": "password"</span>
+<span class="s">    }</span>
+<span class="s">}</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl -X POST https://api.markable.ai/user/authorize <span class="se">\</span>
+-d <span class="s1">'
+{
+    "data": {
+        "email": "developer@client.com",
+        "password": "password"
+    }
+}
+'</span>
+</code></pre>
+<blockquote>
+<p><strong>Example:</strong> Response with User Access Token</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"access_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"usertoken123abc"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Create authorization (authentication token) for a user.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST https://api.markable.ai/user/authorize</code></p>
+
+<h3 id="http-headers">HTTP Headers</h3>
+
+<p>Standard</p>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<p>None</p>
+
+<h3 id="body">Body</h3>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">data</code></td>
+<td><a href="#the-user-credentials-object">UserCredentials</a></td>
+<td>A valid user credentials object.</td>
+</tr>
+</tbody></table>
+
+<h2 id="get-user-and-client">Get User and Client</h2>
+
+<p>This request gives you user information and further the default client we have created for you.</p>
+<pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">https://api.markable.ai/users/</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer usertoken123abc</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl -X GET https://api.markable.ai/users/ <span class="se">\</span>
+-H <span class="s1">'Authorization: Bearer usertoken123abc'</span>
+</code></pre>
+<blockquote>
+<p><strong>Example:</strong> Response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"User"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Developer at Client"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"developer@client.com"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user_id_1"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"clients"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Client"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"client_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"client_id_1"</span><span class="w">
+                </span><span class="s2">"client_secret"</span><span class="p">:</span><span class="w"> </span><span class="s2">"client_secret_1"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user_id_1"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"scope"</span><span class="p">:</span><span class="w"> </span><span class="s2">"default"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<!-- ## Get User & Client -->
+
+<aside class="notice">
+    This operation requires a valid <code>user_access_token</code> - see <a href="#authentication">Authentication</a>.
+</aside>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET https://api.markable.ai/users</code></p>
+
+<h3 id="http-headers">HTTP Headers</h3>
+
+<table><thead>
+<tr>
+<th>Header</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">Authorization</code></td>
+<td><a href="https://tools.ietf.org/html/rfc6750">HTTP Bearer Token</a> for authorizing the request. <br><br>Format is <code class="prettyprint">Bearer :user_access_token</code>, where <code class="prettyprint">user_access_token</code> is given by <a href="#authentication">Authentication</a>. <strong><small>required</small></strong></td>
+</tr>
+</tbody></table>
+
+          <h2 id="client-authentication">Client Authentication</h2>
+
+<p>To start out with, we have created a default client for you as a user.</p>
+
+<p>For the <strong>Lens API</strong>, you will be using your client acccess token with every request.</p>
+
+<h3 id="the-client-credentials-object">The Client Credentials Object</h3>
 
 <blockquote>
 <p><strong>Example:</strong> Client Credentials Object</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"client_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"client_secret"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123"</span><span class="w">
+  </span><span class="s2">"client_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"client_id_1"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"client_secret"</span><span class="p">:</span><span class="w"> </span><span class="s2">"client_secret_1"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>The <strong>Client Credentials</strong> (object) refers to a object holding holding your <strong>Markable Lens API</strong> credentials, i.e. key token (<code class="prettyprint">client_id</code>) and secret token (<code class="prettyprint">client_secret</code>). These credentials will be available to any <a href="#authentication">verified developer</a>.</p>
@@ -1059,34 +1194,32 @@
 </tr>
 </tbody></table>
 
-<h2 id="authorize">Authorize</h2>
-
 <blockquote>
 <p><strong>Example:</strong> Request</p>
 </blockquote>
 <pre class="highlight http tab-http"><code><span class="nf">POST</span> <span class="nn">https://api.markable.ai/client/authorize</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="s">{</span>
-<span class="s">    "data": {</span>
-<span class="s">        "client_id": "abc",</span>
-<span class="s">        "client_secret": "abc123"</span>
-<span class="s">    }</span>
+<span class="s">  "data": {</span>
+<span class="s">    "client_id": "client_id_1",</span>
+<span class="s">    "client_secret": "client_secret_1"</span>
+<span class="s">  }</span>
 <span class="s">}</span>
 </code></pre><pre class="highlight shell tab-shell"><code>curl -X POST https://api.markable.ai/client/authorize <span class="se">\</span>
 -d <span class="s1">'
 {
-    "data": {
-        "client_id": "abc",
-        "client_secret": "abc123"
-    }
+  "data": {
+    "client_id": "client_id_1",
+    "client_secret": "client_secret_1"
+  }
 }
 '</span>
 </code></pre>
 <blockquote>
-<p><strong>Example:</strong> Response</p>
+<p><strong>Example:</strong> Response Client Access Token</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"access_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123abc"</span><span class="w">
+      </span><span class="s2">"access_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"clienttoken123"</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -1162,7 +1295,8 @@
         </span><span class="s2">"size"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"minimum"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"readOnly"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+            </span><span class="s2">"readOnly"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The number of items in this catalog"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"object"</span><span class="p">,</span><span class="w">
@@ -1290,7 +1424,7 @@
     </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Catalog"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"_stats"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"size"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
         </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="s2">"_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"User"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="w">
@@ -1516,7 +1650,7 @@
     </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Catalog"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"_stats"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"size"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
         </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="s2">"_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"User"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="w">
@@ -1585,7 +1719,7 @@
         </span><span class="p">{</span><span class="w">
             </span><span class="s2">"_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Catalog"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"_stats"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"size"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
             </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
                 </span><span class="s2">"_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"User"</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="w">
@@ -1599,7 +1733,7 @@
         </span><span class="p">{</span><span class="w">
             </span><span class="s2">"_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Catalog"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"_stats"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"size"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
             </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
                 </span><span class="s2">"_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"User"</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="w">
@@ -2376,13 +2510,24 @@
           <h2 id="search"><img src="images/search-image_icon.png" alt="search-image_icon" width="28px" height="auto"> Search</h2>
 
 <blockquote>
-<p><strong>Example:</strong> Request</p>
+<p><strong>Example:</strong> Simple Image Search without Catalogs</p>
 </blockquote>
 <pre class="highlight http tab-http"><code><span class="nf">POST</span> <span class="nn">https://api.markable.ai/image/search</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer 123abc</span>
 <span class="s">{</span>
 <span class="s">    "data": {</span>
-<span class="s">        "image_uri": "https://example.com/images/1.png",</span>
+<span class="s">        "image_uri": "http://i.com/1.png"</span>
+<span class="s">    }</span>
+<span class="s">}</span>
+</code></pre>
+<blockquote>
+<p><strong>Example:</strong> Image Search with Catalogs</p>
+</blockquote>
+<pre class="highlight http tab-http"><code><span class="nf">POST</span> <span class="nn">https://api.markable.ai/image/search</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer 123abc</span>
+<span class="s">{</span>
+<span class="s">  "data": {</span>
+<span class="s">        "image_uri": "http://i.com/1.png",</span>
 <span class="s">        "catalogs": [</span>
 <span class="s">            {</span>
 <span class="s">                "name": "catalog-1"</span>
@@ -2398,7 +2543,7 @@
 -d <span class="s1">'
 {
     "data": {
-        "image_uri": "https://example.com/images/1.png",
+        "image_uri": "http://i.com/1.png",
         "catalogs": [
             {
                 "name": "catalog-1"
@@ -2416,7 +2561,7 @@
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"image_uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/images/1.png"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"image_uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://i.com/1.png"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"catalogs"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
             </span><span class="p">{</span><span class="w">
                 </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"catalog-1"</span><span class="w">
@@ -2426,113 +2571,66 @@
             </span><span class="p">}</span><span class="w">
         </span><span class="p">]</span><span class="w">
     </span><span class="p">},</span><span class="w">
-    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"products"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-            </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CatalogItem"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"schema"</span><span class="p">:</span><span class="w"> </span><span class="s2">"product"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.90</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"category"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                    </span><span class="s2">"_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Category"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"category-1"</span><span class="w">
-                </span><span class="p">},</span><span class="w">
-                </span><span class="s2">"bounding_box"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                    </span><span class="s2">"_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BoundingBox"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"x"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"y"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"width"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"height"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="w">
-                </span><span class="p">},</span><span class="w">
-                </span><span class="s2">"catalog"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                    </span><span class="s2">"_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Catalog"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"catalog-1"</span><span class="w">
-                </span><span class="p">},</span><span class="w">
-                </span><span class="s2">"images"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-                    </span><span class="p">{</span><span class="w">
-                        </span><span class="s2">"_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Image"</span><span class="p">,</span><span class="w">
-                        </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-                        </span><span class="s2">"uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/products/1/a.png"</span><span class="p">,</span><span class="w">
-                        </span><span class="s2">"width"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
-                        </span><span class="s2">"height"</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"shorts"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"matches"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                        </span><span class="s2">"uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://i.com/result1.png"</span><span class="p">,</span><span class="w">
                     </span><span class="p">},</span><span class="w">
-                    </span><span class="p">{</span><span class="w">
-                        </span><span class="s2">"_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Image"</span><span class="p">,</span><span class="w">
-                        </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
-                        </span><span class="s2">"uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/products/1/b.png"</span><span class="p">,</span><span class="w">
-                        </span><span class="s2">"width"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
-                        </span><span class="s2">"height"</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="w">
-                    </span><span class="p">}</span><span class="w">
-                </span><span class="p">],</span><span class="w">
-                </span><span class="s2">"category"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                    </span><span class="s2">"_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Category"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sunglasses"</span><span class="w">
+                    </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.701</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Product"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5938629ec77b4a05f48f782a"</span><span class="w">
                 </span><span class="p">},</span><span class="w">
-                </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"external-product-id-1"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://company.xyz/external-product-id-1"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"foo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bar"</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                        </span><span class="s2">"uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://example.com/images/result2.png"</span><span class="w">
+                    </span><span class="p">},</span><span class="w">
+                    </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.7</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Product"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"59386368c77b4a05fa8f7b06"</span><span class="w">
                 </span><span class="p">},</span><span class="w">
-                </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-01-01T00:00:00.001Z"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-01-01T00:00:00.001Z"</span><span class="w">
+            </span><span class="p">],</span><span class="w">
+            </span><span class="s2">"bounding_box"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"y"</span><span class="p">:</span><span class="w"> </span><span class="mi">266</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"x"</span><span class="p">:</span><span class="w"> </span><span class="mi">54</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"height"</span><span class="p">:</span><span class="w"> </span><span class="mi">145</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"width"</span><span class="p">:</span><span class="w"> </span><span class="mi">204</span><span class="w">
             </span><span class="p">},</span><span class="w">
-            </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CatalogItem"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"schema"</span><span class="p">:</span><span class="w"> </span><span class="s2">"product"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.88</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"category"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                    </span><span class="s2">"_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Category"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"category-1"</span><span class="w">
-                </span><span class="p">},</span><span class="w">
-                </span><span class="s2">"bounding_box"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                    </span><span class="s2">"_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BoundingBox"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"x"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"y"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"width"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"height"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="w">
-                </span><span class="p">},</span><span class="w">
-                </span><span class="s2">"catalog"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                    </span><span class="s2">"_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Catalog"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"catalog-1"</span><span class="w">
-                </span><span class="p">},</span><span class="w">
-                </span><span class="s2">"images"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-                    </span><span class="p">{</span><span class="w">
-                        </span><span class="s2">"_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Image"</span><span class="p">,</span><span class="w">
-                        </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-                        </span><span class="s2">"uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/products/2/a.png"</span><span class="p">,</span><span class="w">
-                        </span><span class="s2">"width"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
-                        </span><span class="s2">"height"</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="w">
+            </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.963</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SearchResult"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"shorts"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"matches"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                        </span><span class="s2">"uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://i.com/result5.png"</span><span class="p">,</span><span class="w">
                     </span><span class="p">},</span><span class="w">
-                    </span><span class="p">{</span><span class="w">
-                        </span><span class="s2">"_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Image"</span><span class="p">,</span><span class="w">
-                        </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
-                        </span><span class="s2">"uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/products/2/b.png"</span><span class="p">,</span><span class="w">
-                        </span><span class="s2">"width"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
-                        </span><span class="s2">"height"</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="w">
-                    </span><span class="p">}</span><span class="w">
-                </span><span class="p">],</span><span class="w">
-                </span><span class="s2">"category"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                    </span><span class="s2">"_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Category"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sunglasses"</span><span class="w">
+                    </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.62</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Product"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5938629ec77b4a05f48f7821"</span><span class="w">
                 </span><span class="p">},</span><span class="w">
-                </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"external-product-id-2"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://company.xyz/external-product-id-2"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"foo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bar"</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                        </span><span class="s2">"uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://example.com/images/result4.png"</span><span class="w">
+                    </span><span class="p">},</span><span class="w">
+                    </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.4</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Product"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"59386368c77b4a05fa8f7b02"</span><span class="w">
                 </span><span class="p">},</span><span class="w">
-                </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-01-01T00:00:00.001Z"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-01-01T00:00:00.001Z"</span><span class="w">
-            </span><span class="p">}</span><span class="w">
-        </span><span class="p">]</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
+            </span><span class="p">],</span><span class="w">
+            </span><span class="s2">"bounding_box"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"y"</span><span class="p">:</span><span class="w"> </span><span class="mi">266</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"x"</span><span class="p">:</span><span class="w"> </span><span class="mi">54</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"height"</span><span class="p">:</span><span class="w"> </span><span class="mi">145</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"width"</span><span class="p">:</span><span class="w"> </span><span class="mi">204</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.831</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SearchResult"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
 </span></code></pre>
 <p>Search an image - detect and retreive objects (products/logos/faces) based on visual features/similarity.</p>
 
@@ -2577,6 +2675,19 @@
 <td>A valid image search object.</td>
 </tr>
 </tbody></table>
+
+          <h1 id="getting-started">Getting started.</h1>
+
+<p>To be able to use/access this API you will need to be a verified developer, please <strong><a href="https://markable.ai/signup">signup</a></strong> to get started. We&rsquo;ll get back to you with your user credentials.</p>
+
+<ol>
+<li><p>Then, <a href="#user-authentication">login</a> with your user credentials.</p></li>
+<li><p>Once you have logged in, you will get your <code class="prettyprint">user_access_token</code>. With this token, get your default <a href="#get-user-and-client">Client</a> we have created for you.</p></li>
+<li><p>Then, <a href="#client-authentication">authenticate</a> your Client to get your <code class="prettyprint">client_access_token</code>.</p></li>
+<li><p>Make your first <a href="#search">visual search</a>. You will be using your <code class="prettyprint">client_access_token</code> from above.</p></li>
+</ol>
+
+<p>This API and documentation is currently in <strong>private beta</strong> - subject for modifications.</p>
 
       </div>
       <div class="dark-box">
