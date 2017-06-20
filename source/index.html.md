@@ -17,6 +17,8 @@ includes:
   - objects
 
   - auth/index
+  - auth/user
+  - auth/client
 
   - catalog/index
   - catalog/create
@@ -36,6 +38,8 @@ includes:
 
   # - video/index
   # - video/search
+
+  - gettingstarted
 
 search: true
 ---
