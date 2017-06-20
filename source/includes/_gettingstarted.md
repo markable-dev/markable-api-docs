@@ -1,5 +1,5 @@
 
-# Getting started
+# Getting Started
 
 To be able to use/access this API you will need to be a verified developer, please **[signup](https://markable.ai/signup)** to get started. We'll get back to you with your user credentials.
 
