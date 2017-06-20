@@ -1,14 +1,26 @@
 
 ## <img src="images/search-image_icon.png" alt="search-image_icon" width="28px" height="auto"> Search
 
-> **Example:** Request
+> **Example:** Simple Image Search without Catalogs
 
 ```http
 POST https://api.markable.ai/image/search HTTP/1.1
 Authorization: Bearer 123abc
 {
 	"data": {
-        "image_uri": "https://example.com/images/1.png",
+        "image_uri": "http://i.com/1.png"
+    }
+}
+```
+
+> **Example:** Image Search with Catalogs
+
+```http
+POST https://api.markable.ai/image/search HTTP/1.1
+Authorization: Bearer 123abc
+{
+  "data": {
+        "image_uri": "http://i.com/1.png",
         "catalogs": [
             {
                 "name": "catalog-1"
@@ -27,7 +39,7 @@ curl -X POST https://api.markable.ai/image/search \
 -d '
 {
 	"data": {
-        "image_uri": "https://example.com/images/1.png",
+        "image_uri": "http://i.com/1.png",
         "catalogs": [
             {
                 "name": "catalog-1"
@@ -46,7 +58,7 @@ curl -X POST https://api.markable.ai/image/search \
 ```json
 {
     "meta": {
-        "image_uri": "https://example.com/images/1.png",
+        "image_uri": "http://i.com/1.png",
         "catalogs": [
             {
                 "name": "catalog-1"
@@ -56,113 +68,66 @@ curl -X POST https://api.markable.ai/image/search \
             }
         ]
     },
-    "data": {
-        "products": [
-            {
-                "_type": "CatalogItem",
-                "_id": "1",
-                "schema": "product",
-                "score": 0.90,
-                "category": {
-                    "_type": "Category",
-                    "_id": "1",
-                    "name": "category-1"
-                },
-                "bounding_box": {
-                    "_type": "BoundingBox",
-                    "x": 0,
-                    "y": 0,
-                    "width": 100,
-                    "height": 100
-                },
-                "catalog": {
-                    "_type": "Catalog",
-                    "_id": "1",
-                    "name": "catalog-1"
-                },
-                "images": [
-                    {
-                        "_type": "Image",
-                        "_id": "1",
-                        "uri": "https://example.com/products/1/a.png",
-                        "width": 200,
-                        "height": 300
+    "data": [
+        {
+            "category": "shorts",
+            "matches": [
+                {
+                    "image": {
+                        "uri": "http://i.com/result1.png",
                     },
-                    {
-                        "_type": "Image",
-                        "_id": "2",
-                        "uri": "https://example.com/products/1/b.png",
-                        "width": 200,
-                        "height": 300
-                    }
-                ],
-                "category": {
-                    "_type": "Category",
-                    "_id": "1",
-                    "name": "sunglasses"
+                    "score": 0.701,
+                    "type": "Product",
+                    "id": "5938629ec77b4a05f48f782a"
                 },
-                "data": {
-                    "id": "external-product-id-1",
-                    "url": "https://company.xyz/external-product-id-1",
-                    "foo": "bar"
+                {
+                    "image": {
+                        "uri": "http://example.com/images/result2.png"
+                    },
+                    "score": 0.7,
+                    "type": "Product",
+                    "id": "59386368c77b4a05fa8f7b06"
                 },
-                "created_at": "2017-01-01T00:00:00.001Z",
-                "updated_at": "2017-01-01T00:00:00.001Z"
+            ],
+            "bounding_box": {
+                "y": 266,
+                "x": 54,
+                "height": 145,
+                "width": 204
             },
-            {
-                "_type": "CatalogItem",
-                "_id": "2",
-                "schema": "product",
-                "score": 0.88,
-                "category": {
-                    "_type": "Category",
-                    "_id": "1",
-                    "name": "category-1"
-                },
-                "bounding_box": {
-                    "_type": "BoundingBox",
-                    "x": 0,
-                    "y": 0,
-                    "width": 100,
-                    "height": 100
-                },
-                "catalog": {
-                    "_type": "Catalog",
-                    "_id": "1",
-                    "name": "catalog-1"
-                },
-                "images": [
-                    {
-                        "_type": "Image",
-                        "_id": "1",
-                        "uri": "https://example.com/products/2/a.png",
-                        "width": 200,
-                        "height": 300
+            "score": 0.963,
+            "type": "SearchResult"
+        },
+        {
+            "category": "shorts",
+            "matches": [
+                {
+                    "image": {
+                        "uri": "http://i.com/result5.png",
                     },
-                    {
-                        "_type": "Image",
-                        "_id": "2",
-                        "uri": "https://example.com/products/2/b.png",
-                        "width": 200,
-                        "height": 300
-                    }
-                ],
-                "category": {
-                    "_type": "Category",
-                    "_id": "1",
-                    "name": "sunglasses"
+                    "score": 0.62,
+                    "type": "Product",
+                    "id": "5938629ec77b4a05f48f7821"
                 },
-                "data": {
-                    "id": "external-product-id-2",
-                    "url": "https://company.xyz/external-product-id-2",
-                    "foo": "bar"
+                {
+                    "image": {
+                        "uri": "http://example.com/images/result4.png"
+                    },
+                    "score": 0.4,
+                    "type": "Product",
+                    "id": "59386368c77b4a05fa8f7b02"
                 },
-                "created_at": "2017-01-01T00:00:00.001Z",
-                "updated_at": "2017-01-01T00:00:00.001Z"
-            }
-        ]
-    }
-}
+            ],
+            "bounding_box": {
+                "y": 266,
+                "x": 54,
+                "height": 145,
+                "width": 204
+            },
+            "score": 0.831,
+            "type": "SearchResult"
+        }
+    ]
 ```
 
 Search an image - detect and retreive objects (products/logos/faces) based on visual features/similarity.
