@@ -21,7 +21,7 @@ curl -X GET https://api.markable.ai/catalogs \
         {
             "_type": "Catalog",
             "_id": "1",
-            "_stats": 0,
+            "size": 0,
             "user": {
                 "_type": "User",
                 "_id": "1"
@@ -35,7 +35,7 @@ curl -X GET https://api.markable.ai/catalogs \
         {
             "_type": "Catalog",
             "_id": "2",
-            "_stats": 0,
+            "size": 0,
             "user": {
                 "_type": "User",
                 "_id": "1"

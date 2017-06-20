@@ -36,7 +36,7 @@ curl -X POST https://api.markable.ai/catalogs \
 	"data": {
         "_type": "Catalog",
         "_id": "1",
-        "_stats": 0,
+        "size": 0,
         "user": {
             "_type": "User",
             "_id": "1"

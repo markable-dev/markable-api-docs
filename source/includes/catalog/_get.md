@@ -20,7 +20,7 @@ curl -X GET https://api.markable.ai/catalogs/catalog-1 \
 	"data": {
         "_type": "Catalog",
         "_id": "1",
-        "_stats": 0,
+        "size": 0,
         "user": {
             "_type": "User",
             "_id": "1"

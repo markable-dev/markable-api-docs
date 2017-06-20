@@ -42,7 +42,8 @@
         "size": {
             "type": "integer",
             "minimum": 0,
-            "readOnly": true
+            "readOnly": true,
+            "description": "The number of items in this catalog"
         },
         "user": {
             "type": "object",
