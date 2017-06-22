@@ -20,7 +20,7 @@ of their own.
 > **Example:** Request
 
 ```http
-POST https://api.markable.ai/user/authorize HTTP/1.1
+POST https://api.markable.ai/auth/user/authorize HTTP/1.1
 {
 	"data": {
 		"email": "developer@client.com",
@@ -30,7 +30,7 @@ POST https://api.markable.ai/user/authorize HTTP/1.1
 ```
 
 ```shell
-curl -X POST https://api.markable.ai/user/authorize \
+curl -X POST https://api.markable.ai/auth/user/authorize \
 -d '
 {
 	"data": {
@@ -56,7 +56,7 @@ Create authorization (authentication token) for a user.
 
 ### HTTP Request
 
-`POST https://api.markable.ai/user/authorize`
+`POST https://api.markable.ai/auth/user/authorize`
 
 
 ### HTTP Headers
@@ -81,12 +81,12 @@ Attribute       | Type                  									| Description
 This request gives you user information and further the default client we have created for you.
 
 ```http
-GET https://api.markable.ai/users/ HTTP/1.1
+GET https://api.markable.ai/auth/users/ HTTP/1.1
 Authorization: Bearer usertoken123abc
 ```
 
 ```shell
-curl -X GET https://api.markable.ai/users/ \
+curl -X GET https://api.markable.ai/auth/users/ \
 -H 'Authorization: Bearer usertoken123abc'
 ```
 
@@ -121,7 +121,7 @@ curl -X GET https://api.markable.ai/users/ \
 
 ### HTTP Request
 
-`GET https://api.markable.ai/users`
+`GET https://api.markable.ai/auth/users`
 
 
 ### HTTP Headers
