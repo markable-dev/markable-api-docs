@@ -1051,14 +1051,14 @@ of their own.</p>
 <blockquote>
 <p><strong>Example:</strong> Request</p>
 </blockquote>
-<pre class="highlight http tab-http"><code><span class="nf">POST</span> <span class="nn">https://api.markable.ai/user/authorize</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<pre class="highlight http tab-http"><code><span class="nf">POST</span> <span class="nn">https://api.markable.ai/auth/user/authorize</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="s">{</span>
 <span class="s">    "data": {</span>
 <span class="s">        "email": "developer@client.com",</span>
 <span class="s">        "password": "password"</span>
 <span class="s">    }</span>
 <span class="s">}</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl -X POST https://api.markable.ai/user/authorize <span class="se">\</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl -X POST https://api.markable.ai/auth/user/authorize <span class="se">\</span>
 -d <span class="s1">'
 {
     "data": {
@@ -1081,7 +1081,7 @@ of their own.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">POST https://api.markable.ai/user/authorize</code></p>
+<p><code class="prettyprint">POST https://api.markable.ai/auth/user/authorize</code></p>
 
 <h3 id="http-headers">HTTP Headers</h3>
 
@@ -1110,9 +1110,9 @@ of their own.</p>
 <h2 id="get-user-and-client">Get User and Client</h2>
 
 <p>This request gives you user information and further the default client we have created for you.</p>
-<pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">https://api.markable.ai/users/</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">https://api.markable.ai/auth/users/</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer usertoken123abc</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl -X GET https://api.markable.ai/users/ <span class="se">\</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl -X GET https://api.markable.ai/auth/users/ <span class="se">\</span>
 -H <span class="s1">'Authorization: Bearer usertoken123abc'</span>
 </code></pre>
 <blockquote>
@@ -1144,7 +1144,7 @@ of their own.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET https://api.markable.ai/users</code></p>
+<p><code class="prettyprint">GET https://api.markable.ai/auth/users</code></p>
 
 <h3 id="http-headers">HTTP Headers</h3>
 
@@ -1197,14 +1197,14 @@ of their own.</p>
 <blockquote>
 <p><strong>Example:</strong> Request</p>
 </blockquote>
-<pre class="highlight http tab-http"><code><span class="nf">POST</span> <span class="nn">https://api.markable.ai/client/authorize</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<pre class="highlight http tab-http"><code><span class="nf">POST</span> <span class="nn">https://api.markable.ai/auth/client/authorize</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="s">{</span>
 <span class="s">  "data": {</span>
 <span class="s">    "client_id": "client_id_1",</span>
 <span class="s">    "client_secret": "client_secret_1"</span>
 <span class="s">  }</span>
 <span class="s">}</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl -X POST https://api.markable.ai/client/authorize <span class="se">\</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl -X POST https://api.markable.ai/auth/client/authorize <span class="se">\</span>
 -d <span class="s1">'
 {
   "data": {
@@ -1227,7 +1227,7 @@ of their own.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">POST https://api.markable.ai/client/authorize</code></p>
+<p><code class="prettyprint">POST https://api.markable.ai/auth/client/authorize</code></p>
 
 <h3 id="http-headers">HTTP Headers</h3>
 
