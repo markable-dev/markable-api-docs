@@ -58,37 +58,22 @@ curl -X POST https://api.markable.ai/image/search \
 ```json
 {
     "meta": {
-        "image_uri": "http://i.com/1.png",
-        "catalogs": [
-            {
-                "name": "catalog-1"
-            },
-            {
-                "name": "catalog-2"
-            }
-        ]
+        "image": {
+            "width": 100,
+            "height": 100
+            "uri": "http://i.com/1.png"
+        },
+        "stats": {
+            "detection": 313,
+            "extraction": 141,
+            "search": 8,
+            "image_download": 57
+        },
     },
     "data": [
         {
+            "type": "SearchResult"
             "category": "shorts",
-            "matches": [
-                {
-                    "image": {
-                        "uri": "http://i.com/result1.png",
-                    },
-                    "score": 0.701,
-                    "type": "Product",
-                    "id": "5938629ec77b4a05f48f782a"
-                },
-                {
-                    "image": {
-                        "uri": "http://example.com/images/result2.png"
-                    },
-                    "score": 0.7,
-                    "type": "Product",
-                    "id": "59386368c77b4a05fa8f7b06"
-                },
-            ],
             "bounding_box": {
                 "y": 266,
                 "x": 54,
@@ -96,28 +81,54 @@ curl -X POST https://api.markable.ai/image/search \
                 "width": 204
             },
             "score": 0.963,
-            "type": "SearchResult"
-        },
-        {
-            "category": "shorts",
             "matches": [
                 {
-                    "image": {
-                        "uri": "http://i.com/result5.png",
-                    },
-                    "score": 0.62,
-                    "type": "Product",
-                    "id": "5938629ec77b4a05f48f7821"
+                    "_type": "Product",
+                    "5938629ec77b4a05f48f782a",
+                    "score": 0.701,
+                    "images": [
+                        {
+                            "uri": "http://i.com/result1.png",
+                            "_type": "Image"
+                        },
+                        {
+                            "uri": "http://i.com/result2.png",
+                            "_type": "Image"
+                        }
+                    ],
+                    "catalog": {
+                        "_type": "Catalog"
+                        "name": "catalog-name",
+                        "_id": "catalog-id"
+                    }
+                    "data": {},
+                    "created_at": "2017-08-10T22:54:48.547Z",
+                    "updated_at": "2017-08-10T22:54:48.547Z"
                 },
                 {
-                    "image": {
-                        "uri": "http://example.com/images/result4.png"
+                    "_type": "Product",
+                    "id": "59386368c77b4a05fa8f7b06",
+                    "score": 0.7,
+                    "images": [
+                        {
+                            "uri": "http://i.com/result2.png"
+                            "_type": "Image"
+                        }
+                    ],
+                    "catalog": {
+                        "_type": "Catalog"
+                        "name": "catalog-name",
+                        "_id": "catalog-id"
                     },
-                    "score": 0.4,
-                    "type": "Product",
-                    "id": "59386368c77b4a05fa8f7b02"
-                },
-            ],
+                    "data": {},
+                    "created_at": "2017-08-10T22:54:48.547Z",
+                    "updated_at": "2017-08-10T22:54:48.547Z"
+                }
+            ]
+        },
+        {
+            "type": "SearchResult",
+            "category": "sandals",
             "bounding_box": {
                 "y": 266,
                 "x": 54,
@@ -125,7 +136,50 @@ curl -X POST https://api.markable.ai/image/search \
                 "width": 204
             },
             "score": 0.831,
-            "type": "SearchResult"
+            "matches": [
+                {
+                    "_type": "Product",
+                    "id": "5938629ec77b4a05f48f7821",
+                    "score": 0.62,
+                    "images": [
+                        {
+                            "uri": "http://i.com/result5.png",
+                            "_type": "Image"
+                        }
+                    ],
+                    "catalog": {
+                        "_type": "Catalog"
+                        "name": "catalog-name",
+                        "_id": "catalog-id"
+                    },
+                    "data": {},
+                    "created_at": "2017-08-10T22:54:48.547Z",
+                    "updated_at": "2017-08-10T22:54:48.547Z"
+                },
+                {
+                    "_type": "Product",
+                    "id": "59386368c77b4a05fa8f7b02",
+                    "score": 0.4,
+                    "images": [
+                        {
+                            "uri": "http://i.com/result4.png"
+                            "_type": "Image"
+                        },
+                        {
+                            "uri": "http://i.com/result5.png"
+                            "_type": "Image"
+                        }
+                    ],
+                    "catalog": {
+                        "_type": "Catalog"
+                        "name": "catalog-name",
+                        "_id": "catalog-id"
+                    },
+                    "data": {},
+                    "created_at": "2017-08-10T22:54:48.547Z",
+                    "updated_at": "2017-08-10T22:54:48.547Z"
+                }
+            ]
         }
     ]
 ```
