@@ -73,8 +73,13 @@ curl -X POST https://api.markable.ai/image/search \
     "data": [
         {
             "type": "SearchResult"
-            "category": "shorts",
+            "category": {
+                "_type": "Category",
+                "_id": "shorts",
+                "name": "shorts"
+            },
             "bounding_box": {
+                "_type": "BoundingBox",
                 "y": 266,
                 "x": 54,
                 "height": 145,
@@ -83,8 +88,8 @@ curl -X POST https://api.markable.ai/image/search \
             "score": 0.963,
             "matches": [
                 {
-                    "_type": "Product",
-                    "5938629ec77b4a05f48f782a",
+                    "_type": "CatalogItem",
+                    "_id": "5938629ec77b4a05f48f782a",
                     "score": 0.701,
                     "images": [
                         {
@@ -98,16 +103,19 @@ curl -X POST https://api.markable.ai/image/search \
                     ],
                     "catalog": {
                         "_type": "Catalog"
-                        "name": "catalog-name",
-                        "_id": "catalog-id"
+                        "name": "catalog-1",
+                        "_id": "catalog-1"
                     }
-                    "data": {},
+                    "data": {
+                        "id": "any custom data",
+                        "name": "custom product name"
+                    },
                     "created_at": "2017-08-10T22:54:48.547Z",
                     "updated_at": "2017-08-10T22:54:48.547Z"
                 },
                 {
-                    "_type": "Product",
-                    "id": "59386368c77b4a05fa8f7b06",
+                    "_type": "CatalogItem",
+                    "_id": "59386368c77b4a05fa8f7b06",
                     "score": 0.7,
                     "images": [
                         {
@@ -117,10 +125,13 @@ curl -X POST https://api.markable.ai/image/search \
                     ],
                     "catalog": {
                         "_type": "Catalog"
-                        "name": "catalog-name",
-                        "_id": "catalog-id"
+                        "name": "catalog-1",
+                        "_id": "catalog-1"
                     },
-                    "data": {},
+                    "data": {
+                        "id": "any custom data",
+                        "name": "custom product name"
+                    },
                     "created_at": "2017-08-10T22:54:48.547Z",
                     "updated_at": "2017-08-10T22:54:48.547Z"
                 }
@@ -128,8 +139,13 @@ curl -X POST https://api.markable.ai/image/search \
         },
         {
             "type": "SearchResult",
-            "category": "sandals",
+            "category": {
+                "_type": "Category",
+                "_id": "sandals",
+                "name": "sandals"
+            },
             "bounding_box": {
+                "_type": "BoundingBox",
                 "y": 266,
                 "x": 54,
                 "height": 145,
@@ -138,8 +154,8 @@ curl -X POST https://api.markable.ai/image/search \
             "score": 0.831,
             "matches": [
                 {
-                    "_type": "Product",
-                    "id": "5938629ec77b4a05f48f7821",
+                    "_type": "CatalogItem",
+                    "_id": "5938629ec77b4a05f48f7821",
                     "score": 0.62,
                     "images": [
                         {
@@ -149,16 +165,19 @@ curl -X POST https://api.markable.ai/image/search \
                     ],
                     "catalog": {
                         "_type": "Catalog"
-                        "name": "catalog-name",
-                        "_id": "catalog-id"
+                        "name": "catalog-2",
+                        "_id": "catalog-2"
                     },
-                    "data": {},
+                    "data": {
+                        "id": "any custom data",
+                        "name": "custom product name"
+                    },
                     "created_at": "2017-08-10T22:54:48.547Z",
                     "updated_at": "2017-08-10T22:54:48.547Z"
                 },
                 {
-                    "_type": "Product",
-                    "id": "59386368c77b4a05fa8f7b02",
+                    "_type": "CatalogItem",
+                    "_id": "59386368c77b4a05fa8f7b02",
                     "score": 0.4,
                     "images": [
                         {
@@ -172,10 +191,13 @@ curl -X POST https://api.markable.ai/image/search \
                     ],
                     "catalog": {
                         "_type": "Catalog"
-                        "name": "catalog-name",
-                        "_id": "catalog-id"
+                        "name": "catalog-2",
+                        "_id": "catalog-2"
                     },
-                    "data": {},
+                    "data": {
+                        "id": "any custom data",
+                        "name": "custom product name"
+                    },
                     "created_at": "2017-08-10T22:54:48.547Z",
                     "updated_at": "2017-08-10T22:54:48.547Z"
                 }
