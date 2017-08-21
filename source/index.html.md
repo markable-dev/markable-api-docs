@@ -12,6 +12,8 @@ toc_footers:
 includes:
   - introduction
 
+  - gettingstarted
+
   - versioning
   - errors
   - objects
@@ -39,7 +41,7 @@ includes:
   # - video/index
   # - video/search
 
-  - gettingstarted
+
 
 search: true
 ---
