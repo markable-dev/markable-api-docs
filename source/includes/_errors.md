@@ -1,7 +1,7 @@
 
 # Errors
 
-**Markable** uses conventional HTTP response codes to indicate the success or failure of an API request. In general, codes in the **2xx** range indicate success, codes in the **4xx** range indicate an error that failed given the information provided (e.g., a required parameter was omitted, a catalog item operation failed, etc.), and codes in the **5xx** range indicate an error with our servers.
+**Markable** uses conventional HTTP response codes to indicate the success or failure of an API request. In general, codes in the **2xx** range indicate success, codes in the **4xx** range indicate an error due to information provided (e.g., a required parameter was omitted, a catalog item operation failed, etc.), and codes in the **5xx** range indicate an error with our servers.
 
 
 ## HTTP Error Codes
@@ -14,7 +14,7 @@ Code 	| Description
 `404` 	| `Not Found` - The specified specified could not be found.
 `405` 	| `Method Not Allowed` - The request method is invalid for specified resource.
 `406` 	| `Not Acceptable` - The request format that isn't valid JSON.
-`429` 	| `Too Many Requests` - You have reached the default request limit. This can be adjusted depending on needs.
+`429` 	| `Too Many Requests` - You have reached the default request limit. (This can be adjusted depending on needs.)
 `500` 	| `Internal Server Error` - We had a problem with our server. Please try again later.
 `503` 	| `Service Unavailable` - We're temporarially offline for maintanance. Please try again later.
 
