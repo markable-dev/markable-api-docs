@@ -20,6 +20,7 @@ Authorization: Bearer 123abc
           "name": "sunglasses"
       },
 	    "data": {
+            "url": "https://company.xyz/external-product-id-2",
 	        "id": "external-id-1",
 	        "foo": "bar"
 	    }
@@ -45,6 +46,7 @@ curl -X PUT https://api.markable.ai/catalogs/catalog-1/items \
           "name": "sunglasses"
       },
 	    "data": {
+            "url": "https://company.xyz/external-product-id-2",
 	        "id": "external-id-1",
 	        "foo": "bar"
 	    }
@@ -88,6 +90,7 @@ curl -X PUT https://api.markable.ai/catalogs/catalog-1/items \
           "name": "sunglasses"
 	    },
 	    "data": {
+            "url": "https://company.xyz/external-product-id-2",
 	        "id": "external-id-123",
 	        "foo": "bar"
 	    },

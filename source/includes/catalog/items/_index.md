@@ -38,8 +38,8 @@
         "name": "dress"
     },
     "data": {
+        "url": "https://example.com/product/page.html",
         "id": "external-id-1",
-        "url": "external-url-1",
         "foo": "bar"
     },
     "created_at": "2017-01-01T00:00:00Z",

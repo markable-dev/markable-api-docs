@@ -49,8 +49,8 @@ curl -X GET https://api.markable.ai/catalogs/catalog-1/items \
               "name": "sunglasses"
           },
 	        "data": {
+                "url": "https://company.xyz/external-product-id-1",
 	            "id": "external-id-1",
-	            "url": "https://company.xyz/external-product-id-1",
 	            "foo": "bar"
 	        },
 	        "created_at": "2017-01-01T00:00:00.001Z",
@@ -87,8 +87,8 @@ curl -X GET https://api.markable.ai/catalogs/catalog-1/items \
               "name": "sunglasses"
           },
 	        "data": {
+                "url": "https://company.xyz/external-product-id-2",
 	            "id": "external-id-2",
-	            "url": "https://company.xyz/external-product-id-2",
 	            "foo": "bar"
 	        },
 	        "created_at": "2017-01-01T00:00:00.001Z",

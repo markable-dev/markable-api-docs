@@ -48,6 +48,7 @@ curl -X GET https://api.markable.ai/catalogs/catalog-1/items/item-1 \
           "name": "sunglasses"
       },
 	    "data": {
+            "url": "https://example.com/product/page.html",
 	        "id": "external-id-1",
 	        "foo": "bar"
 	    },
