@@ -123,3 +123,5 @@ Header       		| Description
 Parameter       | Description
 ----------      | ----------
 `catalogId`     | The ID of the catalog. **<small>required</small>**
+`limit`         | The limit of items to return (defaults to 10).
+`offset`        | The offset of items to return.
