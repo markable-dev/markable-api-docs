@@ -28,6 +28,7 @@ includes:
   - catalog/delete
   - catalog/get
   - catalog/list
+  - catalog/public
 
   - catalog/items/index
   - catalog/items/create
