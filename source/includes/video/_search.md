@@ -4,7 +4,7 @@
 > **Example:** Request
 
 ```http
-POST https://api.markable.ai/video/search HTTP/1.1
+POST https://catalog.markable.ai/video/search HTTP/1.1
 Authorization: Bearer 123abc
 {
 	"data": {
@@ -22,7 +22,7 @@ Authorization: Bearer 123abc
 ```
 
 ```shell
-curl -X POST https://api.markable.ai/video/search \
+curl -X POST https://catalog.markable.ai/video/search \
 -H 'Authorization: Bearer 123abc' \
 -d '
 {
@@ -62,8 +62,8 @@ curl -X POST https://api.markable.ai/video/search \
             "_id": "1",
             "meta": {
                 "snapshot": {
-                    "image_uri": "https://api.markable.ai/video/data/1_mp4/snapshots/1.png",
-                    "image_debug_uri": "https://api.markable.ai/video/data/1_mp4/snapshots/1.debug.png",
+                    "image_uri": "https://data.markable.ai/video/data/1_mp4/snapshots/1.png",
+                    "image_debug_uri": "https://data.markable.ai/video/data/1_mp4/snapshots/1.debug.png",
                     "index": 0,
                     "timestamp": 0,
                     "fingerprint": "abc1"
@@ -179,8 +179,8 @@ curl -X POST https://api.markable.ai/video/search \
             "_id": "2",
             "meta": {
                 "snapshot": {
-                    "image_uri": "https://api.markable.ai/videos/1_mp4/snapshots/2.png",
-                    "image_debug_uri": "https://api.markable.ai/videos/1_mp4/snapshots/2.debug.png",
+                    "image_uri": "https://data.markable.ai/videos/1_mp4/snapshots/2.png",
+                    "image_debug_uri": "https://data.markable.ai/videos/1_mp4/snapshots/2.debug.png",
                     "catalog": 0,
                     "timestamp": 2000,
                     "fingerprint": "abc2"
@@ -203,7 +203,7 @@ Search a video - detect and retreive objects (products/logos/faces) based on vis
 
 ### HTTP Request
 
-`POST https://api.markable.ai/video/search`
+`POST https://catalog.markable.ai/video/search`
 
 
 ### HTTP Headers

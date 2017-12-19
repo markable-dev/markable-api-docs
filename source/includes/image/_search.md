@@ -4,7 +4,7 @@
 > **Example:** Simple Image Search without Catalogs
 
 ```http
-POST https://api.markable.ai/image/search HTTP/1.1
+POST https://catalog.markable.ai/image/search HTTP/1.1
 Authorization: Bearer 123abc
 {
 	"data": {
@@ -16,7 +16,7 @@ Authorization: Bearer 123abc
 > **Example:** Image Search with Catalogs
 
 ```http
-POST https://api.markable.ai/image/search HTTP/1.1
+POST https://catalog.markable.ai/image/search HTTP/1.1
 Authorization: Bearer 123abc
 {
   "data": {
@@ -34,7 +34,7 @@ Authorization: Bearer 123abc
 ```
 
 ```shell
-curl -X POST https://api.markable.ai/image/search \
+curl -X POST https://catalog.markable.ai/image/search \
 -H 'Authorization: Bearer 123abc' \
 -d '
 {
@@ -215,7 +215,7 @@ Search an image - detect and retreive objects (products/logos/faces) based on vi
 
 ### HTTP Request
 
-`POST https://api.markable.ai/image/search`
+`POST https://catalog.markable.ai/image/search`
 
 
 ### HTTP Headers

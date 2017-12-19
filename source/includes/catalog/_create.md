@@ -4,7 +4,7 @@
 > **Example:** Request
 
 ```http
-POST https://api.markable.ai/catalogs HTTP/1.1
+POST https://catalog.markable.ai/catalogs HTTP/1.1
 Authorization: Bearer 123abc
 {
 	"data": {
@@ -16,7 +16,7 @@ Authorization: Bearer 123abc
 ```
 
 ```shell
-curl -X POST https://api.markable.ai/catalogs \
+curl -X POST https://catalog.markable.ai/catalogs \
 -H 'Authorization: Bearer 123abc' \
 -d '
 {
@@ -60,7 +60,7 @@ Create a new [catalog](#the-catalog-object).
 
 ### HTTP Request
 
-`POST https://api.markable.ai/catalogs`
+`POST https://catalog.markable.ai/catalogs`
 
 
 ### HTTP Headers

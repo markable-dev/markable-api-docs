@@ -4,7 +4,7 @@
 > **Example:** Request
 
 ```http
-PUT https://api.markable.ai/catalogs/catalog-1/items HTTP/1.1
+PUT https://catalog.markable.ai/catalogs/catalog-1/items HTTP/1.1
 Authorization: Bearer 123abc
 {
 	"data": {
@@ -29,7 +29,7 @@ Authorization: Bearer 123abc
 ```
 
 ```shell
-curl -X PUT https://api.markable.ai/catalogs/catalog-1/items \
+curl -X PUT https://catalog.markable.ai/catalogs/catalog-1/items \
 -H 'Authorization: Bearer 123abc' \
 -d '
 {
@@ -110,7 +110,7 @@ Update an existing [catalog item](#the-catalog-item-object).
 
 ### HTTP Request
 
-`PUT https://api.markable.ai/catalogs/:catalogId/items/:itemId`
+`PUT https://catalog.markable.ai/catalogs/:catalogId/items/:itemId`
 
 
 ### HTTP Headers
