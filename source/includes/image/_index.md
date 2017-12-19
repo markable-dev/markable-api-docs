@@ -10,10 +10,10 @@
 	"image_uri": "https://example.com/images/1.png",
 	"catalogs": [
 	    {
-	        "name": "catalog-1"
+	        "_id": "catalog-id-1"
 	    },
 	    {
-	        "name": "catalog-2"
+	        "_id": "catalog-id-2"
 	    }
 	]
 }

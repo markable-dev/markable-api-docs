@@ -23,10 +23,10 @@ Authorization: Bearer 123abc
         "image_uri": "http://i.com/1.png",
         "catalogs": [
             {
-                "name": "catalog-1"
+                "_id": "catalog-id-1"
             },
             {
-                "name": "catalog-2"
+                "_id": "catalog-id-2"
             }
         ]
     }
@@ -42,10 +42,10 @@ curl -X POST https://api.markable.ai/image/search \
         "image_uri": "http://i.com/1.png",
         "catalogs": [
             {
-                "name": "catalog-1"
+                "_id": "catalog-id-1"
             },
             {
-                "name": "catalog-2"
+                "_id": "catalog-id-2"
             }
         ]
     }
