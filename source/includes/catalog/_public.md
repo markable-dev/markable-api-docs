@@ -59,7 +59,7 @@ Get all existing [catalogs](#the-catalog-object).
 
 ### HTTP Request
 
-`GET https://catalog.markable.ai/catalogs`
+`GET https://catalog.markable.ai/catalogs/public`
 
 
 ### HTTP Headers
