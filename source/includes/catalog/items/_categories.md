@@ -10,13 +10,12 @@ Authorization: Bearer 123abc
 
 ```shell
 curl -X GET https://catalog.markable.ai/category \
--H 'Authorization: Bearer 123abc' \
-'
+-H 'Authorization: Bearer 123abc'
 ```
 
 > **Example:** Response
 
-```
+```json
 {
     "meta": {
         "request": {
@@ -34,40 +33,16 @@ curl -X GET https://catalog.markable.ai/category \
         }
     },
     "data": [
-        "coats_jackets",
-        "suiting_blazers",
-        "sweaters ",
-        "hoodies",
-        "vests",
-        "tees ",
-        "tanks_camis",
-        "tunics ",
-        "henleys",
-        "polos",
-        "blouses_shirts ",
-        "pants",
-        "jeans",
-        "shorts ",
-        "skirts ",
-        "leggings ",
         "dresses",
-        "jumpsuits_rompers_overalls ",
-        "handbags ",
-        "clutches ",
-        "belts",
-        "boots",
-        "shoes",
-        "sandals",
-        "glasses",
-        "beanieknitcaps ",
-        "cowboyhats ",
-        "scarves_wraps"
+        "suiting_blazers",
+        "sweaters",
+        "pants"
     ]
 }
 ```
 
 
-List our supported categories
+Markable's supported categories.
 
 <aside class="notice">
     This operation requires a valid <code>access_token</code> - see <a href="#authentication">Authentication</a>.
