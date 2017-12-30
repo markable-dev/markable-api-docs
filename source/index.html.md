@@ -31,6 +31,7 @@ includes:
   - catalog/public
 
   - catalog/items/index
+  - catalog/items/categories
   - catalog/items/create
   - catalog/items/delete
   - catalog/items/get
