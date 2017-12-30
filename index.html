@@ -2085,6 +2085,67 @@ of their own.</p>
 </tr>
 </tbody></table>
 
+          <h2 id="supported-categories">Supported Categories</h2>
+
+<blockquote>
+<p><strong>Example:</strong> Request</p>
+</blockquote>
+<pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">https://catalog.markable.ai/category</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer 123abc</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl -X GET https://catalog.markable.ai/category <span class="se">\</span>
+-H <span class="s1">'Authorization: Bearer 123abc'</span>
+</code></pre>
+<blockquote>
+<p><strong>Example:</strong> Response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"request"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"params"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+            </span><span class="s2">"protocol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"query"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+            </span><span class="s2">"route"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/category"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/category"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"response"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+        </span><span class="s2">"service"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"environment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"production"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"markable-api-catalog"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"dresses"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"suiting_blazers"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"sweaters"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"pants"</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Markable&rsquo;s supported categories.</p>
+
+<aside class="notice">
+    This operation requires a valid <code>access_token</code> - see <a href="#authentication">Authentication</a>.
+</aside>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET https://catalog.markable.ai/category</code></p>
+
+<h3 id="http-headers">HTTP Headers</h3>
+
+<table><thead>
+<tr>
+<th>Header</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">Authorization</code></td>
+<td><a href="https://tools.ietf.org/html/rfc6750">HTTP Bearer Token</a> for authorizing the request. <br><br>Format is <code class="prettyprint">Bearer :access_token</code>, where <code class="prettyprint">access_token</code> is given by <a href="#authentication">Authentication</a>. <strong><small>required</small></strong></td>
+</tr>
+</tbody></table>
+
           <h2 id="create-catalog-item"><img src="images/create-catalog-item_icon.png" alt="create-catalog-item_icon" width="26px" height="auto"> Create catalog item</h2>
 
 <blockquote>
