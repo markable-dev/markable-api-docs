@@ -17,21 +17,6 @@ curl -X GET https://catalog.markable.ai/category \
 
 ```json
 {
-    "meta": {
-        "request": {
-            "method": "GET",
-            "params": {},
-            "protocol": "http",
-            "query": {},
-            "route": "/category",
-            "url": "/category"
-        },
-        "response": {},
-        "service": {
-            "environment": "production",
-            "name": "markable-api-catalog"
-        }
-    },
     "data": [
         "dresses",
         "suiting_blazers",
