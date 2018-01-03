@@ -1072,6 +1072,7 @@ of their own.</p>
 <span class="s">    }</span>
 <span class="s">}</span>
 </code></pre><pre class="highlight shell tab-shell"><code>curl -X POST https://auth.markable.ai/auth/user/authorize <span class="se">\</span>
+-H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 -d <span class="s1">'
 {
     "data": {
@@ -1126,6 +1127,7 @@ of their own.</p>
 <pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">https://auth.markable.ai/auth/users/</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer usertoken123abc</span>
 </code></pre><pre class="highlight shell tab-shell"><code>curl -X GET https://auth.markable.ai/auth/users/ <span class="se">\</span>
+-H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 -H <span class="s1">'Authorization: Bearer usertoken123abc'</span>
 </code></pre>
 <blockquote>
@@ -1218,6 +1220,7 @@ of their own.</p>
 <span class="s">  }</span>
 <span class="s">}</span>
 </code></pre><pre class="highlight shell tab-shell"><code>curl -X POST https://auth.markable.ai/auth/client/authorize <span class="se">\</span>
+-H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 -d <span class="s1">'
 {
   "data": {
@@ -1419,6 +1422,7 @@ of their own.</p>
 <span class="s">    }</span>
 <span class="s">}</span>
 </code></pre><pre class="highlight shell tab-shell"><code>curl -X POST https://catalog.markable.ai/catalogs <span class="se">\</span>
+-H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 -H <span class="s1">'Authorization: Bearer 123abc'</span> <span class="se">\</span>
 -d <span class="s1">'
 {
@@ -1508,6 +1512,7 @@ of their own.</p>
 <span class="s">    }</span>
 <span class="s">}</span>
 </code></pre><pre class="highlight shell tab-shell"><code>curl -X PUT https://catalog.markable.ai/catalogs/catalog-1 <span class="se">\</span>
+-H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 -H <span class="s1">'Authorization: Bearer 123abc'</span> <span class="se">\</span>
 -d <span class="s1">'
 {
@@ -1599,6 +1604,7 @@ of their own.</p>
 <pre class="highlight http tab-http"><code><span class="nf">DELETE</span> <span class="nn">https://catalog.markable.ai/catalogs/catalog-1</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer 123abc</span>
 </code></pre><pre class="highlight shell tab-shell"><code>curl -X DELETE https://catalog.markable.ai/catalogs/catalog-1 <span class="se">\</span>
+-H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 -H <span class="s1">'Authorization: Bearer 123abc'</span>
 </code></pre>
 <blockquote>
@@ -1654,6 +1660,7 @@ of their own.</p>
 <pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">https://catalog.markable.ai/catalogs/catalog-1</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer 123abc</span>
 </code></pre><pre class="highlight shell tab-shell"><code>curl -X GET https://catalog.markable.ai/catalogs/catalog-1 <span class="se">\</span>
+-H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 -H <span class="s1">'Authorization: Bearer 123abc'</span>
 </code></pre>
 <blockquote>
@@ -1722,6 +1729,7 @@ of their own.</p>
 <pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">https://catalog.markable.ai/catalogs</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer 123abc</span>
 </code></pre><pre class="highlight shell tab-shell"><code>curl -X GET https://catalog.markable.ai/catalogs <span class="se">\</span>
+-H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 -H <span class="s1">'Authorization: Bearer 123abc'</span>
 </code></pre>
 <blockquote>
@@ -1796,6 +1804,7 @@ of their own.</p>
 <pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">https://catalog.markable.ai/catalogs/public</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer 123abc</span>
 </code></pre><pre class="highlight shell tab-shell"><code>curl -X GET https://catalog.markable.ai/catalogs/public <span class="se">\</span>
+-H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 -H <span class="s1">'Authorization: Bearer 123abc'</span>
 </code></pre>
 <blockquote>
@@ -2085,6 +2094,14 @@ of their own.</p>
 </tr>
 </tbody></table>
 
+<p>We have constraints on the image sizes we index. We support <code class="prettyprint">.jpg, .jpeg, .png</code> and</p>
+
+<p>Minimum image size = <code class="prettyprint">224</code></p>
+
+<p>Maximum image size = <code class="prettyprint">3200</code></p>
+
+<p>Maximum image memory size = <code class="prettyprint">2.5 * 1024 * 1024</code></p>
+
           <h2 id="supported-categories">Supported Categories</h2>
 
 <blockquote>
@@ -2093,27 +2110,13 @@ of their own.</p>
 <pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">https://catalog.markable.ai/category</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer 123abc</span>
 </code></pre><pre class="highlight shell tab-shell"><code>curl -X GET https://catalog.markable.ai/category <span class="se">\</span>
+-H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 -H <span class="s1">'Authorization: Bearer 123abc'</span>
 </code></pre>
 <blockquote>
 <p><strong>Example:</strong> Response</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"request"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"params"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
-            </span><span class="s2">"protocol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"query"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
-            </span><span class="s2">"route"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/category"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/category"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="s2">"response"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
-        </span><span class="s2">"service"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"environment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"production"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"markable-api-catalog"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-    </span><span class="p">},</span><span class="w">
     </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="s2">"dresses"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"suiting_blazers"</span><span class="p">,</span><span class="w">
@@ -2174,6 +2177,7 @@ of their own.</p>
 <span class="s">    }</span>
 <span class="s">}</span>
 </code></pre><pre class="highlight shell tab-shell"><code>curl -X POST https://catalog.markable.ai/catalogs/catalog-1/items <span class="se">\</span>
+-H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 -H <span class="s1">'Authorization: Bearer 123abc'</span> <span class="se">\</span>
 -d <span class="s1">'
 {
@@ -2304,6 +2308,7 @@ of their own.</p>
 <pre class="highlight http tab-http"><code><span class="nf">DELETE</span> <span class="nn">https://catalog.markable.ai/catalogs/catalog-1/items/item-1</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer 123abc</span>
 </code></pre><pre class="highlight shell tab-shell"><code>curl -X DELETE https://catalog.markable.ai/catalogs/catalog-1/items/item-1 <span class="se">\</span>
+-H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 -H <span class="s1">'Authorization: Bearer 123abc'</span>
 </code></pre>
 <blockquote>
@@ -2400,6 +2405,7 @@ of their own.</p>
 <pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">https://catalog.markable.ai/catalogs/catalog-1/items/item-1</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer 123abc</span>
 </code></pre><pre class="highlight shell tab-shell"><code>curl -X GET https://catalog.markable.ai/catalogs/catalog-1/items/item-1 <span class="se">\</span>
+-H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 -H <span class="s1">'Authorization: Bearer 123abc'</span>
 </code></pre>
 <blockquote>
@@ -2496,6 +2502,7 @@ of their own.</p>
 <pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">https://catalog.markable.ai/catalogs/catalog-1/items</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer 123abc</span>
 </code></pre><pre class="highlight shell tab-shell"><code>curl -X GET https://catalog.markable.ai/catalogs/catalog-1/items <span class="se">\</span>
+-H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 -H <span class="s1">'Authorization: Bearer 123abc'</span>
 </code></pre>
 <blockquote>
@@ -2700,6 +2707,7 @@ of their own.</p>
 <span class="s">    }</span>
 <span class="s">}</span>
 </code></pre><pre class="highlight shell tab-shell"><code>curl -X POST https://catalog.markable.ai/image/search <span class="se">\</span>
+-H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 -H <span class="s1">'Authorization: Bearer 123abc'</span> <span class="se">\</span>
 -d <span class="s1">'
 {
