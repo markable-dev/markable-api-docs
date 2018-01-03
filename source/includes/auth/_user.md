@@ -31,6 +31,7 @@ POST https://auth.markable.ai/auth/user/authorize HTTP/1.1
 
 ```shell
 curl -X POST https://auth.markable.ai/auth/user/authorize \
+-H 'Content-Type: application/json' \
 -d '
 {
 	"data": {
@@ -87,6 +88,7 @@ Authorization: Bearer usertoken123abc
 
 ```shell
 curl -X GET https://auth.markable.ai/auth/users/ \
+-H 'Content-Type: application/json' \
 -H 'Authorization: Bearer usertoken123abc'
 ```
 

@@ -10,6 +10,7 @@ Authorization: Bearer 123abc
 
 ```shell
 curl -X GET https://catalog.markable.ai/catalogs/public \
+-H 'Content-Type: application/json' \
 -H 'Authorization: Bearer 123abc'
 ```
 

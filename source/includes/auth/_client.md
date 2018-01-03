@@ -37,6 +37,7 @@ POST https://auth.markable.ai/auth/client/authorize HTTP/1.1
 
 ```shell
 curl -X POST https://auth.markable.ai/auth/client/authorize \
+-H 'Content-Type: application/json' \
 -d '
 {
   "data": {
