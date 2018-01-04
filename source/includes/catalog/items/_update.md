@@ -17,7 +17,7 @@ Authorization: Bearer 123abc
 	        }
 	    ],
 	    "category": {
-          "name": "sunglasses"
+          "name": "glasses"
       },
 	    "data": {
             "url": "https://company.xyz/external-product-id-2",
@@ -44,7 +44,7 @@ curl -X PUT https://catalog.markable.ai/catalogs/catalog-1/items \
 	        }
 	    ],
 	    "category": {
-          "name": "sunglasses"
+          "name": "glasses"
       },
 	    "data": {
             "url": "https://company.xyz/external-product-id-2",
@@ -88,7 +88,7 @@ curl -X PUT https://catalog.markable.ai/catalogs/catalog-1/items \
 	    "category": {
           "_type": "Category",
           "_id": "1",
-          "name": "sunglasses"
+          "name": "glasses"
 	    },
 	    "data": {
             "url": "https://company.xyz/external-product-id-2",

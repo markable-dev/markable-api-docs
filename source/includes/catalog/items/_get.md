@@ -46,7 +46,7 @@ curl -X GET https://catalog.markable.ai/catalogs/catalog-1/items/item-1 \
 	    "category": {
           "_type": "Category",
           "_id": "1",
-          "name": "sunglasses"
+          "name": "glasses"
       },
 	    "data": {
             "url": "https://example.com/product/page.html",

@@ -47,7 +47,7 @@ curl -X GET https://catalog.markable.ai/catalogs/catalog-1/items \
 	        "category": {
               "_type": "Category",
               "_id": "1",
-              "name": "sunglasses"
+              "name": "glasses"
           },
 	        "data": {
                 "url": "https://company.xyz/external-product-id-1",
@@ -85,7 +85,7 @@ curl -X GET https://catalog.markable.ai/catalogs/catalog-1/items \
 	        "category": {
               "_type": "Category",
               "_id": "1",
-              "name": "sunglasses"
+              "name": "glasses"
           },
 	        "data": {
                 "url": "https://company.xyz/external-product-id-2",

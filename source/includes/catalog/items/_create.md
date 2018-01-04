@@ -17,7 +17,7 @@ Authorization: Bearer 123abc
             }
         ],
         "category": {
-            "name": "sunglasses"
+            "name": "glasses"
         },
         "data": {
             "url": "https://example.com/product/page.html",
@@ -44,7 +44,7 @@ curl -X POST https://catalog.markable.ai/catalogs/catalog-1/items \
             }
         ],
         "category": {
-            "name": "sunglasses"
+            "name": "glasses"
         }
         "data": {
             "url": "https://example.com/product/page.html",
@@ -88,7 +88,7 @@ curl -X POST https://catalog.markable.ai/catalogs/catalog-1/items \
 	    "category": {
           "_type": "Category",
           "_id": "1",
-          "name": "sunglasses"
+          "name": "glasses"
       },
 	    "data": {
             "url": "https://example.com/product/page.html",
