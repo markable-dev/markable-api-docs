@@ -33,6 +33,7 @@ includes:
 
   - catalog/items/index
   - catalog/items/categories
+  - catalog/items/categorize
   - catalog/items/create
   - catalog/items/delete
   - catalog/items/get

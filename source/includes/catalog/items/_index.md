@@ -156,7 +156,13 @@
         },
         "data": {
             "type": "object",
-            "additionalProperties": true
+            "properties": {
+                "url": {
+                    "type": "string",
+                }
+            },
+            "additionalProperties": true,
+            "required": ["url"]
         },
         "created_at": {
             "type": "string",
