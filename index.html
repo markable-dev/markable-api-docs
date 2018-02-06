@@ -2108,7 +2108,13 @@ the indexing status of just the first (primary) image of the catalogItem</p>
         </span><span class="p">},</span><span class="w">
         </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"object"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"additionalProperties"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+            </span><span class="s2">"properties"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="s2">"additionalProperties"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"required"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"url"</span><span class="p">]</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -2215,6 +2221,107 @@ the indexing status of just the first (primary) image of the catalogItem</p>
 <h3 id="http-request">HTTP Request</h3>
 
 <p><code class="prettyprint">GET https://catalog.markable.ai/category</code></p>
+
+<h3 id="http-headers">HTTP Headers</h3>
+
+<table><thead>
+<tr>
+<th>Header</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">Authorization</code></td>
+<td><a href="https://tools.ietf.org/html/rfc6750">HTTP Bearer Token</a> for authorizing the request. <br><br>Format is <code class="prettyprint">Bearer :access_token</code>, where <code class="prettyprint">access_token</code> is given by <a href="#authentication">Authentication</a>. <strong><small>required</small></strong></td>
+</tr>
+</tbody></table>
+
+          <h2 id="auto-categorize-alpha-release">Auto Categorize! (Alpha Release)</h2>
+
+<blockquote>
+<p><strong>Example:</strong> Request</p>
+</blockquote>
+<pre class="highlight http tab-http"><code><span class="nf">POST</span> <span class="nn">https://catalog.markable.ai/category</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer 123abc</span>
+<span class="s">{</span>
+<span class="s">    "data": {</span>
+<span class="s">        "images": [</span>
+<span class="s">            {</span>
+<span class="s">                "uri": "https://example.com/products/1/a.png"</span>
+<span class="s">            },</span>
+<span class="s">            {</span>
+<span class="s">                "uri": "https://example.com/products/1/b.png"</span>
+<span class="s">            }</span>
+<span class="s">        ],</span>
+<span class="s">        "data": {</span>
+<span class="s">            "url": "https://example.com/product/shoes.html",</span>
+<span class="s">            "name": "A shoe product",</span>
+<span class="s">            "description": "This is a fantastic shoe product",</span>
+<span class="s">            "categoryInfo": "Some relevant information about category"</span>
+<span class="s">        }</span>
+<span class="s">    }</span>
+<span class="s">}</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl -X POST https://catalog.markable.ai/category <span class="se">\</span>
+-H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+-H <span class="s1">'Authorization: Bearer 123abc'</span> <span class="se">\</span>
+-d <span class="s1">'
+{
+    "data": {
+        "images": [
+            {
+                "uri": "https://example.com/products/1/a.png"
+            },
+            {
+                "uri": "https://example.com/products/1/b.png"
+            }
+        ],
+        "data": {
+            "url": "https://example.com/product/shoes.html",
+            "name": "A shoe product",
+            "description": "This is a fantastic shoe product",
+            "categoryInfo": "Some relevant information about category"
+        }
+    }
+}
+'</span>
+</code></pre>
+<blockquote>
+<p><strong>Example:</strong> Response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"images"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/products/1/a.png"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/products/1/b.png"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="s2">"category"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"shoes"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/product/shoes.html"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A shoe product"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This is a fantastic shoe product"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"categoryInfo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Some relevant information about category"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+<p>Markable&rsquo;s auto categorization for an Item (alpha release</p>
+
+<p>Given an item without a category, we try and figure out the Markabel category. Its best to run this call with as much
+information as possible in the freeform <code class="prettyprint">data</code> key.</p>
+
+<aside class="notice">
+    This operation requires a valid <code>access_token</code> - see <a href="#authentication">Authentication</a>.
+</aside>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST https://catalog.markable.ai/category</code></p>
 
 <h3 id="http-headers">HTTP Headers</h3>
 
