@@ -2203,12 +2203,38 @@ the indexing status of just the first (primary) image of the catalogItem</p>
 <blockquote>
 <p><strong>Example:</strong> Response</p>
 </blockquote>
+
+<p>This is our current list of supported categories.</p>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="s2">"dresses"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"coats_jackets"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"suiting_blazers"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"sweaters"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"pants"</span><span class="w">
+        </span><span class="s2">"hoodies"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"vests"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"tees"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"tanks_camis"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"tunics"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"henleys"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"polos"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"blouses_shirts"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"pants"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"jeans"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"shorts"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"skirts"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"leggings"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"dresses"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"jumpsuits_rompers_overalls"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"handbags"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"clutches"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"belts"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"boots"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"shoes"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"sandals"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"glasses"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"beanieknitcaps"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"cowboyhats"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"scarves_wraps"</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -2310,9 +2336,9 @@ the indexing status of just the first (primary) image of the catalogItem</p>
     </span><span class="p">}</span><span class="w">
 
 </span></code></pre>
-<p>Markable&rsquo;s auto categorization for an Item (alpha release</p>
+<p>Markable&rsquo;s auto categorization for an Item (alpha release)</p>
 
-<p>Given an item without a category, we try and figure out the Markabel category. Its best to run this call with as much
+<p>Given an item without a category, we try and figure out what the the <a href="#supported-categories">Supported Markable category</a> is. Its best to run this call with as much
 information as possible in the freeform <code class="prettyprint">data</code> key.</p>
 
 <aside class="notice">
