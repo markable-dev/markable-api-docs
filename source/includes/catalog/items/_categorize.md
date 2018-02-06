@@ -79,9 +79,9 @@ curl -X POST https://catalog.markable.ai/category \
 ```
 
 
-Markable's auto categorization for an Item (alpha release
+Markable's auto categorization for an Item (alpha release)
 
-Given an item without a category, we try and figure out the Markabel category. Its best to run this call with as much
+Given an item without a category, we try and figure out what the the [Supported Markable category](#supported-categories) is. Its best to run this call with as much
 information as possible in the freeform `data` key.
 
 <aside class="notice">

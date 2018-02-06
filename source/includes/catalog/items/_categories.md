@@ -16,13 +16,39 @@ curl -X GET https://catalog.markable.ai/category \
 
 > **Example:** Response
 
+This is our current list of supported categories.
+
 ```json
 {
     "data": [
-        "dresses",
+        "coats_jackets",
         "suiting_blazers",
         "sweaters",
-        "pants"
+        "hoodies",
+        "vests",
+        "tees",
+        "tanks_camis",
+        "tunics",
+        "henleys",
+        "polos",
+        "blouses_shirts",
+        "pants",
+        "jeans",
+        "shorts",
+        "skirts",
+        "leggings",
+        "dresses",
+        "jumpsuits_rompers_overalls",
+        "handbags",
+        "clutches",
+        "belts",
+        "boots",
+        "shoes",
+        "sandals",
+        "glasses",
+        "beanieknitcaps",
+        "cowboyhats",
+        "scarves_wraps"
     ]
 }
 ```
