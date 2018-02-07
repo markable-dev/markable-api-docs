@@ -2111,6 +2111,10 @@ the indexing status of just the first (primary) image of the catalogItem</p>
             </span><span class="s2">"properties"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
                 </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
                     </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="s2">"gender"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"enum"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"men"</span><span class="p">,</span><span class="w"> </span><span class="s2">"women"</span><span class="p">]</span><span class="w">
+                    </span><span class="s2">"default"</span><span class="p">:</span><span class="w"> </span><span class="s2">"women"</span><span class="w">
                 </span><span class="p">}</span><span class="w">
             </span><span class="p">},</span><span class="w">
             </span><span class="s2">"additionalProperties"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
@@ -2339,7 +2343,7 @@ the indexing status of just the first (primary) image of the catalogItem</p>
 </span></code></pre>
 <p>Markable&rsquo;s auto categorization for an Item (alpha release)</p>
 
-<p>Given an item without a category, we try and figure out what the the <a href="#supported-categories">Supported Markable category</a> is. Its best to run this call with as much information as possible in the freeform <code class="prettyprint">data</code> key. The response can be directly used to <a href="#create-catalog-item">create a catalog item</a></p>
+<p>Given an item without a category, we try and figure out what the the <a href="#supported-categories">Supported Markable category</a> is based on the textual information you provide. Its best to run this call with as much textual information as possible in the freeform <code class="prettyprint">data</code> key. The response can be directly used to <a href="#create-catalog-item">create a catalog item</a></p>
 
 <aside class="notice">
     This operation requires a valid <code>access_token</code> - see <a href="#authentication">Authentication</a>.
@@ -2366,7 +2370,7 @@ the indexing status of just the first (primary) image of the catalogItem</p>
           <h2 id="create-catalog-item"><img src="images/create-catalog-item_icon.png" alt="create-catalog-item_icon" width="26px" height="auto"> Create catalog item</h2>
 
 <blockquote>
-<p><strong>Example:</strong> Request</p>
+<p><strong>Example:</strong> Request (with gender being optional)</p>
 </blockquote>
 <pre class="highlight http tab-http"><code><span class="nf">POST</span> <span class="nn">https://catalog.markable.ai/catalogs/catalog-1/items</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer 123abc</span>
@@ -2385,6 +2389,7 @@ the indexing status of just the first (primary) image of the catalogItem</p>
 <span class="s">        },</span>
 <span class="s">        "data": {</span>
 <span class="s">            "url": "https://example.com/product/page.html",</span>
+<span class="s">            "gender": "men",</span>
 <span class="s">            "id": "external-id-1",</span>
 <span class="s">            "foo": "bar"</span>
 <span class="s">        }</span>
@@ -2409,6 +2414,7 @@ the indexing status of just the first (primary) image of the catalogItem</p>
         }
         "data": {
             "url": "https://example.com/product/page.html",
+            "gender": "men",
             "id": "external-id-1",
             "foo": "bar"
         }
@@ -2452,6 +2458,7 @@ the indexing status of just the first (primary) image of the catalogItem</p>
       </span><span class="p">},</span><span class="w">
         </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/product/page.html"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"gender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"men"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"external-id-1"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"foo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bar"</span><span class="w">
         </span><span class="p">},</span><span class="w">
@@ -2461,6 +2468,13 @@ the indexing status of just the first (primary) image of the catalogItem</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>Create a new <a href="#the-catalog-item-object">catalog item</a>.</p>
+
+<p>Create a new catalogItem in your catalog that will eventually get indexed.</p>
+
+<ul>
+<li>There is an option to pass <code class="prettyprint">data.gender</code> for <a href="#image-search">gender search</a> if needed. <strong>By default, we use <code class="prettyprint">women</code> as gender</strong></li>
+<li><code class="prettyprint">data.url</code> is mandatory since our experience allows us to redirect users to the product page.</li>
+</ul>
 
 <aside class="notice">
     This operation requires a valid <code>access_token</code> - see <a href="#authentication">Authentication</a>.
@@ -2883,6 +2897,11 @@ the indexing status of just the first (primary) image of the catalogItem</p>
 <td>A valid image URI. <strong><small>required</small></strong></td>
 </tr>
 <tr>
+<td><code class="prettyprint">gender</code></td>
+<td>Array</td>
+<td><code class="prettyprint">[&#39;men&#39;, &#39;women&#39;]</code> or a sub array of both. <strong>By default we return all gender results.</strong></td>
+</tr>
+<tr>
 <td><code class="prettyprint">catalogs</code></td>
 <td><a href="#catalog">Array&lt;Catalog&gt;</a></td>
 <td>List of catalogs (public or private) - which will be included the visual search scope.</td>
@@ -2901,6 +2920,16 @@ the indexing status of just the first (primary) image of the catalogItem</p>
 <span class="s">        "image_uri": "http://i.com/1.png"</span>
 <span class="s">    }</span>
 <span class="s">}</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl -X POST https://catalog.markable.ai/image/search <span class="se">\</span>
+-H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+-H <span class="s1">'Authorization: Bearer 123abc'</span> <span class="se">\</span>
+-d <span class="s1">'
+{
+    "data": {
+        "image_uri": "http://i.com/1.png"
+    }
+}
+'</span>
 </code></pre>
 <blockquote>
 <p><strong>Example:</strong> Image Search with Catalogs</p>
@@ -2927,6 +2956,45 @@ the indexing status of just the first (primary) image of the catalogItem</p>
 {
     "data": {
         "image_uri": "http://i.com/1.png",
+        "catalogs": [
+            {
+                "_id": "catalog-id-1"
+            },
+            {
+                "_id": "catalog-id-2"
+            }
+        ]
+    }
+}
+'</span>
+</code></pre>
+<blockquote>
+<p><strong>Example:</strong> Simple Image Search with Catalogs and Gender</p>
+</blockquote>
+<pre class="highlight http tab-http"><code><span class="nf">POST</span> <span class="nn">https://catalog.markable.ai/image/search</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer 123abc</span>
+<span class="s">{</span>
+<span class="s">  "data": {</span>
+<span class="s">        "image_uri": "http://i.com/1.png",</span>
+<span class="s">        "gender": ["men"],</span>
+<span class="s">        "catalogs": [</span>
+<span class="s">            {</span>
+<span class="s">                "_id": "catalog-id-1"</span>
+<span class="s">            },</span>
+<span class="s">            {</span>
+<span class="s">                "_id": "catalog-id-2"</span>
+<span class="s">            }</span>
+<span class="s">        ]</span>
+<span class="s">    }</span>
+<span class="s">}</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl -X POST https://catalog.markable.ai/image/search <span class="se">\</span>
+-H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+-H <span class="s1">'Authorization: Bearer 123abc'</span> <span class="se">\</span>
+-d <span class="s1">'
+{
+    "data": {
+        "image_uri": "http://i.com/1.png",
+        "gender": ["men", "women"],
         "catalogs": [
             {
                 "_id": "catalog-id-1"
