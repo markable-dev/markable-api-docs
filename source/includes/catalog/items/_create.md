@@ -1,7 +1,7 @@
 
 ## <img src="images/create-catalog-item_icon.png" alt="create-catalog-item_icon" width="26px" height="auto"> Create catalog item
 
-> **Example:** Request
+> **Example:** Request (with gender being optional)
 
 ```http
 POST https://catalog.markable.ai/catalogs/catalog-1/items HTTP/1.1
@@ -21,12 +21,14 @@ Authorization: Bearer 123abc
         },
         "data": {
             "url": "https://example.com/product/page.html",
+            "gender": "men",
             "id": "external-id-1",
             "foo": "bar"
         }
     }
 }
 ```
+
 
 ```shell
 curl -X POST https://catalog.markable.ai/catalogs/catalog-1/items \
@@ -48,6 +50,7 @@ curl -X POST https://catalog.markable.ai/catalogs/catalog-1/items \
         }
         "data": {
             "url": "https://example.com/product/page.html",
+            "gender": "men",
             "id": "external-id-1",
             "foo": "bar"
         }
@@ -92,6 +95,7 @@ curl -X POST https://catalog.markable.ai/catalogs/catalog-1/items \
       },
 	    "data": {
             "url": "https://example.com/product/page.html",
+            "gender": "men",
 	        "id": "external-id-1",
 	        "foo": "bar"
 	    },
@@ -103,6 +107,11 @@ curl -X POST https://catalog.markable.ai/catalogs/catalog-1/items \
 
 
 Create a new [catalog item](#the-catalog-item-object).
+
+Create a new catalogItem in your catalog that will eventually get indexed.
+
+* There is an option to pass `data.gender` for [gender search](#image-search) if needed. __By default, we use `women` as gender__
+* `data.url` is mandatory since our experience allows us to redirect users to the product page.
 
 <aside class="notice">
     This operation requires a valid <code>access_token</code> - see <a href="#authentication">Authentication</a>.

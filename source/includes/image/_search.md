@@ -13,6 +13,19 @@ Authorization: Bearer 123abc
 }
 ```
 
+```shell
+curl -X POST https://catalog.markable.ai/image/search \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer 123abc' \
+-d '
+{
+    "data": {
+        "image_uri": "http://i.com/1.png"
+    }
+}
+'
+```
+
 > **Example:** Image Search with Catalogs
 
 ```http
@@ -39,8 +52,51 @@ curl -X POST https://catalog.markable.ai/image/search \
 -H 'Authorization: Bearer 123abc' \
 -d '
 {
+    "data": {
+        "image_uri": "http://i.com/1.png",
+        "catalogs": [
+            {
+                "_id": "catalog-id-1"
+            },
+            {
+                "_id": "catalog-id-2"
+            }
+        ]
+    }
+}
+'
+```
+
+> **Example:** Simple Image Search with Catalogs and Gender
+
+```http
+POST https://catalog.markable.ai/image/search HTTP/1.1
+Authorization: Bearer 123abc
+{
+  "data": {
+        "image_uri": "http://i.com/1.png",
+        "gender": ["men"],
+        "catalogs": [
+            {
+                "_id": "catalog-id-1"
+            },
+            {
+                "_id": "catalog-id-2"
+            }
+        ]
+    }
+}
+```
+
+```shell
+curl -X POST https://catalog.markable.ai/image/search \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer 123abc' \
+-d '
+{
 	"data": {
         "image_uri": "http://i.com/1.png",
+        "gender": ["men", "women"],
         "catalogs": [
             {
                 "_id": "catalog-id-1"

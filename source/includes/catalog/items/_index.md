@@ -159,6 +159,10 @@
             "properties": {
                 "url": {
                     "type": "string",
+                },
+                "gender": {
+                    "enum": ["men", "women"]
+                    "default": "women"
                 }
             },
             "additionalProperties": true,

@@ -24,4 +24,5 @@ A **Image Search Query** (object) defines a visual search query for an image.
 Attribute 		| Type 									| Description
 ------- 		| -------								| -------
 `image_uri` 	| String								| A valid image URI. **<small>required</small>**
+`gender`        | Array                                 | `['men', 'women']` or a sub array of both. __By default we return all gender results.__
 `catalogs` 		| [Array&lt;Catalog&gt;](#catalog)		| List of catalogs (public or private) - which will be included the visual search scope.
