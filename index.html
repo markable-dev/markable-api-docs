@@ -1798,8 +1798,13 @@ of their own.</p>
 
           <h2 id="catalog-stats"><img src="images/get-catalog_icon.png" alt="get-catalog-objects_icon" width="28px" height="auto"> Catalog Stats</h2>
 
-<p>Gives you statistics of how the indexing is progressing for your catalogItems and the spread of categories. We are returning
-the indexing status of just the first (primary) image of the catalogItem</p>
+<p>Catalog statistics explaning</p>
+
+<ul>
+<li><strong>Indexing Status</strong>: How many of your catalogItems are indexed, with statuses <code class="prettyprint">pending</code>, <code class="prettyprint">error</code> and <code class="prettyprint">success</code></li>
+<li><strong>Categories</strong>: Spread of categories of your catalog</li>
+<li><strong>Gender</strong>: Spread of gender in the catalog. <code class="prettyprint">null</code> being that we default to <code class="prettyprint">women</code>.</li>
+</ul>
 
 <blockquote>
 <p><strong>Example:</strong> Request</p>
@@ -1835,11 +1840,17 @@ the indexing status of just the first (primary) image of the catalogItem</p>
                 </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pending"</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="w">
             </span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="s2">"gender"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="w">
+            </span><span class="p">}</span><span class="w">
         </span><span class="p">]</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Get an existing <a href="#the-catalog-object">catalog</a>.</p>
+<p>Stats for an existing <a href="#the-catalog-object">catalog</a>.</p>
 
 <aside class="notice">
     This operation requires a valid <code>access_token</code> - see <a href="#authentication">Authentication</a>.
