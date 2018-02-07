@@ -1,8 +1,11 @@
 
 ## <img src="images/get-catalog_icon.png" alt="get-catalog-objects_icon" width="28px" height="auto"> Catalog Stats
 
-Gives you statistics of how the indexing is progressing for your catalogItems and the spread of categories. We are returning
-the indexing status of just the first (primary) image of the catalogItem
+Catalog statistics explaning
+
+* __Indexing Status__: How many of your catalogItems are indexed, with statuses `pending`, `error` and `success`
+* __Categories__: Spread of categories of your catalog
+* __Gender__: Spread of gender in the catalog. `null` being that we default to `women`.
 
 > **Example:** Request
 
@@ -42,13 +45,19 @@ curl -X GET https://catalog.markable.ai/catalogs/catalog-1/stats \
                 "_id": "pending",
                 "total": 4
             }
+        ],
+        "gender": [
+            {
+                "_id": null,
+                "total": 4
+            }
         ]
     }
 }
 ```
 
 
-Get an existing [catalog](#the-catalog-object).
+Stats for an existing [catalog](#the-catalog-object).
 
 <aside class="notice">
     This operation requires a valid <code>access_token</code> - see <a href="#authentication">Authentication</a>.
