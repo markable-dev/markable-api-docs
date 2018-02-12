@@ -163,6 +163,27 @@
                 "gender": {
                     "enum": ["men", "women"]
                     "default": "women"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "sku": {
+                    "type": "string"
+                },
+                "vendor": {
+                    "type": "string"
+                },
+                "brand": {
+                    "type": "string"
+                },
+                "price": {
+                    "type": "number"
+                },
+                "currency": {
+                    "type": "string"
+                },
+                "color": {
+                    "type": "string"
                 }
             },
             "additionalProperties": true,
@@ -185,6 +206,12 @@
 
 
 A **Catalog Item** (object) defines an visual item (e.g. product), that can be indexed and visually searched within images and videos using visual similarity - based on the associated image(s). Catalog items can be defined as different types of objects, but currently only `Product`. Catalog items are organized by [catalogs](#the-catalog-object).
+
+Note
+
+* Use the `data` key below to add free form information about the CatalogItem.
+* `data.url` is required since we want to the know product URL to redirect the user.
+* `data` also supports optional fields like `gender`, `brand`, `color`, `vendor` & `sku`.
 
 Attribute 		| Type 							   | Description
 ------- 		| ------- 						   | -------

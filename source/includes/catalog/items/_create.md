@@ -22,6 +22,8 @@ Authorization: Bearer 123abc
         "data": {
             "url": "https://example.com/product/page.html",
             "gender": "men",
+            "color": "black",
+            "brand": "Adidas",
             "id": "external-id-1",
             "foo": "bar"
         }
@@ -51,6 +53,8 @@ curl -X POST https://catalog.markable.ai/catalogs/catalog-1/items \
         "data": {
             "url": "https://example.com/product/page.html",
             "gender": "men",
+            "color": "black",
+            "brand": "Adidas",
             "id": "external-id-1",
             "foo": "bar"
         }
@@ -96,6 +100,8 @@ curl -X POST https://catalog.markable.ai/catalogs/catalog-1/items \
 	    "data": {
             "url": "https://example.com/product/page.html",
             "gender": "men",
+            "color": "black",
+            "brand": "Adidas",
 	        "id": "external-id-1",
 	        "foo": "bar"
 	    },
