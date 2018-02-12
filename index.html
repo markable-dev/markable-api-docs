@@ -2126,6 +2126,27 @@ of their own.</p>
                 </span><span class="s2">"gender"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
                     </span><span class="s2">"enum"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"men"</span><span class="p">,</span><span class="w"> </span><span class="s2">"women"</span><span class="p">]</span><span class="w">
                     </span><span class="s2">"default"</span><span class="p">:</span><span class="w"> </span><span class="s2">"women"</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="s2">"sku"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="s2">"vendor"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="s2">"brand"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"number"</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="s2">"color"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
                 </span><span class="p">}</span><span class="w">
             </span><span class="p">},</span><span class="w">
             </span><span class="s2">"additionalProperties"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
@@ -2146,6 +2167,14 @@ of their own.</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>A <strong>Catalog Item</strong> (object) defines an visual item (e.g. product), that can be indexed and visually searched within images and videos using visual similarity - based on the associated image(s). Catalog items can be defined as different types of objects, but currently only <code class="prettyprint">Product</code>. Catalog items are organized by <a href="#the-catalog-object">catalogs</a>.</p>
+
+<p>Note</p>
+
+<ul>
+<li>Use the <code class="prettyprint">data</code> key below to add free form information about the CatalogItem.</li>
+<li><code class="prettyprint">data.url</code> is required since we want to the know product URL to redirect the user.</li>
+<li><code class="prettyprint">data</code> also supports optional fields like <code class="prettyprint">gender</code>, <code class="prettyprint">brand</code>, <code class="prettyprint">color</code>, <code class="prettyprint">vendor</code> &amp; <code class="prettyprint">sku</code>.</li>
+</ul>
 
 <table><thead>
 <tr>
@@ -2401,6 +2430,8 @@ of their own.</p>
 <span class="s">        "data": {</span>
 <span class="s">            "url": "https://example.com/product/page.html",</span>
 <span class="s">            "gender": "men",</span>
+<span class="s">            "color": "black",</span>
+<span class="s">            "brand": "Adidas",</span>
 <span class="s">            "id": "external-id-1",</span>
 <span class="s">            "foo": "bar"</span>
 <span class="s">        }</span>
@@ -2426,6 +2457,8 @@ of their own.</p>
         "data": {
             "url": "https://example.com/product/page.html",
             "gender": "men",
+            "color": "black",
+            "brand": "Adidas",
             "id": "external-id-1",
             "foo": "bar"
         }
@@ -2470,6 +2503,8 @@ of their own.</p>
         </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/product/page.html"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"gender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"men"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"black"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Adidas"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"external-id-1"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"foo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bar"</span><span class="w">
         </span><span class="p">},</span><span class="w">
