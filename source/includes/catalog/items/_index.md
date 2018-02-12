@@ -161,8 +161,11 @@
                     "type": "string",
                 },
                 "gender": {
-                    "enum": ["men", "women"]
+                    "enum": ["men", "women", "unisex"]
                     "default": "women"
+                },
+                "name": {
+                    "type": "string",
                 },
                 "id": {
                     "type": "string"
@@ -183,6 +186,9 @@
                     "type": "string"
                 },
                 "color": {
+                    "type": "string"
+                },
+                "description": {
                     "type": "string"
                 }
             },
