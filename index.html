@@ -2934,6 +2934,25 @@ of their own.</p>
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
+<blockquote>
+<p><strong>Example:</strong> Image Search Query Object with Options</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"image_uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/images/1.png"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"catalogs"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"catalog-id-1"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"catalog-id-2"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"options"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"limit"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"relevance"</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 <p>A <strong>Image Search Query</strong> (object) defines a visual search query for an image.</p>
 
 <table><thead>
@@ -2957,6 +2976,32 @@ of their own.</p>
 <td><code class="prettyprint">catalogs</code></td>
 <td><a href="#catalog">Array&lt;Catalog&gt;</a></td>
 <td>List of catalogs (public or private) - which will be included the visual search scope.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">options</code></td>
+<td>Object</td>
+<td>A list of options that we support. Currently we support the options below</td>
+</tr>
+</tbody></table>
+
+<h3 id="options-for-search">Options for Search</h3>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">limit</code></td>
+<td>Number</td>
+<td>Number of results to return. Default <code class="prettyprint">30</code></td>
+</tr>
+<tr>
+<td><code class="prettyprint">relevance</code></td>
+<td>Number</td>
+<td>How relevant you want the results to be. Default <code class="prettyprint">50</code>. This takes precedence over <code class="prettyprint">limit</code></td>
 </tr>
 </tbody></table>
 
@@ -3058,6 +3103,19 @@ of their own.</p>
     }
 }
 '</span>
+</code></pre>
+<blockquote>
+<p><strong>Example:</strong> <em>Multipart</em> Image Search with Catalogs (Alpha availability)</p>
+</blockquote>
+<pre class="highlight http tab-http"><code><span class="nf">POST</span> <span class="nn">https://catalog.markable.ai/image/search</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer 123abc</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">multipart/form-data; charset=utf-8;</span>
+<span class="s">... (See shell for a full example)</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl -X POST https://catalog.markable.ai/image/search <span class="se">\</span>
+-H <span class="s1">'Content-Type: multipart/form-data;'</span> <span class="se">\</span>
+-H <span class="s1">'Authorization: Bearer 123abc'</span> <span class="se">\</span>
+-F <span class="s1">'image=@/local/folder/1.png'</span> <span class="se">\</span>
+-F <span class="s1">'data={ "catalogs": [{ "_id": "catalog-id-1" }] }'</span>
 </code></pre>
 <blockquote>
 <p><strong>Example:</strong> Response</p>
