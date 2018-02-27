@@ -110,6 +110,23 @@ curl -X POST https://catalog.markable.ai/image/search \
 '
 ```
 
+> **Example:** *Multipart* Image Search with Catalogs (Alpha availability)
+
+```http
+POST https://catalog.markable.ai/image/search HTTP/1.1
+Authorization: Bearer 123abc
+Content-Type: multipart/form-data; charset=utf-8;
+... (See shell for a full example)
+```
+
+```shell
+curl -X POST https://catalog.markable.ai/image/search \
+-H 'Content-Type: multipart/form-data;' \
+-H 'Authorization: Bearer 123abc' \
+-F 'image=@/local/folder/1.png' \
+-F 'data={ "catalogs": [{ "_id": "catalog-id-1" }] }'
+```
+
 > **Example:** Response
 
 ```json
