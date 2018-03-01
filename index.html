@@ -2786,6 +2786,15 @@ of their own.</p>
 -H <span class="s1">'Authorization: Bearer 123abc'</span>
 </code></pre>
 <blockquote>
+<p><strong>Example:</strong> Request with filters</p>
+</blockquote>
+<pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">https://catalog.markable.ai/catalogs/catalog-1/items?success=true&amp;limit=50&amp;skip=0&amp;category=dresses</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer 123abc</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl -X GET https://catalog.markable.ai/catalogs/catalog-1/items?success<span class="o">=</span><span class="nb">true</span>&amp;limit<span class="o">=</span>50&amp;skip<span class="o">=</span>0&amp;category<span class="o">=</span>dresses <span class="se">\</span>
+-H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+-H <span class="s1">'Authorization: Bearer 123abc'</span>
+</code></pre>
+<blockquote>
 <p><strong>Example:</strong> Response</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
@@ -2902,16 +2911,28 @@ of their own.</p>
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">catalogId</code></td>
-<td>The ID of the catalog. <strong><small>required</small></strong></td>
-</tr>
-<tr>
 <td><code class="prettyprint">limit</code></td>
 <td>The limit of items to return (defaults to 10).</td>
 </tr>
 <tr>
 <td><code class="prettyprint">offset</code></td>
 <td>The offset of items to return.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">success</code></td>
+<td>Set this value filter by <code class="prettyprint">success</code> status</td>
+</tr>
+<tr>
+<td><code class="prettyprint">error</code></td>
+<td>Set this value filter by <code class="prettyprint">error</code> status</td>
+</tr>
+<tr>
+<td><code class="prettyprint">pending</code></td>
+<td>Set this value filter by <code class="prettyprint">pending</code> status</td>
+</tr>
+<tr>
+<td><code class="prettyprint">category</code></td>
+<td>The category of the items to filter by</td>
 </tr>
 </tbody></table>
 
