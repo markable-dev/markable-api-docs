@@ -14,6 +14,19 @@ curl -X GET https://catalog.markable.ai/catalogs/catalog-1/items \
 -H 'Authorization: Bearer 123abc'
 ```
 
+> **Example:** Request with filters
+
+```http
+GET https://catalog.markable.ai/catalogs/catalog-1/items?success=true&limit=50&skip=0&category=dresses HTTP/1.1
+Authorization: Bearer 123abc
+```
+
+```shell
+curl -X GET https://catalog.markable.ai/catalogs/catalog-1/items?success=true&limit=50&skip=0&category=dresses \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer 123abc'
+```
+
 > **Example:** Response
 
 ```json
@@ -123,6 +136,9 @@ Header       		| Description
 
 Parameter       | Description
 ----------      | ----------
-`catalogId`     | The ID of the catalog. **<small>required</small>**
 `limit`         | The limit of items to return (defaults to 10).
 `offset`        | The offset of items to return.
+`success`       | Set this value filter by `success` status
+`error`         | Set this value filter by `error` status
+`pending`       | Set this value filter by `pending` status
+`category`      | The category of the items to filter by
