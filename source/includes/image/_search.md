@@ -134,7 +134,7 @@ curl -X POST https://catalog.markable.ai/image/search \
     "meta": {
         "image": {
             "width": 100,
-            "height": 100
+            "height": 100,
             "uri": "http://i.com/1.png"
         },
         "stats": {
@@ -146,7 +146,7 @@ curl -X POST https://catalog.markable.ai/image/search \
     },
     "data": [
         {
-            "type": "SearchResult"
+            "type": "SearchResult",
             "category": {
                 "_type": "Category",
                 "_id": "shorts",
@@ -176,7 +176,7 @@ curl -X POST https://catalog.markable.ai/image/search \
                         }
                     ],
                     "catalog": {
-                        "_type": "Catalog"
+                        "_type": "Catalog",
                         "name": "catalog-1",
                         "_id": "catalog-1"
                     }
@@ -193,12 +193,12 @@ curl -X POST https://catalog.markable.ai/image/search \
                     "score": 0.7,
                     "images": [
                         {
-                            "uri": "http://i.com/result2.png"
+                            "uri": "http://i.com/result2.png",
                             "_type": "Image"
                         }
                     ],
                     "catalog": {
-                        "_type": "Catalog"
+                        "_type": "Catalog",
                         "name": "catalog-1",
                         "_id": "catalog-1"
                     },
@@ -238,7 +238,7 @@ curl -X POST https://catalog.markable.ai/image/search \
                         }
                     ],
                     "catalog": {
-                        "_type": "Catalog"
+                        "_type": "Catalog",
                         "name": "catalog-2",
                         "_id": "catalog-2"
                     },
@@ -255,16 +255,16 @@ curl -X POST https://catalog.markable.ai/image/search \
                     "score": 0.4,
                     "images": [
                         {
-                            "uri": "http://i.com/result4.png"
+                            "uri": "http://i.com/result4.png",
                             "_type": "Image"
                         },
                         {
-                            "uri": "http://i.com/result5.png"
+                            "uri": "http://i.com/result5.png",
                             "_type": "Image"
                         }
                     ],
                     "catalog": {
-                        "_type": "Catalog"
+                        "_type": "Catalog",
                         "name": "catalog-2",
                         "_id": "catalog-2"
                     },
@@ -278,6 +278,7 @@ curl -X POST https://catalog.markable.ai/image/search \
             ]
         }
     ]
+}
 ```
 
 Search an image - detect and retreive objects (products/logos/faces) based on visual features/similarity.
