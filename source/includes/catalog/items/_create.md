@@ -21,11 +21,15 @@ Authorization: Bearer 123abc
         },
         "data": {
             "url": "https://example.com/product/page.html",
-            "gender": "men",
-            "color": "black",
-            "brand": "Adidas",
             "id": "external-id-1",
-            "foo": "bar"
+            "name" : "A great awesome product",
+            "brand" : "Brand",
+            "color" : "green",
+            "gender" : "women",
+            "vendor" : "vendor",
+            "stock" : true,
+            "price" : 30,
+            "currency" : "USD"
         }
     }
 }
@@ -52,11 +56,15 @@ curl -X POST https://catalog.markable.ai/catalogs/catalog-1/items \
         }
         "data": {
             "url": "https://example.com/product/page.html",
-            "gender": "men",
-            "color": "black",
-            "brand": "Adidas",
             "id": "external-id-1",
-            "foo": "bar"
+            "name" : "A great awesome product",
+            "brand" : "Brand",
+            "color" : "green",
+            "gender" : "women",
+            "vendor" : "vendor",
+            "stock" : true,
+            "price" : 30,
+            "currency" : "USD"
         }
     }
 }
@@ -99,11 +107,15 @@ curl -X POST https://catalog.markable.ai/catalogs/catalog-1/items \
       },
 	    "data": {
             "url": "https://example.com/product/page.html",
-            "gender": "men",
-            "color": "black",
-            "brand": "Adidas",
-	        "id": "external-id-1",
-	        "foo": "bar"
+            "id": "external-id-1",
+            "name" : "A great awesome product",
+            "brand" : "Brand",
+            "color" : "green",
+            "gender" : "women",
+            "vendor" : "vendor",
+            "stock" : true,
+            "price" : 30,
+            "currency" : "USD"
 	    },
 	    "created_at": "2017-01-01T00:00:00.001Z",
 	    "updated_at": "2017-01-01T00:00:00.001Z"

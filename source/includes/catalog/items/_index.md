@@ -41,6 +41,14 @@
         "url": "https://example.com/product/page.html",
         "id": "external-id-1",
         "foo": "bar"
+        "name" : "A great awesome product",
+        "brand" : "Brand",
+        "color" : "green",
+        "gender" : "women",
+        "vendor" : "vendor",
+        "stock" : true,
+        "price" : 30,
+        "currency" : "USD"
     },
     "created_at": "2017-01-01T00:00:00Z",
     "updated_at": "2017-01-01T00:00:00Z"
