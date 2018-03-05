@@ -137,7 +137,7 @@ Header       		| Description
 Parameter       | Description
 ----------      | ----------
 `limit`         | The limit of items to return (defaults to 10).
-`offset`        | The offset of items to return.
+`skip`        | The skip of items to return.
 `success`       | Set this value filter by `success` status
 `error`         | Set this value filter by `error` status
 `pending`       | Set this value filter by `pending` status
