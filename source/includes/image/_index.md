@@ -50,7 +50,8 @@ Attribute 		| Type 									| Description
 
 ### Options for Search
 
-Attribute       | Type                                  | Description
--------         | -------                               | -------
-`limit`         | Number                                | Number of results to return. Default `30`
-`relevance`     | Number                                | How relevant you want the results to be. Default `50`. This takes precedence over `limit`
+Attribute               | Type                                  | Description
+-------                 | -------                               | -------
+`limit`                 | Number                                | Number of results to return. Default `30`
+`relevance`             | Number                                | How relevant you want the results to be. Default `50`. This takes precedence over `limit`
+`auto_detect_gender`    | Boolean                               | Auto detect gender in the input image to scope search to specific genders, takes precedence over `gender` above. Currently in alpha.
