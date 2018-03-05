@@ -2915,8 +2915,8 @@ of their own.</p>
 <td>The limit of items to return (defaults to 10).</td>
 </tr>
 <tr>
-<td><code class="prettyprint">offset</code></td>
-<td>The offset of items to return.</td>
+<td><code class="prettyprint">skip</code></td>
+<td>The skip of items to return.</td>
 </tr>
 <tr>
 <td><code class="prettyprint">success</code></td>
@@ -3023,6 +3023,11 @@ of their own.</p>
 <td><code class="prettyprint">relevance</code></td>
 <td>Number</td>
 <td>How relevant you want the results to be. Default <code class="prettyprint">50</code>. This takes precedence over <code class="prettyprint">limit</code></td>
+</tr>
+<tr>
+<td><code class="prettyprint">auto_detect_gender</code></td>
+<td>Boolean</td>
+<td>Auto detect gender in the input image to scope search to specific genders, takes precedence over <code class="prettyprint">gender</code> above. Currently in alpha.</td>
 </tr>
 </tbody></table>
 
