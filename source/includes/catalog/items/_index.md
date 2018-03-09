@@ -129,6 +129,12 @@
                             }
                         ]
                     },
+                    "status": {
+                        enum: ["pending", "error", "success"]
+                    },
+                    "error": {
+                        type: ["object", "null"]
+                    },
                     "width": {
                         "type": "integer",
                         "minimum": 0,
