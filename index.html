@@ -2092,6 +2092,12 @@ of their own.</p>
                             </span><span class="p">}</span><span class="w">
                         </span><span class="p">]</span><span class="w">
                     </span><span class="p">},</span><span class="w">
+                    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                        </span><span class="err">enum</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"pending"</span><span class="p">,</span><span class="w"> </span><span class="s2">"error"</span><span class="p">,</span><span class="w"> </span><span class="s2">"success"</span><span class="p">]</span><span class="w">
+                    </span><span class="p">},</span><span class="w">
+                    </span><span class="s2">"error"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                        </span><span class="err">type</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"object"</span><span class="p">,</span><span class="w"> </span><span class="s2">"null"</span><span class="p">]</span><span class="w">
+                    </span><span class="p">},</span><span class="w">
                     </span><span class="s2">"width"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
                         </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
                         </span><span class="s2">"minimum"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
@@ -2507,14 +2513,66 @@ of their own.</p>
                 </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/products/1/a.png"</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"width"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"height"</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="w">
+                </span><span class="s2">"height"</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"error"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"shoes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                        </span><span class="p">{</span><span class="w">
+                            </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.7574759125709534</span><span class="p">,</span><span class="w">
+                            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"color"</span><span class="p">,</span><span class="w">
+                            </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"white"</span><span class="w">
+                        </span><span class="p">},</span><span class="w">
+                        </span><span class="p">{</span><span class="w">
+                            </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.3870239555835724</span><span class="p">,</span><span class="w">
+                            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pattern"</span><span class="p">,</span><span class="w">
+                            </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"polka dot"</span><span class="w">
+                        </span><span class="p">}</span><span class="w">
+                    </span><span class="p">]</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="s2">"bounding_boxes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"shoes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                        </span><span class="p">{</span><span class="w">
+                            </span><span class="s2">"y"</span><span class="p">:</span><span class="w"> </span><span class="mf">49.69390106201172</span><span class="p">,</span><span class="w">
+                            </span><span class="s2">"x"</span><span class="p">:</span><span class="w"> </span><span class="mf">233.58139038085938</span><span class="p">,</span><span class="w">
+                            </span><span class="s2">"height"</span><span class="p">:</span><span class="w"> </span><span class="mf">577.4708938598633</span><span class="p">,</span><span class="w">
+                            </span><span class="s2">"width"</span><span class="p">:</span><span class="w"> </span><span class="mf">419.4363098144531</span><span class="w">
+                        </span><span class="p">}</span><span class="w">
+                    </span><span class="p">]</span><span class="w">
+                </span><span class="p">}</span><span class="w">
             </span><span class="p">},</span><span class="w">
             </span><span class="p">{</span><span class="w">
                 </span><span class="s2">"_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Image"</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/products/1/b.png"</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"width"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"height"</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="w">
+                </span><span class="s2">"height"</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"error"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"skirts"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                        </span><span class="p">{</span><span class="w">
+                            </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.7574759125709534</span><span class="p">,</span><span class="w">
+                            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"color"</span><span class="p">,</span><span class="w">
+                            </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"white"</span><span class="w">
+                        </span><span class="p">},</span><span class="w">
+                        </span><span class="p">{</span><span class="w">
+                            </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.3870239555835724</span><span class="p">,</span><span class="w">
+                            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pattern"</span><span class="p">,</span><span class="w">
+                            </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"polka dot"</span><span class="w">
+                        </span><span class="p">}</span><span class="w">
+                    </span><span class="p">]</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="s2">"bounding_boxes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"skirts"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                        </span><span class="p">{</span><span class="w">
+                            </span><span class="s2">"y"</span><span class="p">:</span><span class="w"> </span><span class="mf">49.69390106201172</span><span class="p">,</span><span class="w">
+                            </span><span class="s2">"x"</span><span class="p">:</span><span class="w"> </span><span class="mf">233.58139038085938</span><span class="p">,</span><span class="w">
+                            </span><span class="s2">"height"</span><span class="p">:</span><span class="w"> </span><span class="mf">577.4708938598633</span><span class="p">,</span><span class="w">
+                            </span><span class="s2">"width"</span><span class="p">:</span><span class="w"> </span><span class="mf">419.4363098144531</span><span class="w">
+                        </span><span class="p">}</span><span class="w">
+                    </span><span class="p">]</span><span class="w">
+                </span><span class="p">}</span><span class="w">
             </span><span class="p">}</span><span class="w">
         </span><span class="p">],</span><span class="w">
         </span><span class="s2">"category"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -2545,7 +2603,12 @@ of their own.</p>
 
 <ul>
 <li>There is an option to pass <code class="prettyprint">data.gender</code> for <a href="#image-search">gender search</a> if needed. <strong>By default, we use <code class="prettyprint">women</code> as gender</strong></li>
-<li><code class="prettyprint">data.url</code> is mandatory since our experience allows us to redirect users to the product page.</li>
+<li><p><code class="prettyprint">data.url</code> is mandatory since our experience allows us to redirect users to the product page.</p></li>
+<li><p>On Indexing *</p></li>
+<li><p>We index the products and update the status of every image on a CatalogItem. The valid statuses are <code class="prettyprint">success</code>, <code class="prettyprint">error</code> and <code class="prettyprint">pending</code>. 
+CatalogItem images start off being <code class="prettyprint">pending</code></p></li>
+<li><p>If we detect errors with indexing, we expose information on why in the <code class="prettyprint">images.error</code> object.</p></li>
+<li><p>We return <code class="prettyprint">bounding_boxes</code> and <code class="prettyprint">attributes</code> for each image as part of our alpha release.</p></li>
 </ul>
 
 <aside class="notice">
