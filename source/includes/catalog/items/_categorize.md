@@ -84,7 +84,7 @@ Markable's auto categorization for an Item (alpha release)
 Given an item without a category, we try and figure out what the the [Supported Markable category](#supported-categories) is based on the textual information you provide. Its best to run this call with as much textual information as possible in the freeform `data` key. The response can be directly used to [create a catalog item](#create-catalog-item)
 
 <aside class="notice">
-    This operation requires a valid <code>access_token</code> - see <a href="#authentication">Authentication</a>.
+    This operation requires a valid <code>client_access_token</code> - see <a href="#authentication">Authentication</a>.
 </aside>
 
 

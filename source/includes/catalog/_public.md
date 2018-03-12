@@ -54,7 +54,7 @@ curl -X GET https://catalog.markable.ai/catalogs/public \
 Get all existing [catalogs](#the-catalog-object).
 
 <aside class="notice">
-    This operation requires a valid <code>access_token</code> - see <a href="#authentication">Authentication</a>.
+    This operation requires a valid <code>client_access_token</code> - see <a href="#authentication">Authentication</a>.
 </aside>
 
 

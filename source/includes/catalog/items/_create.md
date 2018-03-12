@@ -191,7 +191,7 @@ CatalogItem images start off being `pending`
 * We return `bounding_boxes` and `attributes` for each image as part of our alpha release.
 
 <aside class="notice">
-    This operation requires a valid <code>access_token</code> - see <a href="#authentication">Authentication</a>.
+    This operation requires a valid <code>client_access_token</code> - see <a href="#authentication">Authentication</a>.
 </aside>
 
 

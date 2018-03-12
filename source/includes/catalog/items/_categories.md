@@ -58,7 +58,7 @@ This is our current list of supported categories.
 Markable's supported categories.
 
 <aside class="notice">
-    This operation requires a valid <code>access_token</code> - see <a href="#authentication">Authentication</a>.
+    This operation requires a valid <code>client_access_token</code> - see <a href="#authentication">Authentication</a>.
 </aside>
 
 
