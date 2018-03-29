@@ -49,7 +49,9 @@ This is our current list of supported categories.
         "glasses",
         "beanieknitcaps",
         "cowboyhats",
-        "scarves_wraps"
+        "scarves_wraps",
+        "totes",
+        "watches"
     ]
 }
 ```
