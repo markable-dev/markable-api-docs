@@ -25,7 +25,6 @@ This is our current list of supported categories.
         "shoes",
         "messengerbags",
         "jeans",
-        "tanks_camis",
         "tunics",
         "coats_jackets",
         "suiting_blazers",
