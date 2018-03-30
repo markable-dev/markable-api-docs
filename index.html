@@ -2253,82 +2253,9 @@ of their own.</p>
 
 <p>Maximum image memory size = <code class="prettyprint">2.5 * 1024 * 1024</code></p>
 
-          <h2 id="supported-categories">Supported Categories</h2>
+          <h2 id="auto-categorize-a-catalogitem">Auto Categorize a CatalogItem</h2>
 
-<blockquote>
-<p><strong>Example:</strong> Request</p>
-</blockquote>
-<pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">https://catalog.markable.ai/category</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
-<span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer 123abc</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl -X GET https://catalog.markable.ai/category <span class="se">\</span>
--H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
--H <span class="s1">'Authorization: Bearer 123abc'</span>
-</code></pre>
-<blockquote>
-<p><strong>Example:</strong> Response</p>
-</blockquote>
-
-<p>This is our current list of supported categories.</p>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="s2">"hoodies"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"shoes"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"messengerbags"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"jeans"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"tunics"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"coats_jackets"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"suiting_blazers"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"sweater"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"tees"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"tanks_camis"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"blouses_shirts"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"pants"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"shorts"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"skirts"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"slippers"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"leggings"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"dresses"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"bucket"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"jumpsuits_rompers_overalls"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"handbags"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"clutches"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"belts"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"boots"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"sandals"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"glasses"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"beanieknitcaps"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"cowboyhats"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"scarves_wraps"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"totes"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"watches"</span><span class="w">
-    </span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p>Markable&rsquo;s supported categories.</p>
-
-<aside class="notice">
-    This operation requires a valid <code>client_access_token</code> - see <a href="#authentication">Authentication</a>.
-</aside>
-
-<h3 id="http-request">HTTP Request</h3>
-
-<p><code class="prettyprint">GET https://catalog.markable.ai/category</code></p>
-
-<h3 id="http-headers">HTTP Headers</h3>
-
-<table><thead>
-<tr>
-<th>Header</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><code class="prettyprint">Authorization</code></td>
-<td><a href="https://tools.ietf.org/html/rfc6750">HTTP Bearer Token</a> for authorizing the request. <br><br>Format is <code class="prettyprint">Bearer :access_token</code>, where <code class="prettyprint">access_token</code> is given by <a href="#authentication">Authentication</a>. <strong><small>required</small></strong></td>
-</tr>
-</tbody></table>
-
-          <h2 id="auto-categorize-alpha-release">Auto Categorize! (Alpha Release)</h2>
+<p>Note that our feature where we try to predict the Markable category based on textual information is currently in <strong>alpha</strong>.</p>
 
 <blockquote>
 <p><strong>Example:</strong> Request</p>
@@ -2402,8 +2329,6 @@ of their own.</p>
     </span><span class="p">}</span><span class="w">
 
 </span></code></pre>
-<p>Markable&rsquo;s auto categorization for an Item (alpha release)</p>
-
 <p>Given an item without a category, we try and figure out what the the <a href="#supported-categories">Supported Markable category</a> is based on the textual information you provide. Its best to run this call with as much textual information as possible in the freeform <code class="prettyprint">data</code> key. The response can be directly used to <a href="#create-catalog-item">create a catalog item</a></p>
 
 <aside class="notice">
@@ -3020,6 +2945,188 @@ CatalogItem images start off being <code class="prettyprint">pending</code></p><
 </tr>
 </tbody></table>
 
+          <h1 id="taxonomy">Taxonomy <alt="Taxonomy" height="auto" width="100%"></h1>
+
+<p>Markable&rsquo;s taxonomy includes our supported categories and attributes.</p>
+
+          <h2 id="supported-categories">Supported Categories</h2>
+
+<blockquote>
+<p><strong>Example:</strong> Request</p>
+</blockquote>
+<pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">https://catalog.markable.ai/category</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer 123abc</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl -X GET https://catalog.markable.ai/category <span class="se">\</span>
+-H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+-H <span class="s1">'Authorization: Bearer 123abc'</span>
+</code></pre>
+<blockquote>
+<p><strong>Example:</strong> Response</p>
+</blockquote>
+
+<p>This is our <strong>current exhaustive</strong> list of supported categories.</p>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"hoodies"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"shoes"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"messengerbags"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"jeans"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"tunics"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"coats_jackets"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"suiting_blazers"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"sweater"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"tees"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"tanks_camis"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"blouses_shirts"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"pants"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"shorts"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"skirts"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"slippers"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"leggings"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"dresses"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"bucket"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"jumpsuits_rompers_overalls"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"handbags"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"clutches"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"belts"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"boots"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"sandals"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"glasses"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"beanieknitcaps"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"cowboyhats"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"scarves_wraps"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"totes"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"watches"</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Markable&rsquo;s supported categories.</p>
+
+<aside class="notice">
+    This operation requires a valid <code>client_access_token</code> - see <a href="#authentication">Authentication</a>.
+</aside>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET https://catalog.markable.ai/category</code></p>
+
+<h3 id="http-headers">HTTP Headers</h3>
+
+<table><thead>
+<tr>
+<th>Header</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">Authorization</code></td>
+<td><a href="https://tools.ietf.org/html/rfc6750">HTTP Bearer Token</a> for authorizing the request. <br><br>Format is <code class="prettyprint">Bearer :access_token</code>, where <code class="prettyprint">access_token</code> is given by <a href="#authentication">Authentication</a>. <strong><small>required</small></strong></td>
+</tr>
+</tbody></table>
+
+          <h2 id="supported-attributes">Supported Attributes</h2>
+
+<p>CatalogItems after indexing get assigend attributes, based on their category. Attributes can be of type <code class="prettyprint">color</code>, <code class="prettyprint">pattern</code>, <code class="prettyprint">sleeve length</code>
+and more.</p>
+
+<blockquote>
+<p><strong>Example:</strong> Request</p>
+</blockquote>
+<pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">https://catalog.markable.ai/attributes</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer 123abc</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl -X GET https://catalog.markable.ai/attributes <span class="se">\</span>
+-H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+-H <span class="s1">'Authorization: Bearer 123abc'</span>
+</code></pre>
+<blockquote>
+<p><strong>Example:</strong> Response</p>
+</blockquote>
+
+<p>This is a snippet of our attributes.</p>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"belts"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"color"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="s2">"blue"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"brown"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"purple"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"grey"</span><span class="w">
+                </span><span class="s2">"..."</span><span class="w">
+            </span><span class="p">],</span><span class="w">
+            </span><span class="s2">"pattern"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="s2">"cheetah/leopard print"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"gingham"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"checkered"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"floral"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"tribal print"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"..."</span><span class="w">
+            </span><span class="p">]</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"blouses_shirts"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"closing_style"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="s2">"multiple buttons/snaps"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"no closures"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"..."</span><span class="w">
+            </span><span class="p">],</span><span class="w">
+            </span><span class="s2">"collar_type"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="s2">"square neck"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"mandarin collar"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"puritan collar"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"off-shoulder"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"straight across/strapless"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"..."</span><span class="w">
+            </span><span class="p">],</span><span class="w">
+            </span><span class="s2">"color"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="s2">"blue"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"brown"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"purple"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"white"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"red"</span><span class="err">.</span><span class="w">
+                </span><span class="s2">"..."</span><span class="w">
+            </span><span class="p">],</span><span class="w">
+            </span><span class="s2">"pattern"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="s2">"cheetah/leopard print"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"gingham"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"checkered"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"chevron"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"floral"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"tribal print"</span><span class="w">
+                </span><span class="s2">"...""
+            ],
+            "</span><span class="err">sleeve_length</span><span class="s2">": [
+                "</span><span class="err">sleeveless</span><span class="s2">",
+                "</span><span class="err">short/cap</span><span class="w"> </span><span class="err">sleeve</span><span class="s2">",
+                "</span><span class="err">long</span><span class="w"> </span><span class="err">(full</span><span class="w"> </span><span class="err">sleeve)</span><span class="s2">",
+                "</span><span class="err">...</span><span class="s2">"
+            ]
+        }
+    }
+}
+</span></code></pre>
+<p>Markable&rsquo;s supported attributes per category.</p>
+
+<aside class="notice">
+    This operation requires a valid <code>client_access_token</code> - see <a href="#authentication">Authentication</a>.
+</aside>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET https://catalog.markable.ai/attributes</code></p>
+
+<h3 id="http-headers">HTTP Headers</h3>
+
+<table><thead>
+<tr>
+<th>Header</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">Authorization</code></td>
+<td><a href="https://tools.ietf.org/html/rfc6750">HTTP Bearer Token</a> for authorizing the request. <br><br>Format is <code class="prettyprint">Bearer :access_token</code>, where <code class="prettyprint">access_token</code> is given by <a href="#authentication">Authentication</a>. <strong><small>required</small></strong></td>
+</tr>
+</tbody></table>
+
           <h1 id="image-search">Image Search</h1>
 
 <h2 id="the-image-search-query-object"><img src="images/image-search_icon.png" alt="image-search_icon" width="28px" height="auto"> The Image Search Query Object</h2>
@@ -3058,6 +3165,42 @@ CatalogItem images start off being <code class="prettyprint">pending</code></p><
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
+<blockquote>
+<p><strong>Example:</strong> Image Search Query Object with Attributes</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"image_uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/images/1.png"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"catalogs"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"catalog-id-1"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"catalog-id-2"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"options"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p><strong>Example:</strong> Image Search Query Object with Auto detect gender in the input image</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"image_uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/images/1.png"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"catalogs"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"catalog-id-1"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"catalog-id-2"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"options"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"auto_detect_gender"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 <p>A <strong>Image Search Query</strong> (object) defines a visual search query for an image.</p>
 
 <table><thead>
@@ -3091,6 +3234,8 @@ CatalogItem images start off being <code class="prettyprint">pending</code></p><
 
 <h3 id="options-for-search">Options for Search</h3>
 
+<p>These options give you the flexibility to control how our visual search is performed.</p>
+
 <table><thead>
 <tr>
 <th>Attribute</th>
@@ -3111,9 +3256,16 @@ CatalogItem images start off being <code class="prettyprint">pending</code></p><
 <tr>
 <td><code class="prettyprint">auto_detect_gender</code></td>
 <td>Boolean</td>
-<td>Auto detect gender in the input image to scope search to specific genders, takes precedence over <code class="prettyprint">gender</code> above. Currently in alpha.</td>
+<td>Auto detect gender in the input image to scope search to specific genders, takes precedence over <code class="prettyprint">gender</code> above. Currently in <strong>alpha</strong>. Note that this does introduce a slow down of a few 100ms in search.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">attributes</code></td>
+<td>Boolean</td>
+<td>Return <a href="#supported-attributes">attributes</a> for every <a href="#catalog-items">catalogItem</a>, for both the searched input image and the images in the results. Note that this does introduce a slow down</td>
 </tr>
 </tbody></table>
+
+<p>of a few 100ms in search.</p>
 
           <h2 id="search"><img src="images/search-image_icon.png" alt="search-image_icon" width="28px" height="auto"> Search</h2>
 
