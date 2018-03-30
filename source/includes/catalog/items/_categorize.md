@@ -1,5 +1,7 @@
 
-## Auto Categorize! (Alpha Release)
+## Auto Categorize a CatalogItem
+
+Note that our feature where we try to predict the Markable category based on textual information is currently in **alpha**.
 
 > **Example:** Request
 
@@ -77,9 +79,6 @@ curl -X POST https://catalog.markable.ai/category \
     }
 
 ```
-
-
-Markable's auto categorization for an Item (alpha release)
 
 Given an item without a category, we try and figure out what the the [Supported Markable category](#supported-categories) is based on the textual information you provide. Its best to run this call with as much textual information as possible in the freeform `data` key. The response can be directly used to [create a catalog item](#create-catalog-item)
 

@@ -32,12 +32,15 @@ includes:
   - catalog/public
 
   - catalog/items/index
-  - catalog/items/categories
   - catalog/items/categorize
   - catalog/items/create
   - catalog/items/delete
   - catalog/items/get
   - catalog/items/list
+
+  - taxonomy/index
+  - taxonomy/categories
+  - taxonomy/attributes
 
   - image/index
   - image/search

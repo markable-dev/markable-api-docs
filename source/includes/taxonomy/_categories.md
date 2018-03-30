@@ -16,7 +16,7 @@ curl -X GET https://catalog.markable.ai/category \
 
 > **Example:** Response
 
-This is our current list of supported categories.
+This is our **current exhaustive** list of supported categories.
 
 ```json
 {
