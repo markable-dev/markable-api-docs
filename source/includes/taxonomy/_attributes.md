@@ -29,7 +29,7 @@ This is a snippet of our attributes.
                 "blue",
                 "brown",
                 "purple",
-                "grey"
+                "grey",
                 "..."
             ],
             "pattern": [
@@ -61,7 +61,7 @@ This is a snippet of our attributes.
             "pattern": [
                 "cheetah/leopard print",
                 "floral",
-                "tribal print"
+                "tribal print",
                 "..."
             ],
             "sleeve_length": [
