@@ -19,7 +19,7 @@ curl -X GET https://catalog.markable.ai/attributes \
 
 > **Example:** Response
 
-This is a snippet of our attributes.
+This is our current list of supported categories.
 
 ```json
 {
@@ -28,14 +28,12 @@ This is a snippet of our attributes.
             "color": [
                 "blue",
                 "brown",
-                "purple",
-                "grey"
                 "..."
             ],
             "pattern": [
                 "cheetah/leopard print",
-                "gingham",
                 "checkered",
+                "floral",
                 "..."
             ]
         },
@@ -55,14 +53,17 @@ This is a snippet of our attributes.
             ],
             "color": [
                 "blue",
-                "red",
+                "brown",
                 "..."
             ],
             "pattern": [
                 "cheetah/leopard print",
+                "gingham",
+                "checkered",
+                "chevron",
                 "floral",
                 "tribal print"
-                "..."
+                "...""
             ],
             "sleeve_length": [
                 "sleeveless",
