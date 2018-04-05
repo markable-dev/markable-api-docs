@@ -281,7 +281,7 @@ curl -X POST https://catalog.markable.ai/image/search \
 }
 ```
 
-Search an image - detect and retreive objects (products/logos/faces) based on visual features/similarity.
+Search an image - detect and retreive products based on visual features/similarity.
 
 <aside class="notice">
     This operation requires a valid <code>access_token</code> - see <a href="#authentication">Authentication</a>.

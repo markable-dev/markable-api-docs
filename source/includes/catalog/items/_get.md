@@ -78,11 +78,15 @@ Header       		| Description
 ----------      	| ----------
 `Authorization`     | [HTTP Bearer Token](https://tools.ietf.org/html/rfc6750) for authorizing the request. <br><br>Format is `Bearer :access_token`, where `access_token` is given by [Authentication](#authentication). **<small>required</small>**
 
-
-### Query Parameters
+### Route
 
 Parameter       | Description
 ----------      | ----------
 `catalogId`     | The ID of the catalog. **<small>required</small>**
 `itemId`       	| The ID of the catalog item. **<small>required</small>**
 
+### Query parameters
+
+Parameter               | Type                                  | Description
+-------                 | -------                               | -------
+`attributes`            | Boolean                               | Return [attributes](#supported-attributes) for every [catalogItem](#catalog-items)

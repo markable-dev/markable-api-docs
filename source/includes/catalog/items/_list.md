@@ -137,8 +137,10 @@ Header       		| Description
 Parameter       | Description
 ----------      | ----------
 `limit`         | The limit of items to return (defaults to 10).
-`skip`        | The skip of items to return.
+`skip`          | The skip of items to return.
 `success`       | Set this value filter by `success` status
 `error`         | Set this value filter by `error` status
 `pending`       | Set this value filter by `pending` status
 `category`      | The category of the items to filter by
+`attributes`    | `Boolean`. Returns [attributes](#supported-attributes) for every [catalogItem](#catalog-items)
+

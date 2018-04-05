@@ -79,7 +79,7 @@ Header       		| Description
 `Authorization`     | [HTTP Bearer Token](https://tools.ietf.org/html/rfc6750) for authorizing the request. <br><br>Format is `Bearer :access_token`, where `access_token` is given by [Authentication](#authentication). **<small>required</small>**
 
 
-### Query Parameters
+### Route
 
 Parameter       | Description
 ----------      | ----------
