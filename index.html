@@ -1478,7 +1478,7 @@ of their own.</p>
 </tr>
 </tbody></table>
 
-<h3 id="query-parameters">Query Parameters</h3>
+<h3 id="route">Route</h3>
 
 <p>None</p>
 
@@ -1566,7 +1566,7 @@ of their own.</p>
 </tr>
 </tbody></table>
 
-<h3 id="query-parameters">Query Parameters</h3>
+<h3 id="route">Route</h3>
 
 <table><thead>
 <tr>
@@ -1638,7 +1638,7 @@ of their own.</p>
 </tr>
 </tbody></table>
 
-<h3 id="query-parameters">Query Parameters</h3>
+<h3 id="route">Route</h3>
 
 <table><thead>
 <tr>
@@ -1707,7 +1707,7 @@ of their own.</p>
 </tr>
 </tbody></table>
 
-<h3 id="query-parameters">Query Parameters</h3>
+<h3 id="route">Route</h3>
 
 <table><thead>
 <tr>
@@ -1792,7 +1792,7 @@ of their own.</p>
 </tr>
 </tbody></table>
 
-<h3 id="query-parameters">Query Parameters</h3>
+<h3 id="route">Route</h3>
 
 <p>None</p>
 
@@ -1874,7 +1874,7 @@ of their own.</p>
 </tr>
 </tbody></table>
 
-<h3 id="query-parameters">Query Parameters</h3>
+<h3 id="route">Route</h3>
 
 <table><thead>
 <tr>
@@ -2559,7 +2559,7 @@ CatalogItem images start off being <code class="prettyprint">pending</code></p><
 </tr>
 </tbody></table>
 
-<h3 id="query-parameters">Query Parameters</h3>
+<h3 id="route">Route</h3>
 
 <table><thead>
 <tr>
@@ -2668,7 +2668,7 @@ CatalogItem images start off being <code class="prettyprint">pending</code></p><
 </tr>
 </tbody></table>
 
-<h3 id="query-parameters">Query Parameters</h3>
+<h3 id="route">Route</h3>
 
 <table><thead>
 <tr>
@@ -2765,7 +2765,7 @@ CatalogItem images start off being <code class="prettyprint">pending</code></p><
 </tr>
 </tbody></table>
 
-<h3 id="query-parameters">Query Parameters</h3>
+<h3 id="route">Route</h3>
 
 <table><thead>
 <tr>
@@ -2780,6 +2780,22 @@ CatalogItem images start off being <code class="prettyprint">pending</code></p><
 <tr>
 <td><code class="prettyprint">itemId</code></td>
 <td>The ID of the catalog item. <strong><small>required</small></strong></td>
+</tr>
+</tbody></table>
+
+<h3 id="query-parameters">Query parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">attributes</code></td>
+<td>Boolean</td>
+<td>Return <a href="#supported-attributes">attributes</a> for every <a href="#catalog-items">catalogItem</a></td>
 </tr>
 </tbody></table>
 
@@ -2942,6 +2958,10 @@ CatalogItem images start off being <code class="prettyprint">pending</code></p><
 <tr>
 <td><code class="prettyprint">category</code></td>
 <td>The category of the items to filter by</td>
+</tr>
+<tr>
+<td><code class="prettyprint">attributes</code></td>
+<td><code class="prettyprint">Boolean</code>. Returns <a href="#supported-attributes">attributes</a> for every <a href="#catalog-items">catalogItem</a></td>
 </tr>
 </tbody></table>
 
@@ -3524,7 +3544,7 @@ and more.</p>
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Search an image - detect and retreive objects (products/logos/faces) based on visual features/similarity.</p>
+<p>Search an image - detect and retreive products based on visual features/similarity.</p>
 
 <aside class="notice">
     This operation requires a valid <code>access_token</code> - see <a href="#authentication">Authentication</a>.
