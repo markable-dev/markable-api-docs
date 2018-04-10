@@ -95,5 +95,5 @@ Attribute               | Type                                  | Description
 `limit`                 | Number                                | Number of results to return. Default `30`
 `relevance`             | Number                                | How relevant you want the results to be. Default `50`. This takes precedence over `limit`
 `auto_detect_gender`    | Boolean                               | Auto detect gender in the input image to scope search to specific genders, takes precedence over `gender` above. Currently in **alpha**. Note that this does introduce a slow down of a few 100ms in search.
-`attributes`            | Boolean                               | Return [attributes](#supported-attributes) for every [catalogItem](#catalog-items), for both the searched input image and the images in the results. Note that this does introduce a slow down of a few 100ms in search.
+`attributes`            | Boolean                               | Return [attributes](#supported-attributes) for every [catalogItem](#catalog-items), for both the searched input image and the images in the results. Note that this does introduce a slow down of a few 100ms in search. Secondly, there is no guarantee that the attributes will be common between the input image and the result images; however, its highly likely that they would be.
 
