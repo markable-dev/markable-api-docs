@@ -245,7 +245,7 @@ Attribute 		| Type 							   | Description
 `updated_at`	| Date							   | Updated date/time. **<small>read-only</small>**
 
 
-We have constraints on the image sizes we index. We support `.jpg, .jpeg, .png` and
+We have constraints on the image sizes we index. We support `.jpg`, `.jpeg`, `.png`, `.webp` and
 
 Minimum image size = `224`
 
