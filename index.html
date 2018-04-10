@@ -2245,7 +2245,7 @@ of their own.</p>
 </tr>
 </tbody></table>
 
-<p>We have constraints on the image sizes we index. We support <code class="prettyprint">.jpg, .jpeg, .png</code> and</p>
+<p>We have constraints on the image sizes we index. We support <code class="prettyprint">.jpg</code>, <code class="prettyprint">.jpeg</code>, <code class="prettyprint">.png</code>, <code class="prettyprint">.webp</code> and</p>
 
 <p>Minimum image size = <code class="prettyprint">224</code></p>
 
@@ -3276,6 +3276,16 @@ and more.</p>
 <td>Return <a href="#supported-attributes">attributes</a> for every <a href="#catalog-items">catalogItem</a>, for both the searched input image and the images in the results. Note that this does introduce a slow down of a few 100ms in search. Secondly, there is no guarantee that the attributes will be common between the input image and the result images; however, its highly likely that they would be.</td>
 </tr>
 </tbody></table>
+
+<h3 id="search-contraints-on-the-searched-input-image">Search contraints on the searched input Image</h3>
+
+<p>We have constraints on the image sizes we search on. We support <code class="prettyprint">.jpg</code>, <code class="prettyprint">.jpeg</code>, <code class="prettyprint">.png</code>, <code class="prettyprint">.webp</code> and</p>
+
+<p>Minimum image size = <code class="prettyprint">100</code></p>
+
+<p>Maximum image size = <code class="prettyprint">3200</code></p>
+
+<p>Maximum image memory size = <code class="prettyprint">2.5 * 1024 * 1024</code></p>
 
           <h2 id="search"><img src="images/search-image_icon.png" alt="search-image_icon" width="28px" height="auto"> Search</h2>
 
