@@ -11,7 +11,8 @@ For the **Lens API**, you will be using your client acccess token with every req
 ```json
 {
   "client_id": "client_id_1",
-  "client_secret": "client_secret_1"
+  "client_secret": "client_secret_1",
+  "scope": "default"
 }
 ```
 
@@ -20,7 +21,8 @@ The **Client Credentials** (object) refers to a object holding holding your **Ma
 Attribute         | Description
 ----------        | ----------
 `client_id`       | Client ID - i.e. "API key". **<small>required</small>**
-`client_secret`     | Client secret - i.e. "API secret". **<small>required</small>**
+`client_secret`   | Client secret - i.e. "API secret". **<small>required</small>**
+`scope`           | The scope of how the client can be used. Currently `['default', 'search']`
 
 
 > **Example:** Request
@@ -30,7 +32,8 @@ POST https://auth.markable.ai/auth/client/authorize HTTP/1.1
 {
   "data": {
     "client_id": "client_id_1",
-    "client_secret": "client_secret_1"
+    "client_secret": "client_secret_1",
+    "scope": "default"
   }
 }
 ```
@@ -42,7 +45,35 @@ curl -X POST https://auth.markable.ai/auth/client/authorize \
 {
   "data": {
     "client_id": "client_id_1",
-    "client_secret": "client_secret_1"
+    "client_secret": "client_secret_1",
+    "scope": "default"
+  }
+}
+'
+```
+
+> **Example:** Request for Search only tokens that can be *Published*
+
+```http
+POST https://auth.markable.ai/auth/client/authorize HTTP/1.1
+{
+  "data": {
+    "client_id": "client_id_1",
+    "client_secret": "client_secret_1",
+    "scope": "search"
+  }
+}
+```
+
+```shell
+curl -X POST https://auth.markable.ai/auth/client/authorize \
+-H 'Content-Type: application/json' \
+-d '
+{
+  "data": {
+    "client_id": "client_id_1",
+    "client_secret": "client_secret_1",
+    "scope": "search"
   }
 }
 '
@@ -60,6 +91,9 @@ curl -X POST https://auth.markable.ai/auth/client/authorize \
 
 Create authorization (authentication token) for a client.
 
+### Security
+
+With the `search` scope, the resulting client access tokens can be published on the web and will only allow you to do searches. The `default` tokens on the other hand allow all operations.
 
 ### HTTP Request
 
@@ -74,7 +108,6 @@ Standard
 ### Query Parameters
 
 None
-
 
 ### Body
 
