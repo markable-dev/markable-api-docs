@@ -1188,7 +1188,8 @@ of their own.</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"client_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"client_id_1"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"client_secret"</span><span class="p">:</span><span class="w"> </span><span class="s2">"client_secret_1"</span><span class="w">
+  </span><span class="s2">"client_secret"</span><span class="p">:</span><span class="w"> </span><span class="s2">"client_secret_1"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"scope"</span><span class="p">:</span><span class="w"> </span><span class="s2">"default"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>The <strong>Client Credentials</strong> (object) refers to a object holding holding your <strong>Markable Lens API</strong> credentials, i.e. key token (<code class="prettyprint">client_id</code>) and secret token (<code class="prettyprint">client_secret</code>). These credentials will be available to any <a href="#authentication">verified developer</a>.</p>
@@ -1207,6 +1208,10 @@ of their own.</p>
 <td><code class="prettyprint">client_secret</code></td>
 <td>Client secret - i.e. &ldquo;API secret&rdquo;. <strong><small>required</small></strong></td>
 </tr>
+<tr>
+<td><code class="prettyprint">scope</code></td>
+<td>The scope of how the client can be used. Currently <code class="prettyprint">[&#39;default&#39;, &#39;search&#39;]</code></td>
+</tr>
 </tbody></table>
 
 <blockquote>
@@ -1216,7 +1221,8 @@ of their own.</p>
 <span class="s">{</span>
 <span class="s">  "data": {</span>
 <span class="s">    "client_id": "client_id_1",</span>
-<span class="s">    "client_secret": "client_secret_1"</span>
+<span class="s">    "client_secret": "client_secret_1",</span>
+<span class="s">    "scope": "default"</span>
 <span class="s">  }</span>
 <span class="s">}</span>
 </code></pre><pre class="highlight shell tab-shell"><code>curl -X POST https://auth.markable.ai/auth/client/authorize <span class="se">\</span>
@@ -1225,7 +1231,31 @@ of their own.</p>
 {
   "data": {
     "client_id": "client_id_1",
-    "client_secret": "client_secret_1"
+    "client_secret": "client_secret_1",
+    "scope": "default"
+  }
+}
+'</span>
+</code></pre>
+<blockquote>
+<p><strong>Example:</strong> Request for Search only tokens that can be <em>Published</em></p>
+</blockquote>
+<pre class="highlight http tab-http"><code><span class="nf">POST</span> <span class="nn">https://auth.markable.ai/auth/client/authorize</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="s">{</span>
+<span class="s">  "data": {</span>
+<span class="s">    "client_id": "client_id_1",</span>
+<span class="s">    "client_secret": "client_secret_1",</span>
+<span class="s">    "scope": "search"</span>
+<span class="s">  }</span>
+<span class="s">}</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl -X POST https://auth.markable.ai/auth/client/authorize <span class="se">\</span>
+-H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+-d <span class="s1">'
+{
+  "data": {
+    "client_id": "client_id_1",
+    "client_secret": "client_secret_1",
+    "scope": "search"
   }
 }
 '</span>
@@ -1240,6 +1270,10 @@ of their own.</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>Create authorization (authentication token) for a client.</p>
+
+<h3 id="security">Security</h3>
+
+<p>With the <code class="prettyprint">search</code> scope, the resulting client access tokens can be published on the web and will only allow you to do searches. The <code class="prettyprint">default</code> tokens on the other hand allow all operations.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
