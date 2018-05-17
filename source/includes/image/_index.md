@@ -7,15 +7,17 @@
 
 ```json
 {
-	"image_uri": "https://example.com/images/1.png",
-	"catalogs": [
-	    {
-	        "_id": "catalog-id-1"
-	    },
-	    {
-	        "_id": "catalog-id-2"
-	    }
-	]
+    "data": {
+        "image_uri": "https://example.com/images/1.png",
+        "catalogs": [
+            {
+                "_id": "catalog-id-1"
+            },
+            {
+                "_id": "catalog-id-2"
+            }
+        ]
+    }
 }
 ```
 
@@ -23,18 +25,20 @@
 
 ```json
 {
-    "image_uri": "https://example.com/images/1.png",
-    "catalogs": [
-        {
-            "_id": "catalog-id-1"
-        },
-        {
-            "_id": "catalog-id-2"
+    "data": {
+        "image_uri": "https://example.com/images/1.png",
+        "catalogs": [
+            {
+                "_id": "catalog-id-1"
+            },
+            {
+                "_id": "catalog-id-2"
+            }
+        ],
+        "options": {
+            "limit": 30,
+            "relevance": 50
         }
-    ],
-    "options": {
-        "limit": 30,
-        "relevance": 50
     }
 }
 ```
@@ -43,17 +47,19 @@
 
 ```json
 {
-    "image_uri": "https://example.com/images/1.png",
-    "catalogs": [
-        {
-            "_id": "catalog-id-1"
-        },
-        {
-            "_id": "catalog-id-2"
+    "data": {
+        "image_uri": "https://example.com/images/1.png",
+        "catalogs": [
+            {
+                "_id": "catalog-id-1"
+            },
+            {
+                "_id": "catalog-id-2"
+            }
+        ],
+        "options": {
+            "attributes": true
         }
-    ],
-    "options": {
-        "attributes": true
     }
 }
 ```
@@ -62,17 +68,19 @@
 
 ```json
 {
-    "image_uri": "https://example.com/images/1.png",
-    "catalogs": [
-        {
-            "_id": "catalog-id-1"
-        },
-        {
-            "_id": "catalog-id-2"
+    "data": {
+        "image_uri": "https://example.com/images/1.png",
+        "catalogs": [
+            {
+                "_id": "catalog-id-1"
+            },
+            {
+                "_id": "catalog-id-2"
+            }
+        ],
+        "options": {
+            "auto_detect_gender": true
         }
-    ],
-    "options": {
-        "auto_detect_gender": true
     }
 }
 ```

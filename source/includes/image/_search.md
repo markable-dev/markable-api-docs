@@ -32,7 +32,7 @@ curl -X POST https://catalog.markable.ai/image/search \
 POST https://catalog.markable.ai/image/search HTTP/1.1
 Authorization: Bearer 123abc
 {
-  "data": {
+    "data": {
         "image_uri": "http://i.com/1.png",
         "catalogs": [
             {
@@ -179,7 +179,7 @@ curl -X POST https://catalog.markable.ai/image/search \
                         "_type": "Catalog",
                         "name": "catalog-1",
                         "_id": "catalog-1"
-                    }
+                    },
                     "data": {
                         "id": "any custom data",
                         "name": "custom product name"
