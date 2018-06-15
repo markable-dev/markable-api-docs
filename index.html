@@ -3353,7 +3353,26 @@ and more.</p>
 '</span>
 </code></pre>
 <blockquote>
-<p><strong>Example:</strong> Image Search with Catalogs</p>
+<p><strong>Example:</strong> Image Search with Catalogs Names (Preferred over IDS)</p>
+</blockquote>
+<pre class="highlight http tab-http"><code><span class="nf">POST</span> <span class="nn">https://catalog.markable.ai/image/search</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer 123abc</span>
+<span class="s">{</span>
+<span class="s">    "data": {</span>
+<span class="s">        "image_uri": "http://i.com/1.png",</span>
+<span class="s">        "catalogs": [</span>
+<span class="s">            {</span>
+<span class="s">                "name": "catalog-name-1"</span>
+<span class="s">            },</span>
+<span class="s">            {</span>
+<span class="s">                "name": "catalog-name-2"</span>
+<span class="s">            }</span>
+<span class="s">        ]</span>
+<span class="s">    }</span>
+<span class="s">}</span>
+</code></pre>
+<blockquote>
+<p><strong>Example:</strong> Image Search with Catalogs IDS</p>
 </blockquote>
 <pre class="highlight http tab-http"><code><span class="nf">POST</span> <span class="nn">https://catalog.markable.ai/image/search</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer 123abc</span>
@@ -3379,10 +3398,10 @@ and more.</p>
         "image_uri": "http://i.com/1.png",
         "catalogs": [
             {
-                "_id": "catalog-id-1"
+                "name": "catalog-name-1"
             },
             {
-                "_id": "catalog-id-2"
+                "name": "catalog-name-2"
             }
         ]
     }
@@ -3400,10 +3419,10 @@ and more.</p>
 <span class="s">        "gender": ["men"],</span>
 <span class="s">        "catalogs": [</span>
 <span class="s">            {</span>
-<span class="s">                "_id": "catalog-id-1"</span>
+<span class="s">                "name": "catalog-name-1"</span>
 <span class="s">            },</span>
 <span class="s">            {</span>
-<span class="s">                "_id": "catalog-id-2"</span>
+<span class="s">                "name": "catalog-name-2"</span>
 <span class="s">            }</span>
 <span class="s">        ]</span>
 <span class="s">    }</span>
@@ -3418,10 +3437,10 @@ and more.</p>
         "gender": ["men", "women"],
         "catalogs": [
             {
-                "_id": "catalog-id-1"
+                "name": "catalog-name-1"
             },
             {
-                "_id": "catalog-id-2"
+                "name": "catalog-name-2"
             }
         ]
     }
@@ -3439,7 +3458,7 @@ and more.</p>
 -H <span class="s1">'Content-Type: multipart/form-data;'</span> <span class="se">\</span>
 -H <span class="s1">'Authorization: Bearer 123abc'</span> <span class="se">\</span>
 -F <span class="s1">'image=@/local/folder/1.png'</span> <span class="se">\</span>
--F <span class="s1">'data={ "catalogs": [{ "_id": "catalog-id-1" }] }'</span>
+-F <span class="s1">'data={ "catalogs": [{ "name": "catalog-name-1" }] }'</span>
 </code></pre>
 <blockquote>
 <p><strong>Example:</strong> Response</p>
@@ -3491,8 +3510,8 @@ and more.</p>
                     </span><span class="p">],</span><span class="w">
                     </span><span class="s2">"catalog"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
                         </span><span class="s2">"_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Catalog"</span><span class="p">,</span><span class="w">
-                        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"catalog-1"</span><span class="p">,</span><span class="w">
-                        </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"catalog-1"</span><span class="w">
+                        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"catalog-name-1"</span><span class="p">,</span><span class="w">
+                        </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"catalog-id-1"</span><span class="w">
                     </span><span class="p">},</span><span class="w">
                     </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
                         </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"any custom data"</span><span class="p">,</span><span class="w">
@@ -3513,8 +3532,8 @@ and more.</p>
                     </span><span class="p">],</span><span class="w">
                     </span><span class="s2">"catalog"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
                         </span><span class="s2">"_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Catalog"</span><span class="p">,</span><span class="w">
-                        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"catalog-1"</span><span class="p">,</span><span class="w">
-                        </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"catalog-1"</span><span class="w">
+                        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"catalog-name-1"</span><span class="p">,</span><span class="w">
+                        </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"catalog-id-1"</span><span class="w">
                     </span><span class="p">},</span><span class="w">
                     </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
                         </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"any custom data"</span><span class="p">,</span><span class="w">
@@ -3553,8 +3572,8 @@ and more.</p>
                     </span><span class="p">],</span><span class="w">
                     </span><span class="s2">"catalog"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
                         </span><span class="s2">"_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Catalog"</span><span class="p">,</span><span class="w">
-                        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"catalog-2"</span><span class="p">,</span><span class="w">
-                        </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"catalog-2"</span><span class="w">
+                        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"catalog-name-2"</span><span class="p">,</span><span class="w">
+                        </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"catalog-id-2"</span><span class="w">
                     </span><span class="p">},</span><span class="w">
                     </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
                         </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"any custom data"</span><span class="p">,</span><span class="w">
@@ -3579,8 +3598,8 @@ and more.</p>
                     </span><span class="p">],</span><span class="w">
                     </span><span class="s2">"catalog"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
                         </span><span class="s2">"_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Catalog"</span><span class="p">,</span><span class="w">
-                        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"catalog-2"</span><span class="p">,</span><span class="w">
-                        </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"catalog-2"</span><span class="w">
+                        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"catalog-name-2"</span><span class="p">,</span><span class="w">
+                        </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"catalog-id-2"</span><span class="w">
                     </span><span class="p">},</span><span class="w">
                     </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
                         </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"any custom data"</span><span class="p">,</span><span class="w">
