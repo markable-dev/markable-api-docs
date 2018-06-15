@@ -1,9 +1,12 @@
 
-# Image Search (also Visual Search or Prouct Search)
+# Product Search
 
-## <img src="images/image-search_icon.png" alt="image-search_icon" width="28px" height="auto"> The Image Search Query Object
+Product search, also often called *Product Search* or *Product Search*. Given an image, we find the most visually relevant
+images in your Catalog of schema `product`.
 
-> **Example:** Image Search Query Object
+## <img src="images/image-search_icon.png" alt="image-search_icon" width="28px" height="auto"> The Product Search Query Object
+
+> **Example:** Product Search Query Object
 
 ```json
 {
@@ -21,7 +24,7 @@
 }
 ```
 
-> **Example:** Image Search Query Object with Options
+> **Example:** Product Search Query Object with Options
 
 ```json
 {
@@ -43,7 +46,7 @@
 }
 ```
 
-> **Example:** Image Search Query Object with Attributes
+> **Example:** Product Search Query Object with Attributes
 
 ```json
 {
@@ -64,7 +67,7 @@
 }
 ```
 
-> **Example:** Image Search Query Object with Auto detect gender in the input image
+> **Example:** Product Search Query Object with Auto detect gender in the input image
 
 ```json
 {
@@ -85,13 +88,13 @@
 }
 ```
 
-A **Image Search Query** (object) defines a visual search query for an image.
+A **Product Search Query** (object) defines a visual search query for an image.
 
 Attribute 		| Type 									| Description
 ------- 		| -------								| -------
 `image_uri` 	| String								| A valid image URI. **<small>required</small>**
 `gender`        | Array                                 | `['men', 'women']` or a sub array of both. __By default we return all gender results.__
-`catalogs` 		| [Array&lt;Catalog&gt;](#catalog)		| List of catalogs (public or private) - which will be included the visual search scope.
+`catalogs` 		| [Array&lt;Catalog&gt;](#catalog)		| List of `product` catalogs (public or private) - which will be included the visual search scope.
 `options`       | Object                                | A list of options that we support. Currently we support the options below
 
 ### Options for Search

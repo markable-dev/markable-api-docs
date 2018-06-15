@@ -40,7 +40,7 @@
     "data": {
         "url": "https://example.com/product/page.html",
         "id": "external-id-1",
-        "foo": "bar"
+        "foo": "bar",
         "name" : "A great awesome product",
         "brand" : "Brand",
         "color" : "green",
@@ -130,10 +130,10 @@
                         ]
                     },
                     "status": {
-                        enum: ["pending", "error", "success"]
+                        "enum": ["pending", "error", "success"]
                     },
                     "error": {
-                        type: ["object", "null"]
+                        "type": ["object", "null"]
                     },
                     "width": {
                         "type": "integer",
@@ -175,7 +175,7 @@
                     "type": "string",
                 },
                 "gender": {
-                    "enum": ["men", "women", "unisex"]
+                    "enum": ["men", "women", "unisex"],
                     "default": "women"
                 },
                 "name": {

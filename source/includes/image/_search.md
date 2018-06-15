@@ -1,5 +1,5 @@
 
-## <img src="images/search-image_icon.png" alt="search-image_icon" width="28px" height="auto"> Search
+## <img src="images/search-image_icon.png" alt="search-image_icon" width="28px" height="auto"> Product Search
 
 > **Example:** Simple Image Search without Catalogs
 
@@ -46,6 +46,27 @@ Authorization: Bearer 123abc
 }
 ```
 
+```shell
+curl -X POST https://catalog.markable.ai/image/search \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer 123abc' \
+-d '
+{
+    "data": {
+        "image_uri": "http://i.com/1.png",
+        "catalogs": [
+            {
+                "name": "catalog-name-1"
+            },
+            {
+                "name": "catalog-name-2"
+            }
+        ]
+    }
+}
+'
+```
+
 > **Example:** Image Search with Catalogs IDS
 
 ```http
@@ -76,10 +97,10 @@ curl -X POST https://catalog.markable.ai/image/search \
         "image_uri": "http://i.com/1.png",
         "catalogs": [
             {
-                "name": "catalog-name-1"
+                "_id": "catalog-id-1"
             },
             {
-                "name": "catalog-name-2"
+                "_id": "catalog-id-2"
             }
         ]
     }

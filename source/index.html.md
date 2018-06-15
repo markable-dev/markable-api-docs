@@ -45,6 +45,9 @@ includes:
   - image/index
   - image/search
 
+  - style/index
+  - style/search
+
   # - video/index
   # - video/search
 
