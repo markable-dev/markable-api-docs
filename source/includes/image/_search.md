@@ -26,7 +26,27 @@ curl -X POST https://catalog.markable.ai/image/search \
 '
 ```
 
-> **Example:** Image Search with Catalogs
+> **Example:** Image Search with Catalogs Names (Preferred over IDS)
+
+```http
+POST https://catalog.markable.ai/image/search HTTP/1.1
+Authorization: Bearer 123abc
+{
+    "data": {
+        "image_uri": "http://i.com/1.png",
+        "catalogs": [
+            {
+                "name": "catalog-name-1"
+            },
+            {
+                "name": "catalog-name-2"
+            }
+        ]
+    }
+}
+```
+
+> **Example:** Image Search with Catalogs IDS
 
 ```http
 POST https://catalog.markable.ai/image/search HTTP/1.1
@@ -56,10 +76,10 @@ curl -X POST https://catalog.markable.ai/image/search \
         "image_uri": "http://i.com/1.png",
         "catalogs": [
             {
-                "_id": "catalog-id-1"
+                "name": "catalog-name-1"
             },
             {
-                "_id": "catalog-id-2"
+                "name": "catalog-name-2"
             }
         ]
     }
@@ -78,10 +98,10 @@ Authorization: Bearer 123abc
         "gender": ["men"],
         "catalogs": [
             {
-                "_id": "catalog-id-1"
+                "name": "catalog-name-1"
             },
             {
-                "_id": "catalog-id-2"
+                "name": "catalog-name-2"
             }
         ]
     }
@@ -99,10 +119,10 @@ curl -X POST https://catalog.markable.ai/image/search \
         "gender": ["men", "women"],
         "catalogs": [
             {
-                "_id": "catalog-id-1"
+                "name": "catalog-name-1"
             },
             {
-                "_id": "catalog-id-2"
+                "name": "catalog-name-2"
             }
         ]
     }
@@ -124,7 +144,7 @@ curl -X POST https://catalog.markable.ai/image/search \
 -H 'Content-Type: multipart/form-data;' \
 -H 'Authorization: Bearer 123abc' \
 -F 'image=@/local/folder/1.png' \
--F 'data={ "catalogs": [{ "_id": "catalog-id-1" }] }'
+-F 'data={ "catalogs": [{ "name": "catalog-name-1" }] }'
 ```
 
 > **Example:** Response
@@ -177,8 +197,8 @@ curl -X POST https://catalog.markable.ai/image/search \
                     ],
                     "catalog": {
                         "_type": "Catalog",
-                        "name": "catalog-1",
-                        "_id": "catalog-1"
+                        "name": "catalog-name-1",
+                        "_id": "catalog-id-1"
                     },
                     "data": {
                         "id": "any custom data",
@@ -199,8 +219,8 @@ curl -X POST https://catalog.markable.ai/image/search \
                     ],
                     "catalog": {
                         "_type": "Catalog",
-                        "name": "catalog-1",
-                        "_id": "catalog-1"
+                        "name": "catalog-name-1",
+                        "_id": "catalog-id-1"
                     },
                     "data": {
                         "id": "any custom data",
@@ -239,8 +259,8 @@ curl -X POST https://catalog.markable.ai/image/search \
                     ],
                     "catalog": {
                         "_type": "Catalog",
-                        "name": "catalog-2",
-                        "_id": "catalog-2"
+                        "name": "catalog-name-2",
+                        "_id": "catalog-id-2"
                     },
                     "data": {
                         "id": "any custom data",
@@ -265,8 +285,8 @@ curl -X POST https://catalog.markable.ai/image/search \
                     ],
                     "catalog": {
                         "_type": "Catalog",
-                        "name": "catalog-2",
-                        "_id": "catalog-2"
+                        "name": "catalog-name-2",
+                        "_id": "catalog-id-2"
                     },
                     "data": {
                         "id": "any custom data",
