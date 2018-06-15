@@ -1307,16 +1307,38 @@ of their own.</p>
 
 <h2 id="the-catalog-object"><img src="images/catalog_icon.png" alt="catalog_icon" width="26px" height="auto"> The Catalog Object</h2>
 
+<p>A <strong>Catalog</strong> (object) defines a catalog/group of visual items (e.g. products), that can be indexed and visually searched within images and videos using visual similarity - based on the associated image(s). For us to be able to find what you looking for in your images/vides the items (exact or similar) must be known to <strong>Markable</strong>&lsquo;s visual search engine, either using existing catalogs or your customly defined catalogs.</p>
+
+<p>Catalogs can be of two different schemas; <code class="prettyprint">product</code> and <code class="prettyprint">style</code>. </p>
+
+<h2 id="product-catalogs">Product Catalogs</h2>
+
+<p>Product catalogs are a reflection of a list of products sold online in a retail store for example. Each <a href="#catalog-items">CatalogItem</a> in a product catalog beside images, have a <code class="prettyprint">category</code>, a <code class="prettyprint">url</code> that you can find the product in and <code class="prettyprint">gender</code> associated with it.</p>
+
+<h2 id="style-catalogs">Style Catalogs</h2>
+
+<p>Style catalogs, however, are free form catalogs with just <code class="prettyprint">images</code> and a designated <code class="prettyprint">gender</code>. Style catalogs are a list of street images</p>
+
 <blockquote>
 <p><strong>Example:</strong> Catalog Object</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Catalog"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"size"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"catalog-1"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My first catalog"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"schema"</span><span class="p">:</span><span class="w"> </span><span class="s2">"product"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"catalog-id-1"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"size"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"catalog-name-1"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My first catalog"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-01-01T00:00:00Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-01-01T00:00:00Z"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Catalog"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"schema"</span><span class="p">:</span><span class="w"> </span><span class="s2">"style"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"catalog-id-2"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"size"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"catalog-name-2"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My first style catalog"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-01-01T00:00:00Z"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-01-01T00:00:00Z"</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -1370,10 +1392,7 @@ of their own.</p>
             </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="s2">"schema"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"enum"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-                </span><span class="s2">"product"</span><span class="w">
-            </span><span class="p">],</span><span class="w">
+            </span><span class="s2">"enum"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"product"</span><span class="p">,</span><span class="w"> </span><span class="s2">"style"</span><span class="p">],</span><span class="w">
             </span><span class="s2">"default"</span><span class="p">:</span><span class="w"> </span><span class="s2">"product"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -1390,8 +1409,6 @@ of their own.</p>
     </span><span class="s2">"additionalProperties"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>A <strong>Catalog</strong> (object) defines a catalog/group of visual items (e.g. products), that can be indexed and visually searched within images and videos using visual similarity - based on the associated image(s). For us to be able to find what you looking for in your images/vides the items (exact or similar) must be known to <strong>Markable</strong>&lsquo;s visual search engine, either using existing catalogs or your customly defined catalogs.</p>
-
 <table><thead>
 <tr>
 <th>Attribute</th>
@@ -1427,7 +1444,7 @@ of their own.</p>
 <tr>
 <td><code class="prettyprint">schema</code></td>
 <td>String</td>
-<td>The schema to be used for this catalog&rsquo;s items. <br>Can be: <code class="prettyprint">product</code>.</td>
+<td>The schema to be used for this catalog&rsquo;s items. <br>Can be: <code class="prettyprint">product</code> or <code class="prettyprint">style</code>.</td>
 </tr>
 <tr>
 <td><code class="prettyprint">created_at</code></td>
@@ -2038,7 +2055,7 @@ of their own.</p>
     </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/product/page.html"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"external-id-1"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"foo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bar"</span><span class="w">
+        </span><span class="s2">"foo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bar"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"name"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"A great awesome product"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"brand"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"Brand"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"color"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"green"</span><span class="p">,</span><span class="w">
@@ -2127,10 +2144,10 @@ of their own.</p>
                         </span><span class="p">]</span><span class="w">
                     </span><span class="p">},</span><span class="w">
                     </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                        </span><span class="err">enum</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"pending"</span><span class="p">,</span><span class="w"> </span><span class="s2">"error"</span><span class="p">,</span><span class="w"> </span><span class="s2">"success"</span><span class="p">]</span><span class="w">
+                        </span><span class="s2">"enum"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"pending"</span><span class="p">,</span><span class="w"> </span><span class="s2">"error"</span><span class="p">,</span><span class="w"> </span><span class="s2">"success"</span><span class="p">]</span><span class="w">
                     </span><span class="p">},</span><span class="w">
                     </span><span class="s2">"error"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                        </span><span class="err">type</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"object"</span><span class="p">,</span><span class="w"> </span><span class="s2">"null"</span><span class="p">]</span><span class="w">
+                        </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"object"</span><span class="p">,</span><span class="w"> </span><span class="s2">"null"</span><span class="p">]</span><span class="w">
                     </span><span class="p">},</span><span class="w">
                     </span><span class="s2">"width"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
                         </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
@@ -2172,7 +2189,7 @@ of their own.</p>
                     </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
                 </span><span class="p">},</span><span class="w">
                 </span><span class="s2">"gender"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                    </span><span class="s2">"enum"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"men"</span><span class="p">,</span><span class="w"> </span><span class="s2">"women"</span><span class="p">,</span><span class="w"> </span><span class="s2">"unisex"</span><span class="p">]</span><span class="w">
+                    </span><span class="s2">"enum"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"men"</span><span class="p">,</span><span class="w"> </span><span class="s2">"women"</span><span class="p">,</span><span class="w"> </span><span class="s2">"unisex"</span><span class="p">],</span><span class="w">
                     </span><span class="s2">"default"</span><span class="p">:</span><span class="w"> </span><span class="s2">"women"</span><span class="w">
                 </span><span class="p">},</span><span class="w">
                 </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -3173,39 +3190,42 @@ and more.</p>
 </tr>
 </tbody></table>
 
-          <h1 id="image-search">Image Search</h1>
+          <h1 id="product-search">Product Search</h1>
 
-<h2 id="the-image-search-query-object"><img src="images/image-search_icon.png" alt="image-search_icon" width="28px" height="auto"> The Image Search Query Object</h2>
+<p>Product search, also often called <em>Product Search</em> or <em>Product Search</em>. Given an image, we find the most visually relevant
+images in your Catalog of schema <code class="prettyprint">product</code>.</p>
+
+<h2 id="the-product-search-query-object"><img src="images/image-search_icon.png" alt="image-search_icon" width="28px" height="auto"> The Product Search Query Object</h2>
 
 <blockquote>
-<p><strong>Example:</strong> Image Search Query Object</p>
+<p><strong>Example:</strong> Product Search Query Object</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"image_uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/images/1.png"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"catalogs"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
             </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"catalog-id-1"</span><span class="w">
+                </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"catalog-name-1"</span><span class="w">
             </span><span class="p">},</span><span class="w">
             </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"catalog-id-2"</span><span class="w">
+                </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"catalog-name-2"</span><span class="w">
             </span><span class="p">}</span><span class="w">
         </span><span class="p">]</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <blockquote>
-<p><strong>Example:</strong> Image Search Query Object with Options</p>
+<p><strong>Example:</strong> Product Search Query Object with Options</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"image_uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/images/1.png"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"catalogs"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
             </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"catalog-id-1"</span><span class="w">
+                </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"catalog-name-1"</span><span class="w">
             </span><span class="p">},</span><span class="w">
             </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"catalog-id-2"</span><span class="w">
+                </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"catalog-name-2"</span><span class="w">
             </span><span class="p">}</span><span class="w">
         </span><span class="p">],</span><span class="w">
         </span><span class="s2">"options"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -3216,17 +3236,17 @@ and more.</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <blockquote>
-<p><strong>Example:</strong> Image Search Query Object with Attributes</p>
+<p><strong>Example:</strong> Product Search Query Object with Attributes</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"image_uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/images/1.png"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"catalogs"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
             </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"catalog-id-1"</span><span class="w">
+                </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"catalog-name-1"</span><span class="w">
             </span><span class="p">},</span><span class="w">
             </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"catalog-id-2"</span><span class="w">
+                </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"catalog-name-2"</span><span class="w">
             </span><span class="p">}</span><span class="w">
         </span><span class="p">],</span><span class="w">
         </span><span class="s2">"options"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -3236,17 +3256,17 @@ and more.</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <blockquote>
-<p><strong>Example:</strong> Image Search Query Object with Auto detect gender in the input image</p>
+<p><strong>Example:</strong> Product Search Query Object with Auto detect gender in the input image</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"image_uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/images/1.png"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"catalogs"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
             </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"catalog-id-1"</span><span class="w">
+                </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"catalog-name-1"</span><span class="w">
             </span><span class="p">},</span><span class="w">
             </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"catalog-id-2"</span><span class="w">
+                </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"catalog-name-2"</span><span class="w">
             </span><span class="p">}</span><span class="w">
         </span><span class="p">],</span><span class="w">
         </span><span class="s2">"options"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -3255,7 +3275,7 @@ and more.</p>
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>A <strong>Image Search Query</strong> (object) defines a visual search query for an image.</p>
+<p>A <strong>Product Search Query</strong> (object) defines a visual search query for an image.</p>
 
 <table><thead>
 <tr>
@@ -3277,7 +3297,7 @@ and more.</p>
 <tr>
 <td><code class="prettyprint">catalogs</code></td>
 <td><a href="#catalog">Array&lt;Catalog&gt;</a></td>
-<td>List of catalogs (public or private) - which will be included the visual search scope.</td>
+<td>List of <code class="prettyprint">product</code> catalogs (public or private) - which will be included the visual search scope.</td>
 </tr>
 <tr>
 <td><code class="prettyprint">options</code></td>
@@ -3329,7 +3349,7 @@ and more.</p>
 
 <p>Maximum image memory size = <code class="prettyprint">2.5 * 1024 * 1024</code></p>
 
-          <h2 id="search"><img src="images/search-image_icon.png" alt="search-image_icon" width="28px" height="auto"> Search</h2>
+          <h2 id="product-search"><img src="images/search-image_icon.png" alt="search-image_icon" width="28px" height="auto"> Product Search</h2>
 
 <blockquote>
 <p><strong>Example:</strong> Simple Image Search without Catalogs</p>
@@ -3370,6 +3390,24 @@ and more.</p>
 <span class="s">        ]</span>
 <span class="s">    }</span>
 <span class="s">}</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl -X POST https://catalog.markable.ai/image/search <span class="se">\</span>
+-H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+-H <span class="s1">'Authorization: Bearer 123abc'</span> <span class="se">\</span>
+-d <span class="s1">'
+{
+    "data": {
+        "image_uri": "http://i.com/1.png",
+        "catalogs": [
+            {
+                "name": "catalog-name-1"
+            },
+            {
+                "name": "catalog-name-2"
+            }
+        ]
+    }
+}
+'</span>
 </code></pre>
 <blockquote>
 <p><strong>Example:</strong> Image Search with Catalogs IDS</p>
@@ -3398,10 +3436,10 @@ and more.</p>
         "image_uri": "http://i.com/1.png",
         "catalogs": [
             {
-                "name": "catalog-name-1"
+                "_id": "catalog-id-1"
             },
             {
-                "name": "catalog-name-2"
+                "_id": "catalog-id-2"
             }
         ]
     }
@@ -3654,6 +3692,456 @@ and more.</p>
 <td><code class="prettyprint">data</code></td>
 <td><a href="#the-image-search-query-object">ImageSearchQuery</a></td>
 <td>A valid image search object.</td>
+</tr>
+</tbody></table>
+
+          <h1 id="how-to-wear-it-search"><em>How to Wear It</em> Search</h1>
+
+<p>Our <em>How to Wear it</em> search gives style results given a specific image. Its best if the searched image is a product image. </p>
+
+<p>As an example, if you search with a shoe (a product image), results from your <a href="#catalogs">style catalog</a> will be shown.</p>
+
+<h2 id="the-how-to-wear-it-query-object"><img src="images/image-search_icon.png" alt="image-search_icon" width="28px" height="auto"> The How to Wear it Query Object</h2>
+
+<blockquote>
+<p><strong>Example:</strong> How to Wear it Query Object</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"image_uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/images/1.png"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"catalogs"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"catalog-name-1"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"catalog-name-2"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>A <strong>How to Wear it Query</strong> (object) defines a visual search query for an image.</p>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">image_uri</code></td>
+<td>String</td>
+<td>A valid image URI. <strong><small>required</small></strong></td>
+</tr>
+<tr>
+<td><code class="prettyprint">gender</code></td>
+<td>Array</td>
+<td><code class="prettyprint">[&#39;men&#39;, &#39;women&#39;]</code> or a sub array of both. <strong>By default we return all gender results.</strong></td>
+</tr>
+<tr>
+<td><code class="prettyprint">catalogs</code></td>
+<td><a href="#catalog">Array&lt;Catalog&gt;</a></td>
+<td>List of <code class="prettyprint">style</code> catalogs (public or private) - which will be included the visual search scope.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">options</code></td>
+<td>Object</td>
+<td>A list of options that we support. Currently we support the options below</td>
+</tr>
+</tbody></table>
+
+<h3 id="options-for-search">Options for Search</h3>
+
+<p>These options give you the flexibility to control how our visual search is performed.</p>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">limit</code></td>
+<td>Number</td>
+<td>Number of results to return. Default <code class="prettyprint">30</code></td>
+</tr>
+<tr>
+<td><code class="prettyprint">relevance</code></td>
+<td>Number</td>
+<td>How relevant you want the results to be. Default <code class="prettyprint">50</code>. This takes precedence over <code class="prettyprint">limit</code></td>
+</tr>
+<tr>
+<td><code class="prettyprint">auto_detect_gender</code></td>
+<td>Boolean</td>
+<td>Auto detect gender in the input image to scope search to specific genders, takes precedence over <code class="prettyprint">gender</code> above. Currently in <strong>alpha</strong>. Note that this does introduce a slow down of a few 100ms in search.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">attributes</code></td>
+<td>Boolean</td>
+<td>Return <a href="#supported-attributes">attributes</a> for every <a href="#catalog-items">catalogItem</a>, for both the searched input image and the images in the results. Note that this does introduce a slow down of a few 100ms in search. Secondly, there is no guarantee that the attributes will be common between the input image and the result images; however, its highly likely that they would be.</td>
+</tr>
+</tbody></table>
+
+<h3 id="search-contraints-on-the-searched-input-image">Search contraints on the searched input Image</h3>
+
+<p>We have constraints on the image sizes we search on. We support <code class="prettyprint">.jpg</code>, <code class="prettyprint">.jpeg</code>, <code class="prettyprint">.png</code>, <code class="prettyprint">.webp</code> and</p>
+
+<p>Minimum image size = <code class="prettyprint">100</code></p>
+
+<p>Maximum image size = <code class="prettyprint">3200</code></p>
+
+<p>Maximum image memory size = <code class="prettyprint">2.5 * 1024 * 1024</code></p>
+
+          <h2 id="htwi-search"><img src="images/search-image_icon.png" alt="search-image_icon" width="28px" height="auto"> HTWI Search</h2>
+
+<blockquote>
+<p><strong>Example:</strong> Simple How to Wear it without Catalogs</p>
+</blockquote>
+<pre class="highlight http tab-http"><code><span class="nf">POST</span> <span class="nn">https://catalog.markable.ai/image/search/style</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer 123abc</span>
+<span class="s">{</span>
+<span class="s">    "data": {</span>
+<span class="s">        "image_uri": "http://i.com/1.png"</span>
+<span class="s">    }</span>
+<span class="s">}</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl -X POST https://catalog.markable.ai/image/search/style <span class="se">\</span>
+-H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+-H <span class="s1">'Authorization: Bearer 123abc'</span> <span class="se">\</span>
+-d <span class="s1">'
+{
+    "data": {
+        "image_uri": "http://i.com/1.png"
+    }
+}
+'</span>
+</code></pre>
+<blockquote>
+<p><strong>Example:</strong> How to Wear it with <code class="prettyprint">style</code> Catalogs Names (Preferred over IDS)</p>
+</blockquote>
+<pre class="highlight http tab-http"><code><span class="nf">POST</span> <span class="nn">https://catalog.markable.ai/image/search/style</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer 123abc</span>
+<span class="s">{</span>
+<span class="s">    "data": {</span>
+<span class="s">        "image_uri": "http://i.com/1.png",</span>
+<span class="s">        "catalogs": [</span>
+<span class="s">            {</span>
+<span class="s">                "name": "catalog-name-1"</span>
+<span class="s">            },</span>
+<span class="s">            {</span>
+<span class="s">                "name": "catalog-name-2"</span>
+<span class="s">            }</span>
+<span class="s">        ]</span>
+<span class="s">    }</span>
+<span class="s">}</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl -X POST https://catalog.markable.ai/image/search/style <span class="se">\</span>
+-H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+-H <span class="s1">'Authorization: Bearer 123abc'</span> <span class="se">\</span>
+-d <span class="s1">'
+{
+    "data": {
+        "image_uri": "http://i.com/1.png",
+        "catalogs": [
+            {
+                "name": "catalog-name-1"
+            },
+            {
+                "name": "catalog-name-2"
+            }
+        ]
+    }
+}
+'</span>
+</code></pre>
+<blockquote>
+<p><strong>Example:</strong> How to Wear it with <code class="prettyprint">style</code> Catalogs IDS</p>
+</blockquote>
+<pre class="highlight http tab-http"><code><span class="nf">POST</span> <span class="nn">https://catalog.markable.ai/image/search/style</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer 123abc</span>
+<span class="s">{</span>
+<span class="s">    "data": {</span>
+<span class="s">        "image_uri": "http://i.com/1.png",</span>
+<span class="s">        "catalogs": [</span>
+<span class="s">            {</span>
+<span class="s">                "_id": "catalog-id-1"</span>
+<span class="s">            },</span>
+<span class="s">            {</span>
+<span class="s">                "_id": "catalog-id-2"</span>
+<span class="s">            }</span>
+<span class="s">        ]</span>
+<span class="s">    }</span>
+<span class="s">}</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl -X POST https://catalog.markable.ai/image/search/style <span class="se">\</span>
+-H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+-H <span class="s1">'Authorization: Bearer 123abc'</span> <span class="se">\</span>
+-d <span class="s1">'
+{
+    "data": {
+        "image_uri": "http://i.com/1.png",
+        "catalogs": [
+            {
+                "_id": "catalog-id-1"
+            },
+            {
+                "_id": "catalog-id-2"
+            }
+        ]
+    }
+}
+'</span>
+</code></pre>
+<blockquote>
+<p><strong>Example:</strong> Simple How to Wear it with <code class="prettyprint">style</code> Catalogs and Gender</p>
+</blockquote>
+<pre class="highlight http tab-http"><code><span class="nf">POST</span> <span class="nn">https://catalog.markable.ai/image/search/style</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer 123abc</span>
+<span class="s">{</span>
+<span class="s">  "data": {</span>
+<span class="s">        "image_uri": "http://i.com/1.png",</span>
+<span class="s">        "gender": ["men"],</span>
+<span class="s">        "catalogs": [</span>
+<span class="s">            {</span>
+<span class="s">                "name": "catalog-name-1"</span>
+<span class="s">            },</span>
+<span class="s">            {</span>
+<span class="s">                "name": "catalog-name-2"</span>
+<span class="s">            }</span>
+<span class="s">        ]</span>
+<span class="s">    }</span>
+<span class="s">}</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl -X POST https://catalog.markable.ai/image/search/style <span class="se">\</span>
+-H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+-H <span class="s1">'Authorization: Bearer 123abc'</span> <span class="se">\</span>
+-d <span class="s1">'
+{
+    "data": {
+        "image_uri": "http://i.com/1.png",
+        "gender": ["men", "women"],
+        "catalogs": [
+            {
+                "name": "catalog-name-1"
+            },
+            {
+                "name": "catalog-name-2"
+            }
+        ]
+    }
+}
+'</span>
+</code></pre>
+<blockquote>
+<p><strong>Example:</strong> <em>Multipart</em> How to Wear it with <code class="prettyprint">style</code> Catalogs (Alpha availability)</p>
+</blockquote>
+<pre class="highlight http tab-http"><code><span class="nf">POST</span> <span class="nn">https://catalog.markable.ai/image/search/style</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer 123abc</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">multipart/form-data; charset=utf-8;</span>
+<span class="s">... (See shell for a full example)</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl -X POST https://catalog.markable.ai/image/search/style <span class="se">\</span>
+-H <span class="s1">'Content-Type: multipart/form-data;'</span> <span class="se">\</span>
+-H <span class="s1">'Authorization: Bearer 123abc'</span> <span class="se">\</span>
+-F <span class="s1">'image=@/local/folder/1.png'</span> <span class="se">\</span>
+-F <span class="s1">'data={ "catalogs": [{ "name": "catalog-name-1" }] }'</span>
+</code></pre>
+<blockquote>
+<p><strong>Example:</strong> Response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"width"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"height"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://i.com/1.png"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"stats"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"detection"</span><span class="p">:</span><span class="w"> </span><span class="mi">313</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"extraction"</span><span class="p">:</span><span class="w"> </span><span class="mi">141</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"search"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"image_download"</span><span class="p">:</span><span class="w"> </span><span class="mi">57</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"StyleResult"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"category"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Category"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"shorts"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"shorts"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="s2">"bounding_box"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BoundingBox"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"y"</span><span class="p">:</span><span class="w"> </span><span class="mi">266</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"x"</span><span class="p">:</span><span class="w"> </span><span class="mi">54</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"height"</span><span class="p">:</span><span class="w"> </span><span class="mi">145</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"width"</span><span class="p">:</span><span class="w"> </span><span class="mi">204</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.963</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"matches"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CatalogItem"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5938629ec77b4a05f48f782a"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.701</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"images"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                        </span><span class="p">{</span><span class="w">
+                            </span><span class="s2">"uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://i.com/style/result1.png"</span><span class="p">,</span><span class="w">
+                            </span><span class="s2">"_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Image"</span><span class="w">
+                        </span><span class="p">},</span><span class="w">
+                        </span><span class="p">{</span><span class="w">
+                            </span><span class="s2">"uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://i.com/style/result2.png"</span><span class="p">,</span><span class="w">
+                            </span><span class="s2">"_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Image"</span><span class="w">
+                        </span><span class="p">}</span><span class="w">
+                    </span><span class="p">],</span><span class="w">
+                    </span><span class="s2">"catalog"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                        </span><span class="s2">"_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Catalog"</span><span class="p">,</span><span class="w">
+                        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"catalog-name-1"</span><span class="p">,</span><span class="w">
+                        </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"catalog-id-1"</span><span class="w">
+                    </span><span class="p">},</span><span class="w">
+                    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"any custom data"</span><span class="p">,</span><span class="w">
+                        </span><span class="s2">"gender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"women"</span><span class="p">,</span><span class="w">
+                        </span><span class="s2">"detail"</span><span class="p">:</span><span class="w"> </span><span class="s2">"custom style image details"</span><span class="w">
+                    </span><span class="p">},</span><span class="w">
+                    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-08-10T22:54:48.547Z"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-08-10T22:54:48.547Z"</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CatalogItem"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"59386368c77b4a05fa8f7b06"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.7</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"images"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                        </span><span class="p">{</span><span class="w">
+                            </span><span class="s2">"uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://i.com/style/result2.png"</span><span class="p">,</span><span class="w">
+                            </span><span class="s2">"_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Image"</span><span class="w">
+                        </span><span class="p">}</span><span class="w">
+                    </span><span class="p">],</span><span class="w">
+                    </span><span class="s2">"catalog"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                        </span><span class="s2">"_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Catalog"</span><span class="p">,</span><span class="w">
+                        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"catalog-name-1"</span><span class="p">,</span><span class="w">
+                        </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"catalog-id-1"</span><span class="w">
+                    </span><span class="p">},</span><span class="w">
+                    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"any custom data"</span><span class="p">,</span><span class="w">
+                        </span><span class="s2">"gender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"women"</span><span class="p">,</span><span class="w">
+                        </span><span class="s2">"detail"</span><span class="p">:</span><span class="w"> </span><span class="s2">"custom style image details"</span><span class="w">
+                    </span><span class="p">},</span><span class="w">
+                    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-08-10T22:54:48.547Z"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-08-10T22:54:48.547Z"</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">]</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"StyleResult"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"category"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Category"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sandals"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sandals"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="s2">"bounding_box"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BoundingBox"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"y"</span><span class="p">:</span><span class="w"> </span><span class="mi">266</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"x"</span><span class="p">:</span><span class="w"> </span><span class="mi">54</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"height"</span><span class="p">:</span><span class="w"> </span><span class="mi">145</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"width"</span><span class="p">:</span><span class="w"> </span><span class="mi">204</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.831</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"matches"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CatalogItem"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5938629ec77b4a05f48f7821"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.62</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"images"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                        </span><span class="p">{</span><span class="w">
+                            </span><span class="s2">"uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://i.com/style/result5.png"</span><span class="p">,</span><span class="w">
+                            </span><span class="s2">"_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Image"</span><span class="w">
+                        </span><span class="p">}</span><span class="w">
+                    </span><span class="p">],</span><span class="w">
+                    </span><span class="s2">"catalog"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                        </span><span class="s2">"_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Catalog"</span><span class="p">,</span><span class="w">
+                        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"catalog-name-2"</span><span class="p">,</span><span class="w">
+                        </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"catalog-id-2"</span><span class="w">
+                    </span><span class="p">},</span><span class="w">
+                    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"any custom data"</span><span class="p">,</span><span class="w">
+                        </span><span class="s2">"gender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"women"</span><span class="p">,</span><span class="w">
+                        </span><span class="s2">"detail"</span><span class="p">:</span><span class="w"> </span><span class="s2">"custom style image details"</span><span class="w">
+                    </span><span class="p">},</span><span class="w">
+                    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-08-10T22:54:48.547Z"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-08-10T22:54:48.547Z"</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CatalogItem"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"59386368c77b4a05fa8f7b02"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.4</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"images"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                        </span><span class="p">{</span><span class="w">
+                            </span><span class="s2">"uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://i.com/style/result4.png"</span><span class="p">,</span><span class="w">
+                            </span><span class="s2">"_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Image"</span><span class="w">
+                        </span><span class="p">},</span><span class="w">
+                        </span><span class="p">{</span><span class="w">
+                            </span><span class="s2">"uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://i.com/style/result5.png"</span><span class="p">,</span><span class="w">
+                            </span><span class="s2">"_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Image"</span><span class="w">
+                        </span><span class="p">}</span><span class="w">
+                    </span><span class="p">],</span><span class="w">
+                    </span><span class="s2">"catalog"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                        </span><span class="s2">"_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Catalog"</span><span class="p">,</span><span class="w">
+                        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"catalog-name-2"</span><span class="p">,</span><span class="w">
+                        </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"catalog-id-2"</span><span class="w">
+                    </span><span class="p">},</span><span class="w">
+                    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"any custom data"</span><span class="p">,</span><span class="w">
+                        </span><span class="s2">"gender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"women"</span><span class="p">,</span><span class="w">
+                        </span><span class="s2">"detail"</span><span class="p">:</span><span class="w"> </span><span class="s2">"custom style image details"</span><span class="w">
+                    </span><span class="p">},</span><span class="w">
+                    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-08-10T22:54:48.547Z"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-08-10T22:54:48.547Z"</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">]</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Given a product image, find how it with different fashion styles. In specific, HTWI search returns results from a
+catalog of schema <code class="prettyprint">style</code>.</p>
+
+<aside class="notice">
+    This operation requires a valid <code>access_token</code> - see <a href="#authentication">Authentication</a>.
+</aside>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST https://catalog.markable.ai/image/search/style</code></p>
+
+<h3 id="http-headers">HTTP Headers</h3>
+
+<table><thead>
+<tr>
+<th>Header</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">Authorization</code></td>
+<td><a href="https://tools.ietf.org/html/rfc6750">HTTP Bearer Token</a> for authorizing the request. <br><br>Format is <code class="prettyprint">Bearer :access_token</code>, where <code class="prettyprint">access_token</code> is given by <a href="#authentication">Authentication</a>. <strong><small>required</small></strong></td>
+</tr>
+</tbody></table>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<p>None</p>
+
+<h3 id="body">Body</h3>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">data</code></td>
+<td><a href="#the-how-to-wear-it-query-object">ImageSearchQuery</a></td>
+<td>A valid Image Search object.</td>
 </tr>
 </tbody></table>
 
