@@ -1,5 +1,5 @@
 
-# Image Search
+# Image Search (also Visual Search or Prouct Search)
 
 ## <img src="images/image-search_icon.png" alt="image-search_icon" width="28px" height="auto"> The Image Search Query Object
 
@@ -11,10 +11,10 @@
         "image_uri": "https://example.com/images/1.png",
         "catalogs": [
             {
-                "_id": "catalog-id-1"
+                "name": "catalog-name-1"
             },
             {
-                "_id": "catalog-id-2"
+                "name": "catalog-name-2"
             }
         ]
     }
@@ -29,10 +29,10 @@
         "image_uri": "https://example.com/images/1.png",
         "catalogs": [
             {
-                "_id": "catalog-id-1"
+                "name": "catalog-name-1"
             },
             {
-                "_id": "catalog-id-2"
+                "name": "catalog-name-2"
             }
         ],
         "options": {
@@ -51,10 +51,10 @@
         "image_uri": "https://example.com/images/1.png",
         "catalogs": [
             {
-                "_id": "catalog-id-1"
+                "name": "catalog-name-1"
             },
             {
-                "_id": "catalog-id-2"
+                "name": "catalog-name-2"
             }
         ],
         "options": {
@@ -72,10 +72,10 @@
         "image_uri": "https://example.com/images/1.png",
         "catalogs": [
             {
-                "_id": "catalog-id-1"
+                "name": "catalog-name-1"
             },
             {
-                "_id": "catalog-id-2"
+                "name": "catalog-name-2"
             }
         ],
         "options": {
