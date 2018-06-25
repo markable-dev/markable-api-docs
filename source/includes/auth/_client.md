@@ -16,7 +16,7 @@ For the **Lens API**, you will be using your client acccess token with every req
 }
 ```
 
-The **Client Credentials** (object) refers to a object holding your **Markable Lens API** credentials, i.e. key token (`client_id`) and secret token (`client_secret`). These credentials will be available to any [verified developer](#authentication).
+The **Client Credentials** (object) refers to an object that holds your **Markable Lens API** credentials, i.e. key token (`client_id`) and secret token (`client_secret`). These credentials will be available to any [verified developer](#authentication).
 
 Attribute         | Description
 ----------        | ----------
