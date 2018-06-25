@@ -4,9 +4,9 @@
 ## <img src="images/catalog_icon.png" alt="catalog_icon" width="26px" height="auto"> The Catalog Object
 
 
-A **Catalog** (object) defines a catalog/group of visual items (e.g. products), that can be indexed and visually searched within images and videos using visual similarity - based on the associated image(s). For us to be able to find what you looking for in your images/vides the items (exact or similar) must be known to **Markable**'s visual search engine, either using existing catalogs or your customly defined catalogs.
+A **Catalog** (object) defines a catalog/group of visual items (e.g. products), that can be indexed and visually searched within images and videos using visual similarity - based on the associated image(s). For us to be able to find what you looking for in your images/videos the items (exact or similar) must be known to **Markable**'s visual search engine, either using existing catalogs or your customly defined catalogs.
 
-Catalogs can be of two different schemas; `product` and `style`. 
+Catalogs can be of two different schemas; `product` and `style`.
 
 
 ## Product Catalogs
