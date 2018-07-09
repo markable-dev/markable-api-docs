@@ -79,7 +79,8 @@ Attribute       | Type                  									| Description
 
 ## Get User and Client
 
-This request gives you user information and further the default client we have created for you.
+This request gives you user information and further the default client we have created for you. Note that scopes are a concern of tokens
+and not clients.
 
 ```http
 GET https://auth.markable.ai/auth/users/ HTTP/1.1
@@ -104,10 +105,9 @@ curl -X GET https://auth.markable.ai/auth/users/ \
         "clients": [
             {
                 "type": "Client",
-                "client_id": "client_id_1"
+                "client_id": "client_id_1",
                 "client_secret": "client_secret_1",
-                "user_id": "user_id_1",
-                "scope": "default"
+                "user_id": "user_id_1"
             }
         ]
     }
