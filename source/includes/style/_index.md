@@ -1,7 +1,7 @@
 
-# _How to Wear It_ Search
+# How to Wear It Search
 
-Our *How to Wear it* search gives style results given a specific image. Its best if the searched image is a product image. 
+Our *How to Wear it* search gives style results given a specific image. Its best if the searched image is a product image.
 
 As an example, if you search with a shoe (a product image), results from your [style catalog](#catalogs) will be shown.
 
