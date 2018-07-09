@@ -1123,7 +1123,8 @@ of their own.</p>
 
 <h2 id="get-user-and-client">Get User and Client</h2>
 
-<p>This request gives you user information and further the default client we have created for you.</p>
+<p>This request gives you user information and further the default client we have created for you. Note that scopes are a concern of tokens
+and not clients.</p>
 <pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">https://auth.markable.ai/auth/users/</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer usertoken123abc</span>
 </code></pre><pre class="highlight shell tab-shell"><code>curl -X GET https://auth.markable.ai/auth/users/ <span class="se">\</span>
@@ -1142,10 +1143,9 @@ of their own.</p>
         </span><span class="s2">"clients"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
             </span><span class="p">{</span><span class="w">
                 </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Client"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"client_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"client_id_1"</span><span class="w">
+                </span><span class="s2">"client_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"client_id_1"</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"client_secret"</span><span class="p">:</span><span class="w"> </span><span class="s2">"client_secret_1"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user_id_1"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"scope"</span><span class="p">:</span><span class="w"> </span><span class="s2">"default"</span><span class="w">
+                </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user_id_1"</span><span class="w">
             </span><span class="p">}</span><span class="w">
         </span><span class="p">]</span><span class="w">
     </span><span class="p">}</span><span class="w">
