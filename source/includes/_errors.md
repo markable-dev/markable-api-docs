@@ -11,7 +11,7 @@ Code 	| Description
 `400` 	| `Bad Request` - The request is invalid.
 `401` 	| `Unauthorized` - The API key is wrong.
 `403` 	| `Forbidden` - The specified resource is hidden for admins only.
-`404` 	| `Not Found` - The specified specified could not be found.
+`404` 	| `Not Found` - The specified could not be found.
 `405` 	| `Method Not Allowed` - The request method is invalid for specified resource.
 `406` 	| `Not Acceptable` - The request format that isn't valid JSON.
 `429` 	| `Too Many Requests` - You have reached the default request limit. (This can be adjusted depending on needs.)
