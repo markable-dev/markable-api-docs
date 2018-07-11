@@ -52,6 +52,29 @@ curl -X POST https://auth.markable.ai/auth/client/authorize \
 '
 ```
 
+```python
+import requests
+
+url = "https://auth.markable.ai/auth/client/authorize"
+
+payload = {
+  "data":
+    {
+      "client_id":"client_id_1",
+      "client_secret": "client_secret_1",
+      "scope": "default"
+      }
+ }
+
+headers = {
+    'Content-Type': "application/json",
+}
+
+response = requests.request("POST", url, data=payload, headers=headers)
+
+print(response.text)
+```
+
 > **Example:** Request for Search only tokens that can be *Published*
 
 ```http
@@ -77,6 +100,29 @@ curl -X POST https://auth.markable.ai/auth/client/authorize \
   }
 }
 '
+```
+
+```python
+import requests
+
+url = "https://auth.markable.ai/auth/client/authorize"
+
+payload = {
+  "data":
+    {
+      "client_id":"client_id_1",
+      "client_secret": "client_secret_1",
+      "scope": "search"
+      }
+ }
+
+headers = {
+    'Content-Type': "application/json",
+}
+
+response = requests.request("POST", url, data=payload, headers=headers)
+
+print(response.text)
 ```
 
 > **Example:** Response Client Access Token

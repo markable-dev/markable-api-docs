@@ -71,6 +71,45 @@ curl -X POST https://catalog.markable.ai/catalogs/catalog-1/items \
 '
 ```
 
+```pyhton
+import requests
+url = "https://catalog.markable.ai/catalogs/catalog-1/items"
+payload = {
+    "data": {
+        "images": [
+            {
+                "uri": "https://example.com/products/1/a.png"
+            },
+            {
+                "uri": "https://example.com/products/1/b.png"
+            }
+        ],
+        "category": {
+            "name": "glasses"
+        }
+        "data": {
+            "url": "https://example.com/product/page.html",
+            "id": "external-id-1",
+            "name" : "A great awesome product",
+            "brand" : "Brand",
+            "color" : "green",
+            "gender" : "women",
+            "vendor" : "vendor",
+            "stock" : true,
+            "price" : 30,
+            "currency" : "USD"
+        }
+    }
+}
+headers = {
+    'Content-Type': "application/json",
+    'Authorization': "Bearer 123abc",
+    }
+
+response = requests.request("POST", url, data=payload, headers=headers)
+print(response.text)
+```
+
 > **Example:** Response
 
 ```json
@@ -185,7 +224,7 @@ Create a new catalogItem in your catalog that will eventually get indexed.
 
 * On Indexing *
 
-* We index the products and update the status of every image on a CatalogItem. The valid statuses are `success`, `error` and `pending`. 
+* We index the products and update the status of every image on a CatalogItem. The valid statuses are `success`, `error` and `pending`.
 CatalogItem images start off being `pending`
 * If we detect errors with indexing, we expose information on why in the `images.error` object.
 * We return `bounding_boxes` and `attributes` for each image as part of our alpha release.

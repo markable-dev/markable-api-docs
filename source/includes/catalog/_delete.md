@@ -14,6 +14,21 @@ curl -X DELETE https://catalog.markable.ai/catalogs/catalog-1 \
 -H 'Authorization: Bearer 123abc'
 ```
 
+```python
+import requests
+
+url = "https://catalog.markable.ai/catalogs/catalog-1"
+
+headers = {
+   'Content-Type': "application/json",
+   'Authorization': "Bearer 123abc",
+   }
+
+response = requests.request("DELETE", url, headers=headers)
+
+print(response.text)
+```
+
 > **Example:** Response
 
 ```json

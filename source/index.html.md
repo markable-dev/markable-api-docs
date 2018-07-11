@@ -4,6 +4,7 @@ title: Markable Lens API Docs - for Developers
 language_tabs:
   - http
   - shell
+  - python
 
 toc_footers:
   - <a href='https://markable.ai/signup'>Sign Up</a>

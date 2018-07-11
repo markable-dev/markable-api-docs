@@ -30,6 +30,29 @@ curl -X POST https://catalog.markable.ai/catalogs \
 '
 ```
 
+```python
+import requests
+
+url = "https://catalog.markable.ai/catalogs"
+
+payload = {
+    "data": {
+        "name": "catalog-1",
+        "description": "My first catalog",
+        "schema": "product"
+        }
+}
+
+headers = {
+    'Content-Type': "application/json",
+    'Authorization': "Bearer 123abc",
+    }
+
+response = requests.request("POST", url, data=payload, headers=headers)
+
+print(response.text)
+```
+
 > **Example:** Response
 
 ```json

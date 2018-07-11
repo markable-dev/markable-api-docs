@@ -54,6 +54,37 @@ curl -X POST https://catalog.markable.ai/category \
 '
 ```
 
+```python
+import requests
+url = "https://catalog.markable.ai/category"
+payload = {
+    "data": {
+        "images": [
+            {
+                "uri":"https://example.com/products/1/a.png"
+            },
+            {
+                "uri": "https://example.com/products/1/b.png"
+            }
+        ],
+        "data":
+            {
+                "url": "https://example.com/product/shoes.html",
+                "name": "A shoe product",
+                "description": "This is a fantastic shoe product",
+                "categoryInfo": "Some relevant information about category"
+                }
+            }
+
+}
+headers = {
+    'Content-Type': "application/json",
+    'Authorization': "Bearer 123abc",
+    }
+
+response = requests.request("POST", url, data=payload, headers=headers)
+print(response.text)
+```
 > **Example:** Response
 
 ```json
@@ -77,6 +108,7 @@ curl -X POST https://catalog.markable.ai/category \
             "categoryInfo": "Some relevant information about category"
         }
     }
+}
 
 ```
 

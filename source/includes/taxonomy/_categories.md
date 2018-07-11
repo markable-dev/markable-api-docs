@@ -14,6 +14,21 @@ curl -X GET https://catalog.markable.ai/category \
 -H 'Authorization: Bearer 123abc'
 ```
 
+```python
+import requests
+
+url = "https://catalog.markable.ai/category"
+
+headers = {
+   'Content-Type': "application/json",
+   'Authorization': "Bearer 123abc",
+   }
+
+response = requests.request("GET", url, headers=headers)
+
+print(response.text)
+```
+
 > **Example:** Response
 
 This is our **current exhaustive** list of supported categories.

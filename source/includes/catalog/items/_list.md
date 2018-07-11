@@ -14,6 +14,21 @@ curl -X GET https://catalog.markable.ai/catalogs/catalog-1/items \
 -H 'Authorization: Bearer 123abc'
 ```
 
+```python
+import requests
+
+url = "https://catalog.markable.ai/catalogs/catalog-1/items"
+
+headers = {
+    'Content-Type': "application/json",
+    'Authorization': "Bearer 123abc",
+    }
+
+response = requests.request("GET", url, headers=headers)
+
+print(response.text)
+```
+
 > **Example:** Request with filters
 
 ```http
@@ -25,6 +40,21 @@ Authorization: Bearer 123abc
 curl -X GET https://catalog.markable.ai/catalogs/catalog-1/items?success=true&limit=50&skip=0&category=dresses \
 -H 'Content-Type: application/json' \
 -H 'Authorization: Bearer 123abc'
+```
+
+```python
+import requests
+
+url = "https://catalog.markable.ai/catalogs/catalog-1/items?success=true&limit=50&skip=0&category=dresses"
+
+headers = {
+    'Content-Type': "application/json",
+    'Authorization': "Bearer 123abc",
+    }
+
+response = requests.request("GET", url, headers=headers)
+
+print(response.text)
 ```
 
 > **Example:** Response

@@ -42,6 +42,29 @@ curl -X POST https://auth.markable.ai/auth/user/authorize \
 '
 ```
 
+```python
+import requests
+
+url = "https://auth.markable.ai/auth/user/authorize"
+
+payload = {
+    "data":
+        {
+         "email": "developer@client.com",
+         "password": "password"
+        }
+ }
+
+headers = {
+    'Content-Type': "application/json",
+    }
+
+response = requests.request("POST", url, data=payload, headers=headers)
+
+print(response.text)
+
+```
+
 > **Example:** Response with User Access Token
 
 ```json
@@ -91,6 +114,22 @@ Authorization: Bearer usertoken123abc
 curl -X GET https://auth.markable.ai/auth/users/ \
 -H 'Content-Type: application/json' \
 -H 'Authorization: Bearer usertoken123abc'
+```
+
+```python
+import requests
+
+url = "https://auth.markable.ai/auth/users/"
+
+headers = {
+    'Content-Type': "application/json",
+    'Authorization': "Bearer usertoken123abc",
+    }
+
+response = requests.request("GET", url, headers=headers)
+
+print(response.text)
+
 ```
 
 > **Example:** Response

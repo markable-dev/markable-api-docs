@@ -26,6 +26,25 @@ curl -X POST https://catalog.markable.ai/image/search/style \
 '
 ```
 
+```python
+import requests
+url = "https://catalog.markable.ai/image/search/style"
+
+payload = {
+    "data": {
+        "image_uri": "http://i.com/1.png"
+    }
+}
+
+headers = {
+    'Content-Type': "application/json",
+    'Authorization': "Bearer 123abc",
+    }
+
+response = requests.request("POST", url, data=payload, headers=headers)
+print(response.text)
+```
+
 > **Example:** How to Wear it with `style` Catalogs Names (Preferred over IDS)
 
 ```http
@@ -67,6 +86,34 @@ curl -X POST https://catalog.markable.ai/image/search/style \
 '
 ```
 
+```python
+import requests
+
+url = "https://catalog.markable.ai/image/search/style"
+
+payload = {
+    "data": {
+        "image_uri": "http://i.com/1.png",
+        "catalogs": [
+            {
+                "name": "catalog-name-1"
+            },
+            {
+                "name": "catalog-name-2"
+            }
+        ]
+    }
+}
+
+headers = {
+    'Content-Type': "application/json",
+    'Authorization': "Bearer 123abc",
+    }
+
+response = requests.request("POST", url, data=payload, headers=headers)
+print(response.text)
+```
+
 > **Example:** How to Wear it with `style` Catalogs IDS
 
 ```http
@@ -106,6 +153,34 @@ curl -X POST https://catalog.markable.ai/image/search/style \
     }
 }
 '
+```
+
+```python
+import requests
+
+url = "https://catalog.markable.ai/image/search/style"
+
+payload = {
+    "data": {
+        "image_uri": "http://i.com/1.png",
+        "catalogs": [
+            {
+                "_id": "catalog-id-1"
+            },
+            {
+                "_id": "catalog-id-2"
+            }
+        ]
+    }
+}
+
+headers = {
+    'Content-Type': "application/json",
+    'Authorization': "Bearer 123abc",
+    }
+
+response = requests.request("POST", url, data=payload, headers=headers)
+print(response.text)
 ```
 
 > **Example:** Simple How to Wear it with `style` Catalogs and Gender
@@ -151,6 +226,35 @@ curl -X POST https://catalog.markable.ai/image/search/style \
 '
 ```
 
+```python
+import requests
+
+url = "https://catalog.markable.ai/image/search/style"
+
+payload = {
+    "data": {
+        "image_uri": "http://i.com/1.png",
+        "gender": ["men", "women"],
+        "catalogs": [
+            {
+                "_id": "catalog-id-1"
+            },
+            {
+                "_id": "catalog-id-2"
+            }
+        ]
+    }
+}
+
+headers = {
+    'Content-Type': "application/json",
+    'Authorization': "Bearer 123abc",
+    }
+
+response = requests.request("POST", url, data=payload, headers=headers)
+print(response.text)
+```
+
 > **Example:** *Multipart* How to Wear it with `style` Catalogs (Alpha availability)
 
 ```http
@@ -166,6 +270,31 @@ curl -X POST https://catalog.markable.ai/image/search/style \
 -H 'Authorization: Bearer 123abc' \
 -F 'image=@/local/folder/1.png' \
 -F 'data={ "catalogs": [{ "name": "catalog-name-1" }] }'
+```
+
+```python
+import requests
+
+url = 'https://catalog.markable.ai/image/search'
+
+
+files = {
+    "image": open("/local/folder/1.png", "rb")
+}
+
+payload = {
+    "data": {
+        "catalogs": [{"name": "catalog-name-1"}]
+    }
+}
+
+headers = {
+   'Content-Type': "application/json",
+   'Authorization': "Bearer 123abc",
+}
+
+response = requests.request("POST", url, data=payload, files=files, headers=headers)
+
 ```
 
 > **Example:** Response

@@ -25,6 +25,27 @@ curl -X POST https://catalog.markable.ai/image/search \
 }
 '
 ```
+```python
+import requests
+
+url = "https://catalog.markable.ai/image/search"
+
+preload = {
+    "data": {
+        "image_uri": "http://i.com/1.png"
+    }
+}
+
+headers = {
+   'Content-Type': "application/json",
+   'Authorization': "Bearer 123abc",
+   }
+
+response = requests.request("POST", url, data=preload, headers=headers)
+
+print(response.text)
+```
+
 
 > **Example:** Image Search with Catalogs Names (Preferred over IDS)
 
@@ -67,6 +88,35 @@ curl -X POST https://catalog.markable.ai/image/search \
 '
 ```
 
+```python
+import requests
+
+url = "https://catalog.markable.ai/image/search"
+
+payload = {
+    "data": {
+        "image_uri": "http://i.com/1.png",
+        "catalogs": [
+            {
+                "name": "catalog-name-1"
+            },
+            {
+                "name": "catalog-name-2"
+            }
+        ]
+    }
+}
+
+headers = {
+   'Content-Type': "application/json",
+   'Authorization': "Bearer 123abc",
+   }
+
+response = requests.request("POST", url, data=payload, headers=headers)
+
+print(response.text)
+```
+
 > **Example:** Image Search with Catalogs IDS
 
 ```http
@@ -107,6 +157,37 @@ curl -X POST https://catalog.markable.ai/image/search \
 }
 '
 ```
+
+```python
+import requests
+
+url = "https://catalog.markable.ai/image/search"
+
+payload = {
+    "data": {
+        "image_uri": "http://i.com/1.png",
+        "catalogs": [
+            {
+                "name": "catalog-id-1"
+            },
+            {
+                "name": "catalog-id-2"
+            }
+        ]
+    }
+}
+
+headers = {
+   'Content-Type': "application/json",
+   'Authorization': "Bearer 123abc",
+   }
+
+response = requests.request("POST", url, data=payload, headers=headers)
+
+print(response.text)
+```
+
+
 
 > **Example:** Simple Image Search with Catalogs and Gender
 
@@ -151,6 +232,36 @@ curl -X POST https://catalog.markable.ai/image/search \
 '
 ```
 
+```python
+import requests
+
+url = "https://catalog.markable.ai/image/search"
+
+payload = {
+    "data": {
+        "image_uri": "http://i.com/1.png",
+        "gender": ["men", "women"],
+        "catalogs": [
+            {
+                "name": "catalog-name-1"
+            },
+            {
+                "name": "catalog-name-2"
+            }
+        ]
+    }
+}
+
+headers = {
+   'Content-Type': "application/json",
+   'Authorization': "Bearer 123abc",
+   }
+
+response = requests.request("POST", url, data=payload, headers=headers)
+
+print(response.text)
+```
+
 > **Example:** *Multipart* Image Search with Catalogs (Alpha availability)
 
 ```http
@@ -166,6 +277,31 @@ curl -X POST https://catalog.markable.ai/image/search \
 -H 'Authorization: Bearer 123abc' \
 -F 'image=@/local/folder/1.png' \
 -F 'data={ "catalogs": [{ "name": "catalog-name-1" }] }'
+```
+
+```python
+import requests
+
+url = 'https://catalog.markable.ai/image/search'
+
+
+files = {
+    "image": open("/local/folder/1.png", "rb")
+}
+
+payload = {
+    "data": {
+        "catalogs": [{"name": "catalog-name-1"}]
+    }
+}
+
+headers = {
+   'Content-Type': "application/json",
+   'Authorization': "Bearer 123abc",
+}
+
+response = requests.request("POST", url, data=payload, files=files, headers=headers)
+
 ```
 
 > **Example:** Response

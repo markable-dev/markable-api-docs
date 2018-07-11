@@ -56,6 +56,39 @@ curl -X PUT https://catalog.markable.ai/catalogs/catalog-1/items \
 '
 ```
 
+```python
+```python
+import requests
+url = "https://catalog.markable.ai/catalogs/catalog-1/items"
+payload = {
+    "data": {
+	    "images": [
+	        {
+	            "uri": "https://example.com/products/1/a.png"
+	        },
+	        {
+	            "uri": "https://example.com/products/1/b.png"
+	        }
+	    ],
+	    "category": {
+          "name": "glasses"
+      },
+	    "data": {
+            "url": "https://company.xyz/external-product-id-2",
+	        "id": "external-id-1",
+	        "foo": "bar"
+	    }
+	}
+}
+headers = {
+    'Content-Type': "application/json",
+    'Authorization': "Bearer 123abc",
+    }
+response = requests.request("PUT", url, data=payload, headers=headers)
+print(response.text)
+```
+```
+
 > **Example:** Response
 
 ```json
