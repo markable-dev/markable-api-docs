@@ -7,8 +7,8 @@ language_tabs:
   # - python
 
 toc_footers:
-  - <a href='https://markable.ai/signup'>Sign Up</a>
-  - © 2017 Markable, Inc. all rights reserved.
+  - <a href='https://markable.ai/free-trial'>Get A Free Trial</a>
+  - © 2018 Markable, Inc. all rights reserved.
 
 includes:
   - introduction
