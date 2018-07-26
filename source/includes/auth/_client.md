@@ -52,6 +52,7 @@ curl -X POST https://auth.markable.ai/auth/client/authorize \
 '
 ```
 
+<!--
 ```python
 import requests
 
@@ -74,6 +75,7 @@ response = requests.request("POST", url, data=payload, headers=headers)
 
 print(response.text)
 ```
+-->
 
 > **Example:** Request for Search only tokens that can be *Published*
 
@@ -102,6 +104,7 @@ curl -X POST https://auth.markable.ai/auth/client/authorize \
 '
 ```
 
+<!--
 ```python
 import requests
 
@@ -124,6 +127,7 @@ response = requests.request("POST", url, data=payload, headers=headers)
 
 print(response.text)
 ```
+-->
 
 > **Example:** Response Client Access Token
 

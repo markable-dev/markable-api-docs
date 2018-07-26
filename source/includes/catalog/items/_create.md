@@ -71,6 +71,7 @@ curl -X POST https://catalog.markable.ai/catalogs/catalog-1/items \
 '
 ```
 
+<!--
 ```pyhton
 import requests
 url = "https://catalog.markable.ai/catalogs/catalog-1/items"
@@ -109,6 +110,7 @@ headers = {
 response = requests.request("POST", url, data=payload, headers=headers)
 print(response.text)
 ```
+-->
 
 > **Example:** Response
 

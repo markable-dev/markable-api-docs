@@ -42,6 +42,7 @@ curl -X POST https://auth.markable.ai/auth/user/authorize \
 '
 ```
 
+<!--
 ```python
 import requests
 
@@ -64,6 +65,7 @@ response = requests.request("POST", url, data=payload, headers=headers)
 print(response.text)
 
 ```
+-->
 
 > **Example:** Response with User Access Token
 
@@ -116,6 +118,7 @@ curl -X GET https://auth.markable.ai/auth/users/ \
 -H 'Authorization: Bearer usertoken123abc'
 ```
 
+<!--
 ```python
 import requests
 
@@ -129,8 +132,8 @@ headers = {
 response = requests.request("GET", url, headers=headers)
 
 print(response.text)
-
 ```
+-->
 
 > **Example:** Response
 

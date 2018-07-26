@@ -25,7 +25,7 @@ curl -X POST https://catalog.markable.ai/image/search/style \
 }
 '
 ```
-
+<!--
 ```python
 import requests
 url = "https://catalog.markable.ai/image/search/style"
@@ -44,6 +44,7 @@ headers = {
 response = requests.request("POST", url, data=payload, headers=headers)
 print(response.text)
 ```
+-->
 
 > **Example:** How to Wear it with `style` Catalogs Names (Preferred over IDS)
 
@@ -85,7 +86,7 @@ curl -X POST https://catalog.markable.ai/image/search/style \
 }
 '
 ```
-
+<!--
 ```python
 import requests
 
@@ -113,6 +114,7 @@ headers = {
 response = requests.request("POST", url, data=payload, headers=headers)
 print(response.text)
 ```
+-->
 
 > **Example:** How to Wear it with `style` Catalogs IDS
 
@@ -154,7 +156,7 @@ curl -X POST https://catalog.markable.ai/image/search/style \
 }
 '
 ```
-
+<!--
 ```python
 import requests
 
@@ -182,6 +184,7 @@ headers = {
 response = requests.request("POST", url, data=payload, headers=headers)
 print(response.text)
 ```
+-->
 
 > **Example:** Simple How to Wear it with `style` Catalogs and Gender
 
@@ -225,7 +228,7 @@ curl -X POST https://catalog.markable.ai/image/search/style \
 }
 '
 ```
-
+<!--
 ```python
 import requests
 
@@ -254,6 +257,7 @@ headers = {
 response = requests.request("POST", url, data=payload, headers=headers)
 print(response.text)
 ```
+-->
 
 > **Example:** *Multipart* How to Wear it with `style` Catalogs (Alpha availability)
 
@@ -271,7 +275,7 @@ curl -X POST https://catalog.markable.ai/image/search/style \
 -F 'image=@/local/folder/1.png' \
 -F 'data={ "catalogs": [{ "name": "catalog-name-1" }] }'
 ```
-
+<!--
 ```python
 import requests
 
@@ -294,8 +298,8 @@ headers = {
 }
 
 response = requests.request("POST", url, data=payload, files=files, headers=headers)
-
 ```
+-->
 
 > **Example:** Response
 

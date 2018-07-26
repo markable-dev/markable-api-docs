@@ -14,6 +14,7 @@ curl -X GET https://catalog.markable.ai/catalogs/public \
 -H 'Authorization: Bearer 123abc'
 ```
 
+<!--
 ```python
 import requests
 
@@ -28,6 +29,7 @@ response = requests.request("GET", url, headers=headers)
 
 print(response.text)
 ```
+-->
 
 > **Example:** Response
 

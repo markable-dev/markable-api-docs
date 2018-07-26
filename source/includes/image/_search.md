@@ -25,6 +25,7 @@ curl -X POST https://catalog.markable.ai/image/search \
 }
 '
 ```
+<!--
 ```python
 import requests
 
@@ -45,7 +46,7 @@ response = requests.request("POST", url, data=preload, headers=headers)
 
 print(response.text)
 ```
-
+-->
 
 > **Example:** Image Search with Catalogs Names (Preferred over IDS)
 
@@ -87,7 +88,7 @@ curl -X POST https://catalog.markable.ai/image/search \
 }
 '
 ```
-
+<!--
 ```python
 import requests
 
@@ -116,6 +117,7 @@ response = requests.request("POST", url, data=payload, headers=headers)
 
 print(response.text)
 ```
+-->
 
 > **Example:** Image Search with Catalogs IDS
 
@@ -157,7 +159,7 @@ curl -X POST https://catalog.markable.ai/image/search \
 }
 '
 ```
-
+<!--
 ```python
 import requests
 
@@ -186,7 +188,7 @@ response = requests.request("POST", url, data=payload, headers=headers)
 
 print(response.text)
 ```
-
+-->
 
 
 > **Example:** Simple Image Search with Catalogs and Gender
@@ -231,7 +233,7 @@ curl -X POST https://catalog.markable.ai/image/search \
 }
 '
 ```
-
+<!--
 ```python
 import requests
 
@@ -261,7 +263,7 @@ response = requests.request("POST", url, data=payload, headers=headers)
 
 print(response.text)
 ```
-
+-->
 > **Example:** *Multipart* Image Search with Catalogs (Alpha availability)
 
 ```http
@@ -278,7 +280,7 @@ curl -X POST https://catalog.markable.ai/image/search \
 -F 'image=@/local/folder/1.png' \
 -F 'data={ "catalogs": [{ "name": "catalog-name-1" }] }'
 ```
-
+<!--
 ```python
 import requests
 
@@ -301,9 +303,8 @@ headers = {
 }
 
 response = requests.request("POST", url, data=payload, files=files, headers=headers)
-
 ```
-
+-->
 > **Example:** Response
 
 ```json

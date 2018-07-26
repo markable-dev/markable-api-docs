@@ -53,7 +53,7 @@ curl -X POST https://catalog.markable.ai/category \
 }
 '
 ```
-
+<!--
 ```python
 import requests
 url = "https://catalog.markable.ai/category"
@@ -85,6 +85,8 @@ headers = {
 response = requests.request("POST", url, data=payload, headers=headers)
 print(response.text)
 ```
+-->
+
 > **Example:** Response
 
 ```json

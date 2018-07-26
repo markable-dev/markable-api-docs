@@ -56,7 +56,7 @@ curl -X PUT https://catalog.markable.ai/catalogs/catalog-1/items \
 '
 ```
 
-```python
+<!--
 ```python
 import requests
 url = "https://catalog.markable.ai/catalogs/catalog-1/items"
@@ -87,7 +87,7 @@ headers = {
 response = requests.request("PUT", url, data=payload, headers=headers)
 print(response.text)
 ```
-```
+-->
 
 > **Example:** Response
 
