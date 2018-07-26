@@ -225,8 +225,8 @@
       <div id="toc">
       </div>
         <ul class="toc-footer">
-            <li><a href='https://markable.ai/signup'>Sign Up</a></li>
-            <li>© 2017 Markable, Inc. all rights reserved.</li>
+            <li><a href='https://markable.ai/free-trial'>Get A Free Trial</a></li>
+            <li>© 2018 Markable, Inc. all rights reserved.</li>
         </ul>
     </div>
     <div class="page-wrapper">
@@ -241,17 +241,21 @@
 
 <p>Welcome to the official documentation for <strong>Markable Lens API</strong> - for developers. This serves as a guide for developers integrate with Markable&rsquo;s visual search platform API, illustrated using API specifications and API integration code examples.</p>
 
-<p>To be able to use/access this API you will need to be a verified developer, please <strong><a href="https://markable.ai/signup">signup</a></strong> to get started. We&rsquo;ll get back to you with your user credentials.</p>
+<p>To be able to use/access this API you will need to be a verified developer, please <strong><a href="https://markable.ai/free-trial">request a free trial</a></strong> to get started. We&rsquo;ll get back to you with your user credentials.</p>
 
 <p>This API and documentation is currently in <strong>private beta</strong> - subject for modifications.</p>
 
+<aside class="notice">
+    This document has example requests in <code>http</code> and <code>shell</code>. Please use <a href="https://www.getpostman.com/docs/v6/postman/sending_api_requests/generate_code_snippets">Postman</a> to convert the examples into your preferred langange.
+</aside>
+
           <h1 id="getting-started">Getting Started</h1>
 
-<p>To be able to use/access this API you will need to be a verified developer, please <strong><a href="https://markable.ai/signup">signup</a></strong> to get started. We&rsquo;ll get back to you with your user credentials.</p>
+<p>To be able to use/access this API you will need to be a verified developer, please <strong><a href="https://markable.ai/free-trial">request a free trial</a></strong> to get started. We&rsquo;ll contact you with your user credentials. If you have your credentials from us in hand already, please follow the steps below.</p>
 
 <ol>
 <li><p>Then, <a href="#user-authentication">login</a> with your user credentials.</p></li>
-<li><p>Once you have logged in, you will get your <code class="prettyprint">user_access_token</code>. With this token, get your default <a href="#get-user-and-client">Client</a> we have created for you.</p></li>
+<li><p>Once you have logged in, you will get your <code class="prettyprint">user_access_token</code>. With this token, get your default <a href="#get-user-and-client">client</a> we have created for you.</p></li>
 <li><p>Then, <a href="#client-authentication">authenticate</a> your Client to get your <code class="prettyprint">client_access_token</code>.</p></li>
 <li><p>Make your first <a href="#search">visual search</a>. You will be using your <code class="prettyprint">client_access_token</code> from above.</p></li>
 </ol>
@@ -1082,6 +1086,31 @@ of their own.</p>
 }
 '</span>
 </code></pre>
+<!--
+```python
+import requests
+
+url = "https://auth.markable.ai/auth/user/authorize"
+
+payload = {
+    "data":
+        {
+         "email": "developer@client.com",
+         "password": "password"
+        }
+ }
+
+headers = {
+    'Content-Type': "application/json",
+    }
+
+response = requests.request("POST", url, data=payload, headers=headers)
+
+print(response.text)
+
+```
+-->
+
 <blockquote>
 <p><strong>Example:</strong> Response with User Access Token</p>
 </blockquote>
@@ -1131,6 +1160,23 @@ and not clients.</p>
 -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 -H <span class="s1">'Authorization: Bearer usertoken123abc'</span>
 </code></pre>
+<!--
+```python
+import requests
+
+url = "https://auth.markable.ai/auth/users/"
+
+headers = {
+    'Content-Type': "application/json",
+    'Authorization': "Bearer usertoken123abc",
+    }
+
+response = requests.request("GET", url, headers=headers)
+
+print(response.text)
+```
+-->
+
 <blockquote>
 <p><strong>Example:</strong> Response</p>
 </blockquote>
@@ -1237,6 +1283,31 @@ and not clients.</p>
 }
 '</span>
 </code></pre>
+<!--
+```python
+import requests
+
+url = "https://auth.markable.ai/auth/client/authorize"
+
+payload = {
+  "data":
+    {
+      "client_id":"client_id_1",
+      "client_secret": "client_secret_1",
+      "scope": "default"
+      }
+ }
+
+headers = {
+    'Content-Type': "application/json",
+}
+
+response = requests.request("POST", url, data=payload, headers=headers)
+
+print(response.text)
+```
+-->
+
 <blockquote>
 <p><strong>Example:</strong> Request for Search only tokens that can be <em>Published</em></p>
 </blockquote>
@@ -1260,6 +1331,31 @@ and not clients.</p>
 }
 '</span>
 </code></pre>
+<!--
+```python
+import requests
+
+url = "https://auth.markable.ai/auth/client/authorize"
+
+payload = {
+  "data":
+    {
+      "client_id":"client_id_1",
+      "client_secret": "client_secret_1",
+      "scope": "search"
+      }
+ }
+
+headers = {
+    'Content-Type': "application/json",
+}
+
+response = requests.request("POST", url, data=payload, headers=headers)
+
+print(response.text)
+```
+-->
+
 <blockquote>
 <p><strong>Example:</strong> Response Client Access Token</p>
 </blockquote>
@@ -1485,6 +1581,31 @@ and not clients.</p>
 }
 '</span>
 </code></pre>
+<!--
+```python
+import requests
+
+url = "https://catalog.markable.ai/catalogs"
+
+payload = {
+    "data": {
+        "name": "catalog-1",
+        "description": "My first catalog",
+        "schema": "product"
+        }
+}
+
+headers = {
+    'Content-Type': "application/json",
+    'Authorization': "Bearer 123abc",
+    }
+
+response = requests.request("POST", url, data=payload, headers=headers)
+
+print(response.text)
+```
+-->
+
 <blockquote>
 <p><strong>Example:</strong> Response</p>
 </blockquote>
@@ -1574,6 +1695,30 @@ and not clients.</p>
 }
 '</span>
 </code></pre>
+<!--
+```python
+import requests
+
+url = "https://catalog.markable.ai/catalogs/catalog-1"
+
+payload = {
+    "data": {
+        "name": "catalog-1",
+        "description": "My first catalog",
+        }
+}
+
+headers = {
+    'Content-Type': "application/json",
+    'Authorization': "Bearer 123abc",
+    }
+
+response = requests.request("POST", url, data=payload, headers=headers)
+
+print(response.text)
+```
+-->
+
 <blockquote>
 <p><strong>Example:</strong> Response</p>
 </blockquote>
@@ -1658,6 +1803,23 @@ and not clients.</p>
 -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 -H <span class="s1">'Authorization: Bearer 123abc'</span>
 </code></pre>
+<!--
+```python
+import requests
+
+url = "https://catalog.markable.ai/catalogs/catalog-1"
+
+headers = {
+   'Content-Type': "application/json",
+   'Authorization': "Bearer 123abc",
+   }
+
+response = requests.request("DELETE", url, headers=headers)
+
+print(response.text)
+```
+-->
+
 <blockquote>
 <p><strong>Example:</strong> Response</p>
 </blockquote>
@@ -1714,6 +1876,23 @@ and not clients.</p>
 -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 -H <span class="s1">'Authorization: Bearer 123abc'</span>
 </code></pre>
+<!--
+```python
+import requests
+
+url = "https://catalog.markable.ai/catalogs/catalog-1"
+
+headers = {
+   'Content-Type': "application/json",
+   'Authorization': "Bearer 123abc",
+   }
+
+response = requests.request("GET", url, headers=headers)
+
+print(response.text)
+```
+-->
+
 <blockquote>
 <p><strong>Example:</strong> Response</p>
 </blockquote>
@@ -1783,6 +1962,23 @@ and not clients.</p>
 -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 -H <span class="s1">'Authorization: Bearer 123abc'</span>
 </code></pre>
+<!--
+```python
+import requests
+
+url = "https://catalog.markable.ai/catalogs"
+
+headers = {
+    'Content-Type': "application/json",
+    'Authorization': "Bearer 123abc",
+    }
+
+response = requests.request("GET", url, headers=headers)
+
+print(response.text)
+```
+-->
+
 <blockquote>
 <p><strong>Example:</strong> Response</p>
 </blockquote>
@@ -1866,6 +2062,23 @@ and not clients.</p>
 -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 -H <span class="s1">'Authorization: Bearer 123abc'</span>
 </code></pre>
+<!--
+```python
+import requests
+
+url = "https://catalog.markable.ai/catalogs/catalog-1/stats"
+
+headers = {
+    'Content-Type': "application/json",
+    'Authorization': "Bearer 123abc",
+    }
+
+response = requests.request("GET", url, headers=headers)
+
+print(response.text)
+```
+-->
+
 <blockquote>
 <p><strong>Example:</strong> Response</p>
 </blockquote>
@@ -1950,6 +2163,23 @@ and not clients.</p>
 -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 -H <span class="s1">'Authorization: Bearer 123abc'</span>
 </code></pre>
+<!--
+```python
+import requests
+
+url = "https://catalog.markable.ai/catalogs/catalog-1/public"
+
+headers = {
+    'Content-Type': "application/json",
+    'Authorization': "Bearer 123abc",
+    }
+
+response = requests.request("GET", url, headers=headers)
+
+print(response.text)
+```
+-->
+
 <blockquote>
 <p><strong>Example:</strong> Response</p>
 </blockquote>
@@ -2355,6 +2585,40 @@ and not clients.</p>
 }
 '</span>
 </code></pre>
+<!--
+```python
+import requests
+url = "https://catalog.markable.ai/category"
+payload = {
+    "data": {
+        "images": [
+            {
+                "uri":"https://example.com/products/1/a.png"
+            },
+            {
+                "uri": "https://example.com/products/1/b.png"
+            }
+        ],
+        "data":
+            {
+                "url": "https://example.com/product/shoes.html",
+                "name": "A shoe product",
+                "description": "This is a fantastic shoe product",
+                "categoryInfo": "Some relevant information about category"
+                }
+            }
+
+}
+headers = {
+    'Content-Type': "application/json",
+    'Authorization': "Bearer 123abc",
+    }
+
+response = requests.request("POST", url, data=payload, headers=headers)
+print(response.text)
+```
+-->
+
 <blockquote>
 <p><strong>Example:</strong> Response</p>
 </blockquote>
@@ -2378,6 +2642,7 @@ and not clients.</p>
             </span><span class="s2">"categoryInfo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Some relevant information about category"</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
 
 </span></code></pre>
 <p>Given an item without a category, we try and figure out what the the <a href="#supported-categories">Supported Markable category</a> is based on the textual information you provide. Its best to run this call with as much textual information as possible in the freeform <code class="prettyprint">data</code> key. The response can be directly used to <a href="#create-catalog-item">create a catalog item</a></p>
@@ -2471,6 +2736,47 @@ and not clients.</p>
 }
 '</span>
 </code></pre>
+<!--
+```pyhton
+import requests
+url = "https://catalog.markable.ai/catalogs/catalog-1/items"
+payload = {
+    "data": {
+        "images": [
+            {
+                "uri": "https://example.com/products/1/a.png"
+            },
+            {
+                "uri": "https://example.com/products/1/b.png"
+            }
+        ],
+        "category": {
+            "name": "glasses"
+        }
+        "data": {
+            "url": "https://example.com/product/page.html",
+            "id": "external-id-1",
+            "name" : "A great awesome product",
+            "brand" : "Brand",
+            "color" : "green",
+            "gender" : "women",
+            "vendor" : "vendor",
+            "stock" : true,
+            "price" : 30,
+            "currency" : "USD"
+        }
+    }
+}
+headers = {
+    'Content-Type': "application/json",
+    'Authorization': "Bearer 123abc",
+    }
+
+response = requests.request("POST", url, data=payload, headers=headers)
+print(response.text)
+```
+-->
+
 <blockquote>
 <p><strong>Example:</strong> Response</p>
 </blockquote>
@@ -2582,7 +2888,7 @@ and not clients.</p>
 <li>There is an option to pass <code class="prettyprint">data.gender</code> for <a href="#image-search">gender search</a> if needed. <strong>By default, we use <code class="prettyprint">women</code> as gender</strong></li>
 <li><p><code class="prettyprint">data.url</code> is mandatory since our experience allows us to redirect users to the product page.</p></li>
 <li><p>On Indexing *</p></li>
-<li><p>We index the products and update the status of every image on a CatalogItem. The valid statuses are <code class="prettyprint">success</code>, <code class="prettyprint">error</code> and <code class="prettyprint">pending</code>. 
+<li><p>We index the products and update the status of every image on a CatalogItem. The valid statuses are <code class="prettyprint">success</code>, <code class="prettyprint">error</code> and <code class="prettyprint">pending</code>.
 CatalogItem images start off being <code class="prettyprint">pending</code></p></li>
 <li><p>If we detect errors with indexing, we expose information on why in the <code class="prettyprint">images.error</code> object.</p></li>
 <li><p>We return <code class="prettyprint">bounding_boxes</code> and <code class="prettyprint">attributes</code> for each image as part of our alpha release.</p></li>
@@ -2651,6 +2957,24 @@ CatalogItem images start off being <code class="prettyprint">pending</code></p><
 -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 -H <span class="s1">'Authorization: Bearer 123abc'</span>
 </code></pre>
+<!--
+```python
+import requests
+
+url = "https://catalog.markable.ai/catalogs/catalog-1/items/item-1"
+
+headers = {
+   'Content-Type': "application/json",
+   'Authorization': "Bearer 123abc",
+   }
+
+response = requests.request("DELETE", url, headers=headers)
+
+print(response.text)
+
+```
+-->
+
 <blockquote>
 <p><strong>Example:</strong> Response</p>
 </blockquote>
@@ -2748,6 +3072,23 @@ CatalogItem images start off being <code class="prettyprint">pending</code></p><
 -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 -H <span class="s1">'Authorization: Bearer 123abc'</span>
 </code></pre>
+<!--
+```python
+import requests
+
+url = "https://catalog.markable.ai/catalogs/catalog-1/items/item-1"
+
+headers = {
+   'Content-Type': "application/json",
+   'Authorization': "Bearer 123abc",
+   }
+
+response = requests.request("GET", url, headers=headers)
+
+print(response.text)
+```
+-->
+
 <blockquote>
 <p><strong>Example:</strong> Response</p>
 </blockquote>
@@ -2861,6 +3202,23 @@ CatalogItem images start off being <code class="prettyprint">pending</code></p><
 -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 -H <span class="s1">'Authorization: Bearer 123abc'</span>
 </code></pre>
+<!--
+```python
+import requests
+
+url = "https://catalog.markable.ai/catalogs/catalog-1/items"
+
+headers = {
+    'Content-Type': "application/json",
+    'Authorization': "Bearer 123abc",
+    }
+
+response = requests.request("GET", url, headers=headers)
+
+print(response.text)
+```
+-->
+
 <blockquote>
 <p><strong>Example:</strong> Request with filters</p>
 </blockquote>
@@ -2870,6 +3228,23 @@ CatalogItem images start off being <code class="prettyprint">pending</code></p><
 -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 -H <span class="s1">'Authorization: Bearer 123abc'</span>
 </code></pre>
+<!--
+```python
+import requests
+
+url = "https://catalog.markable.ai/catalogs/catalog-1/items?success=true&limit=50&skip=0&category=dresses"
+
+headers = {
+    'Content-Type': "application/json",
+    'Authorization': "Bearer 123abc",
+    }
+
+response = requests.request("GET", url, headers=headers)
+
+print(response.text)
+```
+-->
+
 <blockquote>
 <p><strong>Example:</strong> Response</p>
 </blockquote>
@@ -3031,6 +3406,23 @@ CatalogItem images start off being <code class="prettyprint">pending</code></p><
 -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 -H <span class="s1">'Authorization: Bearer 123abc'</span>
 </code></pre>
+<!--
+```python
+import requests
+
+url = "https://catalog.markable.ai/category"
+
+headers = {
+   'Content-Type': "application/json",
+   'Authorization': "Bearer 123abc",
+   }
+
+response = requests.request("GET", url, headers=headers)
+
+print(response.text)
+```
+-->
+
 <blockquote>
 <p><strong>Example:</strong> Response</p>
 </blockquote>
@@ -3109,6 +3501,23 @@ and more.</p>
 -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 -H <span class="s1">'Authorization: Bearer 123abc'</span>
 </code></pre>
+<!--
+```python
+import requests
+
+url = "https://catalog.markable.ai/attributes"
+
+headers = {
+   'Content-Type': "application/json",
+   'Authorization': "Bearer 123abc",
+   }
+
+response = requests.request("GET", url, headers=headers)
+
+print(response.text)
+```
+-->
+
 <blockquote>
 <p><strong>Example:</strong> Response</p>
 </blockquote>
@@ -3372,6 +3781,29 @@ images in your Catalog of schema <code class="prettyprint">product</code>.</p>
 }
 '</span>
 </code></pre>
+<!--
+```python
+import requests
+
+url = "https://catalog.markable.ai/image/search"
+
+preload = {
+    "data": {
+        "image_uri": "http://i.com/1.png"
+    }
+}
+
+headers = {
+   'Content-Type': "application/json",
+   'Authorization': "Bearer 123abc",
+   }
+
+response = requests.request("POST", url, data=preload, headers=headers)
+
+print(response.text)
+```
+-->
+
 <blockquote>
 <p><strong>Example:</strong> Image Search with Catalogs Names (Preferred over IDS)</p>
 </blockquote>
@@ -3409,6 +3841,37 @@ images in your Catalog of schema <code class="prettyprint">product</code>.</p>
 }
 '</span>
 </code></pre>
+<!--
+```python
+import requests
+
+url = "https://catalog.markable.ai/image/search"
+
+payload = {
+    "data": {
+        "image_uri": "http://i.com/1.png",
+        "catalogs": [
+            {
+                "name": "catalog-name-1"
+            },
+            {
+                "name": "catalog-name-2"
+            }
+        ]
+    }
+}
+
+headers = {
+   'Content-Type': "application/json",
+   'Authorization': "Bearer 123abc",
+   }
+
+response = requests.request("POST", url, data=payload, headers=headers)
+
+print(response.text)
+```
+-->
+
 <blockquote>
 <p><strong>Example:</strong> Image Search with Catalogs IDS</p>
 </blockquote>
@@ -3446,6 +3909,37 @@ images in your Catalog of schema <code class="prettyprint">product</code>.</p>
 }
 '</span>
 </code></pre>
+<!--
+```python
+import requests
+
+url = "https://catalog.markable.ai/image/search"
+
+payload = {
+    "data": {
+        "image_uri": "http://i.com/1.png",
+        "catalogs": [
+            {
+                "name": "catalog-id-1"
+            },
+            {
+                "name": "catalog-id-2"
+            }
+        ]
+    }
+}
+
+headers = {
+   'Content-Type': "application/json",
+   'Authorization': "Bearer 123abc",
+   }
+
+response = requests.request("POST", url, data=payload, headers=headers)
+
+print(response.text)
+```
+-->
+
 <blockquote>
 <p><strong>Example:</strong> Simple Image Search with Catalogs and Gender</p>
 </blockquote>
@@ -3485,6 +3979,38 @@ images in your Catalog of schema <code class="prettyprint">product</code>.</p>
 }
 '</span>
 </code></pre>
+<!--
+```python
+import requests
+
+url = "https://catalog.markable.ai/image/search"
+
+payload = {
+    "data": {
+        "image_uri": "http://i.com/1.png",
+        "gender": ["men", "women"],
+        "catalogs": [
+            {
+                "name": "catalog-name-1"
+            },
+            {
+                "name": "catalog-name-2"
+            }
+        ]
+    }
+}
+
+headers = {
+   'Content-Type': "application/json",
+   'Authorization': "Bearer 123abc",
+   }
+
+response = requests.request("POST", url, data=payload, headers=headers)
+
+print(response.text)
+```
+-->
+
 <blockquote>
 <p><strong>Example:</strong> <em>Multipart</em> Image Search with Catalogs (Alpha availability)</p>
 </blockquote>
@@ -3498,6 +4024,32 @@ images in your Catalog of schema <code class="prettyprint">product</code>.</p>
 -F <span class="s1">'image=@/local/folder/1.png'</span> <span class="se">\</span>
 -F <span class="s1">'data={ "catalogs": [{ "name": "catalog-name-1" }] }'</span>
 </code></pre>
+<!--
+```python
+import requests
+
+url = 'https://catalog.markable.ai/image/search'
+
+
+files = {
+    "image": open("/local/folder/1.png", "rb")
+}
+
+payload = {
+    "data": {
+        "catalogs": [{"name": "catalog-name-1"}]
+    }
+}
+
+headers = {
+   'Content-Type': "application/json",
+   'Authorization': "Bearer 123abc",
+}
+
+response = requests.request("POST", url, data=payload, files=files, headers=headers)
+```
+-->
+
 <blockquote>
 <p><strong>Example:</strong> Response</p>
 </blockquote>
@@ -3695,9 +4247,9 @@ images in your Catalog of schema <code class="prettyprint">product</code>.</p>
 </tr>
 </tbody></table>
 
-          <h1 id="how-to-wear-it-search"><em>How to Wear It</em> Search</h1>
+          <h1 id="how-to-wear-it-search">How to Wear It Search</h1>
 
-<p>Our <em>How to Wear it</em> search gives style results given a specific image. Its best if the searched image is a product image. </p>
+<p>Our <strong>How to Wear it</strong> search gives style results given a specific image. Its best if the searched image is a product image.</p>
 
 <p>As an example, if you search with a shoe (a product image), results from your <a href="#catalogs">style catalog</a> will be shown.</p>
 
@@ -3817,6 +4369,27 @@ images in your Catalog of schema <code class="prettyprint">product</code>.</p>
 }
 '</span>
 </code></pre>
+<!--
+```python
+import requests
+url = "https://catalog.markable.ai/image/search/style"
+
+payload = {
+    "data": {
+        "image_uri": "http://i.com/1.png"
+    }
+}
+
+headers = {
+    'Content-Type': "application/json",
+    'Authorization': "Bearer 123abc",
+    }
+
+response = requests.request("POST", url, data=payload, headers=headers)
+print(response.text)
+```
+-->
+
 <blockquote>
 <p><strong>Example:</strong> How to Wear it with <code class="prettyprint">style</code> Catalogs Names (Preferred over IDS)</p>
 </blockquote>
@@ -3854,6 +4427,36 @@ images in your Catalog of schema <code class="prettyprint">product</code>.</p>
 }
 '</span>
 </code></pre>
+<!--
+```python
+import requests
+
+url = "https://catalog.markable.ai/image/search/style"
+
+payload = {
+    "data": {
+        "image_uri": "http://i.com/1.png",
+        "catalogs": [
+            {
+                "name": "catalog-name-1"
+            },
+            {
+                "name": "catalog-name-2"
+            }
+        ]
+    }
+}
+
+headers = {
+    'Content-Type': "application/json",
+    'Authorization': "Bearer 123abc",
+    }
+
+response = requests.request("POST", url, data=payload, headers=headers)
+print(response.text)
+```
+-->
+
 <blockquote>
 <p><strong>Example:</strong> How to Wear it with <code class="prettyprint">style</code> Catalogs IDS</p>
 </blockquote>
@@ -3891,6 +4494,36 @@ images in your Catalog of schema <code class="prettyprint">product</code>.</p>
 }
 '</span>
 </code></pre>
+<!--
+```python
+import requests
+
+url = "https://catalog.markable.ai/image/search/style"
+
+payload = {
+    "data": {
+        "image_uri": "http://i.com/1.png",
+        "catalogs": [
+            {
+                "_id": "catalog-id-1"
+            },
+            {
+                "_id": "catalog-id-2"
+            }
+        ]
+    }
+}
+
+headers = {
+    'Content-Type': "application/json",
+    'Authorization': "Bearer 123abc",
+    }
+
+response = requests.request("POST", url, data=payload, headers=headers)
+print(response.text)
+```
+-->
+
 <blockquote>
 <p><strong>Example:</strong> Simple How to Wear it with <code class="prettyprint">style</code> Catalogs and Gender</p>
 </blockquote>
@@ -3930,6 +4563,37 @@ images in your Catalog of schema <code class="prettyprint">product</code>.</p>
 }
 '</span>
 </code></pre>
+<!--
+```python
+import requests
+
+url = "https://catalog.markable.ai/image/search/style"
+
+payload = {
+    "data": {
+        "image_uri": "http://i.com/1.png",
+        "gender": ["men", "women"],
+        "catalogs": [
+            {
+                "_id": "catalog-id-1"
+            },
+            {
+                "_id": "catalog-id-2"
+            }
+        ]
+    }
+}
+
+headers = {
+    'Content-Type': "application/json",
+    'Authorization': "Bearer 123abc",
+    }
+
+response = requests.request("POST", url, data=payload, headers=headers)
+print(response.text)
+```
+-->
+
 <blockquote>
 <p><strong>Example:</strong> <em>Multipart</em> How to Wear it with <code class="prettyprint">style</code> Catalogs (Alpha availability)</p>
 </blockquote>
@@ -3943,6 +4607,32 @@ images in your Catalog of schema <code class="prettyprint">product</code>.</p>
 -F <span class="s1">'image=@/local/folder/1.png'</span> <span class="se">\</span>
 -F <span class="s1">'data={ "catalogs": [{ "name": "catalog-name-1" }] }'</span>
 </code></pre>
+<!--
+```python
+import requests
+
+url = 'https://catalog.markable.ai/image/search'
+
+
+files = {
+    "image": open("/local/folder/1.png", "rb")
+}
+
+payload = {
+    "data": {
+        "catalogs": [{"name": "catalog-name-1"}]
+    }
+}
+
+headers = {
+   'Content-Type': "application/json",
+   'Authorization': "Bearer 123abc",
+}
+
+response = requests.request("POST", url, data=payload, files=files, headers=headers)
+```
+-->
+
 <blockquote>
 <p><strong>Example:</strong> Response</p>
 </blockquote>
