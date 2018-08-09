@@ -16,6 +16,7 @@ includes:
   - gettingstarted
 
   - versioning
+  - ratelimiting
   - errors
   - objects
 
