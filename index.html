@@ -268,6 +268,17 @@
 
 <p>Currently the API is in <strong>private beta</strong> and the versioning process is not being implemented, but as soon as we move into <strong>public beta</strong> the versioning will be in place.</p>
 
+          <h1 id="rate-limiting">Rate limiting</h1>
+
+<p>For have fair usage of our APIs, we have enforced rate limits to the number of search results one can perform per minute. For each client, </p>
+
+<ul>
+<li><p>If you are in a pilot phase, the current limit is <strong>25 requests/minute</strong>.</p></li>
+<li><p>Otherwise, the current limit is <strong>60 requests/minute</strong>.</p></li>
+</ul>
+
+<p>Depending on your use casel, you can get in touch to have your limits increased.</p>
+
           <h1 id="errors">Errors</h1>
 
 <p><strong>Markable</strong> uses conventional HTTP response codes to indicate the success or failure of an API request. In general, codes in the <strong>2xx</strong> range indicate success, codes in the <strong>4xx</strong> range indicate an error due to information provided (e.g., a required parameter was omitted, a catalog item operation failed, etc.), and codes in the <strong>5xx</strong> range indicate an error with our servers.</p>
@@ -974,21 +985,21 @@
             </span><span class="s2">"readOnly"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="s2">"x"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"number"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"minimum"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
             </span><span class="s2">"default"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="s2">"y"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"number"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"minimum"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
             </span><span class="s2">"default"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="s2">"width"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"number"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"minimum"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="s2">"height"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"number"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"minimum"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">},</span><span class="w">
@@ -1024,22 +1035,22 @@
 </tr>
 <tr>
 <td><code class="prettyprint">x</code></td>
-<td>Integer</td>
+<td>Float</td>
 <td>Bounding box offset x coordinate in pixels. <strong><small>read-only</small></strong></td>
 </tr>
 <tr>
 <td><code class="prettyprint">y</code></td>
-<td>Integer</td>
+<td>Float</td>
 <td>Bounding box offset y coordinate in pixels. <strong><small>read-only</small></strong></td>
 </tr>
 <tr>
 <td><code class="prettyprint">width</code></td>
-<td>Integer</td>
+<td>Float</td>
 <td>Bounding box offset width in pixels. <strong><small>read-only</small></strong></td>
 </tr>
 <tr>
 <td><code class="prettyprint">height</code></td>
-<td>Integer</td>
+<td>Float</td>
 <td>Bounding box offset height in pixels. <strong><small>read-only</small></strong></td>
 </tr>
 </tbody></table>
