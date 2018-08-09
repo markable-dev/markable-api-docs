@@ -474,21 +474,21 @@ An **Bounding Box** defines an rectangular area (within an image) which contains
             "readOnly": true
         },
         "x": {
-            "type": "integer",
+            "type": "number",
             "minimum": 0,
             "default": 0
         },
         "y": {
-            "type": "integer",
+            "type": "number",
             "minimum": 0,
             "default": 0
         },
         "width": {
-            "type": "integer",
+            "type": "number",
             "minimum": 10
         },
         "height": {
-            "type": "integer",
+            "type": "number",
             "minimum": 10
         }
     },
@@ -502,7 +502,7 @@ Attribute 		| Type 						| Description
 `_id` 			| String					| An unique identifier. **<small>read-only</small>**
 `_score` 		| Float 					| Confidence score of the classification.
 `_category` 	| [Category](#category) 	| Category - taxonomic classification of bounding box content (object).
-`x` 			| Integer					| Bounding box offset x coordinate in pixels. **<small>read-only</small>**
-`y` 			| Integer					| Bounding box offset y coordinate in pixels. **<small>read-only</small>**
-`width` 		| Integer					| Bounding box offset width in pixels. **<small>read-only</small>**
-`height` 		| Integer					| Bounding box offset height in pixels. **<small>read-only</small>**
+`x` 			| Float					    | Bounding box offset x coordinate in pixels. **<small>read-only</small>**
+`y` 			| Float					    | Bounding box offset y coordinate in pixels. **<small>read-only</small>**
+`width` 		| Float					    | Bounding box offset width in pixels. **<small>read-only</small>**
+`height` 		| Float					    | Bounding box offset height in pixels. **<small>read-only</small>**
