@@ -268,7 +268,7 @@
 
 <p>Currently the API is in <strong>private beta</strong> and the versioning process is not being implemented, but as soon as we move into <strong>public beta</strong> the versioning will be in place.</p>
 
-          <h1 id="rate-limit">Rate Limit</h1>
+          <h1 id="rate-limits">Rate Limits</h1>
 
 <p>For have fair usage of our APIs, we have enforced rate limits to the number of search results one can perform per minute. For each client,</p>
 
@@ -2537,14 +2537,6 @@ print(response.text)
 </tr>
 </tbody></table>
 
-<p>We have constraints on the image sizes we index. We support <code class="prettyprint">.jpg</code>, <code class="prettyprint">.jpeg</code>, <code class="prettyprint">.png</code>, <code class="prettyprint">.webp</code> and</p>
-
-<p>Minimum image size = <code class="prettyprint">224</code></p>
-
-<p>Maximum image size = <code class="prettyprint">3200</code></p>
-
-<p>Maximum image memory size = <code class="prettyprint">2.5 * 1024 * 1024</code></p>
-
           <h2 id="auto-categorize-a-catalogitem">Auto Categorize a CatalogItem</h2>
 
 <p>Note that our feature where we try to predict the Markable category based on textual information is currently in <strong>alpha</strong>.</p>
@@ -3402,6 +3394,21 @@ print(response.text)
 </tr>
 </tbody></table>
 
+          <h1 id="indexing">Indexing <alt="Indexing" height="auto" width="100%"></h1>
+
+<p>Indexing is how we make CatalogItems available for search and our way of representing images.</p>
+
+<p>We have constraints on the image sizes we index. </p>
+
+<ol>
+<li><p>We support <code class="prettyprint">.jpg</code>, <code class="prettyprint">.jpeg</code>, <code class="prettyprint">.png</code>, and <code class="prettyprint">.webp</code> px</p></li>
+<li><p>Minimum image size = <code class="prettyprint">224</code> px</p></li>
+<li><p>Maximum image size = <code class="prettyprint">3200</code> px</p></li>
+<li><p>Maximum image memory size = <code class="prettyprint">2.5 * 1024 * 1024</code> mb</p></li>
+</ol>
+
+<p>Indexing is different from <a href="#product-search">Search</a> for which the constraints are different.</p>
+
           <h1 id="taxonomy">Taxonomy <alt="Taxonomy" height="auto" width="100%"></h1>
 
 <p>Markable&rsquo;s taxonomy includes our supported categories and attributes.</p>
@@ -3610,12 +3617,16 @@ print(response.text)
 </tr>
 </tbody></table>
 
-          <h1 id="product-search">Product Search</h1>
+          <h1 id="visual-search-for-images">Visual Search for Images</h1>
+
+<p>We have two different kinds of search, <strong>Product</strong> and <strong>How to Wear it</strong> for images.</p>
+
+          <h2 id="product-search">Product <strong>Search</strong></h2>
 
 <p>Product search, also often called <em>Product Search</em> or <em>Product Search</em>. Given an image, we find the most visually relevant
 images in your Catalog of schema <code class="prettyprint">product</code>.</p>
 
-<h2 id="the-product-search-query-object"><img src="images/image-search_icon.png" alt="image-search_icon" width="28px" height="auto"> The Product Search Query Object</h2>
+<h3 id="the-product-search-query-object"><img src="images/image-search_icon.png" alt="image-search_icon" width="28px" height="auto"> The Product Search Query Object</h3>
 
 <blockquote>
 <p><strong>Example:</strong> Product Search Query Object</p>
@@ -3759,17 +3770,7 @@ images in your Catalog of schema <code class="prettyprint">product</code>.</p>
 </tr>
 </tbody></table>
 
-<h3 id="search-contraints-on-the-searched-input-image">Search contraints on the searched input Image</h3>
-
-<p>We have constraints on the image sizes we search on. We support <code class="prettyprint">.jpg</code>, <code class="prettyprint">.jpeg</code>, <code class="prettyprint">.png</code>, <code class="prettyprint">.webp</code> and</p>
-
-<p>Minimum image size = <code class="prettyprint">100</code></p>
-
-<p>Maximum image size = <code class="prettyprint">3200</code></p>
-
-<p>Maximum image memory size = <code class="prettyprint">2.5 * 1024 * 1024</code></p>
-
-          <h2 id="product-search"><img src="images/search-image_icon.png" alt="search-image_icon" width="28px" height="auto"> Product Search</h2>
+          <h3 id="product-search"><img src="images/search-image_icon.png" alt="search-image_icon" width="28px" height="auto"> Product Search</h3>
 
 <blockquote>
 <p><strong>Example:</strong> Simple Image Search without Catalogs</p>
@@ -4258,13 +4259,13 @@ response = requests.request("POST", url, data=payload, files=files, headers=head
 </tr>
 </tbody></table>
 
-          <h1 id="how-to-wear-it-search">How to Wear It Search</h1>
+          <h2 id="how-to-wear-it-search">How to Wear It <strong>Search</strong></h2>
 
 <p>Our <strong>How to Wear it</strong> search gives style results given a specific image. Its best if the searched image is a product image.</p>
 
 <p>As an example, if you search with a shoe (a product image), results from your <a href="#catalogs">style catalog</a> will be shown.</p>
 
-<h2 id="the-how-to-wear-it-query-object"><img src="images/image-search_icon.png" alt="image-search_icon" width="28px" height="auto"> The How to Wear it Query Object</h2>
+<h3 id="the-how-to-wear-it-query-object"><img src="images/image-search_icon.png" alt="image-search_icon" width="28px" height="auto"> The How to Wear it Query Object</h3>
 
 <blockquote>
 <p><strong>Example:</strong> How to Wear it Query Object</p>
@@ -4357,7 +4358,7 @@ response = requests.request("POST", url, data=payload, files=files, headers=head
 
 <p>Maximum image memory size = <code class="prettyprint">2.5 * 1024 * 1024</code></p>
 
-          <h2 id="htwi-search"><img src="images/search-image_icon.png" alt="search-image_icon" width="28px" height="auto"> HTWI Search</h2>
+          <h3 id="htwi-search"><img src="images/search-image_icon.png" alt="search-image_icon" width="28px" height="auto"> HTWI Search</h3>
 
 <blockquote>
 <p><strong>Example:</strong> Simple How to Wear it without Catalogs</p>
@@ -4845,6 +4846,17 @@ catalog of schema <code class="prettyprint">style</code>.</p>
 <td>A valid Image Search object.</td>
 </tr>
 </tbody></table>
+
+          <h2 id="search-constraints">Search Constraints</h2>
+
+<p>We have constraints on the input image we search on. </p>
+
+<ol>
+<li><p>We support <code class="prettyprint">.jpg</code>, <code class="prettyprint">.jpeg</code>, <code class="prettyprint">.png</code>, and <code class="prettyprint">.webp</code></p></li>
+<li><p>Minimum image size = <code class="prettyprint">100</code> px</p></li>
+<li><p>Maximum image size = <code class="prettyprint">3200</code> px</p></li>
+<li><p>Maximum image memory size = <code class="prettyprint">2.5 * 1024 * 1024</code> mb</p></li>
+</ol>
 
       </div>
       <div class="dark-box">
