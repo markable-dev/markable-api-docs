@@ -5,7 +5,7 @@ Indexing is how we make CatalogItems available for search and our way of represe
 
 We have constraints on the image sizes we index. 
 
-1. We support `.jpg`, `.jpeg`, `.png`, and `.webp` px
+1. We support `.jpg`, `.jpeg`, `.png`, and `.webp`
 
 2. Minimum image size = `224` px
 
