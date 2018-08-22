@@ -244,12 +244,3 @@ Attribute 		| Type 							   | Description
 `created_at`	| Date    						   | Creation date/time. **<small>read-only</small>**
 `updated_at`	| Date							   | Updated date/time. **<small>read-only</small>**
 
-
-We have constraints on the image sizes we index. We support `.jpg`, `.jpeg`, `.png`, `.webp` and
-
-Minimum image size = `224`
-
-Maximum image size = `3200`
-
-Maximum image memory size = `2.5 * 1024 * 1024`
-

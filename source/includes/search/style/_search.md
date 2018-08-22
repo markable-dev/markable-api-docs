@@ -1,5 +1,5 @@
 
-## <img src="images/search-image_icon.png" alt="search-image_icon" width="28px" height="auto"> HTWI Search
+### <img src="images/search-image_icon.png" alt="search-image_icon" width="28px" height="auto"> HTWI Search
 
 > **Example:** Simple How to Wear it without Catalogs
 

@@ -1,5 +1,5 @@
 
-## <img src="images/search-image_icon.png" alt="search-image_icon" width="28px" height="auto"> Product Search
+### <img src="images/search-image_icon.png" alt="search-image_icon" width="28px" height="auto"> Product Search
 
 > **Example:** Simple Image Search without Catalogs
 

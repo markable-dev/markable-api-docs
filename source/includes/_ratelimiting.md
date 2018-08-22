@@ -1,5 +1,5 @@
 
-# Rate Limit
+# Rate Limits
 
 For have fair usage of our APIs, we have enforced rate limits to the number of search results one can perform per minute. For each client,
 

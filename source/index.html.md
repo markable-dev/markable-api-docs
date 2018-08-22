@@ -40,15 +40,20 @@ includes:
   - catalog/items/get
   - catalog/items/list
 
+  - indexing/index
+
   - taxonomy/index
   - taxonomy/categories
   - taxonomy/attributes
 
-  - image/index
-  - image/search
+  - search/index
+  - search/product/index
+  - search/product/search
 
-  - style/index
-  - style/search
+  - search/style/index
+  - search/style/search
+
+  - search/constraints
 
   # - video/index
   # - video/search
