@@ -1,8 +1,10 @@
 
-## Product **Search**
+## Product **Search** <img src="images/product-search.png" alt="product-search" height="auto" width="100%" align="center">
 
 Product search, also often called *Product Search* or *Product Search*. Given an image, we find the most visually relevant
 images in your Catalog of schema `product`.
+
+
 
 ### <img src="images/image-search_icon.png" alt="image-search_icon" width="28px" height="auto"> The Product Search Query Object
 

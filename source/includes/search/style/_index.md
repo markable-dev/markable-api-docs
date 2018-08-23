@@ -1,5 +1,5 @@
 
-## How to Wear It **Search**
+## How to Wear It **Search** <img src="images/htwi-search.png" alt="How-to-wear-it-search" height="auto" width="100%" align="center">
 
 Our **How to Wear it** search gives style results given a specific image. Its best if the searched image is a product image.
 
