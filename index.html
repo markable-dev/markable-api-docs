@@ -2483,6 +2483,7 @@ print(response.text)
 <p>Note</p>
 
 <ul>
+<li>Internally, the uniqueness of a catalogItem depends on the imageURL(s), gender and the markable category.</li>
 <li>Use the <code class="prettyprint">data</code> key below to add free form information about the CatalogItem.</li>
 <li><code class="prettyprint">data.url</code> is required since we want to the know product URL to redirect the user.</li>
 <li><code class="prettyprint">data</code> also supports optional fields like <code class="prettyprint">gender</code>, <code class="prettyprint">brand</code>, <code class="prettyprint">color</code>, <code class="prettyprint">vendor</code> &amp; <code class="prettyprint">sku</code>.</li>
@@ -4347,16 +4348,6 @@ response = requests.request("POST", url, data=payload, files=files, headers=head
 <td>Return <a href="#supported-attributes">attributes</a> for every <a href="#catalog-items">catalogItem</a>, for both the searched input image and the images in the results. Note that this does introduce a slow down of a few 100ms in search. Secondly, there is no guarantee that the attributes will be common between the input image and the result images; however, its highly likely that they would be.</td>
 </tr>
 </tbody></table>
-
-<h3 id="search-contraints-on-the-searched-input-image">Search contraints on the searched input Image</h3>
-
-<p>We have constraints on the image sizes we search on. We support <code class="prettyprint">.jpg</code>, <code class="prettyprint">.jpeg</code>, <code class="prettyprint">.png</code>, <code class="prettyprint">.webp</code> and</p>
-
-<p>Minimum image size = <code class="prettyprint">100</code></p>
-
-<p>Maximum image size = <code class="prettyprint">3200</code></p>
-
-<p>Maximum image memory size = <code class="prettyprint">2.5 * 1024 * 1024</code></p>
 
           <h3 id="htwi-search"><img src="images/search-image_icon.png" alt="search-image_icon" width="28px" height="auto"> HTWI Search</h3>
 
