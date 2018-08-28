@@ -229,6 +229,7 @@ A **Catalog Item** (object) defines an visual item (e.g. product), that can be i
 
 Note
 
+* Internally, the uniqueness of a catalogItem depends on the imageURL(s), gender and the markable category.
 * Use the `data` key below to add free form information about the CatalogItem.
 * `data.url` is required since we want to the know product URL to redirect the user.
 * `data` also supports optional fields like `gender`, `brand`, `color`, `vendor` & `sku`.
