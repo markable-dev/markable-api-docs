@@ -459,7 +459,7 @@ response = requests.request("POST", url, data=payload, files=files, headers=head
 }
 ```
 
-Given a product image, find how it with different fashion styles. In specific, HTWI search returns results from a
+Given a product image, find how it fits with different fashion styles. In specific, HTWI search returns results from a
 catalog of schema `style`.
 
 <aside class="notice">
