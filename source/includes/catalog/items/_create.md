@@ -70,7 +70,6 @@ curl -X POST https://catalog.markable.ai/catalogs/catalog-1/items \
 }
 '
 ```
-
 <!--
 ```pyhton
 import requests
@@ -116,89 +115,22 @@ print(response.text)
 
 ```json
 {
-	"data": {
-	    "_type": "CatalogItem",
-	    "_id": "item-1",
-	    "schema": "product",
-	    "catalog": {
-	        "_type": "Catalog",
-	        "_id": "1",
-	        "name": "catalog-1"
-	    },
-	    "images": [
-	        {
-	            "_type": "Image",
-	            "_id": "1",
-	            "uri": "https://example.com/products/1/a.png",
-	            "width": 200,
-	            "height": 300,
-                "status": "success",
-                "error": null,
-                "attributes": {
-                    "shoes": [
-                        {
-                            "score": 0.7574759125709534,
-                            "name": "color",
-                            "value": "white"
-                        },
-                        {
-                            "score": 0.3870239555835724,
-                            "name": "pattern",
-                            "value": "polka dot"
-                        }
-                    ]
-                },
-                "bounding_boxes": {
-                    "shoes": [
-                        {
-                            "y": 49.69390106201172,
-                            "x": 233.58139038085938,
-                            "height": 577.4708938598633,
-                            "width": 419.4363098144531
-                        }
-                    ]
-                }
-	        },
-	        {
-	            "_type": "Image",
-	            "_id": "2",
-	            "uri": "https://example.com/products/1/b.png",
-	            "width": 200,
-	            "height": 300,
-                "status": "success",
-                "error": null,
-                "attributes": {
-                    "skirts": [
-                        {
-                            "score": 0.7574759125709534,
-                            "name": "color",
-                            "value": "white"
-                        },
-                        {
-                            "score": 0.3870239555835724,
-                            "name": "pattern",
-                            "value": "polka dot"
-                        }
-                    ]
-                },
-                "bounding_boxes": {
-                    "skirts": [
-                        {
-                            "y": 49.69390106201172,
-                            "x": 233.58139038085938,
-                            "height": 577.4708938598633,
-                            "width": 419.4363098144531
-                        }
-                    ]
-                }
-	        }
-	    ],
-	    "category": {
-          "_type": "Category",
-          "_id": "1",
-          "name": "glasses"
-      },
-	    "data": {
+    "data": {
+        "images": [
+            {
+                "uri": "https://example.com/products/1/a.png",
+                "_type": "Image",
+                "status": "pending",
+                "error": null
+            },
+            {
+                "uri": "https://example.com/products/1/b.png",
+                "_type": "Image",
+                "status": "pending",
+                "error": null
+            }
+        ],
+        "data": {
             "url": "https://example.com/product/page.html",
             "id": "external-id-1",
             "name" : "A great awesome product",
@@ -209,27 +141,167 @@ print(response.text)
             "stock" : true,
             "price" : 30,
             "currency" : "USD"
-	    },
-	    "created_at": "2017-01-01T00:00:00.001Z",
-	    "updated_at": "2017-01-01T00:00:00.001Z"
-	}
+        },
+        "category": {
+            "name": "glasses",
+            "id": "glasses"
+        },
+        "_type": "CatalogItem",
+        "created_at": "2019-03-12T21:22:04.345Z",
+        "updated_at": "2019-03-12T21:22:04.345Z",
+        "status": "cv_pending",
+        "catalog": {
+            "_type": "Catalog",
+            "_id": "1",
+            "name": "catalog1"
+        },
+        "schema": "product",
+        "fingerprint": "uniqueID",
+        "_id": "item-1"
+    }
 }
 ```
 
+> **Example:** Request (with thumbnail generation option)
 
-Create a new [catalog item](#the-catalog-item-object).
+```http
+POST https://catalog.markable.ai/catalogs/catalog-1/items HTTP/1.1
+Authorization: Bearer 123abc
+{
+    "data": {
+        "options": { "transform": true, "width": 100, "height": 100 },
+        "images": [
+            {
+                "uri": "https://example.com/products/2/a.png"
+            },
+            {
+                "uri": "https://example.com/products/2/b.png"
+            }
+        ],
+        "category": {
+            "name": "glasses"
+        },
+        "data": {
+            "url": "https://example.com/product/page.html",
+            "id": "external-id-1",
+            "name" : "A great awesome product",
+            "brand" : "Brand",
+            "color" : "green",
+            "gender" : "women",
+            "vendor" : "vendor",
+            "stock" : true,
+            "price" : 30,
+            "currency" : "USD"
+        }
+    }
+}
+```
 
-Create a new catalogItem in your catalog that will eventually get indexed.
+```shell
+curl -X POST https://catalog.markable.ai/catalogs/catalog-1/items \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer 123abc' \
+-d '
+{
+    "data": {
+        "options": { "transform": true, "width": 100, "height": 100 },
+        "images": [
+            {
+                "uri": "https://example.com/products/2/a.png"
+            },
+            {
+                "uri": "https://example.com/products/2/b.png"
+            }
+        ],
+        "category": {
+            "name": "shoes"
+        }
+        "data": {
+            "url": "https://example.com/product/shoes.html",
+            "name": "A shoe product",
+            "description": "This is a fantastic shoe product",
+            "categoryInfo": "Some relevant information about category",
+            "gender": "women"
+        }
+    }
+}
+'
+```
+> **Example:** Response
 
-* There is an option to pass `data.gender` for [gender search](#image-search) if needed. __By default, we use `women` as gender__
+```json
+{
+    "data": {
+        "images": [
+            {
+                "_type": "Image",
+                "_id": "1",
+                "uri": "https://example.com/products/2/a.png",
+                "width": null,
+                "height": null,
+                "thumbnail": {
+                    "uri": "hhttps://markable/images/2/a.jpeg",
+                    "width": 66,
+                    "height": 100
+                },
+                "status": "pending",
+                "error": null
+            },
+            {
+                "_type": "Image",
+                "_id": "2",
+                "uri": "https://example.com/products/2/b.png",
+                "width": null,
+                "height": null,
+                "thumbnail": {
+                    "uri": "https://markable/images/2/b.jpeg",
+                    "width": 66,
+                    "height": 100
+                },
+                "status": "pending",
+                "error": null
+            }
+        ],
+        "data": {
+            "url": "https://example.com/product/shoes.html",
+            "name": "A shoe product",
+            "description": "This is a fantastic shoe product",
+            "categoryInfo": "Some relevant information about category",
+            "gender": "women"
+        },
+        "category": {
+            "name": "shoes",
+            "id": "shoes"
+        },
+        "_type": "CatalogItem",
+        "created_at": "2019-03-12T21:58:43.099Z",
+        "updated_at": "2019-03-12T21:58:43.100Z",
+        "status": "cv_pending",
+        "catalog": {
+            "_type": "Catalog",
+            "_id": "catalog_id_1",
+            "name": "catalog1"
+        },
+        "schema": "product",
+        "fingerprint": "uniqueID",
+        "_id": "item-2"
+    }
+}
+```
+Create a new [catalog item](#the-catalog-item-object) in your catalog that will eventually get indexed.
+
+* There is an option to pass `data.gender` for [gender search](#image-search) if needed. __By default, we assign `women` as gender__
 * `data.url` is mandatory since our experience allows us to redirect users to the product page.
+* There is an option to generate a thumbnail URI of each image. The original image URI is retained. 
 
-* On Indexing *
+Indexing
 
-* We index the products and update the status of every image on a CatalogItem. The valid statuses are `success`, `error` and `pending`.
-CatalogItem images start off being `pending`
+* We index the products and update the status of every image on a catalog item. Status are either `success`, `error` and `pending`.
+Catalog item images start at `pending` status. 
+* The image width and height will be appended to each image object after successful indexing.
 * If we detect errors with indexing, we expose information on why in the `images.error` object.
-* We return `bounding_boxes` and `attributes` for each image as part of our alpha release.
+
+
 
 <aside class="notice">
     This operation requires a valid <code>client_access_token</code> - see <a href="#authentication">Authentication</a>.
@@ -260,3 +332,10 @@ Parameter       | Description
 Attribute       | Type                  			| Description
 -------         | ----------            			| -------
 `data`          | [CatalogItem](#catalog-item)   	| A valid catalog item object.
+
+
+### Options
+
+Attribute       |Type       |Description
+-------         |-------    |-------
+`transform`     |Boolean    | Generates a thumbnail for each image.  The thumbnail will retain aspect ratio.  Max width and height can be specified.  This setting **defaults to max 50, 50** if width and height are not specified. 

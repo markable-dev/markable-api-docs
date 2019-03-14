@@ -134,7 +134,14 @@ print(response.text)
 ```json
 {
     "data": {
-      "access_token": "clienttoken123"
+        "user_id": "user_id_1",
+        "client_id": "client_id_1",
+        "scope": "default",
+        "created_at": "2019-03-11T20:40:12.710Z",
+        "type": "Token",
+        "updated_at": "2019-03-11T20:40:12.723Z",
+        "access_token": "5c86c7ac1fa31898e65269fc",
+        "expires_at": "2024-03-09T20:40:12.710Z"
     }
 }
 ```

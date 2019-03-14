@@ -1,30 +1,6 @@
 
 ### <img src="images/search-image_icon.png" alt="search-image_icon" width="28px" height="auto"> Product Search
 
-> **Example:** Simple Image Search without Catalogs
-
-```http
-POST https://catalog.markable.ai/image/search HTTP/1.1
-Authorization: Bearer 123abc
-{
-	"data": {
-        "image_uri": "http://i.com/1.png"
-    }
-}
-```
-
-```shell
-curl -X POST https://catalog.markable.ai/image/search \
--H 'Content-Type: application/json' \
--H 'Authorization: Bearer 123abc' \
--d '
-{
-    "data": {
-        "image_uri": "http://i.com/1.png"
-    }
-}
-'
-```
 <!--
 ```python
 import requests
@@ -220,7 +196,7 @@ curl -X POST https://catalog.markable.ai/image/search \
 {
 	"data": {
         "image_uri": "http://i.com/1.png",
-        "gender": ["men", "women"],
+        "gender": ["men"],
         "catalogs": [
             {
                 "name": "catalog-name-1"
@@ -278,7 +254,7 @@ curl -X POST https://catalog.markable.ai/image/search \
 -H 'Content-Type: multipart/form-data;' \
 -H 'Authorization: Bearer 123abc' \
 -F 'image=@/local/folder/1.png' \
--F 'data={ "catalogs": [{ "name": "catalog-name-1" }] }'
+-F 'data={ "gender": ["women"] , "catalogs": [{  "name": "catalog-name-1" }] }'
 ```
 <!--
 ```python
@@ -311,150 +287,263 @@ response = requests.request("POST", url, data=payload, files=files, headers=head
 {
     "meta": {
         "image": {
-            "width": 100,
-            "height": 100,
-            "uri": "http://i.com/1.png"
+            "uri": "http://www.somefashion.com/image.jpg",
+            "width": 1365,
+            "height": 2048
         },
         "stats": {
-            "detection": 313,
-            "extraction": 141,
-            "search": 8,
-            "image_download": 57
+            "cv_detection": 2065,
+            "nn_search": 199,
+            "db_queries": 292
         },
+        "catalogs": {
+            "requested": [
+                "catalog_id_1"
+            ],
+            "searched": [
+                "catalog_id_1"
+            ]
+        },
+        "gender": [
+            "men",
+            "women"
+        ],
+        "options": {
+            "limit": 30,
+            "relevance": 50,
+            "attributes": false,
+            "auto_detect_gender": false
+        }
     },
     "data": [
         {
-            "type": "SearchResult",
+            "_type": "SearchResult",
+            "_id": "uniqueID",
+            "score": 0.9995391368865967,
             "category": {
                 "_type": "Category",
-                "_id": "shorts",
-                "name": "shorts"
+                "_id": "humans",
+                "name": "humans"
             },
             "bounding_box": {
                 "_type": "BoundingBox",
-                "y": 266,
-                "x": 54,
-                "height": 145,
-                "width": 204
+                "x": 367.3973388671875,
+                "y": 66.24256896972656,
+                "width": 609.6744995117188,
+                "height": 1876.552230834961
             },
-            "score": 0.963,
+            "gender": [
+                "women"
+            ],
+            "matches": []
+        },
+        {
+            "_type": "SearchResult",
+            "_id": "uniqueID",
+            "score": 0.9929601550102234,
+            "category": {
+                "_type": "Category",
+                "_id": "handbags",
+                "name": "handbags"
+            },
+            "bounding_box": {
+                "_type": "BoundingBox",
+                "x": 367.1494140625,
+                "y": 1231.869140625,
+                "width": 182.40740966796875,
+                "height": 332.765380859375
+            },
+            "gender": [
+                "women"
+            ],
             "matches": [
                 {
-                    "_type": "CatalogItem",
-                    "_id": "5938629ec77b4a05f48f782a",
-                    "score": 0.701,
+                    "_type": "product",
+                    "_id": "uniqueID",
+                    "score": "0.902",
                     "images": [
                         {
-                            "uri": "http://i.com/result1.png",
-                            "_type": "Image"
-                        },
-                        {
-                            "uri": "http://i.com/result2.png",
-                            "_type": "Image"
+                            "uri": "https://handbag/image.jpg",
+                            "_type": "Image",
+                            "_id": "uniqueID",
+                            "thumbnail": {
+                                "uri": "https://thumbnail.jpeg",
+                                "width": 75,
+                                "height": 100
+                            },
+                            "status": "ok",
+                            "error": null,
+                            "width": 1000,
+                            "height": 1334,
+                            "snapshot": {
+                                "path": "/export/path",
+                                "content_type": "image/jpeg",
+                                "size": 187036
+                            },
+                            "stats": {
+                                "download": null
+                            }
                         }
                     ],
-                    "catalog": {
-                        "_type": "Catalog",
-                        "name": "catalog-name-1",
-                        "_id": "catalog-id-1"
-                    },
                     "data": {
                         "id": "any custom data",
                         "name": "custom product name"
+                        "url": "https://lookbook.nu/look/5223282-Thrifted-Paisley-Button-Up-Lee-Rust-Colored",
                     },
-                    "created_at": "2017-08-10T22:54:48.547Z",
-                    "updated_at": "2017-08-10T22:54:48.547Z"
+                    "catalog": {
+                        "_type": "Catalog",
+                        "_id": "catalog_id_1",
+                        "name": null
+                    },
+                    "created_at": "2019-03-14T13:50:04.134Z",
+                    "updated_at": "2019-03-14T13:50:04.134Z"
                 },
                 {
-                    "_type": "CatalogItem",
-                    "_id": "59386368c77b4a05fa8f7b06",
-                    "score": 0.7,
+                    "_type": "product",
+                    "_id": "uniqueID",
+                    "score": "0.899",
                     "images": [
                         {
-                            "uri": "http://i.com/result2.png",
-                            "_type": "Image"
+                            "uri": "https://handbag/image2.jpg",
+                            "_type": "Image",
+                            "_id": "uniqueID",
+                            "thumbnail": {
+                                "uri": "https://thumbnail2.jpeg",
+                                "width": 75,
+                                "height": 100
+                            },
+                            "status": "ok",
+                            "error": null,
+                            "width": 1000,
+                            "height": 1334,
+                            "snapshot": {
+                                "path": "/export/path",
+                                "content_type": "image/jpeg",
+                                "size": 97022
+                            },
+                            "stats": {
+                                "download": null
+                            }
                         }
                     ],
-                    "catalog": {
-                        "_type": "Catalog",
-                        "name": "catalog-name-1",
-                        "_id": "catalog-id-1"
-                    },
                     "data": {
                         "id": "any custom data",
-                        "name": "custom product name"
+                        "name": "custom product name",
+                        "url": "link_to_product_page",
                     },
-                    "created_at": "2017-08-10T22:54:48.547Z",
-                    "updated_at": "2017-08-10T22:54:48.547Z"
-                }
+                    "catalog": {
+                        "_type": "Catalog",
+                        "_id": "catalog_id_1",
+                        "name": null
+                    },
+                    "created_at": "2019-03-14T13:50:04.134Z",
+                    "updated_at": "2019-03-14T13:50:04.134Z"
+                },
             ]
         },
         {
-            "type": "SearchResult",
+            "_type": "SearchResult",
+            "_id": "uniqueID",
+            "score": 0.9856816530227661,
             "category": {
                 "_type": "Category",
-                "_id": "sandals",
-                "name": "sandals"
+                "_id": "coats_jackets",
+                "name": "coats_jackets"
             },
             "bounding_box": {
                 "_type": "BoundingBox",
-                "y": 266,
-                "x": 54,
-                "height": 145,
-                "width": 204
+                "x": 408.2473449707031,
+                "y": 325.932373046875,
+                "width": 560.6332702636719,
+                "height": 736.38623046875
             },
-            "score": 0.831,
+            "gender": [
+                "women"
+            ],
             "matches": [
                 {
-                    "_type": "CatalogItem",
-                    "_id": "5938629ec77b4a05f48f7821",
-                    "score": 0.62,
+                    "_type": "product",
+                    "_id": "uniqueID",
+                    "score": "0.924",
                     "images": [
                         {
-                            "uri": "http://i.com/result5.png",
-                            "_type": "Image"
-                        }
+                            "uri": "https://jacket/image.jpg",
+                            "_type": "Image",
+                            "_id": "uniqueID",
+                            "thumbnail": {
+                                "uri": "https://thumbnail.jpeg",
+                                "width": 75,
+                                "height": 100
+                            },
+                            "status": "ok",
+                            "error": null,
+                            "width": 1000,
+                            "height": 1334,
+                            "snapshot": {
+                                "path": "/export/path",
+                                "content_type": "image/jpeg",
+                                "size": 148377
+                            },
+                            "stats": {
+                                "download": null
+                            }
+                        },
                     ],
-                    "catalog": {
-                        "_type": "Catalog",
-                        "name": "catalog-name-2",
-                        "_id": "catalog-id-2"
-                    },
                     "data": {
                         "id": "any custom data",
                         "name": "custom product name"
                     },
-                    "created_at": "2017-08-10T22:54:48.547Z",
-                    "updated_at": "2017-08-10T22:54:48.547Z"
+                    "catalog": {
+                        "_type": "Catalog",
+                        "_id": "catalog_id_1",
+                        "name": null
+                    },
+                    "created_at": "2019-03-14T13:50:04.138Z",
+                    "updated_at": "2019-03-14T13:50:04.138Z"
                 },
                 {
-                    "_type": "CatalogItem",
-                    "_id": "59386368c77b4a05fa8f7b02",
-                    "score": 0.4,
+                    "_type": "product",
+                    "_id": "uniqueID",
+                    "score": "0.924",
                     "images": [
                         {
-                            "uri": "http://i.com/result4.png",
-                            "_type": "Image"
+                            "uri": "https://jacket/image2.jpg",
+                            "_type": "Image",
+                            "_id": "uniqueID",
+                            "thumbnail": {
+                                "uri": "https://thumbnail2.jpeg",
+                                "width": 75,
+                                "height": 100
+                            },
+                            "status": "ok",
+                            "error": null,
+                            "width": 1000,
+                            "height": 1334,
+                            "snapshot": {
+                                "path": "/export/path",
+                                "content_type": "image/jpeg",
+                                "size": 165252
+                            },
+                            "stats": {
+                                "download": null
+                            }
                         },
-                        {
-                            "uri": "http://i.com/result5.png",
-                            "_type": "Image"
-                        }
                     ],
-                    "catalog": {
-                        "_type": "Catalog",
-                        "name": "catalog-name-2",
-                        "_id": "catalog-id-2"
-                    },
                     "data": {
                         "id": "any custom data",
-                        "name": "custom product name"
+                        "name": "custom product name",
+                        "url": "link_to_product_page",
                     },
-                    "created_at": "2017-08-10T22:54:48.547Z",
-                    "updated_at": "2017-08-10T22:54:48.547Z"
-                }
+                    "catalog": {
+                        "_type": "Catalog",
+                        "_id": "catalog_id_1",
+                        "name": null
+                    },
+                    "created_at": "2019-03-14T13:50:04.138Z",
+                    "updated_at": "2019-03-14T13:50:04.138Z"
+                },
             ]
-        }
+        },
     ]
 }
 ```

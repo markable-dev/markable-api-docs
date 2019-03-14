@@ -34,44 +34,57 @@ print(response.text)
 
 ```json
 {
-	"data": {
-	    "_type": "CatalogItem",
-	    "_id": "item-1",
-	    "schema": "product",
-	    "catalog": {
-	        "_type": "Catalog",
-	        "_id": "1",
-	        "name": "catalog-1"
-	    },
-	    "images": [
-	        {
-	            "_type": "Image",
-	            "_id": "1",
-	            "uri": "https://example.com/products/1/a.png",
-	            "width": 200,
-	            "height": 300
-	        },
-	        {
-	            "_type": "Image",
-	            "_id": "2",
-	            "uri": "https://example.com/products/1/b.png",
-	            "width": 200,
-	            "height": 300
-	        }
-	    ],
-	    "category": {
-          "_type": "Category",
-          "_id": "1",
-          "name": "glasses"
-      },
-	    "data": {
-            "url": "https://example.com/product/page.html",
-	        "id": "external-id-1",
-	        "foo": "bar"
-	    },
-	    "created_at": "2017-01-01T00:00:00.001Z",
-	    "updated_at": "2017-01-01T00:00:00.001Z"
-	}
+    "data": {
+        "_id": "item_id_3",
+        "schema_version": "v1.0.0",
+        "data": {
+            "url": "https://example.com/product/shoes.html",
+            "name": "A shoe product",
+            "description": "This is a fantastic shoe product",
+            "categoryInfo": "Some relevant information about category",
+            "gender": "women"
+        },
+        "fingerprint": "uniqueID",
+        "failed_count": {
+            "cv": 0
+        },
+        "updated_at": "2019-03-13T00:20:44.589Z",
+        "schema": "product",
+        "images": [
+            {
+                "uri": "https://example.com/products/3/a.png",
+                "status": "ok",
+                "stats": {
+                    "download": null
+                },
+                "width": 853,
+                "height": 853,
+                "snapshot": {
+                    "content_type": "image/jpeg",
+                    "path": "/export/markable-cv-service/",
+                    "size": 101355
+                },
+                "error": null,
+                "thumbnail": {
+                    "uri": "https://markable/images/s3-url-3.jpeg",
+                    "width": 100,
+                    "height": 100
+                }
+            }
+        ],
+        "status": "nn_pending",
+        "error": null,
+        "catalog": {
+            "_id": "catalog_id_1"
+        },
+        "indexing_ended_at": {
+            "cv": "2019-03-08T22:45:05.195159+00:00"
+        },
+        "created_at": "2018-09-04T20:40:26.225Z",
+        "indexing_started_at": {
+            "cv": "2019-03-08T21:15:47.358115+00:00"
+        }
+    }
 }
 ```
 

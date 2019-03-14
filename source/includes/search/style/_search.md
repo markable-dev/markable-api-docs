@@ -1,30 +1,6 @@
 
 ### <img src="images/search-image_icon.png" alt="search-image_icon" width="28px" height="auto"> HTWI Search
 
-> **Example:** Simple How to Wear it without Catalogs
-
-```http
-POST https://catalog.markable.ai/image/search/style HTTP/1.1
-Authorization: Bearer 123abc
-{
-	"data": {
-        "image_uri": "http://i.com/1.png"
-    }
-}
-```
-
-```shell
-curl -X POST https://catalog.markable.ai/image/search/style \
--H 'Content-Type: application/json' \
--H 'Authorization: Bearer 123abc' \
--d '
-{
-    "data": {
-        "image_uri": "http://i.com/1.png"
-    }
-}
-'
-```
 <!--
 ```python
 import requests
@@ -46,7 +22,7 @@ print(response.text)
 ```
 -->
 
-> **Example:** How to Wear it with `style` Catalogs Names (Preferred over IDS)
+> **Example:** How to Wear it with `style` Catalog Names
 
 ```http
 POST https://catalog.markable.ai/image/search/style HTTP/1.1
@@ -56,10 +32,10 @@ Authorization: Bearer 123abc
         "image_uri": "http://i.com/1.png",
         "catalogs": [
             {
-                "name": "catalog-name-1"
+                "name": "style-catalog-name-1"
             },
             {
-                "name": "catalog-name-2"
+                "name": "style-catalog-name-2"
             }
         ]
     }
@@ -76,10 +52,10 @@ curl -X POST https://catalog.markable.ai/image/search/style \
         "image_uri": "http://i.com/1.png",
         "catalogs": [
             {
-                "name": "catalog-name-1"
+                "name": "style-catalog-name-1"
             },
             {
-                "name": "catalog-name-2"
+                "name": "style-catalog-name-2"
             }
         ]
     }
@@ -97,10 +73,10 @@ payload = {
         "image_uri": "http://i.com/1.png",
         "catalogs": [
             {
-                "name": "catalog-name-1"
+                "name": "style-catalog-name-1"
             },
             {
-                "name": "catalog-name-2"
+                "name": "style-catalog-name-2"
             }
         ]
     }
@@ -197,10 +173,10 @@ Authorization: Bearer 123abc
         "gender": ["men"],
         "catalogs": [
             {
-                "name": "catalog-name-1"
+                "name": "style-catalog-name-1"
             },
             {
-                "name": "catalog-name-2"
+                "name": "style-catalog-name-2"
             }
         ]
     }
@@ -218,10 +194,10 @@ curl -X POST https://catalog.markable.ai/image/search/style \
         "gender": ["men", "women"],
         "catalogs": [
             {
-                "name": "catalog-name-1"
+                "name": "style-catalog-name-1"
             },
             {
-                "name": "catalog-name-2"
+                "name": "style-catalog-name-2"
             }
         ]
     }
@@ -273,7 +249,7 @@ curl -X POST https://catalog.markable.ai/image/search/style \
 -H 'Content-Type: multipart/form-data;' \
 -H 'Authorization: Bearer 123abc' \
 -F 'image=@/local/folder/1.png' \
--F 'data={ "catalogs": [{ "name": "catalog-name-1" }] }'
+-F 'data={ "catalogs": [{ "name": "style-catalog-name-1" }] }'
 ```
 <!--
 ```python
@@ -288,7 +264,7 @@ files = {
 
 payload = {
     "data": {
-        "catalogs": [{"name": "catalog-name-1"}]
+        "catalogs": [{"name": "style-catalog-name-1"}]
     }
 }
 
@@ -307,152 +283,135 @@ response = requests.request("POST", url, data=payload, files=files, headers=head
 {
     "meta": {
         "image": {
-            "width": 100,
-            "height": 100,
-            "uri": "http://i.com/1.png"
+            "uri": "http://www.somefashion.com/image.jpg",
+            "width": 1848,
+            "height": 885
         },
         "stats": {
-            "detection": 313,
-            "extraction": 141,
-            "search": 8,
-            "image_download": 57
+            "cv_detection": 3919,
+            "nn_search": 240,
+            "db_queries": 195
         },
+        "catalogs": {
+            "requested": [
+                "style_catalog_id_1"
+            ],
+            "searched": [
+                "style_catalog_id_1"
+            ]
+        },
+        "gender": [
+            "men",
+            "women"
+        ],
+        "options": {
+            "limit": 30,
+            "relevance": 50,
+            "attributes": false,
+            "auto_detect_gender": false
+        }
     },
     "data": [
         {
-            "type": "StyleResult",
+            "_type": "SearchResult",
+            "_id": "uniqueID",
+            "score": 0.8623029589653015,
             "category": {
                 "_type": "Category",
-                "_id": "shorts",
-                "name": "shorts"
+                "_id": "shoes",
+                "name": "shoes"
             },
             "bounding_box": {
                 "_type": "BoundingBox",
-                "y": 266,
-                "x": 54,
-                "height": 145,
-                "width": 204
+                "x": 0,
+                "y": 0,
+                "width": 1846.52392578125,
+                "height": 851.519287109375
             },
-            "score": 0.963,
+            "gender": [
+                "women",
+                "men",
+                "unisex"
+            ],
             "matches": [
                 {
-                    "_type": "CatalogItem",
-                    "_id": "5938629ec77b4a05f48f782a",
-                    "score": 0.701,
+                    "_type": "style",
+                    "_id": "uniqueID",
+                    "score": "0.911",
                     "images": [
                         {
-                            "uri": "http://i.com/style/result1.png",
-                            "_type": "Image"
-                        },
-                        {
-                            "uri": "http://i.com/style/result2.png",
-                            "_type": "Image"
+                            "height": 960,
+                            "error": null,
+                            "status": "ok",
+                            "stats": {
+                                "download": null
+                            },
+                            "uri": "https://somestylephoto/image.jpg",
+                            "width": 626,
+                            "snapshot": {
+                                "path": "/export/path",
+                                "content_type": "image/jpeg",
+                                "size": 182738
+                            },
+                            "thumbnail": {
+                                "uri": "https://thumbnail.jpeg",
+                                "width": 65,
+                                "height": 100
+                            }
                         }
                     ],
-                    "catalog": {
-                        "_type": "Catalog",
-                        "name": "catalog-name-1",
-                        "_id": "catalog-id-1"
-                    },
                     "data": {
                         "id": "any custom data",
-                        "gender": "women",
-                        "detail": "custom style image details"
+                        "name": "custom product name",
+                        "url": "link_to_style_image_page",
                     },
-                    "created_at": "2017-08-10T22:54:48.547Z",
-                    "updated_at": "2017-08-10T22:54:48.547Z"
+                    "catalog": {
+                        "_type": "Catalog",
+                        "_id": "style_catalog_id_1",
+                        "name": null
+                    },
+                    "created_at": "2019-03-14T15:57:57.669Z",
+                    "updated_at": "2019-03-14T15:57:57.669Z"
                 },
                 {
-                    "_type": "CatalogItem",
-                    "_id": "59386368c77b4a05fa8f7b06",
-                    "score": 0.7,
+                    "_type": "style",
+                    "_id": "uniqueID",
+                    "score": "0.908",
                     "images": [
                         {
-                            "uri": "http://i.com/style/result2.png",
-                            "_type": "Image"
+                            "error": null,
+                            "height": 744,
+                            "width": 935,
+                            "status": "ok",
+                            "snapshot": {
+                                "path": "/export/path",
+                                "content_type": "image/jpeg",
+                                "size": 272285
+                            },
+                            "uri": "https://somestylephoto2/image.jpg",
+                            "stats": {
+                                "download": null
+                            },
+                            "thumbnail": {
+                                "uri": "https://thumbnail.jpeg",
+                                "width": 100,
+                                "height": 80
+                            }
                         }
                     ],
-                    "catalog": {
-                        "_type": "Catalog",
-                        "name": "catalog-name-1",
-                        "_id": "catalog-id-1"
-                    },
                     "data": {
                         "id": "any custom data",
-                        "gender": "women",
-                        "detail": "custom style image details"
+                        "name": "custom product name",
+                        "url": "link_to_style_image_page",
                     },
-                    "created_at": "2017-08-10T22:54:48.547Z",
-                    "updated_at": "2017-08-10T22:54:48.547Z"
-                }
-            ]
-        },
-        {
-            "type": "StyleResult",
-            "category": {
-                "_type": "Category",
-                "_id": "sandals",
-                "name": "sandals"
-            },
-            "bounding_box": {
-                "_type": "BoundingBox",
-                "y": 266,
-                "x": 54,
-                "height": 145,
-                "width": 204
-            },
-            "score": 0.831,
-            "matches": [
-                {
-                    "_type": "CatalogItem",
-                    "_id": "5938629ec77b4a05f48f7821",
-                    "score": 0.62,
-                    "images": [
-                        {
-                            "uri": "http://i.com/style/result5.png",
-                            "_type": "Image"
-                        }
-                    ],
                     "catalog": {
                         "_type": "Catalog",
-                        "name": "catalog-name-2",
-                        "_id": "catalog-id-2"
+                        "_id": "style_catalog_id_1",
+                        "name": null
                     },
-                    "data": {
-                        "id": "any custom data",
-                        "gender": "women",
-                        "detail": "custom style image details"
-                    },
-                    "created_at": "2017-08-10T22:54:48.547Z",
-                    "updated_at": "2017-08-10T22:54:48.547Z"
+                    "created_at": "2019-03-14T15:57:57.669Z",
+                    "updated_at": "2019-03-14T15:57:57.669Z"
                 },
-                {
-                    "_type": "CatalogItem",
-                    "_id": "59386368c77b4a05fa8f7b02",
-                    "score": 0.4,
-                    "images": [
-                        {
-                            "uri": "http://i.com/style/result4.png",
-                            "_type": "Image"
-                        },
-                        {
-                            "uri": "http://i.com/style/result5.png",
-                            "_type": "Image"
-                        }
-                    ],
-                    "catalog": {
-                        "_type": "Catalog",
-                        "name": "catalog-name-2",
-                        "_id": "catalog-id-2"
-                    },
-                    "data": {
-                        "id": "any custom data",
-                        "gender": "women",
-                        "detail": "custom style image details"
-                    },
-                    "created_at": "2017-08-10T22:54:48.547Z",
-                    "updated_at": "2017-08-10T22:54:48.547Z"
-                }
             ]
         }
     ]

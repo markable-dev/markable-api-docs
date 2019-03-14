@@ -10,7 +10,8 @@ Authorization: Bearer 123abc
 	"data": {
         "name": "catalog-1",
         "description": "My first catalog",
-        "schema": "product"
+        "schema": "product",
+        "access": "public"
     }
 }
 ```
@@ -24,7 +25,8 @@ curl -X POST https://catalog.markable.ai/catalogs \
 	"data": {
         "name": "catalog-1",
         "description": "My first catalog",
-        "schema": "product"
+        "schema": "product",
+        "access": "public"
     }
 }
 '
@@ -59,19 +61,20 @@ print(response.text)
 
 ```json
 {
-	"data": {
+    "data": {
         "_type": "Catalog",
-        "_id": "1",
+        "schema": "product",
         "size": 0,
+        "updated_at": "2019-03-11T20:40:36.753Z",
+        "name": "catalog_1",
+        "description": "My new catalog",
+        "created_at": "2019-03-11T20:40:36.726Z",
+        "access": "public",
         "user": {
             "_type": "User",
-            "_id": "1"
+            "_id": "user_id_1"
         },
-        "name": "catalog-1",
-        "description": "My first catalog",
-        "schema": "product",
-        "created_at": "2017-01-01T00:00:00.001Z",
-        "updated_at": "2017-01-01T00:00:00.001Z"
+        "_id": "catalog_id_1"
     }
 }
 ```

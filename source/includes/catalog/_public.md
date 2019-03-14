@@ -35,37 +35,40 @@ print(response.text)
 
 ```json
 {
-  "data": [
+    "data": [
         {
+            "_id": "catalog_id_1",
             "_type": "Catalog",
-            "_id": "1",
+            "schema": "product",
             "size": 0,
+            "updated_at": "2019-03-12T00:19:33.478Z",
+            "name": "product_catalog",
+            "description": "catalog_2",
+            "created_at": "2019-03-12T00:19:33.448Z",
+            "access": "public",
             "user": {
                 "_type": "User",
-                "_id": "1"
-            },
-            "name": "catalog-1-public",
-            "description": "My first public catalog",
-            "schema": "product",
-            "created_at": "2017-01-01T00:00:00.001Z",
-            "updated_at": "2017-01-01T00:00:00.001Z"
+                "_id": "user_id_1"
+            }
         },
         {
+            "_id": "catalog_id_4",
             "_type": "Catalog",
-            "_id": "2",
+            "schema": "style",
             "size": 0,
+            "updated_at": "2019-03-12T00:22:02.030Z",
+            "name": "style_catalog_4",
+            "description": "style catalog 4",
+            "created_at": "2019-03-12T00:22:02.002Z",
+            "access": "public",
             "user": {
                 "_type": "User",
-                "_id": "2"
-            },
-            "name": "catalog-2-public",
-            "description": "My second public catalog",
-            "schema": "product",
-            "created_at": "2017-01-01T00:00:00.001Z",
-            "updated_at": "2017-01-01T00:00:00.001Z"
+                "_id": "user_id_2"
+            }
         }
     ]
 }
+
 ```
 
 Get all existing [catalogs](#the-catalog-object).

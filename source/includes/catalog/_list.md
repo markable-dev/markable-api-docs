@@ -34,34 +34,36 @@ print(response.text)
 
 ```json
 {
-	"data": [
+    "data": [
         {
+            "_id": "catalog_id_1",
             "_type": "Catalog",
-            "_id": "1",
+            "schema": "product",
             "size": 0,
+            "updated_at": "2019-03-12T00:19:33.478Z",
+            "name": "product_catalog",
+            "description": "catalog_2",
+            "created_at": "2019-03-12T00:19:33.448Z",
+            "access": "public",
             "user": {
                 "_type": "User",
-                "_id": "1"
-            },
-            "name": "catalog-1",
-            "description": "My first catalog",
-            "schema": "product",
-            "created_at": "2017-01-01T00:00:00.001Z",
-            "updated_at": "2017-01-01T00:00:00.001Z"
+                "_id": "user_id_1"
+            }
         },
         {
+            "_id": "catalog_id_2",
             "_type": "Catalog",
-            "_id": "2",
+            "schema": "style",
             "size": 0,
+            "updated_at": "2019-03-12T00:22:02.030Z",
+            "name": "style_catalog",
+            "description": "style catalog",
+            "created_at": "2019-03-12T00:22:02.002Z",
+            "access": "private",
             "user": {
                 "_type": "User",
-                "_id": "1"
-            },
-            "name": "catalog-2",
-            "description": "My second catalog",
-            "schema": "product",
-            "created_at": "2017-01-01T00:00:00.001Z",
-            "updated_at": "2017-01-01T00:00:00.001Z"
+                "_id": "user_id_1"
+            }
         }
     ]
 }

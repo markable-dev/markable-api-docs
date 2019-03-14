@@ -1,7 +1,7 @@
 
 ## Auto Categorize a CatalogItem
 
-Note that our feature where we try to predict the Markable category based on textual information is currently in **alpha**.
+The following feature attempts to predict the Markable category based on textual information. 
 
 > **Example:** Request
 
@@ -97,21 +97,21 @@ print(response.text)
                 "uri": "https://example.com/products/1/a.png"
             },
             {
-                "uri": "https://example.com/products/1/b.png"
+                "uri": "hhttps://example.com/products/1/b.png"
             }
         ],
-        "category": {
-            "name": "shoes"
-        },
         "data": {
             "url": "https://example.com/product/shoes.html",
             "name": "A shoe product",
             "description": "This is a fantastic shoe product",
             "categoryInfo": "Some relevant information about category"
+        },
+        "category": {
+            "name": "shoes",
+            "id": "shoes"
         }
     }
 }
-
 ```
 
 Given an item without a category, we try and figure out what the the [Supported Markable category](#supported-categories) is based on the textual information you provide. Its best to run this call with as much textual information as possible in the freeform `data` key. The response can be directly used to [create a catalog item](#create-catalog-item)

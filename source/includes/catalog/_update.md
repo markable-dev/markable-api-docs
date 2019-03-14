@@ -4,25 +4,25 @@
 > **Example:** Request
 
 ```http
-PUT https://catalog.markable.ai/catalogs/catalog-1 HTTP/1.1
+PUT https://catalog.markable.ai/catalogs/catalog_id_1 HTTP/1.1
 Authorization: Bearer 123abc
 {
 	"data": {
-        "name": "catalog-1",
-        "description": "My first catalog"
+        "name": "new_name_1",
+        "description": "Revised catalog description"
     }
 }
 ```
 
 ```shell
-curl -X PUT https://catalog.markable.ai/catalogs/catalog-1 \
+curl -X PUT https://catalog.markable.ai/catalogs/catalog_id_1 \
 -H 'Content-Type: application/json' \
 -H 'Authorization: Bearer 123abc' \
 -d '
 {
 	"data": {
-        "name": "catalog-1",
-        "description": "My first catalog"
+        "name": "new_name_1",
+        "description": "Revised catalog description"
     }
 }
 '
@@ -55,18 +55,20 @@ print(response.text)
 
 ```json
 {
-	"data": {
+    "data": {
         "_type": "Catalog",
-        "_id": "1",
+        "schema": "product",
+        "size": 0,
+        "updated_at": "2019-03-11T20:40:36.753Z",
+        "name": "new_name_1",
+        "description": "Revised catalog description",
+        "created_at": "2019-03-11T20:40:36.726Z",
+        "access": "public",
         "user": {
             "_type": "User",
-            "_id": "1"
+            "_id": "user_id_1"
         },
-        "name": "catalog-1",
-        "description": "My first catalog",
-        "schema": "product",
-        "created_at": "2017-01-01T00:00:00.001Z",
-        "updated_at": "2017-01-01T00:00:00.001Z"
+        "_id": "catalog_id_1"
     }
 }
 ```
