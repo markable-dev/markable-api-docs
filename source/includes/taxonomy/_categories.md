@@ -36,47 +36,68 @@ This is our **current exhaustive** list of supported categories.
 
 ```json
 {
-    "data": [
-        "backpacks",
-        "baseballcaps",
-        "beanieknitcaps",
-        "berets",
-        "blouses",
-        "boots",
-        "buttondowns",
-        "cardigans",
-        "clutches",
-        "coats_jackets",
-        "dresses",
-        "glasses",
-        "handbags",
-        "henleys",
-        "hoodies",
-        "jeans",
-        "jumpsuits",
-        "leggings",
-        "longsleeveshirts",
-        "messengerbags",
-        "overalls",
-        "pants",
-        "polos",
-        "rompers",
-        "sandals",
-        "scarves_wraps",
-        "shoes",
-        "shorts",
-        "skirts",
-        "slippers",
-        "suitcoats_blazers",
-        "sunhats_cowboyhats",
-        "sweaters",
-        "tanks_camis",
-        "tees",
-        "ties",
-        "tunics",
-        "vests",
-        "watches"
-    ]
+    "data": {
+        "bags": [
+            "handbags",
+            "clutches",
+            "backpacks",
+            "messengerbags"
+        ],
+        "footwear": [
+            "boots",
+            "shoes",
+            "sandals",
+            "slippers"
+        ],
+        "fullbody": [
+            "rompers",
+            "overalls",
+            "dresses",
+            "jumpsuits"
+        ],
+        "glasses": [
+            "glasses"
+        ],
+        "headwear": [
+            "beanieknitcaps",
+            "baseballcaps",
+            "berets",
+            "sunhats_cowboyhats"
+        ],
+        "humans": [
+            "humans"
+        ],
+        "jewelry_watches": [
+            "watches"
+        ],
+        "lowerbody": [
+            "shorts",
+            "jeans",
+            "skirts",
+            "leggings",
+            "pants"
+        ],
+        "upperbody": [
+            "vests",
+            "buttondowns",
+            "blouses",
+            "tees",
+            "suitcoats_blazers",
+            "tanks_camis",
+            "sweaters",
+            "tunics",
+            "longsleeveshirts",
+            "coats_jackets",
+            "hoodies",
+            "henleys",
+            "cardigans",
+            "polos"
+        ],
+        "upperbody_accessories": [
+            "scarves_wraps",
+            "ties"
+        ]
+    }
 }
 ```
 

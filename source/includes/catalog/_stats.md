@@ -3,19 +3,19 @@
 
 Catalog statistics explaning
 
-* __Indexing Status__: How many of your catalogItems are indexed, with statuses `pending`, `error` and `success`
-* __Categories__: Spread of categories of your catalog
+* __Status__: How many of your catalogItems are indexed, with statuses `pending`, `error` and `success`
+* __Category__: Spread of categories of your catalog
 * __Gender__: Spread of gender in the catalog. `null` being that we default to `women`.
 
 > **Example:** Request
 
 ```http
-GET https://catalog.markable.ai/catalogs/catalog-1/stats HTTP/1.1
+GET https://catalog.markable.ai/catalogs/catalog_id_1/stats HTTP/1.1
 Authorization: Bearer 123abc
 ```
 
 ```shell
-curl -X GET https://catalog.markable.ai/catalogs/catalog-1/stats \
+curl -X GET https://catalog.markable.ai/catalogs/catalog_id_1/stats \
 -H 'Content-Type: application/json' \
 -H 'Authorization: Bearer 123abc'
 ```
@@ -42,33 +42,74 @@ print(response.text)
 ```json
 {
     "data": {
-        "size": 4,
         "category": [
-            {
-                "_id": "shirts",
-                "total": 1
-            },
             {
                 "_id": "skirts",
                 "total": 1
             },
             {
-                "_id": "dresses",
-                "total": 2
+                "_id": "glasses",
+                "total": 1
+            },
+            {
+                "_id": "jeans",
+                "total": 1
+            },
+            {
+                "_id": "overalls",
+                "total": 1
+            },
+            {
+                "_id": "tanks_camis",
+                "total": 1
             }
         ],
         "status": [
             {
+                "_id": "error",
+                "total": 1
+            },
+            {
+                "_id": "ok",
+                "total": 1
+            },
+            {
                 "_id": "pending",
-                "total": 4
+                "total": 1
             }
         ],
         "gender": [
             {
-                "_id": null,
-                "total": 4
+                "_id": "men",
+                "total": 1
+            },
+            {
+                "_id": "women",
+                "total": 1
             }
-        ]
+        ],
+        "errors": [
+            {
+                "_id": null,
+                "total": 1
+            }
+        ],
+        "catalog": {
+            "_id": "catalog_id_1",
+            "_type": "Catalog",
+            "schema": "product",
+            "size": 10,
+            "created_at": "2018-12-06T22:11:51.391Z",
+            "updated_at": "2019-03-02T17:40:40.728Z",
+            "name": "product_catalog",
+            "access": "private",
+            "description": "My product catalog",
+            "user": {
+                "_type": "User",
+                "_id": "user_id_1"
+            },
+            "status": "nn_active"
+        }
     }
 }
 ```

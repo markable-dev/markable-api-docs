@@ -40,53 +40,262 @@ This is a snippet of our attributes.
 ```json
 {
     "data": {
-        "belts": {
-            "color": [
-                "blue",
-                "brown",
-                "purple",
-                "grey",
-                "..."
-            ],
-            "pattern": [
-                "cheetah/leopard print",
-                "gingham",
-                "checkered",
-                "..."
-            ]
-        },
-        "blouses_shirts": {
-            "closing_style": [
-                "multiple buttons/snaps",
-                "no closures",
-                "..."
-            ],
-            "collar_type": [
-                "square neck",
-                "mandarin collar",
-                "puritan collar",
-                "off-shoulder",
-                "straight across/strapless",
-                "..."
-            ],
-            "color": [
-                "blue",
-                "red",
-                "..."
-            ],
-            "pattern": [
-                "cheetah/leopard print",
-                "floral",
-                "tribal print",
-                "..."
-            ],
-            "sleeve_length": [
-                "sleeveless",
-                "short/cap sleeve",
-                "long (full sleeve)",
-                "..."
-            ]
-        }
+        "backpacks": [
+            "color",
+            "pattern"
+        ],
+        "baseballcaps": [
+            "color",
+            "pattern"
+        ],
+        "beanieknitcaps": [
+            "color",
+            "pattern"
+        ],
+        "berets": [
+            "color",
+            "pattern"
+        ],
+        "blouses": [
+            "closing_style",
+            "collar_type",
+            "color",
+            "pattern",
+            "sleeve_length",
+            "upper_hemline"
+        ],
+        "boots": [
+            "color",
+            "heel_height",
+            "heel_type",
+            "pattern",
+            "shaft_height",
+            "toe_style"
+        ],
+        "buttondowns": [
+            "closing_style",
+            "collar_type",
+            "color",
+            "pattern",
+            "sleeve_length",
+            "upper_hemline"
+        ],
+        "cardigans": [
+            "closing_style",
+            "collar_type",
+            "color",
+            "pattern",
+            "sleeve_length",
+            "upper_hemline"
+        ],
+        "clutches": [
+            "color",
+            "pattern"
+        ],
+        "coats_jackets": [
+            "closing_style",
+            "collar_type",
+            "color",
+            "pattern",
+            "sleeve_length",
+            "upper_hemline"
+        ],
+        "dresses": [
+            "closing_style",
+            "collar_type",
+            "color",
+            "dress_types",
+            "pattern",
+            "sleeve_length",
+            "upper_hemline"
+        ],
+        "glasses": [
+            "color",
+            "pattern"
+        ],
+        "handbags": [
+            "color",
+            "pattern"
+        ],
+        "henleys": [
+            "closing_style",
+            "collar_type",
+            "color",
+            "pattern",
+            "sleeve_length",
+            "upper_hemline"
+        ],
+        "hoodies": [
+            "closing_style",
+            "collar_type",
+            "color",
+            "pattern",
+            "sleeve_length",
+            "upper_hemline"
+        ],
+        "humans": [
+            "gender"
+        ],
+        "jeans": [
+            "color",
+            "jeans_fit",
+            "jeans_type",
+            "lower_hemline",
+            "pattern"
+        ],
+        "jumpsuits": [
+            "closing_style",
+            "collar_type",
+            "color",
+            "pattern",
+            "sleeve_length",
+            "upper_hemline"
+        ],
+        "leggings": [
+            "color",
+            "lower_hemline",
+            "pattern"
+        ],
+        "longsleeveshirts": [
+            "closing_style",
+            "collar_type",
+            "color",
+            "pattern",
+            "sleeve_length",
+            "upper_hemline"
+        ],
+        "messengerbags": [
+            "color",
+            "pattern"
+        ],
+        "overalls": [
+            "closing_style",
+            "collar_type",
+            "color",
+            "pattern",
+            "sleeve_length",
+            "upper_hemline"
+        ],
+        "pants": [
+            "color",
+            "lower_hemline",
+            "pattern"
+        ],
+        "polos": [
+            "closing_style",
+            "collar_type",
+            "color",
+            "pattern",
+            "sleeve_length",
+            "upper_hemline"
+        ],
+        "rompers": [
+            "closing_style",
+            "collar_type",
+            "color",
+            "pattern",
+            "sleeve_length",
+            "upper_hemline"
+        ],
+        "sandals": [
+            "color",
+            "heel_height",
+            "heel_type",
+            "pattern",
+            "shaft_height",
+            "toe_style"
+        ],
+        "scarves_wraps": [
+            "color",
+            "pattern"
+        ],
+        "shoes": [
+            "color",
+            "heel_height",
+            "heel_type",
+            "pattern",
+            "shaft_height",
+            "toe_style"
+        ],
+        "shorts": [
+            "color",
+            "lower_hemline",
+            "pattern"
+        ],
+        "skirts": [
+            "color",
+            "lower_hemline",
+            "pattern",
+            "skirt_type"
+        ],
+        "slippers": [
+            "color",
+            "heel_height",
+            "heel_type",
+            "pattern",
+            "shaft_height",
+            "toe_style"
+        ],
+        "suitcoats_blazers": [
+            "closing_style",
+            "collar_type",
+            "color",
+            "pattern",
+            "sleeve_length",
+            "upper_hemline"
+        ],
+        "sunhats_cowboyhats": [
+            "color",
+            "pattern"
+        ],
+        "sweaters": [
+            "closing_style",
+            "collar_type",
+            "color",
+            "pattern",
+            "sleeve_length",
+            "upper_hemline"
+        ],
+        "tanks_camis": [
+            "closing_style",
+            "collar_type",
+            "color",
+            "pattern",
+            "sleeve_length",
+            "upper_hemline"
+        ],
+        "tees": [
+            "closing_style",
+            "collar_type",
+            "color",
+            "pattern",
+            "sleeve_length",
+            "upper_hemline"
+        ],
+        "ties": [
+            "color",
+            "pattern"
+        ],
+        "tunics": [
+            "closing_style",
+            "collar_type",
+            "color",
+            "pattern",
+            "sleeve_length",
+            "upper_hemline"
+        ],
+        "vests": [
+            "closing_style",
+            "collar_type",
+            "color",
+            "pattern",
+            "sleeve_length",
+            "upper_hemline"
+        ],
+        "watches": [
+            "color",
+            "pattern"
+        ]
     }
 }
 ```

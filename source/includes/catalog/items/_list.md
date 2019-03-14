@@ -63,84 +63,222 @@ print(response.text)
 
 ```json
 {
-	"data": [
-	    {
-	        "_type": "CatalogItem",
-	        "_id": "item-1",
-	        "schema": "product",
-	        "catalog": {
-	            "_type": "Catalog",
-	            "_id": "1",
-	            "name": "catalog-1"
-	        },
-	        "images": [
-	            {
-	                "_type": "Image",
-	                "_id": "1",
-	                "uri": "https://example.com/products/1/a.png",
-	                "width": 200,
-	                "height": 300
-	            },
-	            {
-	                "_type": "Image",
-	                "_id": "2",
-	                "uri": "https://example.com/products/1/b.png",
-	                "width": 200,
-	                "height": 300
-	            }
-	        ],
-	        "category": {
-              "_type": "Category",
-              "_id": "1",
-              "name": "glasses"
-          },
-	        "data": {
-                "url": "https://company.xyz/external-product-id-1",
-	            "id": "external-id-1",
-	            "foo": "bar"
-	        },
-	        "created_at": "2017-01-01T00:00:00.001Z",
-	        "updated_at": "2017-01-01T00:00:00.001Z"
-	    },
-	    {
-	        "_type": "CatalogItem",
-	        "_id": "item-2",
-	        "schema": "product",
-	        "catalog": {
-	            "_type": "Catalog",
-	            "_id": "1",
-	            "name": "catalog-1"
-	        },
-	        "images": [
-	            {
-	                "_type": "Image",
-	                "_id": "1",
-	                "uri": "https://example.com/products/1/a.png",
-	                "width": 200,
-	                "height": 300
-	            },
-	            {
-	                "_type": "Image",
-	                "_id": "2",
-	                "uri": "https://example.com/products/1/b.png",
-	                "width": 200,
-	                "height": 300
-	            }
-	        ],
-	        "category": {
-              "_type": "Category",
-              "_id": "1",
-              "name": "glasses"
-          },
-	        "data": {
-                "url": "https://company.xyz/external-product-id-2",
-	            "id": "external-id-2",
-	            "foo": "bar"
-	        },
-	        "created_at": "2017-01-01T00:00:00.001Z",
-	        "updated_at": "2017-01-01T00:00:00.001Z"
-	    }
-	]
+    "data": [
+        {
+            "_id": "item-1",
+            "images": [
+                {
+                    "uri": "https://agreatproductimage/a.jpg",
+                    "_type": "Image",
+                    "_id": "uniqueID",
+                    "thumbnail": {
+                        "uri": "https://markable/thumbnail/product/a.jpeg",
+                        "width": 75,
+                        "height": 100
+                    },
+                    "status": "ok",
+                    "error": null,
+                    "width": 1000,
+                    "height": 1334,
+                    "snapshot": {
+                        "path": "/export/markable-cv-service/id",
+                        "content_type": "image/jpeg",
+                        "size": 90035
+                    },
+                    "stats": {
+                        "download": null
+                    }
+                },
+                {
+                    "uri": "https://agreatproductimage/b.jpg",
+                    "_type": "Image",
+                    "_id": "uniqueID",
+                    "thumbnail": {
+                        "uri": "https://markable/thumbnail/product/b.jpeg",
+                        "width": 75,
+                        "height": 100
+                    },
+                    "status": "ok",
+                    "error": null,
+                    "width": 1000,
+                    "height": 1334,
+                    "snapshot": {
+                        "path": "/export/markable-cv-service/id",
+                        "content_type": "image/jpeg",
+                        "size": 73484
+                    },
+                    "stats": {
+                        "download": null
+                    }
+                },
+                {
+                    "uri": "https://agreatproductimage/c.jpg",
+                    "_type": "Image",
+                    "_id": "uniqueID",
+                    "thumbnail": {
+                        "uri": "https://markable/thumbnail/product/c.jpeg",
+                        "width": 75,
+                        "height": 100
+                    },
+                    "status": "ok",
+                    "error": null,
+                    "width": 1000,
+                    "height": 1334,
+                    "snapshot": {
+                        "path": "/export/markable-cv-service/id",
+                        "content_type": "image/jpeg",
+                        "size": 61302
+                    },
+                    "stats": {
+                        "download": null
+                    }
+                }
+            ],
+            "data": {
+                "id": "external-id",
+                "sku": "external-sku",
+                "name": "product name",
+                "url": "https://example.com/product.html",
+                "color": "blue",
+                "gender": "women",
+                "description": "Product description",
+                "category": "Shoulder Bags",
+                "stock": true,
+                "price": 80,
+                "currency": "US"
+            },
+            "category": {
+                "name": "handbags",
+                "id": "handbags"
+            },
+            "_type": "CatalogItem",
+            "created_at": "2019-03-07T11:00:17.101Z",
+            "updated_at": "2019-03-13T18:05:07.337Z",
+            "status": "nn_pending",
+            "catalog": {
+                "_id": "catalog_id_1"
+            },
+            "schema": "product",
+            "fingerprint": "uniqueID",
+            "indexing_started_at": {
+                "cv": "2019-03-09T21:07:29.548721+00:00"
+            },
+            "indexing_ended_at": {
+                "cv": "2019-03-09T21:07:38.005306+00:00"
+            },
+            "error": null,
+            "failed_count": {
+                "cv": 0
+            }
+        },
+        {
+            "_id": "item-2",
+            "images": [
+                {
+                    "uri": "https://anothergreatproductimage/a.jpg",
+                    "_type": "Image",
+                    "_id": "uniqueID",
+                    "thumbnail": {
+                        "uri": "https://markable/thumbnail/anotherproduct/a.jpeg",
+                        "width": 75,
+                        "height": 100
+                    },
+                    "status": "ok",
+                    "error": null,
+                    "width": 1000,
+                    "height": 1334,
+                    "snapshot": {
+                        "path": "/export/markable-cv-service/id",
+                        "content_type": "image/jpeg",
+                        "size": 66440
+                    },
+                    "stats": {
+                        "download": null
+                    }
+                },
+                {
+                    "uri": "https://anothergreatproductimage/b.jpg",
+                    "_type": "Image",
+                    "_id": "uniqueID",
+                    "thumbnail": {
+                        "uri": "https://markable/thumbnail/anotherproduct/b.jpeg",
+                        "width": 75,
+                        "height": 100
+                    },
+                    "status": "ok",
+                    "error": null,
+                    "width": 1000,
+                    "height": 1334,
+                    "snapshot": {
+                        "path": "/export/markable-cv-service/id",
+                        "content_type": "image/jpeg",
+                        "size": 60084
+                    },
+                    "stats": {
+                        "download": null
+                    }
+                },
+                {
+                    "uri": "https://anothergreatproductimage/c.jpg",
+                    "_type": "Image",
+                    "_id": "uniqueID",
+                    "thumbnail": {
+                        "uri": "https://markable/thumbnail/anotherproduct/c.jpeg",
+                        "width": 75,
+                        "height": 100
+                    },
+                    "status": "ok",
+                    "error": null,
+                    "width": 1000,
+                    "height": 1334,
+                    "snapshot": {
+                        "path": "/export/markable-cv-service/id",
+                        "content_type": "image/jpeg",
+                        "size": 62613
+                    },
+                    "stats": {
+                        "download": null
+                    }
+                }
+            ],
+            "data": {
+                "id": "external-id",
+                "sku": "external-sku",
+                "name": "product name",
+                "url": "https://example.com/anotherproduct.html",
+                "color": "blue",
+                "gender": "women",
+                "description": "Product description",
+                "category": "Shoes",
+                "stock": true,
+                "price": 80,
+                "currency": "US"
+            },
+            "category": {
+                "name": "shoes",
+                "id": "shoes"
+            },
+            "_type": "CatalogItem",
+            "created_at": "2019-03-07T11:00:18.421Z",
+            "updated_at": "2019-03-13T18:05:07.382Z",
+            "status": "nn_pending",
+            "catalog": {
+                "_id": "catalog_id_1"
+            },
+            "schema": "product",
+            "fingerprint": "uniqueID",
+            "indexing_started_at": {
+                "cv": "2019-03-09T21:07:29.550073+00:00"
+            },
+            "indexing_ended_at": {
+                "cv": "2019-03-09T21:07:39.090980+00:00"
+            },
+            "error": null,
+            "failed_count": {
+                "cv": 0
+            }
+        }
+    ]
 }
 ```
 

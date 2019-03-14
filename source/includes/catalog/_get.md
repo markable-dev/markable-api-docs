@@ -4,12 +4,12 @@
 > **Example:** Request
 
 ```http
-GET https://catalog.markable.ai/catalogs/catalog-1 HTTP/1.1
+GET https://catalog.markable.ai/catalogs/catalog_id_1 HTTP/1.1
 Authorization: Bearer 123abc
 ```
 
 ```shell
-curl -X GET https://catalog.markable.ai/catalogs/catalog-1 \
+curl -X GET https://catalog.markable.ai/catalogs/catalog_id_1 \
 -H 'Content-Type: application/json' \
 -H 'Authorization: Bearer 123abc'
 ```
@@ -34,19 +34,20 @@ print(response.text)
 
 ```json
 {
-	"data": {
+    "data": {
+        "_id": "catalog_id_1",
         "_type": "Catalog",
-        "_id": "1",
+        "schema": "product",
         "size": 0,
+        "updated_at": "2019-03-12T00:19:33.478Z",
+        "name": "catalog_1",
+        "description": "My new catalog",
+        "created_at": "2019-03-12T00:19:33.448Z",
+        "access": "public",
         "user": {
             "_type": "User",
-            "_id": "1"
-        },
-        "name": "catalog-1",
-        "description": "My first catalog",
-        "schema": "product",
-        "created_at": "2017-01-01T00:00:00.001Z",
-        "updated_at": "2017-01-01T00:00:00.001Z"
+            "_id": "user_id_1"
+        }
     }
 }
 ```

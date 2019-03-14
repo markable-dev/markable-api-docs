@@ -7,51 +7,48 @@
 
 ```json
 {
+    "_id": "catalogitem-1",
+    "images": [
+        {
+            "uri": "https://image_url_1.jpg",
+            "_type": "Image",
+            "status": "pending",
+            "error": null
+        },
+        {
+            "uri": "https://image_url_2.jpg",
+            "_type": "Image",
+            "status": "pending",
+            "error": null
+        },
+    ],
+    "data": {
+        "stock": true,
+        "name": "product name",
+        "gender": "women",
+        "price": 200,
+        "brand": "new brand",
+        "vendor": "new vendor",
+        "country": "US",
+        "sku": "2153608405:sweaters",
+        "url": "https://productpage.com",
+        "category": "sweaters",
+    },
+    "category": {
+        "name": "sweaters",
+        "id": "sweaters"
+    },
     "_type": "CatalogItem",
-    "_id": "item-1",
-    "schema": "product",
+    "created_at": "2019-03-11T20:41:35.105Z",
+    "updated_at": "2019-03-11T20:41:35.106Z",
+    "status": "cv_pending",
     "catalog": {
         "_type": "Catalog",
         "_id": "1",
         "name": "catalog-1"
     },
-    "images": [
-        {
-            "_type": "CatalogItem",
-            "_id": "1",
-            "schema": "product",
-            "uri": "https://markable.ai/data/products/dress/1.png",
-            "width": 100,
-            "height": 100
-        },
-        {
-            "_type": "Image",
-            "_id": "2",
-            "uri": "https://markable.ai/data/products/dress/2.png",
-            "width": 100,
-            "height": 100
-        }
-    ],
-    "category": {
-        "_type": "Category",
-        "_id": "1",
-        "name": "dress"
-    },
-    "data": {
-        "url": "https://example.com/product/page.html",
-        "id": "external-id-1",
-        "foo": "bar",
-        "name" : "A great awesome product",
-        "brand" : "Brand",
-        "color" : "green",
-        "gender" : "women",
-        "vendor" : "vendor",
-        "stock" : true,
-        "price" : 30,
-        "currency" : "USD"
-    },
-    "created_at": "2017-01-01T00:00:00Z",
-    "updated_at": "2017-01-01T00:00:00Z"
+    "schema": "product",
+    "fingerprint": "580498c0f46e206f13a8ed8ebfb3595a"
 }
 ```
 
@@ -59,189 +56,581 @@
 
 ```json
 {
-    "$schema": "http://json-schema.org/draft-04/schema",
+    "title": "Catalog Item",
+    "description": "A markable API product catalog item",
     "type": "object",
-    "description": "CatalogItem",
-    "required": [
-        "catalog",
-        "images",
-        "data"
-    ],
     "properties": {
+        "meta": {
+            "title": "Meta Information",
+            "description": "Meta data for model",
+            "type": "object"
+        },
         "_type": {
             "type": "string",
-            "readOnly": true,
             "default": "CatalogItem"
         },
         "_id": {
-            "type": "string",
-            "readOnly": true
+            "title": "ID",
+            "description": "Primary key",
+            "type": "string"
+        },
+        "fingerprint": {
+            "title": "Fingerprint",
+            "description": "Unique catalaog item hash",
+            "type": "string"
         },
         "schema": {
+            "title": "Schema",
+            "description": "Determines type of catalog",
             "type": "string",
-            "readOnly": true,
+            "enum": [
+                "product",
+                "style"
+            ],
             "default": "product"
         },
+        "schema_version": {
+            "title": "Schema Version",
+            "description": "Version",
+            "type": "string",
+            "default": "null"
+        },
         "catalog": {
+            "title": "Catalog",
+            "description": "Catalog to which item belogs to",
             "type": "object",
-            "description": "Catalog",
             "properties": {
                 "_type": {
                     "type": "string",
-                    "readOnly": true,
                     "default": "Catalog"
                 },
                 "_id": {
-                    "type": "string"
+                    "title": "ID",
+                    "description": "Catalog ID"
                 },
                 "name": {
+                    "title": "Name",
+                    "description": "Catalog name",
                     "type": "string"
                 }
-            }
+            },
+            "required": [
+                "_id",
+                "name"
+            ]
         },
         "images": {
+            "title": "Images",
+            "description": "Images in catalog item",
             "type": "array",
-            "items": {
-                "type": "object",
-                "description": "Image",
-                "required": [
-                    "uri"
-                ],
-                "properties": {
-                    "_type": {
-                        "type": "string",
-                        "readOnly": true,
-                        "default": "Image"
-                    },
-                    "_id": {
-                        "type": "string",
-                        "readOnly": true
-                    },
-                    "uri": {
-                        "anyOf": [
-                            {
-                                "type": "string",
-                                "format": "uri"
-                            },
-                            {
-                                "type": "string",
-                                "format": "byte"
-                            }
-                        ]
-                    },
-                    "status": {
-                        "enum": ["pending", "error", "success"]
-                    },
-                    "error": {
-                        "type": ["object", "null"]
-                    },
-                    "width": {
-                        "type": "integer",
-                        "minimum": 0,
-                        "readOnly": true
-                    },
-                    "height": {
-                        "type": "integer",
-                        "minimum": 0,
-                        "readOnly": true
-                    }
-                },
-                "additionalProperties": false
-            },
             "minItems": 1,
-            "uniqueItems": true
-        },
-        "category": {
-            "type": "object",
-            "description": "Category",
-            "properties": {
-                "_type": {
-                    "type": "string",
-                    "readOnly": true,
-                    "default": "Category"
-                },
-                "_id": {
-                    "type": "string"
-                },
-                "name": {
-                    "type": "string"
-                }
+            "maxItems": 100,
+            "uniqueItems": true,
+            "items": {
+                "$ref": "#/definitions/image"
             }
         },
+        "category": {
+            "title": "Category",
+            "description": "Catalog Item Category",
+            "type": [
+                "string",
+                "null"
+            ],
+            "default": "null"
+        },
+        "attributes": {
+            "title": "Attributes",
+            "description": "Catalog Item Attributes",
+            "type": [
+                "object",
+                "null"
+            ]
+        },
         "data": {
+            "title": "Data",
+            "description": "Catalog item data properties",
             "type": "object",
             "properties": {
-                "url": {
-                    "type": "string",
-                },
-                "gender": {
-                    "enum": ["men", "women", "unisex"],
-                    "default": "women"
-                },
-                "name": {
-                    "type": "string",
-                },
                 "id": {
+                    "title": "ID",
+                    "description": "Catalog Item ID",
                     "type": "string"
+                },
+                "url": {
+                    "title": "URL",
+                    "description": "Catalog Item URL",
+                    "type": "string",
+                    "pattern": "^(http://?|https://?|wss://?|ftp://|data:image?)"
                 },
                 "sku": {
-                    "type": "string"
-                },
-                "vendor": {
-                    "type": "string"
-                },
-                "brand": {
-                    "type": "string"
-                },
-                "price": {
-                    "type": "number"
-                },
-                "currency": {
-                    "type": "string"
-                },
-                "color": {
+                    "title": "SKU",
+                    "description": "Catalog Item Stock Keeping Unit",
                     "type": "string"
                 },
                 "description": {
+                    "title": "Description",
+                    "description": "Catalog Item Description",
                     "type": "string"
+                },
+                "name": {
+                    "title": "Name",
+                    "description": "Catalog Item Name",
+                    "type": "string"
+                },
+                "brand": {
+                    "title": "Brand",
+                    "description": "Catalog Item Brand",
+                    "type": "string"
+                },
+                "vendor": {
+                    "title": "Vendor",
+                    "description": "Catalog Item Vendor",
+                    "type": "string"
+                },
+                "category": {
+                    "title": "Category",
+                    "description": "Normalized Catalog Item Category",
+                    "type": "string"
+                },
+                "gender": {
+                    "title": "Gender",
+                    "description": "Catalog Item Gender",
+                    "enum": [
+                        "men",
+                        "women",
+                        "unisex"
+                    ]
+                },
+                "color": {
+                    "title": "Color",
+                    "description": "Catalog Item Color",
+                    "type": "string"
+                },
+                "price": {
+                    "title": "Price",
+                    "description": "Catalog Item Price",
+                    "type": "number"
+                },
+                "currency": {
+                    "title": "Currency",
+                    "description": "Catalog Item Currency",
+                    "type": "string",
+                    "default": "USD"
                 }
             },
-            "additionalProperties": true,
-            "required": ["url"]
+            "required": [
+                "url"
+            ],
+            "additionalProperties": true
+        },
+        "status": {
+            "title": "Status",
+            "description": "Catalog Item Indexing Status",
+            "type": "string",
+            "enum": [
+                "cv_pending",
+                "nn_pending",
+                "successful",
+                "nodetections",
+                "failed"
+            ]
+        },
+        "error": {
+            "title": "Error",
+            "description": "Errors produced during indexing",
+            "type": "object",
+            "default": "null"
+        },
+        "failed_count": {
+            "title": "Data",
+            "description": "Catalog item data properties",
+            "type": "object",
+            "properties": {
+                "cv": {
+                    "type": "integer",
+                    "default": 0
+                },
+                "nn": {
+                    "type": "integer",
+                    "default": 0
+                }
+            }
         },
         "created_at": {
+            "title": "Created At",
+            "description": "Catalog Item created at timestamp",
             "type": "string",
-            "format": "date-time",
-            "readOnly": true
+            "format": "date-time"
         },
         "updated_at": {
+            "title": "Updated At",
+            "description": "Catalog Item updated timestamp",
             "type": "string",
-            "format": "date-time",
-            "readOnly": true
+            "format": "date-time"
+        },
+        "indexed_started_at": {
+            "title": "Indexed Start At",
+            "description": "Catalog Item indexing start timestamp",
+            "type": "object",
+            "properties": {
+                "cv": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "nn": {
+                    "type": "string",
+                    "format": "date-time"
+                }
+            }
+        },
+        "indexed_ended_at": {
+            "title": "Indexed End At",
+            "description": "Catalog item indexing end timestamp",
+            "type": "object",
+            "properties": {
+                "cv": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "nn": {
+                    "type": "string",
+                    "format": "date-time"
+                }
+            }
         }
     },
-    "additionalProperties": false
+    "additionalProperties": false,
+    "if": {
+        "properties": {
+            "schema": {
+                "enum": [
+                    "product"
+                ]
+            }
+        },
+        "required": [
+            "schema"
+        ]
+    },
+    "then": {
+        "required": [
+            "category",
+            "images",
+            "data"
+        ]
+    },
+    "else": {
+        "required": [
+            "images",
+            "data"
+        ]
+    },
+    "definitions": {
+        "image": {
+            "title": "Image",
+            "description": "Image",
+            "type": "object",
+            "properties": {
+                "_type": {
+                    "type": "string",
+                    "default": "Image"
+                },
+                "_id": {
+                    "title": "Upload ID",
+                    "type": "string"
+                },
+                "hash": {
+                    "title": "Hash",
+                    "description": "Unique image hash",
+                    "type": "string"
+                },
+                "uri": {
+                    "title": "URI",
+                    "description": "Image URI",
+                    "type": "string",
+                    "pattern": "^(http://?|https://?|wss://?|ftp://|data:image?)"
+                },
+                "width": {
+                    "title": "Width",
+                    "description": "Image width",
+                    "type": [
+                        "number",
+                        "null"
+                    ],
+                    "default": null,
+                    "minimum": 0
+                },
+                "height": {
+                    "title": "Height",
+                    "description": "Image height",
+                    "type": [
+                        "number",
+                        "null"
+                    ],
+                    "default": null,
+                    "minimum": 0
+                },
+                "thumbnail": {
+                    "title": "Thumbnail",
+                    "description": "Thumbnail Upload",
+                    "type": "object",
+                    "properties": {
+                        "uri": {
+                            "title": "Thumbnail URI",
+                            "type": "string",
+                            "pattern": "^(http://?|https://?)"
+                        },
+                        "width": {
+                            "title": "Width",
+                            "description": "Image width",
+                            "type": [
+                                "number",
+                                "null"
+                            ],
+                            "default": null,
+                            "minimum": 0
+                        },
+                        "height": {
+                            "title": "Height",
+                            "description": "Image height",
+                            "type": [
+                                "number",
+                                "null"
+                            ],
+                            "default": null,
+                            "minimum": 0
+                        }
+                    }
+                },
+                "snapshot": {
+                    "title": "Snapshot",
+                    "type": "object",
+                    "properties": {
+                        "uri": {
+                            "title": "URI",
+                            "type": "string",
+                            "pattern": "^(http://?|https://?)"
+                        },
+                        "path": {
+                            "title": "Path",
+                            "type": "string",
+                            "pattern": "^file://"
+                        }
+                    }
+                },
+                "status": {
+                    "title": "Image Indexing Status",
+                    "type": "string",
+                    "enum": [
+                        "pending",
+                        "error",
+                        "success"
+                    ]
+                },
+                "error": {
+                    "title": "Error",
+                    "description": "Indexing errors",
+                    "type": [
+                        "object",
+                        "null"
+                    ]
+                },
+                "stats": {
+                    "title": "Statistics",
+                    "description": "Image processing statistics",
+                    "type": "object"
+                },
+                "model": {
+                    "title": "Model",
+                    "description": "Image model used in detection",
+                    "type": "string"
+                },
+                "detections": {
+                    "title": "Detections",
+                    "description": "Image cv detections",
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/detection"
+                    }
+                }
+            },
+            "required": [
+                "uri"
+            ],
+            "additionalProperties": false
+        },
+        "detection": {
+            "title": "Detection",
+            "description": "Detected item",
+            "type": "object",
+            "properties": {
+                "_id": {
+                    "title": "ID",
+                    "description": "Detection ID",
+                    "type": "string"
+                },
+                "bounding_box": {
+                    "title": "Bounding Box",
+                    "description": "Detection bounding box specifications",
+                    "type": "object",
+                    "properties": {
+                        "x": {
+                            "title": "X-coordinate",
+                            "description": "bounding box x coordinate",
+                            "type": "integer"
+                        },
+                        "y": {
+                            "title": "Y-coordinate",
+                            "description": "bounding box y coordinate",
+                            "type": "integer"
+                        },
+                        "width": {
+                            "title": "Width",
+                            "description": "bounding box width",
+                            "type": "integer"
+                        },
+                        "height": {
+                            "title": "Height",
+                            "description": "bounding box height",
+                            "type": "integer"
+                        }
+                    },
+                    "required": [
+                        "x",
+                        "y",
+                        "width",
+                        "height"
+                    ],
+                    "additionalProperties": false
+                },
+                "category": {
+                    "title": "Category",
+                    "description": "Detected category",
+                    "type": "string"
+                },
+                "score": {
+                    "title": "Score",
+                    "description": "Detection confidence",
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 1
+                },
+                "attributes": {
+                    "title": "Attributes",
+                    "description": "Detection attributes",
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/attribute"
+                    }
+                },
+                "feature": {
+                    "type": "object",
+                    "title": "Feature Vector",
+                    "description": "Detection Feature Vectors",
+                    "properties": {
+                        "hash": {
+                            "title": "Hash",
+                            "description": "MD5 Hash of Feature Vectors",
+                            "type": "string",
+                            "minLength": 32
+                        },
+                        "vector": {
+                            "title": "Vector",
+                            "description": "Detection Feature Vectors",
+                            "type": "array",
+                            "minLength": 128,
+                            "maxItems": 128
+                        }
+                    },
+                    "required": [
+                        "hash",
+                        "vector"
+                    ]
+                }
+            },
+            "required": [
+                "bounding_box",
+                "category",
+                "score",
+                "feature"
+            ],
+            "additionalProperties": false
+        },
+        "attribute": {
+            "title": "Attribute",
+            "description": "Detection Attribute Type",
+            "type": "object",
+            "properties": {
+                "name": {
+                    "title": "Name",
+                    "description": "Attribute Name",
+                    "type": "string",
+                    "minLength": 1
+                },
+                "values": {
+                    "title": "Values",
+                    "description": "Attribute Values",
+                    "type": "array",
+                    "items": {
+                        "title": "Value",
+                        "description": "Label and Score",
+                        "type": "object",
+                        "properties": {
+                            "value": {
+                                "title": "Value",
+                                "description": "Attribute Value Label",
+                                "type": "string",
+                                "minLength": 1
+                            },
+                            "score": {
+                                "title": "Score",
+                                "description": "Attribute Confidence Score",
+                                "type": "number",
+                                "minimum": 0,
+                                "maximum": 1
+                            }
+                        }
+                    }
+                }
+            },
+            "required": [
+                "name",
+                "value",
+                "score"
+            ],
+            "additionalProperties": false
+        }
+    }
 }
 ```
 
 
-A **Catalog Item** (object) defines an visual item (e.g. product), that can be indexed and visually searched within images and videos using visual similarity - based on the associated image(s). Catalog items can be defined as different types of objects, but currently only `Product`. Catalog items are organized by [catalogs](#the-catalog-object).
+A **Catalog Item** (object) defines an visual item (e.g. product), that can be indexed and visually searched within images and videos using visual similarity - based on the associated image(s). Catalog items can be defined as different either `Product` or `Style`. Catalog items are organized by [catalogs](#the-catalog-object).
 
 Note
 
-* Internally, the uniqueness of a catalogItem depends on the imageURL(s), gender and the markable category.
+* Internally, the uniqueness of a catalogItem depends on the imageURL(s), gender and the markable category (fingerprint).
 * Use the `data` key below to add free form information about the CatalogItem.
 * `data.url` is required since we want to the know product URL to redirect the user.
 * `data` also supports optional fields like `gender`, `brand`, `color`, `vendor` & `sku`.
 
-Attribute 		| Type 							   | Description
-------- 		| ------- 						   | -------
-`_type` 		| String						   | Type. **<small>read-only</small>**
-`_id` 			| String						   | An unique identifier. **<small>read-only</small>**
-`catalog` 		| [Catalog](#catalog)			   | Reference to catalog containing this item.
-`images` 		| [Array&lt;Image&gt;](#image)          | List of images - visual representation of this item (object).
-`category` 	| [Category](#category)    | Category - taxonomic classification of item (object).
-`data` 			| Object 					       | Custom data - semantic representation of this item (object).
-`created_at`	| Date    						   | Creation date/time. **<small>read-only</small>**
-`updated_at`	| Date							   | Updated date/time. **<small>read-only</small>**
-
+Attribute       | Type          | Description
+-------         | ----------    | -------
+| **`_type`**   | `string`      | Object type 
+| **`meta`**    | `object`      | Meta Information 
+| **`_id`**     | `string`      | A unique identifier
+| **`fingerprint`** |`string`     | Unique catalog item hash 
+| **`schema`**  | `string`      | The schema used for catalog's items: <br>`product` or `style`
+| **`schema_version`** |`string` | Schema Version Tag
+| **`catalog`** |`object` | Catalog reference
+| **`images`**  |`array` | Visual representation of this item
+| **`category`** |`string` | Taxonomic classification of item 
+| **`data`** |`object` | Custom - semantic representation of item
+| **`status`** |`string` | Indexing status of item <br> `cv_pending`, `nn_pending`, `successful`, `nodetections`, `failed`
+| **`error`** |`object` | Errors produced during indexing operations
+| **`failed_count`** |`object` | Count of failures during indexing operations
+| **`created_at`** |`string (date-time)` | Creation date/time
+| **`updated_at`** |`string (date-time)` | Updated date/time
+| **`indexing_started_at`** | `object`  | Indexing operation start date/time 
+| **`indexing_ended_at`** | `object`    | Indexing oepration end date/time  

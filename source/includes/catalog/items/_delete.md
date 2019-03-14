@@ -35,44 +35,61 @@ print(response.text)
 
 ```json
 {
-	"data": {
-	    "_type": "CatalogItem",
-	    "_id": "item-1",
-	    "schema": "product",
-	    "catalog": {
-	        "_type": "Catalog",
-	        "_id": "1",
-	        "name": "catalog-1"
-	    },
-	    "images": [
-	        {
-	            "_type": "Image",
-	            "_id": "1",
-	            "uri": "https://example.com/products/1/a.png",
-	            "width": 200,
-	            "height": 300
-	        },
-	        {
-	            "_type": "Image",
-	            "_id": "2",
-	            "uri": "https://example.com/products/1/b.png",
-	            "width": 200,
-	            "height": 300
-	        }
-	    ],
-	    "category": {
-          "_type": "Category",
-          "_id": "1",
-          "name": "glasses"
-      },
-	    "data": {
-            "url": "https://example.com/product/page.html",
-	        "id": "external-id-1",
-	        "foo": "bar"
-	    },
-	    "created_at": "2017-01-01T00:00:00.001Z",
-	    "updated_at": "2017-01-01T00:00:00.001Z"
-	}
+    "data": {
+        "images": [
+            {
+                "_type": "Image",
+                "_id": "image1",
+                "uri": "https://example.com/products/2/a.png",
+                "width": null,
+                "height": null,
+                "thumbnail": {
+                    "uri": "hhttps://markable/images/2/a.jpeg",
+                    "width": 66,
+                    "height": 100
+                },
+                "status": "pending",
+                "error": null
+            },
+            {
+                "_type": "Image",
+                "_id": "image2",
+                "uri": "https://example.com/products/2/b.png",
+                "width": null,
+                "height": null,
+                "thumbnail": {
+                    "uri": "https://markable/images/2/b.jpeg",
+                    "width": 66,
+                    "height": 100
+                },
+                "status": "pending",
+                "error": null
+            }
+        ],
+        "data": {
+            "url": "https://example.com/product/shoes.html",
+            "name": "A shoe product",
+            "description": "This is a fantastic shoe product",
+            "categoryInfo": "Some relevant information about category",
+            "gender": "women"
+        },
+        "category": {
+            "name": "shoes",
+            "id": "shoes"
+        },
+        "_type": "CatalogItem",
+        "created_at": "2019-03-12T21:58:43.099Z",
+        "updated_at": "2019-03-12T21:58:43.100Z",
+        "status": "cv_pending",
+        "catalog": {
+            "_type": "Catalog",
+            "_id": "catalog_id_1",
+            "name": "catalog1"
+        },
+        "schema": "product",
+        "fingerprint": "uniqueID",
+        "_id": "item-2"
+    }
 }
 ```
 

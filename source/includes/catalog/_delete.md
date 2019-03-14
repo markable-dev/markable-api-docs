@@ -4,12 +4,12 @@
 > **Example:** Request
 
 ```http
-DELETE https://catalog.markable.ai/catalogs/catalog-1 HTTP/1.1
+DELETE https://catalog.markable.ai/catalogs/catalog_id_1 HTTP/1.1
 Authorization: Bearer 123abc
 ```
 
 ```shell
-curl -X DELETE https://catalog.markable.ai/catalogs/catalog-1 \
+curl -X DELETE https://catalog.markable.ai/catalogs/catalog_id_1 \
 -H 'Content-Type: application/json' \
 -H 'Authorization: Bearer 123abc'
 ```
@@ -35,7 +35,22 @@ print(response.text)
 
 ```json
 {
-	"data": {}
+    "data": {
+        "_id": "catalog_id_1",
+        "_type": "Catalog",
+        "schema": "product",
+        "size": 0,
+        "updated_at": "2019-03-11T20:41:35.129Z",
+        "deleted_at": "2019-03-12T00:14:39.862Z",
+        "name": "new_name_1",
+        "description": "Revised catalog description",
+        "created_at": "2019-03-11T20:40:36.726Z",
+        "access": "public",
+        "user": {
+            "_type": "User",
+            "_id": "user_id_1"
+        }
+    }
 }
 ```
 

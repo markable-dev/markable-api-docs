@@ -70,9 +70,15 @@ print(response.text)
 > **Example:** Response with User Access Token
 
 ```json
-{
+{ 
     "data": {
-    	"access_token": "usertoken123abc"
+        "user_id": "1",
+        "created_at": "2019-03-11T20:39:41.998Z",
+        "deleted_at": null,
+        "type": "Token",
+        "updated_at": "2019-03-11T20:39:42.010Z",
+        "access_token": "5c86c78e059dc998f2c80278",
+        "expires_at": "2024-03-09T20:39:41.998Z"
     }
 }
 ```
@@ -138,22 +144,32 @@ print(response.text)
 > **Example:** Response
 
 ```json
+
 {
     "data": {
-        "type": "User",
         "name": "Developer at Client",
+        "website": "http://client.website.com",
+        "role": "user",
         "email": "developer@client.com",
+        "company": "company_name",
+        "created_at": "2019-03-11T20:39:34.690Z",
+        "type": "User",
+        "updated_at": "2019-03-11T20:39:34.781Z",
         "user_id": "user_id_1",
         "clients": [
             {
-                "type": "Client",
-                "client_id": "client_id_1",
                 "client_secret": "client_secret_1",
-                "user_id": "user_id_1"
+                "user_id": "user_id_1",
+                "domain": "http://localhost",
+                "created_at": "2019-03-11T20:39:34.789Z",
+                "type": "Client",
+                "updated_at": "2019-03-11T20:39:34.801Z",
+                "client_id": "client_id_1"
             }
         ]
     }
 }
+
 ```
 
 <!-- ## Get User & Client -->
