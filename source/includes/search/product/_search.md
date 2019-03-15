@@ -375,14 +375,6 @@ response = requests.request("POST", url, data=payload, files=files, headers=head
                             "error": null,
                             "width": 1000,
                             "height": 1334,
-                            "snapshot": {
-                                "path": "/export/path",
-                                "content_type": "image/jpeg",
-                                "size": 187036
-                            },
-                            "stats": {
-                                "download": null
-                            }
                         }
                     ],
                     "data": {
@@ -416,14 +408,6 @@ response = requests.request("POST", url, data=payload, files=files, headers=head
                             "error": null,
                             "width": 1000,
                             "height": 1334,
-                            "snapshot": {
-                                "path": "/export/path",
-                                "content_type": "image/jpeg",
-                                "size": 97022
-                            },
-                            "stats": {
-                                "download": null
-                            }
                         }
                     ],
                     "data": {
@@ -479,14 +463,6 @@ response = requests.request("POST", url, data=payload, files=files, headers=head
                             "error": null,
                             "width": 1000,
                             "height": 1334,
-                            "snapshot": {
-                                "path": "/export/path",
-                                "content_type": "image/jpeg",
-                                "size": 148377
-                            },
-                            "stats": {
-                                "download": null
-                            }
                         },
                     ],
                     "data": {
@@ -519,14 +495,6 @@ response = requests.request("POST", url, data=payload, files=files, headers=head
                             "error": null,
                             "width": 1000,
                             "height": 1334,
-                            "snapshot": {
-                                "path": "/export/path",
-                                "content_type": "image/jpeg",
-                                "size": 165252
-                            },
-                            "stats": {
-                                "download": null
-                            }
                         },
                     ],
                     "data": {
