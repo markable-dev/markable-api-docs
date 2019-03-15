@@ -306,7 +306,7 @@ Header       		| Description
 
 Parameter       | Description
 ----------      | ----------
-`limit`         | The limit of items to return (defaults to 10).
+`limit`         | The limit of items to return (defaults to 20).
 `skip`          | The skip of items to return.
 `success`       | Set this value filter by `success` status
 `error`         | Set this value filter by `error` status
