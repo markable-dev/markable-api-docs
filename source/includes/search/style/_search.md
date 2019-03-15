@@ -343,16 +343,8 @@ response = requests.request("POST", url, data=payload, files=files, headers=head
                             "height": 960,
                             "error": null,
                             "status": "ok",
-                            "stats": {
-                                "download": null
-                            },
                             "uri": "https://somestylephoto/image.jpg",
                             "width": 626,
-                            "snapshot": {
-                                "path": "/export/path",
-                                "content_type": "image/jpeg",
-                                "size": 182738
-                            },
                             "thumbnail": {
                                 "uri": "https://thumbnail.jpeg",
                                 "width": 65,
@@ -383,15 +375,7 @@ response = requests.request("POST", url, data=payload, files=files, headers=head
                             "height": 744,
                             "width": 935,
                             "status": "ok",
-                            "snapshot": {
-                                "path": "/export/path",
-                                "content_type": "image/jpeg",
-                                "size": 272285
-                            },
                             "uri": "https://somestylephoto2/image.jpg",
-                            "stats": {
-                                "download": null
-                            },
                             "thumbnail": {
                                 "uri": "https://thumbnail.jpeg",
                                 "width": 100,
