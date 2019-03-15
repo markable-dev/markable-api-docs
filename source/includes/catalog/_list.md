@@ -92,3 +92,10 @@ Header              | Description
 ### Route
 
 None
+
+### Query Parameters
+
+Parameter       | Description
+----------      | ----------
+`limit`         | The limit of items to return (defaults to 50).
+`skip`          | The skip of items to return.
