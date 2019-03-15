@@ -380,7 +380,7 @@ response = requests.request("POST", url, data=payload, files=files, headers=head
                     "data": {
                         "id": "any custom data",
                         "name": "custom product name"
-                        "url": "https://lookbook.nu/look/5223282-Thrifted-Paisley-Button-Up-Lee-Rust-Colored",
+                        "url": "link_to_product_page",
                     },
                     "catalog": {
                         "_type": "Catalog",
