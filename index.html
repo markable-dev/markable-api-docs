@@ -2629,6 +2629,24 @@ print(response.text)
 
 <p>None</p>
 
+<h3 id="query-parameters">Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">limit</code></td>
+<td>The limit of items to return (defaults to 50).</td>
+</tr>
+<tr>
+<td><code class="prettyprint">skip</code></td>
+<td>The skip of items to return.</td>
+</tr>
+</tbody></table>
+
           <h2 id="catalog-stats"><img src="images/get-catalog_icon.png" alt="get-catalog-objects_icon" width="28px" height="auto"> Catalog Stats</h2>
 
 <p>Catalog statistics explaning</p>
@@ -4669,7 +4687,7 @@ print(response.text)
 </thead><tbody>
 <tr>
 <td><code class="prettyprint">limit</code></td>
-<td>The limit of items to return (defaults to 10).</td>
+<td>The limit of items to return (defaults to 20).</td>
 </tr>
 <tr>
 <td><code class="prettyprint">skip</code></td>
@@ -4704,13 +4722,11 @@ print(response.text)
 <p>We have constraints on the image sizes we index. </p>
 
 <ol>
-<li><p>We support <code class="prettyprint">.jpg</code>, <code class="prettyprint">.jpeg</code>, <code class="prettyprint">.png</code>, and <code class="prettyprint">.webp</code></p></li>
-<li><p>Minimum image size = <code class="prettyprint">224</code> px</p></li>
-<li><p>Maximum image size = <code class="prettyprint">3200</code> px</p></li>
-<li><p>Maximum image memory size = <code class="prettyprint">2.5 * 1024 * 1024</code> mb</p></li>
+<li><p>We support <code class="prettyprint">.jpg</code>, <code class="prettyprint">.jpeg</code>, <code class="prettyprint">.png</code></p></li>
+<li><p>Minimum image size = <code class="prettyprint">100</code> px</p></li>
+<li><p>Maximum image size = <code class="prettyprint">5000</code> px</p></li>
+<li><p>Maximum image memory size = <code class="prettyprint">10485760</code> b</p></li>
 </ol>
-
-<p>Indexing is different from <a href="#product-search">Search</a> for which the constraints are different.</p>
 
           <h1 id="taxonomy">Taxonomy <alt="Taxonomy" height="auto" width="100%"></h1>
 
