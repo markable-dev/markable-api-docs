@@ -5,15 +5,10 @@ Indexing is how we make CatalogItems available for search and our way of represe
 
 We have constraints on the image sizes we index. 
 
-1. We support `.jpg`, `.jpeg`, `.png`, and `.webp`
+1. We support `.jpg`, `.jpeg`, `.png`
 
-2. Minimum image size = `224` px
+2. Minimum image size = `100` px
 
-3. Maximum image size = `3200` px
+3. Maximum image size = `5000` px
 
-4. Maximum image memory size = `2.5 * 1024 * 1024` mb
-
-Indexing is different from [Search](#product-search) for which the constraints are different.
-
-
-
+4. Maximum image memory size = `10485760` b
