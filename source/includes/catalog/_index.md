@@ -25,17 +25,16 @@ Style catalogs, however, are free form catalogs with just `images` and a designa
     "_type": "Catalog",
     "_id": "catalog_id_1",
     "schema": "product",
+    "name": "catalog_name_1",
+    "description": "My product catalog",
     "size": 5,
+    "access": "public",
     "created_at": "2018-12-06T22:11:51.391Z",
     "updated_at": "2019-03-09T03:09:17.309Z",
-    "name": "catalog_name_1",
-    "access": "public",
-    "description": "My product catalog",
     "user": {
         "_type": "User",
         "_id": "user_id_1"
     },
-    "status": "nn_active"
 },
 ```
 
@@ -44,17 +43,16 @@ Style catalogs, however, are free form catalogs with just `images` and a designa
     "_type": "Catalog",
     "_id": "catalog_id_2",
     "schema": "style",
+    "name": "catalog_name_2",
+    "description": "My style catalog",
     "size": 10,
+    "access": "public",
     "created_at": "2018-12-06T22:11:51.391Z",
     "updated_at": "2019-03-09T03:09:17.309Z",
-    "name": "catalog_name_2",
-    "access": "public",
-    "description": "My style catalog",
     "user": {
         "_type": "User",
         "_id": "user_id_1"
     },
-    "status": "nn_active"
 },
 ```
 
