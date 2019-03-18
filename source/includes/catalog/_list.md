@@ -39,12 +39,12 @@ print(response.text)
             "_id": "catalog_id_1",
             "_type": "Catalog",
             "schema": "product",
-            "size": 0,
-            "updated_at": "2019-03-12T00:19:33.478Z",
             "name": "product_catalog",
             "description": "catalog_2",
-            "created_at": "2019-03-12T00:19:33.448Z",
+            "size": 0,
             "access": "public",
+            "created_at": "2019-03-12T00:19:33.448Z",
+            "updated_at": "2019-03-12T00:19:33.478Z",
             "user": {
                 "_type": "User",
                 "_id": "user_id_1"
@@ -54,12 +54,12 @@ print(response.text)
             "_id": "catalog_id_2",
             "_type": "Catalog",
             "schema": "style",
-            "size": 0,
-            "updated_at": "2019-03-12T00:22:02.030Z",
             "name": "style_catalog",
             "description": "style catalog",
-            "created_at": "2019-03-12T00:22:02.002Z",
+            "size": 0,
             "access": "private",
+            "created_at": "2019-03-12T00:22:02.002Z",
+            "updated_at": "2019-03-12T00:22:02.030Z",
             "user": {
                 "_type": "User",
                 "_id": "user_id_1"
