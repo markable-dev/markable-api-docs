@@ -36,16 +36,15 @@ print(response.text)
 ```json
 {
     "data": {
-        "_id": "catalog_id_1",
         "_type": "Catalog",
+        "_id": "catalog_id_1",
         "schema": "product",
-        "size": 0,
-        "updated_at": "2019-03-11T20:41:35.129Z",
-        "deleted_at": "2019-03-12T00:14:39.862Z",
         "name": "new_name_1",
         "description": "Revised catalog description",
-        "created_at": "2019-03-11T20:40:36.726Z",
+        "size": 0,
         "access": "public",
+        "created_at": "2019-03-11T20:40:36.726Z",
+        "updated_at": "2019-03-11T20:41:35.129Z",
         "user": {
             "_type": "User",
             "_id": "user_id_1"
