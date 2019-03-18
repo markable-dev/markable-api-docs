@@ -95,20 +95,19 @@ print(response.text)
             }
         ],
         "catalog": {
-            "_id": "catalog_id_1",
             "_type": "Catalog",
+            "_id": "catalog_id_1",
             "schema": "product",
+            "name": "product_catalog",
+            "description": "My product catalog",
             "size": 10,
+            "access": "private",
             "created_at": "2018-12-06T22:11:51.391Z",
             "updated_at": "2019-03-02T17:40:40.728Z",
-            "name": "product_catalog",
-            "access": "private",
-            "description": "My product catalog",
             "user": {
                 "_type": "User",
                 "_id": "user_id_1"
             },
-            "status": "nn_active"
         }
     }
 }
