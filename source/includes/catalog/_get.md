@@ -38,12 +38,12 @@ print(response.text)
         "_id": "catalog_id_1",
         "_type": "Catalog",
         "schema": "product",
-        "size": 0,
-        "updated_at": "2019-03-12T00:19:33.478Z",
         "name": "catalog_1",
         "description": "My new catalog",
-        "created_at": "2019-03-12T00:19:33.448Z",
+        "size": 0,
         "access": "public",
+        "created_at": "2019-03-12T00:19:33.448Z",
+        "updated_at": "2019-03-12T00:19:33.478Z",
         "user": {
             "_type": "User",
             "_id": "user_id_1"
