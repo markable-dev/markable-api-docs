@@ -124,7 +124,7 @@ print(response.text)
           "name": "glasses"
 	    },
 	    "data": {
-            "url": "https://company.xyz/external-product-id-2",
+            "url": "https://company.xyz/external-product-id-1",
 	        "id": "external-id-123",
 	        "foo": "bar"
 	    },
