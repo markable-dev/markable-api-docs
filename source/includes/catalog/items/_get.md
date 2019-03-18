@@ -54,16 +54,8 @@ print(response.text)
             {
                 "uri": "https://example.com/products/3/a.png",
                 "status": "ok",
-                "stats": {
-                    "download": null
-                },
                 "width": 853,
                 "height": 853,
-                "snapshot": {
-                    "content_type": "image/jpeg",
-                    "path": "/export/markable-cv-service/",
-                    "size": 101355
-                },
                 "error": null,
                 "thumbnail": {
                     "uri": "https://markable/images/s3-url-3.jpeg",

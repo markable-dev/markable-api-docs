@@ -80,14 +80,6 @@ print(response.text)
                     "error": null,
                     "width": 1000,
                     "height": 1334,
-                    "snapshot": {
-                        "path": "/export/markable-cv-service/id",
-                        "content_type": "image/jpeg",
-                        "size": 90035
-                    },
-                    "stats": {
-                        "download": null
-                    }
                 },
                 {
                     "uri": "https://agreatproductimage/b.jpg",
@@ -102,14 +94,6 @@ print(response.text)
                     "error": null,
                     "width": 1000,
                     "height": 1334,
-                    "snapshot": {
-                        "path": "/export/markable-cv-service/id",
-                        "content_type": "image/jpeg",
-                        "size": 73484
-                    },
-                    "stats": {
-                        "download": null
-                    }
                 },
                 {
                     "uri": "https://agreatproductimage/c.jpg",
@@ -124,14 +108,6 @@ print(response.text)
                     "error": null,
                     "width": 1000,
                     "height": 1334,
-                    "snapshot": {
-                        "path": "/export/markable-cv-service/id",
-                        "content_type": "image/jpeg",
-                        "size": 61302
-                    },
-                    "stats": {
-                        "download": null
-                    }
                 }
             ],
             "data": {
@@ -187,14 +163,6 @@ print(response.text)
                     "error": null,
                     "width": 1000,
                     "height": 1334,
-                    "snapshot": {
-                        "path": "/export/markable-cv-service/id",
-                        "content_type": "image/jpeg",
-                        "size": 66440
-                    },
-                    "stats": {
-                        "download": null
-                    }
                 },
                 {
                     "uri": "https://anothergreatproductimage/b.jpg",
@@ -209,14 +177,6 @@ print(response.text)
                     "error": null,
                     "width": 1000,
                     "height": 1334,
-                    "snapshot": {
-                        "path": "/export/markable-cv-service/id",
-                        "content_type": "image/jpeg",
-                        "size": 60084
-                    },
-                    "stats": {
-                        "download": null
-                    }
                 },
                 {
                     "uri": "https://anothergreatproductimage/c.jpg",
@@ -231,14 +191,6 @@ print(response.text)
                     "error": null,
                     "width": 1000,
                     "height": 1334,
-                    "snapshot": {
-                        "path": "/export/markable-cv-service/id",
-                        "content_type": "image/jpeg",
-                        "size": 62613
-                    },
-                    "stats": {
-                        "download": null
-                    }
                 }
             ],
             "data": {
