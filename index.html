@@ -5256,14 +5256,19 @@ print(response.text)
 <td>How relevant you want the results to be. Default <code class="prettyprint">50</code>. This takes precedence over <code class="prettyprint">limit</code></td>
 </tr>
 <tr>
-<td><code class="prettyprint">auto_detect_gender</code></td>
-<td>Boolean</td>
-<td>Complementary auto detect gender feature to scope search to specific genders. This option takes precedence over <code class="prettyprint">gender</code> above. Note that this option will introduce an additional few 100ms in search.</td>
+<td><del><code class="prettyprint">auto_detect_gender</code><del></td>
+<td><del>Boolean<del></td>
+<td><del>Complementary auto detect gender feature to scope search to specific genders. This option takes precedence over <code class="prettyprint">gender</code> above. Note that this option will introduce an additional few 100ms in search.<del></td>
 </tr>
 <tr>
 <td><code class="prettyprint">attributes</code></td>
 <td>Boolean</td>
 <td>Return <a href="#supported-attributes">attributes</a> for every <a href="#catalog-items">catalogItem</a>, for both the searched input image and the images in the results. Note that this option will introduce a few 100ms in search. There is no guarantee that the attributes will be common between the input image and the result images; however, its highly likely that they will be.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">human_detection</code></td>
+<td>Boolean</td>
+<td>Return bounding boxes for human detections.  Default is false.</td>
 </tr>
 </tbody></table>
 
@@ -5894,14 +5899,19 @@ response = requests.request("POST", url, data=payload, files=files, headers=head
 <td>How relevant you want the results to be. Default <code class="prettyprint">50</code>. This takes precedence over <code class="prettyprint">limit</code></td>
 </tr>
 <tr>
-<td><code class="prettyprint">auto_detect_gender</code></td>
-<td>Boolean</td>
-<td>Complementary auto detect gender feature to scope search to specific genders. This option takes precedence over <code class="prettyprint">gender</code> above. Note that this option will introduce an additional few 100ms in search.</td>
+<td><del><code class="prettyprint">auto_detect_gender</code><del></td>
+<td><del>Boolean<del></td>
+<td><del>Complementary auto detect gender feature to scope search to specific genders. This option takes precedence over <code class="prettyprint">gender</code> above. Note that this option will introduce an additional few 100ms in search.<del></td>
 </tr>
 <tr>
 <td><code class="prettyprint">attributes</code></td>
 <td>Boolean</td>
 <td>Return <a href="#supported-attributes">attributes</a> for every <a href="#catalog-items">catalogItem</a>, for both the searched input image and the images in the results. Note that this option will introduce a few 100ms in search. There is no guarantee that the attributes will be common between the input image and the result images; however, its highly likely that they will be.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">human_detection</code></td>
+<td>Boolean</td>
+<td>Return bounding boxes for human detections.  Default is false.</td>
 </tr>
 </tbody></table>
 
