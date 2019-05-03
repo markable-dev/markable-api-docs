@@ -30,7 +30,7 @@ A **How to Wear it Query** (object) defines a visual search query for an image.
 Attribute       | Type                                  | Description
 -------         | -------                               | -------
 `image_uri`     | String                                | A valid image URI. **<small>required</small>**
-`gender`        | Array                                 | Either `['men']`, `['women']`, or [`'unisex'`] can be passed in to limit results based on gender. __If no gender field is submitted, or `['men', 'women']` is provided, we will auto detect gender and return detected gender based results.__  If gender is not detected, results will return closest matching items irrespective of gender.   
+`gender`        | Array                                 | Either `['men']`, `['women']`, [`'unisex'`] or any combination can be provided in the request to limit __all__ results to specified gender. __If no gender field is provided, we will automatically detect gender and return detected gender based results.__ If gender is not detected, results will return closest matching items irrespective of gender. 
 `catalogs`      | [Array&lt;Catalog&gt;](#catalog)      | List of `style` catalogs (public or private) included in the visual search scope.  Accounts can be updated with Default catalogs to perform search without explicitly specifying the catalog name or ID.   
 `options`       | Object                                | A list of options that we support. Currently we support the options below
 
@@ -42,6 +42,6 @@ Attribute               | Type                                  | Description
 -------                 | -------                               | -------
 `limit`                 | Number                                | Number of results to return. Default `30`
 `relevance`             | Number                                | How relevant you want the results to be. Default `50`. This takes precedence over `limit`
-<del>`auto_detect_gender`<del>    | <del>Boolean<del>                               | <del>Complementary auto detect gender feature to scope search to specific genders. This option takes precedence over `gender` above. Note that this option will introduce an additional few 100ms in search.<del>
+`auto_detect_gender`  | Boolean                                 | Automatically detect gender and return detected gender based results. Note that this option defaults to `true` if gender is __not__ specified in the request, and `false` if gender is provided. 
 `attributes`            | Boolean                               | Return [attributes](#supported-attributes) for every [catalogItem](#catalog-items), for both the searched input image and the images in the results. Note that this option will introduce a few 100ms in search. There is no guarantee that the attributes will be common between the input image and the result images; however, its highly likely that they will be.
-`human_detection`       | Boolean                               | Return bounding boxes for human detections.  Default is false. 
+`human_detection`       | Boolean                               | Return bounding boxes for human detections.  Default is `false`. 
