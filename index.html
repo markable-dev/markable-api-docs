@@ -5126,7 +5126,7 @@ print(response.text)
 <h3 id="the-product-search-query-object"><img src="images/image-search_icon.png" alt="image-search_icon" width="28px" height="auto"> The Product Search Query Object</h3>
 
 <blockquote>
-<p><strong>Example:</strong> Product Search Query Object (Defaults to auto detect gender)</p>
+<p><strong>Example:</strong> Product Search Query Object (defaults to auto detect gender)</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -5220,7 +5220,7 @@ print(response.text)
 <tr>
 <td><code class="prettyprint">gender</code></td>
 <td>Array</td>
-<td>Either <code class="prettyprint">[&#39;men&#39;]</code>, <code class="prettyprint">[&#39;women&#39;]</code>, or [<code class="prettyprint">&#39;unisex&#39;</code>] can be passed in to limit results based on gender. <strong>If no gender field is submitted, or <code class="prettyprint">[&#39;men&#39;, &#39;women&#39;]</code> is provided, we will auto detect gender and return detected gender based results.</strong>  If gender is not detected, results will return closest matching items irrespective of gender.</td>
+<td>Either <code class="prettyprint">[&#39;men&#39;]</code>, <code class="prettyprint">[&#39;women&#39;]</code>, [<code class="prettyprint">&#39;unisex&#39;</code>] or any combination can be provided in the request to limit <strong>all</strong> results to specified gender. <strong>If no gender field is provided, we will automatically detect gender and return detected gender based results.</strong> If gender is not detected, results will return closest matching items irrespective of gender.</td>
 </tr>
 <tr>
 <td><code class="prettyprint">catalogs</code></td>
@@ -5256,9 +5256,9 @@ print(response.text)
 <td>How relevant you want the results to be. Default <code class="prettyprint">50</code>. This takes precedence over <code class="prettyprint">limit</code></td>
 </tr>
 <tr>
-<td><del><code class="prettyprint">auto_detect_gender</code><del></td>
-<td><del>Boolean<del></td>
-<td><del>Complementary auto detect gender feature to scope search to specific genders. This option takes precedence over <code class="prettyprint">gender</code> above. Note that this option will introduce an additional few 100ms in search.<del></td>
+<td><code class="prettyprint">auto_detect_gender</code></td>
+<td>Boolean</td>
+<td>Automatically detect gender and return detected gender based results. Note that this option defaults to <code class="prettyprint">true</code> if gender is <strong>not</strong> specified in the request, and <code class="prettyprint">false</code> if gender is provided.</td>
 </tr>
 <tr>
 <td><code class="prettyprint">attributes</code></td>
@@ -5268,7 +5268,7 @@ print(response.text)
 <tr>
 <td><code class="prettyprint">human_detection</code></td>
 <td>Boolean</td>
-<td>Return bounding boxes for human detections.  Default is false.</td>
+<td>Return bounding boxes for human detections.  Default is <code class="prettyprint">false</code>.</td>
 </tr>
 </tbody></table>
 
@@ -5574,7 +5574,8 @@ response = requests.request("POST", url, data=payload, files=files, headers=head
             </span><span class="s2">"limit"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w">
             </span><span class="s2">"relevance"</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="p">,</span><span class="w">
             </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"auto_detect_gender"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+            </span><span class="s2">"auto_detect_gender"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"> 
+            </span><span class="s2">"human_detection"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -5863,7 +5864,7 @@ response = requests.request("POST", url, data=payload, files=files, headers=head
 <tr>
 <td><code class="prettyprint">gender</code></td>
 <td>Array</td>
-<td>Either <code class="prettyprint">[&#39;men&#39;]</code>, <code class="prettyprint">[&#39;women&#39;]</code>, or [<code class="prettyprint">&#39;unisex&#39;</code>] can be passed in to limit results based on gender. <strong>If no gender field is submitted, or <code class="prettyprint">[&#39;men&#39;, &#39;women&#39;]</code> is provided, we will auto detect gender and return detected gender based results.</strong>  If gender is not detected, results will return closest matching items irrespective of gender.</td>
+<td>Either <code class="prettyprint">[&#39;men&#39;]</code>, <code class="prettyprint">[&#39;women&#39;]</code>, [<code class="prettyprint">&#39;unisex&#39;</code>] or any combination can be provided in the request to limit <strong>all</strong> results to specified gender. <strong>If no gender field is provided, we will automatically detect gender and return detected gender based results.</strong> If gender is not detected, results will return closest matching items irrespective of gender.</td>
 </tr>
 <tr>
 <td><code class="prettyprint">catalogs</code></td>
@@ -5899,9 +5900,9 @@ response = requests.request("POST", url, data=payload, files=files, headers=head
 <td>How relevant you want the results to be. Default <code class="prettyprint">50</code>. This takes precedence over <code class="prettyprint">limit</code></td>
 </tr>
 <tr>
-<td><del><code class="prettyprint">auto_detect_gender</code><del></td>
-<td><del>Boolean<del></td>
-<td><del>Complementary auto detect gender feature to scope search to specific genders. This option takes precedence over <code class="prettyprint">gender</code> above. Note that this option will introduce an additional few 100ms in search.<del></td>
+<td><code class="prettyprint">auto_detect_gender</code></td>
+<td>Boolean</td>
+<td>Automatically detect gender and return detected gender based results. Note that this option defaults to <code class="prettyprint">true</code> if gender is <strong>not</strong> specified in the request, and <code class="prettyprint">false</code> if gender is provided.</td>
 </tr>
 <tr>
 <td><code class="prettyprint">attributes</code></td>
@@ -5911,7 +5912,7 @@ response = requests.request("POST", url, data=payload, files=files, headers=head
 <tr>
 <td><code class="prettyprint">human_detection</code></td>
 <td>Boolean</td>
-<td>Return bounding boxes for human detections.  Default is false.</td>
+<td>Return bounding boxes for human detections.  Default is <code class="prettyprint">false</code>.</td>
 </tr>
 </tbody></table>
 
@@ -6212,7 +6213,8 @@ response = requests.request("POST", url, data=payload, files=files, headers=head
             </span><span class="s2">"limit"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w">
             </span><span class="s2">"relevance"</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="p">,</span><span class="w">
             </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"auto_detect_gender"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+            </span><span class="s2">"auto_detect_gender"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"human_detection"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
