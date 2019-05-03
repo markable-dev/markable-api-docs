@@ -308,7 +308,8 @@ response = requests.request("POST", url, data=payload, files=files, headers=head
             "limit": 30,
             "relevance": 50,
             "attributes": false,
-            "auto_detect_gender": false
+            "auto_detect_gender": false,
+            "human_detection": false
         }
     },
     "data": [
