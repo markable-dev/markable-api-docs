@@ -25,7 +25,8 @@ Authorization: Bearer 123abc
             "name" : "A great awesome product",
             "brand" : "Brand",
             "color" : "green",
-            "gender" : "women",
+            "gender" : "female",
+            "age_group": "adults"
             "vendor" : "vendor",
             "stock" : true,
             "price" : 30,
@@ -60,7 +61,8 @@ curl -X POST https://catalog.markable.ai/catalogs/catalog-1/items \
             "name" : "A great awesome product",
             "brand" : "Brand",
             "color" : "green",
-            "gender" : "women",
+            "gender" : "female",
+            "age_group": "adults",
             "vendor" : "vendor",
             "stock" : true,
             "price" : 30,
@@ -93,7 +95,8 @@ payload = {
             "name" : "A great awesome product",
             "brand" : "Brand",
             "color" : "green",
-            "gender" : "women",
+            "gender" : "female",
+            "age_group": "adults"
             "vendor" : "vendor",
             "stock" : true,
             "price" : 30,
@@ -136,7 +139,8 @@ print(response.text)
             "name" : "A great awesome product",
             "brand" : "Brand",
             "color" : "green",
-            "gender" : "women",
+            "gender" : "female",
+            "age_group": "adults"
             "vendor" : "vendor",
             "stock" : true,
             "price" : 30,
@@ -187,7 +191,8 @@ Authorization: Bearer 123abc
             "name" : "A great awesome product",
             "brand" : "Brand",
             "color" : "green",
-            "gender" : "women",
+            "gender" : "female",
+            "age_group": "adults"
             "vendor" : "vendor",
             "stock" : true,
             "price" : 30,
@@ -218,10 +223,11 @@ curl -X POST https://catalog.markable.ai/catalogs/catalog-1/items \
         }
         "data": {
             "url": "https://example.com/product/shoes.html",
+            "gender": "female",
+            "age_group": "adults",
             "name": "A shoe product",
             "description": "This is a fantastic shoe product",
             "categoryInfo": "Some relevant information about category",
-            "gender": "women"
         }
     }
 }
@@ -239,11 +245,6 @@ curl -X POST https://catalog.markable.ai/catalogs/catalog-1/items \
                 "uri": "https://example.com/products/2/a.png",
                 "width": null,
                 "height": null,
-                "thumbnail": {
-                    "uri": "hhttps://markable/images/2/a.jpeg",
-                    "width": 66,
-                    "height": 100
-                },
                 "status": "pending",
                 "error": null
             },
@@ -253,11 +254,6 @@ curl -X POST https://catalog.markable.ai/catalogs/catalog-1/items \
                 "uri": "https://example.com/products/2/b.png",
                 "width": null,
                 "height": null,
-                "thumbnail": {
-                    "uri": "https://markable/images/2/b.jpeg",
-                    "width": 66,
-                    "height": 100
-                },
                 "status": "pending",
                 "error": null
             }
@@ -267,7 +263,8 @@ curl -X POST https://catalog.markable.ai/catalogs/catalog-1/items \
             "name": "A shoe product",
             "description": "This is a fantastic shoe product",
             "categoryInfo": "Some relevant information about category",
-            "gender": "women"
+            "gender": "female",
+            "age_group": "adults"
         },
         "category": {
             "name": "shoes",
@@ -290,9 +287,9 @@ curl -X POST https://catalog.markable.ai/catalogs/catalog-1/items \
 ```
 Create a new [catalog item](#the-catalog-item-object) in your catalog that will eventually get indexed.
 
-* There is an option to pass `data.gender` for [gender search](#image-search) if needed. __By default, we assign `women` as gender__
-* `data.url` is mandatory since our experience allows us to redirect users to the product page.
-* There is an option to generate a thumbnail URI of each image. The original image URI is retained. 
+* There is an option to pass `data.gender` for [gender search](#image-search) if needed. __By default, we assign `female` as gender__
+* There is an option to pass `data.age_group`. __By default, we assign `adults` as age_group__
+* `data.url`, `data.gender`, and `data.age_group` are mandatory.
 
 Indexing
 
@@ -332,10 +329,3 @@ Parameter       | Description
 Attribute       | Type                  			| Description
 -------         | ----------            			| -------
 `data`          | [CatalogItem](#catalog-item)   	| A valid catalog item object.
-
-
-### Options
-
-Attribute       |Type       |Description
--------         |-------    |-------
-`transform`     |Boolean    | Generates a thumbnail for each image.  The thumbnail will retain aspect ratio.  Max width and height can be specified.  This setting **defaults to max 50, 50** if width and height are not specified. 

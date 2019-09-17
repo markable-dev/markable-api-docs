@@ -42,7 +42,8 @@ print(response.text)
             "name": "A shoe product",
             "description": "This is a fantastic shoe product",
             "categoryInfo": "Some relevant information about category",
-            "gender": "women"
+            "gender": "female",
+            "age_group": "adults",
         },
         "fingerprint": "uniqueID",
         "failed_count": {
@@ -57,11 +58,6 @@ print(response.text)
                 "width": 853,
                 "height": 853,
                 "error": null,
-                "thumbnail": {
-                    "uri": "https://markable/images/s3-url-3.jpeg",
-                    "width": 100,
-                    "height": 100
-                }
             }
         ],
         "status": "nn_pending",

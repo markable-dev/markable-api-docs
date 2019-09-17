@@ -23,15 +23,16 @@
         },
     ],
     "data": {
+        "url": "https://productpage.com",
+        "gender": "female",
+        "age_group": "adults",
         "stock": true,
         "name": "product name",
-        "gender": "women",
         "price": 200,
         "brand": "new brand",
         "vendor": "new vendor",
         "country": "US",
         "sku": "2153608405:sweaters",
-        "url": "https://productpage.com",
         "category": "sweaters",
     },
     "category": {
@@ -197,9 +198,18 @@
                     "title": "Gender",
                     "description": "Catalog Item Gender",
                     "enum": [
-                        "men",
-                        "women",
+                        "male",
+                        "female",
                         "unisex"
+                    ]
+                },
+                "age_group": {
+                    "title": "Gender",
+                    "description": "Catalog Item Gender",
+                    "enum": [
+                        "children",
+                        "adults",
+                        "toddlers"
                     ]
                 },
                 "color": {
@@ -220,7 +230,9 @@
                 }
             },
             "required": [
-                "url"
+                "url", 
+                "gender",
+                "age_group"
             ],
             "additionalProperties": true
         },
@@ -612,8 +624,8 @@ Note
 
 * Internally, the uniqueness of a catalogItem depends on the imageURL(s), gender and the markable category (fingerprint).
 * Use the `data` key below to add free form information about the CatalogItem.
-* `data.url` is required since we want to the know product URL to redirect the user.
-* `data` also supports optional fields like `gender`, `brand`, `color`, `vendor` & `sku`.
+* `data.url`, `data.gender`, `data.age_group`, is required.
+* `data` also supports optional fields like `brand`, `color`, `vendor` & `sku`.
 
 Attribute       | Type          | Description
 -------         | ----------    | -------
