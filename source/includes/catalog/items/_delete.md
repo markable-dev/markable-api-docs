@@ -43,11 +43,6 @@ print(response.text)
                 "uri": "https://example.com/products/2/a.png",
                 "width": null,
                 "height": null,
-                "thumbnail": {
-                    "uri": "hhttps://markable/images/2/a.jpeg",
-                    "width": 66,
-                    "height": 100
-                },
                 "status": "pending",
                 "error": null
             },
@@ -57,11 +52,6 @@ print(response.text)
                 "uri": "https://example.com/products/2/b.png",
                 "width": null,
                 "height": null,
-                "thumbnail": {
-                    "uri": "https://markable/images/2/b.jpeg",
-                    "width": 66,
-                    "height": 100
-                },
                 "status": "pending",
                 "error": null
             }
@@ -71,7 +61,8 @@ print(response.text)
             "name": "A shoe product",
             "description": "This is a fantastic shoe product",
             "categoryInfo": "Some relevant information about category",
-            "gender": "women"
+            "gender": "female",
+            "age_group": "adults"
         },
         "category": {
             "name": "shoes",

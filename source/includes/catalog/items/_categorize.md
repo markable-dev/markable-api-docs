@@ -20,6 +20,8 @@ Authorization: Bearer 123abc
         ],
         "data": {
             "url": "https://example.com/product/shoes.html",
+            "gender": "male",
+            "age_group": "adults",
             "name": "A shoe product",
             "description": "This is a fantastic shoe product",
             "categoryInfo": "Some relevant information about category"
@@ -45,6 +47,8 @@ curl -X POST https://catalog.markable.ai/category \
         ],
         "data": {
             "url": "https://example.com/product/shoes.html",
+            "gender": "male",
+            "age_group": "adults",
             "name": "A shoe product",
             "description": "This is a fantastic shoe product",
             "categoryInfo": "Some relevant information about category"
@@ -70,6 +74,8 @@ payload = {
         "data":
             {
                 "url": "https://example.com/product/shoes.html",
+                "gender": "male",
+                "age_group": "adults",
                 "name": "A shoe product",
                 "description": "This is a fantastic shoe product",
                 "categoryInfo": "Some relevant information about category"
@@ -102,6 +108,8 @@ print(response.text)
         ],
         "data": {
             "url": "https://example.com/product/shoes.html",
+            "gender": "male",
+            "age_group": "adults",
             "name": "A shoe product",
             "description": "This is a fantastic shoe product",
             "categoryInfo": "Some relevant information about category"
