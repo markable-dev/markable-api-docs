@@ -170,7 +170,7 @@ Authorization: Bearer 123abc
 {
   "data": {
         "image_uri": "http://i.com/1.png",
-        "gender": ["men"],
+        "gender": ["male"],
         "catalogs": [
             {
                 "name": "style-catalog-name-1"
@@ -191,7 +191,7 @@ curl -X POST https://catalog.markable.ai/image/search/style \
 {
 	"data": {
         "image_uri": "http://i.com/1.png",
-        "gender": ["men", "women"],
+        "gender": ["male", "female"],
         "catalogs": [
             {
                 "name": "style-catalog-name-1"
@@ -213,7 +213,7 @@ url = "https://catalog.markable.ai/image/search/style"
 payload = {
     "data": {
         "image_uri": "http://i.com/1.png",
-        "gender": ["men", "women"],
+        "gender": ["male", "female"],
         "catalogs": [
             {
                 "_id": "catalog-id-1"
@@ -301,8 +301,7 @@ response = requests.request("POST", url, data=payload, files=files, headers=head
             ]
         },
         "gender": [
-            "men",
-            "women"
+             "auto-detect"
         ],
         "options": {
             "limit": 30,
@@ -330,8 +329,7 @@ response = requests.request("POST", url, data=payload, files=files, headers=head
                 "height": 851.519287109375
             },
             "gender": [
-                "women",
-                "men",
+                "female",
                 "unisex"
             ],
             "matches": [
