@@ -2912,15 +2912,16 @@ print(response.text)
         </span><span class="p">},</span><span class="w">
     </span><span class="p">],</span><span class="w">
     </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://productpage.com"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"gender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"female"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"age_group"</span><span class="p">:</span><span class="w"> </span><span class="s2">"adults"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"stock"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
         </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"product name"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"gender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"women"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
         </span><span class="s2">"brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"new brand"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"vendor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"new vendor"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"US"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2153608405:sweaters"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://productpage.com"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sweaters"</span><span class="p">,</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="s2">"category"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -3085,9 +3086,18 @@ print(response.text)
                     </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Gender"</span><span class="p">,</span><span class="w">
                     </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Catalog Item Gender"</span><span class="p">,</span><span class="w">
                     </span><span class="s2">"enum"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-                        </span><span class="s2">"men"</span><span class="p">,</span><span class="w">
-                        </span><span class="s2">"women"</span><span class="p">,</span><span class="w">
+                        </span><span class="s2">"male"</span><span class="p">,</span><span class="w">
+                        </span><span class="s2">"female"</span><span class="p">,</span><span class="w">
                         </span><span class="s2">"unisex"</span><span class="w">
+                    </span><span class="p">]</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="s2">"age_group"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Gender"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Catalog Item Gender"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"enum"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                        </span><span class="s2">"children"</span><span class="p">,</span><span class="w">
+                        </span><span class="s2">"adults"</span><span class="p">,</span><span class="w">
+                        </span><span class="s2">"toddlers"</span><span class="w">
                     </span><span class="p">]</span><span class="w">
                 </span><span class="p">},</span><span class="w">
                 </span><span class="s2">"color"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -3108,7 +3118,9 @@ print(response.text)
                 </span><span class="p">}</span><span class="w">
             </span><span class="p">},</span><span class="w">
             </span><span class="s2">"required"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-                </span><span class="s2">"url"</span><span class="w">
+                </span><span class="s2">"url"</span><span class="p">,</span><span class="w"> 
+                </span><span class="s2">"gender"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"age_group"</span><span class="w">
             </span><span class="p">],</span><span class="w">
             </span><span class="s2">"additionalProperties"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
         </span><span class="p">},</span><span class="w">
@@ -3499,8 +3511,8 @@ print(response.text)
 <ul>
 <li>Internally, the uniqueness of a catalogItem depends on the imageURL(s), gender and the markable category (fingerprint).</li>
 <li>Use the <code class="prettyprint">data</code> key below to add free form information about the CatalogItem.</li>
-<li><code class="prettyprint">data.url</code> is required since we want to the know product URL to redirect the user.</li>
-<li><code class="prettyprint">data</code> also supports optional fields like <code class="prettyprint">gender</code>, <code class="prettyprint">brand</code>, <code class="prettyprint">color</code>, <code class="prettyprint">vendor</code> &amp; <code class="prettyprint">sku</code>.</li>
+<li><code class="prettyprint">data.url</code>, <code class="prettyprint">data.gender</code>, <code class="prettyprint">data.age_group</code>, is required.</li>
+<li><code class="prettyprint">data</code> also supports optional fields like <code class="prettyprint">brand</code>, <code class="prettyprint">color</code>, <code class="prettyprint">vendor</code> &amp; <code class="prettyprint">sku</code>.</li>
 </ul>
 
 <table><thead>
@@ -3618,6 +3630,8 @@ print(response.text)
 <span class="s">        ],</span>
 <span class="s">        "data": {</span>
 <span class="s">            "url": "https://example.com/product/shoes.html",</span>
+<span class="s">            "gender": "male",</span>
+<span class="s">            "age_group": "adults",</span>
 <span class="s">            "name": "A shoe product",</span>
 <span class="s">            "description": "This is a fantastic shoe product",</span>
 <span class="s">            "categoryInfo": "Some relevant information about category"</span>
@@ -3640,6 +3654,8 @@ print(response.text)
         ],
         "data": {
             "url": "https://example.com/product/shoes.html",
+            "gender": "male",
+            "age_group": "adults",
             "name": "A shoe product",
             "description": "This is a fantastic shoe product",
             "categoryInfo": "Some relevant information about category"
@@ -3665,6 +3681,8 @@ payload = {
         "data":
             {
                 "url": "https://example.com/product/shoes.html",
+                "gender": "male",
+                "age_group": "adults",
                 "name": "A shoe product",
                 "description": "This is a fantastic shoe product",
                 "categoryInfo": "Some relevant information about category"
@@ -3697,6 +3715,8 @@ print(response.text)
         </span><span class="p">],</span><span class="w">
         </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/product/shoes.html"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"gender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"male"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"age_group"</span><span class="p">:</span><span class="w"> </span><span class="s2">"adults"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A shoe product"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This is a fantastic shoe product"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"categoryInfo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Some relevant information about category"</span><span class="w">
@@ -3758,7 +3778,8 @@ print(response.text)
 <span class="s">            "name" : "A great awesome product",</span>
 <span class="s">            "brand" : "Brand",</span>
 <span class="s">            "color" : "green",</span>
-<span class="s">            "gender" : "women",</span>
+<span class="s">            "gender" : "female",</span>
+<span class="s">            "age_group": "adults"</span>
 <span class="s">            "vendor" : "vendor",</span>
 <span class="s">            "stock" : true,</span>
 <span class="s">            "price" : 30,</span>
@@ -3789,7 +3810,8 @@ print(response.text)
             "name" : "A great awesome product",
             "brand" : "Brand",
             "color" : "green",
-            "gender" : "women",
+            "gender" : "female",
+            "age_group": "adults",
             "vendor" : "vendor",
             "stock" : true,
             "price" : 30,
@@ -3822,7 +3844,8 @@ payload = {
             "name" : "A great awesome product",
             "brand" : "Brand",
             "color" : "green",
-            "gender" : "women",
+            "gender" : "female",
+            "age_group": "adults"
             "vendor" : "vendor",
             "stock" : true,
             "price" : 30,
@@ -3865,7 +3888,8 @@ print(response.text)
             </span><span class="s2">"name"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"A great awesome product"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"brand"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"Brand"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"color"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"green"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"gender"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"women"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"gender"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"female"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"age_group"</span><span class="p">:</span><span class="w"> </span><span class="s2">"adults"</span><span class="w">
             </span><span class="s2">"vendor"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"vendor"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"stock"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
             </span><span class="s2">"price"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w">
@@ -3915,7 +3939,8 @@ print(response.text)
 <span class="s">            "name" : "A great awesome product",</span>
 <span class="s">            "brand" : "Brand",</span>
 <span class="s">            "color" : "green",</span>
-<span class="s">            "gender" : "women",</span>
+<span class="s">            "gender" : "female",</span>
+<span class="s">            "age_group": "adults"</span>
 <span class="s">            "vendor" : "vendor",</span>
 <span class="s">            "stock" : true,</span>
 <span class="s">            "price" : 30,</span>
@@ -3943,10 +3968,11 @@ print(response.text)
         }
         "data": {
             "url": "https://example.com/product/shoes.html",
+            "gender": "female",
+            "age_group": "adults",
             "name": "A shoe product",
             "description": "This is a fantastic shoe product",
             "categoryInfo": "Some relevant information about category",
-            "gender": "women"
         }
     }
 }
@@ -3964,11 +3990,6 @@ print(response.text)
                 </span><span class="s2">"uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/products/2/a.png"</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"width"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"height"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"thumbnail"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                    </span><span class="s2">"uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"hhttps://markable/images/2/a.jpeg"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"width"</span><span class="p">:</span><span class="w"> </span><span class="mi">66</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"height"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="w">
-                </span><span class="p">},</span><span class="w">
                 </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pending"</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"error"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
             </span><span class="p">},</span><span class="w">
@@ -3978,11 +3999,6 @@ print(response.text)
                 </span><span class="s2">"uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/products/2/b.png"</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"width"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"height"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"thumbnail"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                    </span><span class="s2">"uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://markable/images/2/b.jpeg"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"width"</span><span class="p">:</span><span class="w"> </span><span class="mi">66</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"height"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="w">
-                </span><span class="p">},</span><span class="w">
                 </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pending"</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"error"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
             </span><span class="p">}</span><span class="w">
@@ -3992,7 +4008,8 @@ print(response.text)
             </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A shoe product"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This is a fantastic shoe product"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"categoryInfo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Some relevant information about category"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"gender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"women"</span><span class="w">
+            </span><span class="s2">"gender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"female"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"age_group"</span><span class="p">:</span><span class="w"> </span><span class="s2">"adults"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="s2">"category"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"shoes"</span><span class="p">,</span><span class="w">
@@ -4016,9 +4033,9 @@ print(response.text)
 <p>Create a new <a href="#the-catalog-item-object">catalog item</a> in your catalog that will eventually get indexed.</p>
 
 <ul>
-<li>There is an option to pass <code class="prettyprint">data.gender</code> for <a href="#image-search">gender search</a> if needed. <strong>By default, we assign <code class="prettyprint">women</code> as gender</strong></li>
-<li><code class="prettyprint">data.url</code> is mandatory since our experience allows us to redirect users to the product page.</li>
-<li>There is an option to generate a thumbnail URI of each image. The original image URI is retained. </li>
+<li>There is an option to pass <code class="prettyprint">data.gender</code> for <a href="#image-search">gender search</a> if needed. <strong>By default, we assign <code class="prettyprint">female</code> as gender</strong></li>
+<li>There is an option to pass <code class="prettyprint">data.age_group</code>. <strong>By default, we assign <code class="prettyprint">adults</code> as age_group</strong></li>
+<li><code class="prettyprint">data.url</code>, <code class="prettyprint">data.gender</code>, and <code class="prettyprint">data.age_group</code> are mandatory.</li>
 </ul>
 
 <p>Indexing</p>
@@ -4082,22 +4099,6 @@ Catalog item images start at <code class="prettyprint">pending</code> status. </
 </tr>
 </tbody></table>
 
-<h3 id="options">Options</h3>
-
-<table><thead>
-<tr>
-<th>Attribute</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><code class="prettyprint">transform</code></td>
-<td>Boolean</td>
-<td>Generates a thumbnail for each image.  The thumbnail will retain aspect ratio.  Max width and height can be specified.  This setting <strong>defaults to max 50, 50</strong> if width and height are not specified.</td>
-</tr>
-</tbody></table>
-
           <h2 id="delete-catalog-item"><img src="images/delete-catalog-item_icon.png" alt="delete-catalog-item_icon" width="26px" height="auto"> Delete catalog item</h2>
 
 <blockquote>
@@ -4139,11 +4140,6 @@ print(response.text)
                 </span><span class="s2">"uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/products/2/a.png"</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"width"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"height"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"thumbnail"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                    </span><span class="s2">"uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"hhttps://markable/images/2/a.jpeg"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"width"</span><span class="p">:</span><span class="w"> </span><span class="mi">66</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"height"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="w">
-                </span><span class="p">},</span><span class="w">
                 </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pending"</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"error"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
             </span><span class="p">},</span><span class="w">
@@ -4153,11 +4149,6 @@ print(response.text)
                 </span><span class="s2">"uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/products/2/b.png"</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"width"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"height"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"thumbnail"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                    </span><span class="s2">"uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://markable/images/2/b.jpeg"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"width"</span><span class="p">:</span><span class="w"> </span><span class="mi">66</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"height"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="w">
-                </span><span class="p">},</span><span class="w">
                 </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pending"</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"error"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
             </span><span class="p">}</span><span class="w">
@@ -4167,7 +4158,8 @@ print(response.text)
             </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A shoe product"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This is a fantastic shoe product"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"categoryInfo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Some relevant information about category"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"gender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"women"</span><span class="w">
+            </span><span class="s2">"gender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"female"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"age_group"</span><span class="p">:</span><span class="w"> </span><span class="s2">"adults"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="s2">"category"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"shoes"</span><span class="p">,</span><span class="w">
@@ -4270,7 +4262,8 @@ print(response.text)
             </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A shoe product"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This is a fantastic shoe product"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"categoryInfo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Some relevant information about category"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"gender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"women"</span><span class="w">
+            </span><span class="s2">"gender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"female"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"age_group"</span><span class="p">:</span><span class="w"> </span><span class="s2">"adults"</span><span class="p">,</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="s2">"fingerprint"</span><span class="p">:</span><span class="w"> </span><span class="s2">"uniqueID"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"failed_count"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -4285,11 +4278,6 @@ print(response.text)
                 </span><span class="s2">"width"</span><span class="p">:</span><span class="w"> </span><span class="mi">853</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"height"</span><span class="p">:</span><span class="w"> </span><span class="mi">853</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"error"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"thumbnail"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                    </span><span class="s2">"uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://markable/images/s3-url-3.jpeg"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"width"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"height"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="w">
-                </span><span class="p">}</span><span class="w">
             </span><span class="p">}</span><span class="w">
         </span><span class="p">],</span><span class="w">
         </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"nn_pending"</span><span class="p">,</span><span class="w">
@@ -5147,7 +5135,7 @@ print(response.text)
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"gender"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"women"</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"gender"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"female"</span><span class="p">],</span><span class="w">
         </span><span class="s2">"image_uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/images/1.png"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"catalogs"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
             </span><span class="p">{</span><span class="w">
@@ -5165,7 +5153,7 @@ print(response.text)
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"gender"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"men"</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"gender"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"male"</span><span class="p">],</span><span class="w">
         </span><span class="s2">"image_uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/images/1.png"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"catalogs"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
             </span><span class="p">{</span><span class="w">
@@ -5220,7 +5208,7 @@ print(response.text)
 <tr>
 <td><code class="prettyprint">gender</code></td>
 <td>Array</td>
-<td>Either <code class="prettyprint">[&#39;men&#39;]</code>, <code class="prettyprint">[&#39;women&#39;]</code>, [<code class="prettyprint">&#39;unisex&#39;</code>] or any combination can be provided in the request to limit <strong>all</strong> results to specified gender. <strong>If no gender field is provided, we will automatically detect gender and return detected gender based results.</strong> If gender is not detected, results will return closest matching items irrespective of gender.</td>
+<td>Either <code class="prettyprint">[&#39;male&#39;]</code>, <code class="prettyprint">[&#39;female&#39;]</code>, [<code class="prettyprint">&#39;unisex&#39;</code>] or any combination can be provided in the request to limit <strong>all</strong> results to specified gender. <strong>If no gender field is provided, we will automatically detect gender and return detected gender based results.</strong> If gender is not detected, results will return closest matching items irrespective of gender.</td>
 </tr>
 <tr>
 <td><code class="prettyprint">catalogs</code></td>
@@ -5269,6 +5257,26 @@ print(response.text)
 <td><code class="prettyprint">human_detection</code></td>
 <td>Boolean</td>
 <td>Return bounding boxes for human detections.  Default is <code class="prettyprint">false</code>.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">centerness_filter</code></td>
+<td>Boolean</td>
+<td>Applies heuristics to return detections and results from the center of an image.  Default is <code class="prettyprint">false</code>.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">return_specific_nn_match</code></td>
+<td>Boolean</td>
+<td>When a catalog item contains multiple images of the product or item, this option will <strong>only</strong> return the specific image selected by similarity search.  Default is <code class="prettyprint">false</code>.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">family_search</code></td>
+<td>Boolean</td>
+<td>Searches similar items in related taxanomy groups.  Default is <code class="prettyprint">true</code>.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">unique_products</code></td>
+<td>Boolean</td>
+<td>Returns only one product in catalogs where a product image is used in multiple products.  Default is <code class="prettyprint">false</code>.</td>
 </tr>
 </tbody></table>
 
@@ -5441,7 +5449,7 @@ print(response.text)
 <span class="s">{</span>
 <span class="s">  "data": {</span>
 <span class="s">        "image_uri": "http://i.com/1.png",</span>
-<span class="s">        "gender": ["men"],</span>
+<span class="s">        "gender": ["male"],</span>
 <span class="s">        "catalogs": [</span>
 <span class="s">            {</span>
 <span class="s">                "name": "catalog-name-1"</span>
@@ -5459,7 +5467,7 @@ print(response.text)
 {
     "data": {
         "image_uri": "http://i.com/1.png",
-        "gender": ["men"],
+        "gender": ["male"],
         "catalogs": [
             {
                 "name": "catalog-name-1"
@@ -5481,7 +5489,7 @@ url = "https://catalog.markable.ai/image/search"
 payload = {
     "data": {
         "image_uri": "http://i.com/1.png",
-        "gender": ["men", "women"],
+        "gender": ["male", "female"],
         "catalogs": [
             {
                 "name": "catalog-name-1"
@@ -5515,7 +5523,7 @@ print(response.text)
 -H <span class="s1">'Content-Type: multipart/form-data;'</span> <span class="se">\</span>
 -H <span class="s1">'Authorization: Bearer 123abc'</span> <span class="se">\</span>
 -F <span class="s1">'image=@/local/folder/1.png'</span> <span class="se">\</span>
--F <span class="s1">'data={ "gender": ["women"] , "catalogs": [{  "name": "catalog-name-1" }] }'</span>
+-F <span class="s1">'data={ "gender": ["female"] , "catalogs": [{  "name": "catalog-name-1" }] }'</span>
 </code></pre>
 <!--
 ```python
@@ -5567,8 +5575,7 @@ response = requests.request("POST", url, data=payload, files=files, headers=head
             </span><span class="p">]</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="s2">"gender"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-            </span><span class="s2">"men"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"women"</span><span class="w">
+            </span><span class="s2">"auto-detect"</span><span class="w">
         </span><span class="p">],</span><span class="w">
         </span><span class="s2">"options"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="s2">"limit"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w">
@@ -5596,7 +5603,7 @@ response = requests.request("POST", url, data=payload, files=files, headers=head
                 </span><span class="s2">"height"</span><span class="p">:</span><span class="w"> </span><span class="mf">1876.552230834961</span><span class="w">
             </span><span class="p">},</span><span class="w">
             </span><span class="s2">"gender"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-                </span><span class="s2">"women"</span><span class="w">
+                </span><span class="s2">"female"</span><span class="w">
             </span><span class="p">],</span><span class="w">
             </span><span class="s2">"matches"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
         </span><span class="p">},</span><span class="w">
@@ -5617,7 +5624,7 @@ response = requests.request("POST", url, data=payload, files=files, headers=head
                 </span><span class="s2">"height"</span><span class="p">:</span><span class="w"> </span><span class="mf">332.765380859375</span><span class="w">
             </span><span class="p">},</span><span class="w">
             </span><span class="s2">"gender"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-                </span><span class="s2">"women"</span><span class="w">
+                </span><span class="s2">"female"</span><span class="w">
             </span><span class="p">],</span><span class="w">
             </span><span class="s2">"matches"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
                 </span><span class="p">{</span><span class="w">
@@ -5705,7 +5712,7 @@ response = requests.request("POST", url, data=payload, files=files, headers=head
                 </span><span class="s2">"height"</span><span class="p">:</span><span class="w"> </span><span class="mf">736.38623046875</span><span class="w">
             </span><span class="p">},</span><span class="w">
             </span><span class="s2">"gender"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-                </span><span class="s2">"women"</span><span class="w">
+                </span><span class="s2">"female"</span><span class="w">
             </span><span class="p">],</span><span class="w">
             </span><span class="s2">"matches"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
                 </span><span class="p">{</span><span class="w">
@@ -5864,7 +5871,7 @@ response = requests.request("POST", url, data=payload, files=files, headers=head
 <tr>
 <td><code class="prettyprint">gender</code></td>
 <td>Array</td>
-<td>Either <code class="prettyprint">[&#39;men&#39;]</code>, <code class="prettyprint">[&#39;women&#39;]</code>, [<code class="prettyprint">&#39;unisex&#39;</code>] or any combination can be provided in the request to limit <strong>all</strong> results to specified gender. <strong>If no gender field is provided, we will automatically detect gender and return detected gender based results.</strong> If gender is not detected, results will return closest matching items irrespective of gender.</td>
+<td>Either <code class="prettyprint">[&#39;male&#39;]</code>, <code class="prettyprint">[&#39;female&#39;]</code>, [<code class="prettyprint">&#39;unisex&#39;</code>] or any combination can be provided in the request to limit <strong>all</strong> results to specified gender. <strong>If no gender field is provided, we will automatically detect gender and return detected gender based results.</strong> If gender is not detected, results will return closest matching items irrespective of gender.</td>
 </tr>
 <tr>
 <td><code class="prettyprint">catalogs</code></td>
@@ -5913,6 +5920,26 @@ response = requests.request("POST", url, data=payload, files=files, headers=head
 <td><code class="prettyprint">human_detection</code></td>
 <td>Boolean</td>
 <td>Return bounding boxes for human detections.  Default is <code class="prettyprint">false</code>.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">centerness_filter</code></td>
+<td>Boolean</td>
+<td>Applies heuristics to return detections and results from the center of an image.  Default is <code class="prettyprint">false</code>.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">return_specific_nn_match</code></td>
+<td>Boolean</td>
+<td>When a catalog item contains multiple images of the product or item, this option will <strong>only</strong> return the specific image selected by similarity search.  Default is <code class="prettyprint">false</code>.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">family_search</code></td>
+<td>Boolean</td>
+<td>Searches similar items in related taxanomy groups.  Default is <code class="prettyprint">true</code>.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">unique_products</code></td>
+<td>Boolean</td>
+<td>Returns only one product in catalogs where a product image is used in multiple products.  Default is <code class="prettyprint">false</code>.</td>
 </tr>
 </tbody></table>
 
@@ -6081,7 +6108,7 @@ print(response.text)
 <span class="s">{</span>
 <span class="s">  "data": {</span>
 <span class="s">        "image_uri": "http://i.com/1.png",</span>
-<span class="s">        "gender": ["men"],</span>
+<span class="s">        "gender": ["male"],</span>
 <span class="s">        "catalogs": [</span>
 <span class="s">            {</span>
 <span class="s">                "name": "style-catalog-name-1"</span>
@@ -6099,7 +6126,7 @@ print(response.text)
 {
     "data": {
         "image_uri": "http://i.com/1.png",
-        "gender": ["men", "women"],
+        "gender": ["male", "female"],
         "catalogs": [
             {
                 "name": "style-catalog-name-1"
@@ -6121,7 +6148,7 @@ url = "https://catalog.markable.ai/image/search/style"
 payload = {
     "data": {
         "image_uri": "http://i.com/1.png",
-        "gender": ["men", "women"],
+        "gender": ["male", "female"],
         "catalogs": [
             {
                 "_id": "catalog-id-1"
@@ -6206,8 +6233,7 @@ response = requests.request("POST", url, data=payload, files=files, headers=head
             </span><span class="p">]</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="s2">"gender"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-            </span><span class="s2">"men"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"women"</span><span class="w">
+             </span><span class="s2">"auto-detect"</span><span class="w">
         </span><span class="p">],</span><span class="w">
         </span><span class="s2">"options"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="s2">"limit"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w">
@@ -6235,8 +6261,7 @@ response = requests.request("POST", url, data=payload, files=files, headers=head
                 </span><span class="s2">"height"</span><span class="p">:</span><span class="w"> </span><span class="mf">851.519287109375</span><span class="w">
             </span><span class="p">},</span><span class="w">
             </span><span class="s2">"gender"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-                </span><span class="s2">"women"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"men"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"female"</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"unisex"</span><span class="w">
             </span><span class="p">],</span><span class="w">
             </span><span class="s2">"matches"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
