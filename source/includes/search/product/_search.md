@@ -175,7 +175,7 @@ Authorization: Bearer 123abc
 {
   "data": {
         "image_uri": "http://i.com/1.png",
-        "gender": ["men"],
+        "gender": ["male"],
         "catalogs": [
             {
                 "name": "catalog-name-1"
@@ -196,7 +196,7 @@ curl -X POST https://catalog.markable.ai/image/search \
 {
 	"data": {
         "image_uri": "http://i.com/1.png",
-        "gender": ["men"],
+        "gender": ["male"],
         "catalogs": [
             {
                 "name": "catalog-name-1"
@@ -218,7 +218,7 @@ url = "https://catalog.markable.ai/image/search"
 payload = {
     "data": {
         "image_uri": "http://i.com/1.png",
-        "gender": ["men", "women"],
+        "gender": ["male", "female"],
         "catalogs": [
             {
                 "name": "catalog-name-1"
@@ -254,7 +254,7 @@ curl -X POST https://catalog.markable.ai/image/search \
 -H 'Content-Type: multipart/form-data;' \
 -H 'Authorization: Bearer 123abc' \
 -F 'image=@/local/folder/1.png' \
--F 'data={ "gender": ["women"] , "catalogs": [{  "name": "catalog-name-1" }] }'
+-F 'data={ "gender": ["female"] , "catalogs": [{  "name": "catalog-name-1" }] }'
 ```
 <!--
 ```python
@@ -305,8 +305,7 @@ response = requests.request("POST", url, data=payload, files=files, headers=head
             ]
         },
         "gender": [
-            "men",
-            "women"
+            "auto-detect"
         ],
         "options": {
             "limit": 30,
@@ -334,7 +333,7 @@ response = requests.request("POST", url, data=payload, files=files, headers=head
                 "height": 1876.552230834961
             },
             "gender": [
-                "women"
+                "female"
             ],
             "matches": []
         },
@@ -355,7 +354,7 @@ response = requests.request("POST", url, data=payload, files=files, headers=head
                 "height": 332.765380859375
             },
             "gender": [
-                "women"
+                "female"
             ],
             "matches": [
                 {
@@ -443,7 +442,7 @@ response = requests.request("POST", url, data=payload, files=files, headers=head
                 "height": 736.38623046875
             },
             "gender": [
-                "women"
+                "female"
             ],
             "matches": [
                 {
