@@ -7,15 +7,7 @@
 
 ```json
 {
-	"video_uri": "https://example.com/videos/1.mp4",
-	"catalogs": [
-	    {
-	        "name": "catalog-1"
-	    },
-	    {
-	        "name": "catalog-2"
-	    }
-	]
+	"uri": "https://example.com/videos/1.mp4"
 }
 ```
 
@@ -23,5 +15,13 @@ A **Video Search Query** (object) defines a visual search query for a video.
 
 Attribute 		| Type 										| Description
 ------- 		| -------									| -------
-`video_uri` 	| String									| A valid video URI. **<small>required</small>**
-`catalogs` 		| [Array&lt;Catalog&gt;](#catalogs)			| List of catalogs (public or private) - which will be included the visual search scope.
+`uri` 	        | String									| A valid video URI. **<small>required</small>**
+
+### Options for Search
+
+These options give you the flexibility to control how our visual search is performed.
+
+Attribute               | Type                                  | Description
+-------                 | -------                               | -------
+`force`                 | Boolean                               | Reprocesses and reindexes a previously processed video
+`refresh`               | Boolean                               | Updates product matches and database retrievals for a previously processed video 
