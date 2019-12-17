@@ -6388,6 +6388,1005 @@ catalog of schema <code class="prettyprint">style</code>.</p>
 <li><p>Maximum image memory size = <code class="prettyprint">10485760</code> b</p></li>
 </ol>
 
+          <h1 id="video-search">Video Search</h1>
+
+<h2 id="the-video-search-query-object"><img src="images/video-search_icon.png" alt="video-search_icon" width="28px" height="auto"> The Video Search Query Object</h2>
+
+<blockquote>
+<p><strong>Example:</strong> Video Search Query Object</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/videos/1.mp4"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>A <strong>Video Search Query</strong> (object) defines a visual search query for a video.</p>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">uri</code></td>
+<td>String</td>
+<td>A valid video URI. <strong><small>required</small></strong></td>
+</tr>
+</tbody></table>
+
+<h3 id="options-for-search">Options for Search</h3>
+
+<p>These options give you the flexibility to control how our visual search is performed.</p>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">force</code></td>
+<td>Boolean</td>
+<td>Reprocesses and reindexes a previously processed video</td>
+</tr>
+<tr>
+<td><code class="prettyprint">refresh</code></td>
+<td>Boolean</td>
+<td>Updates product matches and database retrievals for a previously processed video</td>
+</tr>
+</tbody></table>
+
+          <h2 id="search"><img src="images/search-video_icon.png" alt="search-video_icon" width="28px" height="auto"> Search</h2>
+
+<blockquote>
+<p><strong>Example:</strong> Request</p>
+</blockquote>
+<pre class="highlight http tab-http"><code><span class="nf">POST</span> <span class="nn">http://video.markable.ai/video/search?page=0&amp;pageLimit=2</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer 123abc</span>
+<span class="s">{</span>
+<span class="s">    "data": {</span>
+<span class="s">        "uri": "https://example.com/videos/1.mp4",</span>
+<span class="s">    }</span>
+<span class="s">}</span>
+</code></pre>
+<blockquote>
+<p><strong>Example:</strong> Request Force Options</p>
+</blockquote>
+<pre class="highlight http tab-http"><code><span class="nf">POST</span> <span class="nn">http://video.markable.ai/video/search?page=0&amp;pageLimit=2</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer 123abc</span>
+<span class="s">{</span>
+<span class="s">    "data": {</span>
+<span class="s">        "uri": "https://example.com/videos/1.mp4",</span>
+<span class="s">        "force": true</span>
+<span class="s">    }</span>
+<span class="s">}</span>
+</code></pre>
+<blockquote>
+<p><strong>Example:</strong> Request Refresh Options</p>
+</blockquote>
+<pre class="highlight http tab-http"><code><span class="nf">POST</span> <span class="nn">http://video.markable.ai/video/search?page=0&amp;pageLimit=2</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer 123abc</span>
+<span class="s">{</span>
+<span class="s">    "data": {</span>
+<span class="s">        "uri": "https://example.com/videos/1.mp4",</span>
+<span class="s">        "refresh": true</span>
+<span class="s">    }</span>
+<span class="s">}</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl -X POST http://video.markable.ai/video/search?page<span class="o">=</span>0&amp;pageLimit<span class="o">=</span>2 <span class="se">\</span>
+-H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+-H <span class="s1">'Authorization: Bearer 123abc'</span> <span class="se">\</span>
+-d <span class="s1">'
+{
+    "data": {
+        "uri": "https://example.com/videos/1.mp4",
+    }
+}
+'</span>
+</code></pre>
+<blockquote>
+<p><strong>Example:</strong> Response - Pending Indexing, Force, Or Refresh</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"service"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"markable-video-service"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.0.0-alpha+01"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"environment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"default"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"request"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"protocol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"POST"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/video/search?page=2"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"route"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/video/search"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"params"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+            </span><span class="s2">"query"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"page"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"exists"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"configure"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"download"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"snapshot"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"publish"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"cv"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"nn"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"db"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"map"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"store"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pending"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"configure"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"started"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"ended"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"succeeded"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"failed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"started"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"ended"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"succeeded"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"failed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="s2">"download"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"started"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"ended"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"succeeded"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"failed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="s2">"snapshot"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"started"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"ended"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"succeeded"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"failed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="s2">"publish"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"started"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"ended"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"succeeded"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"failed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="s2">"cv"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"started"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"ended"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"succeeded"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"failed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="s2">"nn"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"started"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"ended"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"succeeded"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"failed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="s2">"db"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"started"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"ended"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"succeeded"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"failed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="s2">"map"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"started"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"ended"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"succeeded"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"failed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="s2">"store"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"started"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"ended"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"succeeded"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"failed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"enqueued"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"pagination"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"page"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"pageBy"</span><span class="p">:</span><span class="w"> </span><span class="s2">"index"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"pageLimit"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"pageFrom"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"pageTo"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"pageSize"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"statuses"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"step"</span><span class="p">:</span><span class="w"> </span><span class="s2">"config"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"unit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"configurations"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+                </span><span class="s2">"completed"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"startedAt"</span><span class="p">:</span><span class="w"> </span><span class="mi">1576612942669</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"endedAt"</span><span class="p">:</span><span class="w"> </span><span class="mi">1576612942857</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"elapsedTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">188</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"totalTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">188</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"eachTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">188</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"rate"</span><span class="p">:</span><span class="w"> </span><span class="mf">5.319148936170213</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"step"</span><span class="p">:</span><span class="w"> </span><span class="s2">"meta"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"unit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"metas"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+                </span><span class="s2">"completed"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"startedAt"</span><span class="p">:</span><span class="w"> </span><span class="mi">1576612942880</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"endedAt"</span><span class="p">:</span><span class="w"> </span><span class="mi">1576612944127</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"elapsedTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">1247</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"totalTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">1247</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"eachTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">1247</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"rate"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.8019246190858058</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"step"</span><span class="p">:</span><span class="w"> </span><span class="s2">"download"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"unit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bytes"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+                </span><span class="s2">"completed"</span><span class="p">:</span><span class="w"> </span><span class="mi">2323481</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">2323481</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"startedAt"</span><span class="p">:</span><span class="w"> </span><span class="mi">1576612944126</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"endedAt"</span><span class="p">:</span><span class="w"> </span><span class="mi">1576612944395</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"elapsedTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">269</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"totalTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">269</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"eachTime"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.00011577456411307</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"rate"</span><span class="p">:</span><span class="w"> </span><span class="mf">8637475.836431226</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"step"</span><span class="p">:</span><span class="w"> </span><span class="s2">"snapshot"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"unit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"frames"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+                </span><span class="s2">"completed"</span><span class="p">:</span><span class="w"> </span><span class="mi">139</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">139</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"startedAt"</span><span class="p">:</span><span class="w"> </span><span class="mi">1576612944414</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"endedAt"</span><span class="p">:</span><span class="w"> </span><span class="mi">1576612950222</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"elapsedTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">5808</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"totalTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">5808</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"eachTime"</span><span class="p">:</span><span class="w"> </span><span class="mf">41.78417266187051</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"rate"</span><span class="p">:</span><span class="w"> </span><span class="mf">23.93250688705234</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"step"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cv"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"unit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"frames"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+                </span><span class="s2">"completed"</span><span class="p">:</span><span class="w"> </span><span class="mi">139</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">139</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"startedAt"</span><span class="p">:</span><span class="w"> </span><span class="mi">1576612984881</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"endedAt"</span><span class="p">:</span><span class="w"> </span><span class="mi">1576613082815</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"elapsedTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">97934</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"totalTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">97934</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"eachTime"</span><span class="p">:</span><span class="w"> </span><span class="mf">704.5611510791367</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"rate"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.4193232176772113</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"step"</span><span class="p">:</span><span class="w"> </span><span class="s2">"nn"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"unit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"frames"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+                </span><span class="s2">"completed"</span><span class="p">:</span><span class="w"> </span><span class="mi">139</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">139</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"startedAt"</span><span class="p">:</span><span class="w"> </span><span class="mi">1576613081082</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"endedAt"</span><span class="p">:</span><span class="w"> </span><span class="mi">1576613266125</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"elapsedTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">185043</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"totalTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">185043</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"eachTime"</span><span class="p">:</span><span class="w"> </span><span class="mf">1331.2446043165467</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"rate"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.7511767535113459</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"step"</span><span class="p">:</span><span class="w"> </span><span class="s2">"db"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"unit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"frames"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+                </span><span class="s2">"completed"</span><span class="p">:</span><span class="w"> </span><span class="mi">139</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">139</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"startedAt"</span><span class="p">:</span><span class="w"> </span><span class="mi">1576613081094</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"endedAt"</span><span class="p">:</span><span class="w"> </span><span class="mi">1576613271699</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"elapsedTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">190605</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"totalTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">190605</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"eachTime"</span><span class="p">:</span><span class="w"> </span><span class="mf">1371.2589928057555</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"rate"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.7292568400619082</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"step"</span><span class="p">:</span><span class="w"> </span><span class="s2">"map"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"unit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"frames"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+                </span><span class="s2">"completed"</span><span class="p">:</span><span class="w"> </span><span class="mi">139</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">139</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"startedAt"</span><span class="p">:</span><span class="w"> </span><span class="mi">1576613081115</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"endedAt"</span><span class="p">:</span><span class="w"> </span><span class="mi">1576613271811</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"elapsedTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">190696</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"totalTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">190696</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"eachTime"</span><span class="p">:</span><span class="w"> </span><span class="mf">1371.913669064748</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"rate"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.7289088391995637</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"step"</span><span class="p">:</span><span class="w"> </span><span class="s2">"store"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"unit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"frames"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+                </span><span class="s2">"completed"</span><span class="p">:</span><span class="w"> </span><span class="mi">139</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">139</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"startedAt"</span><span class="p">:</span><span class="w"> </span><span class="mi">1576613081121</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"endedAt"</span><span class="p">:</span><span class="w"> </span><span class="mi">1576613271812</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"elapsedTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">190691</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"totalTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">190691</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"eachTime"</span><span class="p">:</span><span class="w"> </span><span class="mf">1371.8776978417266</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"rate"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.7289279515026929</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="s2">"job"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://video_1.m4v"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"refresh"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"options"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"page"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"legacy"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8b03244a15ff3a2073befe93f93d9094"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"jobs"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"pending"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+            </span><span class="s2">"successful"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+            </span><span class="s2">"failed"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p><strong>Example:</strong> Response - Fully indexed video with product results</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"service"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"markable-video-service"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.0.0-alpha+01"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"environment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"default"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"request"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"protocol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"POST"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/video/search?page=0&amp;pageLimit=2"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"route"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/video/search"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"params"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+            </span><span class="s2">"query"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"page"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"pageLimit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"exists"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"configure"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"download"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"snapshot"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"publish"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"cv"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"nn"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"db"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"map"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"store"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"complete"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"configure"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"started"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"ended"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"succeeded"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"failed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"started"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"ended"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"succeeded"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"failed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="s2">"download"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"started"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"ended"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"succeeded"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"failed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="s2">"snapshot"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"started"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"ended"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"succeeded"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"failed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="s2">"publish"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"started"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"ended"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"succeeded"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"failed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="s2">"cv"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"started"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"ended"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"succeeded"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"failed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="s2">"nn"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"started"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"ended"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"succeeded"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"failed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="s2">"db"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"started"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"ended"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"succeeded"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"failed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="s2">"map"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"started"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"ended"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"succeeded"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"failed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="s2">"store"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"started"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"ended"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"succeeded"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"failed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"enqueued"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"pagination"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"page"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"pageBy"</span><span class="p">:</span><span class="w"> </span><span class="s2">"index"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"pageLimit"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"pageFrom"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"pageTo"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"pageSize"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"statuses"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"step"</span><span class="p">:</span><span class="w"> </span><span class="s2">"config"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"unit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"configurations"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+                </span><span class="s2">"completed"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"startedAt"</span><span class="p">:</span><span class="w"> </span><span class="mi">1576535995185</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"endedAt"</span><span class="p">:</span><span class="w"> </span><span class="mi">1576536908363</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"elapsedTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">913178</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"totalTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">913178</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"eachTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">913178</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"rate"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.001095076753929683</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"step"</span><span class="p">:</span><span class="w"> </span><span class="s2">"meta"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"unit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"metas"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+                </span><span class="s2">"completed"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"startedAt"</span><span class="p">:</span><span class="w"> </span><span class="mi">1576535995256</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"endedAt"</span><span class="p">:</span><span class="w"> </span><span class="mi">1576536908386</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"elapsedTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">913130</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"totalTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">913130</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"eachTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">913130</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"rate"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0010951343182241302</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"step"</span><span class="p">:</span><span class="w"> </span><span class="s2">"download"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"unit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bytes"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+                </span><span class="s2">"completed"</span><span class="p">:</span><span class="w"> </span><span class="mi">42783321</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">42783321</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"startedAt"</span><span class="p">:</span><span class="w"> </span><span class="mi">1576535996510</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"endedAt"</span><span class="p">:</span><span class="w"> </span><span class="mi">1576536908409</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"elapsedTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">911899</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"totalTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">911899</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"eachTime"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.021314357527317713</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"rate"</span><span class="p">:</span><span class="w"> </span><span class="mf">46916.73200650511</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"step"</span><span class="p">:</span><span class="w"> </span><span class="s2">"snapshot"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"unit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"frames"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+                </span><span class="s2">"completed"</span><span class="p">:</span><span class="w"> </span><span class="mi">84</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">84</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"startedAt"</span><span class="p">:</span><span class="w"> </span><span class="mi">1576535997022</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"endedAt"</span><span class="p">:</span><span class="w"> </span><span class="mi">1576536908448</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"elapsedTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">911426</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"totalTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">911426</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"eachTime"</span><span class="p">:</span><span class="w"> </span><span class="mf">10850.309523809523</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"rate"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.09216326942615198</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"step"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cv"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"unit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"frames"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+                </span><span class="s2">"completed"</span><span class="p">:</span><span class="w"> </span><span class="mi">84</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">84</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"startedAt"</span><span class="p">:</span><span class="w"> </span><span class="mi">1576536007632</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"endedAt"</span><span class="p">:</span><span class="w"> </span><span class="mi">1576536909243</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"elapsedTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">901611</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"totalTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">901611</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"eachTime"</span><span class="p">:</span><span class="w"> </span><span class="mf">10733.464285714286</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"rate"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.09316656518165817</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"step"</span><span class="p">:</span><span class="w"> </span><span class="s2">"nn"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"unit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"frames"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+                </span><span class="s2">"completed"</span><span class="p">:</span><span class="w"> </span><span class="mi">37</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">84</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"startedAt"</span><span class="p">:</span><span class="w"> </span><span class="mi">1576536994216</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"endedAt"</span><span class="p">:</span><span class="w"> </span><span class="mi">1576536994228</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"elapsedTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"totalTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"eachTime"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.32432432432432434</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"rate"</span><span class="p">:</span><span class="w"> </span><span class="mf">3083.3333333333335</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.44047619047619047</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"step"</span><span class="p">:</span><span class="w"> </span><span class="s2">"db"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"unit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"frames"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+                </span><span class="s2">"completed"</span><span class="p">:</span><span class="w"> </span><span class="mi">19</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">84</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"startedAt"</span><span class="p">:</span><span class="w"> </span><span class="mi">1576537000023</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"endedAt"</span><span class="p">:</span><span class="w"> </span><span class="mi">1576537000293</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"elapsedTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">270</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"totalTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">270</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"eachTime"</span><span class="p">:</span><span class="w"> </span><span class="mf">14.210526315789474</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"rate"</span><span class="p">:</span><span class="w"> </span><span class="mf">70.37037037037037</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.2261904761904762</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"step"</span><span class="p">:</span><span class="w"> </span><span class="s2">"map"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"unit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"frames"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+                </span><span class="s2">"completed"</span><span class="p">:</span><span class="w"> </span><span class="mi">19</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">84</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"startedAt"</span><span class="p">:</span><span class="w"> </span><span class="mi">1576537000356</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"endedAt"</span><span class="p">:</span><span class="w"> </span><span class="mi">1576537000382</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"elapsedTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">26</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"totalTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">26</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"eachTime"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.368421052631579</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"rate"</span><span class="p">:</span><span class="w"> </span><span class="mf">730.7692307692308</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.2261904761904762</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"step"</span><span class="p">:</span><span class="w"> </span><span class="s2">"store"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"unit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"frames"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+                </span><span class="s2">"completed"</span><span class="p">:</span><span class="w"> </span><span class="mi">19</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">84</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"startedAt"</span><span class="p">:</span><span class="w"> </span><span class="mi">1576537000368</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"endedAt"</span><span class="p">:</span><span class="w"> </span><span class="mi">1576537000395</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"elapsedTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">27</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"totalTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">27</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"eachTime"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.4210526315789473</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"rate"</span><span class="p">:</span><span class="w"> </span><span class="mf">703.7037037037037</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.2261904761904762</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="s2">"job"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://video_2.mp4"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"options"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"page"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"pageLimit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"legacy"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"jobs"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"pending"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+            </span><span class="s2">"successful"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+            </span><span class="s2">"failed"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Frame"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"frame-26869006b3e9634223a9afd4a2dfc66b-0"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"index"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Image"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"//localhost:1331/video/cache/uri-qa.markable.ai-a266ffad969fabefaa353b12bf732a93/catalogs-383808cdc34b010f04681287c74cb1af.fps-5/process/03.snapshot/raw/fps5-000001.png"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"width"</span><span class="p">:</span><span class="w"> </span><span class="mi">450</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"height"</span><span class="p">:</span><span class="w"> </span><span class="mi">800</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="s2">"results"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SearchResult"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"result-frame-26869006b3e9634223a9afd4a2dfc66b-0-track-jeans_0"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.9925562739372253</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"category"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                        </span><span class="s2">"_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Category"</span><span class="p">,</span><span class="w">
+                        </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jeans"</span><span class="p">,</span><span class="w">
+                        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jeans"</span><span class="w">
+                    </span><span class="p">},</span><span class="w">
+                    </span><span class="s2">"bounding_box"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                        </span><span class="s2">"_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BoundingBox"</span><span class="p">,</span><span class="w">
+                        </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bbox-45444c02571893d7d953d11b20477a13"</span><span class="p">,</span><span class="w">
+                        </span><span class="s2">"x"</span><span class="p">:</span><span class="w"> </span><span class="mf">295.3294372558594</span><span class="p">,</span><span class="w">
+                        </span><span class="s2">"y"</span><span class="p">:</span><span class="w"> </span><span class="mf">365.76226806640625</span><span class="p">,</span><span class="w">
+                        </span><span class="s2">"width"</span><span class="p">:</span><span class="w"> </span><span class="mf">78.07376098632812</span><span class="p">,</span><span class="w">
+                        </span><span class="s2">"height"</span><span class="p">:</span><span class="w"> </span><span class="mf">203.5692138671875</span><span class="w">
+                    </span><span class="p">},</span><span class="w">
+                    </span><span class="s2">"track"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                        </span><span class="s2">"_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Track"</span><span class="p">,</span><span class="w">
+                        </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"track-jeans_0"</span><span class="p">,</span><span class="w">
+                        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"track-jeans_0"</span><span class="p">,</span><span class="w">
+                        </span><span class="s2">"index"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                        </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.9925562739372253</span><span class="p">,</span><span class="w">
+                        </span><span class="s2">"feature_hash"</span><span class="p">:</span><span class="w"> </span><span class="s2">"22bba171c21c8dcd116415fc7267918f"</span><span class="w">
+                    </span><span class="p">},</span><span class="w">
+                    </span><span class="s2">"matches"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                        </span><span class="p">{</span><span class="w">
+                            </span><span class="s2">"_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CatalogItem"</span><span class="p">,</span><span class="w">
+                            </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5deec3ee13ee690011eb124b"</span><span class="p">,</span><span class="w">
+                            </span><span class="s2">"schema"</span><span class="p">:</span><span class="w"> </span><span class="s2">"product"</span><span class="p">,</span><span class="w">
+                            </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.9323215675354004</span><span class="p">,</span><span class="w">
+                            </span><span class="s2">"neighbor"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                                </span><span class="s2">"vector_hash"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e6bcad8f0230fb72b3046cc979e7dc55"</span><span class="p">,</span><span class="w">
+                                </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.9323215675354004</span><span class="p">,</span><span class="w">
+                                </span><span class="s2">"catalog"</span><span class="p">:</span><span class="w"> </span><span class="s2">"catalog1"</span><span class="p">,</span><span class="w">
+                                </span><span class="s2">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jeans"</span><span class="p">,</span><span class="w">
+                                </span><span class="s2">"gender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"female"</span><span class="p">,</span><span class="w">
+                                </span><span class="s2">"view"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                                </span><span class="s2">"age_group"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                                </span><span class="s2">"related_matches_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+                            </span><span class="p">},</span><span class="w">
+                            </span><span class="s2">"catalog"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                                </span><span class="s2">"_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Catalog"</span><span class="p">,</span><span class="w">
+                                </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5de959fd0306310059298f44"</span><span class="p">,</span><span class="w">
+                                </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"catalog1"</span><span class="w">
+                            </span><span class="p">},</span><span class="w">
+                            </span><span class="s2">"images"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                                </span><span class="p">{</span><span class="w">
+                                    </span><span class="s2">"_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Image"</span><span class="p">,</span><span class="w">
+                                    </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                                    </span><span class="s2">"uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://product-1.jpg"</span><span class="p">,</span><span class="w">
+                                    </span><span class="s2">"width"</span><span class="p">:</span><span class="w"> </span><span class="mi">1200</span><span class="p">,</span><span class="w">
+                                    </span><span class="s2">"height"</span><span class="p">:</span><span class="w"> </span><span class="mi">1200</span><span class="w">
+                                </span><span class="p">}</span><span class="w">
+                            </span><span class="p">],</span><span class="w">
+                            </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                                </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6918341855521355924"</span><span class="p">,</span><span class="w">
+                                </span><span class="s2">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6918341855521355924"</span><span class="p">,</span><span class="w">
+                                </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"product"</span><span class="p">,</span><span class="w">
+                                </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://product_webite.html"</span><span class="p">,</span><span class="w">
+                                </span><span class="s2">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jeans"</span><span class="p">,</span><span class="w">
+                                </span><span class="s2">"gender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"female"</span><span class="p">,</span><span class="w">
+                                </span><span class="s2">"age_group"</span><span class="p">:</span><span class="w"> </span><span class="s2">"adults"</span><span class="p">,</span><span class="w">
+                                </span><span class="s2">"stock"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                                </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="mi">499</span><span class="p">,</span><span class="w">
+                                </span><span class="s2">"sale_price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"228"</span><span class="p">,</span><span class="w">
+                                </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USD"</span><span class="w">
+                            </span><span class="p">},</span><span class="w">
+                            </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-12-09T22:00:14.193Z"</span><span class="p">,</span><span class="w">
+                            </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-12-12T01:50:38.925Z"</span><span class="w">
+                        </span><span class="p">},</span><span class="w">
+                        </span><span class="p">{</span><span class="w">
+                            </span><span class="s2">"_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CatalogItem"</span><span class="p">,</span><span class="w">
+                            </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5def550be78030004ea89dfc"</span><span class="p">,</span><span class="w">
+                            </span><span class="s2">"schema"</span><span class="p">:</span><span class="w"> </span><span class="s2">"product"</span><span class="p">,</span><span class="w">
+                            </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.9317789363861084</span><span class="p">,</span><span class="w">
+                            </span><span class="s2">"neighbor"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                                </span><span class="s2">"vector_hash"</span><span class="p">:</span><span class="w"> </span><span class="s2">"72acce7d42dc18a87eaf857f179d71c8"</span><span class="p">,</span><span class="w">
+                                </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.9317789363861084</span><span class="p">,</span><span class="w">
+                                </span><span class="s2">"catalog"</span><span class="p">:</span><span class="w"> </span><span class="s2">"catalog2"</span><span class="p">,</span><span class="w">
+                                </span><span class="s2">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jeans"</span><span class="p">,</span><span class="w">
+                                </span><span class="s2">"gender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"female"</span><span class="p">,</span><span class="w">
+                                </span><span class="s2">"view"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                                </span><span class="s2">"age_group"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                                </span><span class="s2">"related_matches_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+                            </span><span class="p">},</span><span class="w">
+                            </span><span class="s2">"catalog"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                                </span><span class="s2">"_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Catalog"</span><span class="p">,</span><span class="w">
+                                </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5dee896c2f767a004be741ab"</span><span class="p">,</span><span class="w">
+                                </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"catalog2"</span><span class="w">
+                            </span><span class="p">},</span><span class="w">
+                            </span><span class="s2">"images"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                                </span><span class="p">{</span><span class="w">
+                                    </span><span class="s2">"_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Image"</span><span class="p">,</span><span class="w">
+                                    </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                                    </span><span class="s2">"uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://product-2.jpg"</span><span class="p">,</span><span class="w">
+                                    </span><span class="s2">"width"</span><span class="p">:</span><span class="w"> </span><span class="mi">800</span><span class="p">,</span><span class="w">
+                                    </span><span class="s2">"height"</span><span class="p">:</span><span class="w"> </span><span class="mi">800</span><span class="w">
+                                </span><span class="p">}</span><span class="w">
+                            </span><span class="p">],</span><span class="w">
+                            </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                                </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"592775994152"</span><span class="p">,</span><span class="w">
+                                </span><span class="s2">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"592775994152"</span><span class="p">,</span><span class="w">
+                                </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"product2"</span><span class="p">,</span><span class="w">
+                                </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://product_webite.html"</span><span class="p">,</span><span class="w">
+                                </span><span class="s2">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"womens jeans"</span><span class="p">,</span><span class="w">
+                                </span><span class="s2">"gender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"female"</span><span class="p">,</span><span class="w">
+                                </span><span class="s2">"stock"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                                </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USD"</span><span class="p">,</span><span class="w">
+                                </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="mi">98</span><span class="p">,</span><span class="w">
+                                </span><span class="s2">"age_group"</span><span class="p">:</span><span class="w"> </span><span class="s2">"adults"</span><span class="w">
+                            </span><span class="p">},</span><span class="w">
+                            </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-12-10T08:19:23.403Z"</span><span class="p">,</span><span class="w">
+                            </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-12-10T08:33:23.444Z"</span><span class="w">
+                        </span><span class="p">},</span><span class="w">
+                        </span><span class="p">{</span><span class="w">
+                            </span><span class="s2">"_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CatalogItem"</span><span class="p">,</span><span class="w">
+                            </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5defe65e994eea0055aed1bc"</span><span class="p">,</span><span class="w">
+                            </span><span class="s2">"schema"</span><span class="p">:</span><span class="w"> </span><span class="s2">"product"</span><span class="p">,</span><span class="w">
+                            </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.9316892147064209</span><span class="p">,</span><span class="w">
+                            </span><span class="s2">"neighbor"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                                </span><span class="s2">"vector_hash"</span><span class="p">:</span><span class="w"> </span><span class="s2">"13562f2d63a24af8f5c4600d1f983e49"</span><span class="p">,</span><span class="w">
+                                </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.9316892147064209</span><span class="p">,</span><span class="w">
+                                </span><span class="s2">"catalog"</span><span class="p">:</span><span class="w"> </span><span class="s2">"catalog1"</span><span class="p">,</span><span class="w">
+                                </span><span class="s2">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jeans"</span><span class="p">,</span><span class="w">
+                                </span><span class="s2">"gender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"female"</span><span class="p">,</span><span class="w">
+                                </span><span class="s2">"view"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                                </span><span class="s2">"age_group"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                                </span><span class="s2">"related_matches_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+                            </span><span class="p">},</span><span class="w">
+                            </span><span class="s2">"catalog"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                                </span><span class="s2">"_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Catalog"</span><span class="p">,</span><span class="w">
+                                </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5de959fd0306310059298f44"</span><span class="p">,</span><span class="w">
+                                </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"catalog1"</span><span class="w">
+                            </span><span class="p">},</span><span class="w">
+                            </span><span class="s2">"images"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                                </span><span class="p">{</span><span class="w">
+                                    </span><span class="s2">"_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Image"</span><span class="p">,</span><span class="w">
+                                    </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                                    </span><span class="s2">"uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://product-3.jpg"</span><span class="p">,</span><span class="w">
+                                    </span><span class="s2">"width"</span><span class="p">:</span><span class="w"> </span><span class="mi">1200</span><span class="p">,</span><span class="w">
+                                    </span><span class="s2">"height"</span><span class="p">:</span><span class="w"> </span><span class="mi">1200</span><span class="w">
+                                </span><span class="p">}</span><span class="w">
+                            </span><span class="p">],</span><span class="w">
+                            </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                                </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2164494563"</span><span class="p">,</span><span class="w">
+                                </span><span class="s2">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2164494563"</span><span class="p">,</span><span class="w">
+                                </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"product3"</span><span class="p">,</span><span class="w">
+                                </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://product_webite.html"</span><span class="p">,</span><span class="w">
+                                </span><span class="s2">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jeans"</span><span class="p">,</span><span class="w">
+                                </span><span class="s2">"gender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"female"</span><span class="p">,</span><span class="w">
+                                </span><span class="s2">"age_group"</span><span class="p">:</span><span class="w"> </span><span class="s2">"adults"</span><span class="p">,</span><span class="w">
+                                </span><span class="s2">"stock"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                                </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="mi">828</span><span class="p">,</span><span class="w">
+                                </span><span class="s2">"sale_price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"579"</span><span class="p">,</span><span class="w">
+                                </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USD"</span><span class="w">
+                            </span><span class="p">},</span><span class="w">
+                            </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-12-10T18:39:26.178Z"</span><span class="p">,</span><span class="w">
+                            </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-12-12T01:53:42.366Z"</span><span class="w">
+                        </span><span class="p">}</span><span class="w">
+                    </span><span class="p">]</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SearchResult"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"result-frame-26869006b3e9634223a9afd4a2dfc66b-0-track-tees_1"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.9778891801834106</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"category"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                        </span><span class="s2">"_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Category"</span><span class="p">,</span><span class="w">
+                        </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tees"</span><span class="p">,</span><span class="w">
+                        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tees"</span><span class="w">
+                    </span><span class="p">},</span><span class="w">
+                    </span><span class="s2">"bounding_box"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                        </span><span class="s2">"_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BoundingBox"</span><span class="p">,</span><span class="w">
+                        </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bbox-5a3c6a15b0b46bac1b2d547faa4bbd20"</span><span class="p">,</span><span class="w">
+                        </span><span class="s2">"x"</span><span class="p">:</span><span class="w"> </span><span class="mf">287.39361572265625</span><span class="p">,</span><span class="w">
+                        </span><span class="s2">"y"</span><span class="p">:</span><span class="w"> </span><span class="mf">264.7693176269531</span><span class="p">,</span><span class="w">
+                        </span><span class="s2">"width"</span><span class="p">:</span><span class="w"> </span><span class="mf">104.07992553710938</span><span class="p">,</span><span class="w">
+                        </span><span class="s2">"height"</span><span class="p">:</span><span class="w"> </span><span class="mf">108.3822021484375</span><span class="w">
+                    </span><span class="p">},</span><span class="w">
+                    </span><span class="s2">"track"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                        </span><span class="s2">"_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Track"</span><span class="p">,</span><span class="w">
+                        </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"track-tees_1"</span><span class="p">,</span><span class="w">
+                        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"track-tees_1"</span><span class="p">,</span><span class="w">
+                        </span><span class="s2">"index"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                        </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.9778891801834106</span><span class="p">,</span><span class="w">
+                        </span><span class="s2">"feature_hash"</span><span class="p">:</span><span class="w"> </span><span class="s2">"150d2db2669692c0bfcce36418e390d8"</span><span class="w">
+                    </span><span class="p">},</span><span class="w">
+                    </span><span class="s2">"matches"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                        </span><span class="p">{</span><span class="w">
+                            </span><span class="s2">"_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CatalogItem"</span><span class="p">,</span><span class="w">
+                            </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5def55c65d131500236a2e5a"</span><span class="p">,</span><span class="w">
+                            </span><span class="s2">"schema"</span><span class="p">:</span><span class="w"> </span><span class="s2">"product"</span><span class="p">,</span><span class="w">
+                            </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.9225725936889648</span><span class="p">,</span><span class="w">
+                            </span><span class="s2">"neighbor"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                                </span><span class="s2">"vector_hash"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ba0cf49508dd1e114f741ef5723652d1"</span><span class="p">,</span><span class="w">
+                                </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.9225725936889648</span><span class="p">,</span><span class="w">
+                                </span><span class="s2">"catalog"</span><span class="p">:</span><span class="w"> </span><span class="s2">"catalog2"</span><span class="p">,</span><span class="w">
+                                </span><span class="s2">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tees"</span><span class="p">,</span><span class="w">
+                                </span><span class="s2">"gender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"female"</span><span class="p">,</span><span class="w">
+                                </span><span class="s2">"view"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                                </span><span class="s2">"age_group"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                                </span><span class="s2">"related_matches_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+                            </span><span class="p">},</span><span class="w">
+                            </span><span class="s2">"catalog"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                                </span><span class="s2">"_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Catalog"</span><span class="p">,</span><span class="w">
+                                </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5dee896c2f767a004be741ab"</span><span class="p">,</span><span class="w">
+                                </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"catalog2"</span><span class="w">
+                            </span><span class="p">},</span><span class="w">
+                            </span><span class="s2">"images"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                                </span><span class="p">{</span><span class="w">
+                                    </span><span class="s2">"_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Image"</span><span class="p">,</span><span class="w">
+                                    </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                                    </span><span class="s2">"uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://product-1.jpg"</span><span class="p">,</span><span class="w">
+                                    </span><span class="s2">"width"</span><span class="p">:</span><span class="w"> </span><span class="mi">800</span><span class="p">,</span><span class="w">
+                                    </span><span class="s2">"height"</span><span class="p">:</span><span class="w"> </span><span class="mi">800</span><span class="w">
+                                </span><span class="p">}</span><span class="w">
+                            </span><span class="p">],</span><span class="w">
+                            </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                                </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"566798857134"</span><span class="p">,</span><span class="w">
+                                </span><span class="s2">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"566798857134"</span><span class="p">,</span><span class="w">
+                                </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"product1"</span><span class="p">,</span><span class="w">
+                                </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://product_webite.html"</span><span class="w">
+                                </span><span class="s2">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Women s tanks camis"</span><span class="p">,</span><span class="w">
+                                </span><span class="s2">"gender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"female"</span><span class="p">,</span><span class="w">
+                                </span><span class="s2">"stock"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                                </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="mi">49</span><span class="p">,</span><span class="w">
+                                </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USD"</span><span class="p">,</span><span class="w">
+                                </span><span class="s2">"age_group"</span><span class="p">:</span><span class="w"> </span><span class="s2">"adults"</span><span class="w">
+                            </span><span class="p">},</span><span class="w">
+                            </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-12-10T08:22:30.148Z"</span><span class="p">,</span><span class="w">
+                            </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-12-12T03:58:30.015Z"</span><span class="w">
+                        </span><span class="p">},</span><span class="w">
+                        </span><span class="p">{</span><span class="w">
+                            </span><span class="s2">"_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CatalogItem"</span><span class="p">,</span><span class="w">
+                            </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5defdf48994eea0055ae95db"</span><span class="p">,</span><span class="w">
+                            </span><span class="s2">"schema"</span><span class="p">:</span><span class="w"> </span><span class="s2">"product"</span><span class="p">,</span><span class="w">
+                            </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.9119216156005859</span><span class="p">,</span><span class="w">
+                            </span><span class="s2">"neighbor"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                                </span><span class="s2">"vector_hash"</span><span class="p">:</span><span class="w"> </span><span class="s2">"06e2c32a5aa7c0a9d85633a45701bb3c"</span><span class="p">,</span><span class="w">
+                                </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.9119216156005859</span><span class="p">,</span><span class="w">
+                                </span><span class="s2">"catalog"</span><span class="p">:</span><span class="w"> </span><span class="s2">"catalog1"</span><span class="p">,</span><span class="w">
+                                </span><span class="s2">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tees"</span><span class="p">,</span><span class="w">
+                                </span><span class="s2">"gender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"female"</span><span class="p">,</span><span class="w">
+                                </span><span class="s2">"view"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                                </span><span class="s2">"age_group"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                                </span><span class="s2">"related_matches_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+                            </span><span class="p">},</span><span class="w">
+                            </span><span class="s2">"catalog"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                                </span><span class="s2">"_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Catalog"</span><span class="p">,</span><span class="w">
+                                </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5de959fd0306310059298f44"</span><span class="p">,</span><span class="w">
+                                </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"catalog1"</span><span class="w">
+                            </span><span class="p">},</span><span class="w">
+                            </span><span class="s2">"images"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                                </span><span class="p">{</span><span class="w">
+                                    </span><span class="s2">"_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Image"</span><span class="p">,</span><span class="w">
+                                    </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                                    </span><span class="s2">"uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://product-2.jpg"</span><span class="p">,</span><span class="w">
+                                    </span><span class="s2">"width"</span><span class="p">:</span><span class="w"> </span><span class="mi">1200</span><span class="p">,</span><span class="w">
+                                    </span><span class="s2">"height"</span><span class="p">:</span><span class="w"> </span><span class="mi">1200</span><span class="w">
+                                </span><span class="p">}</span><span class="w">
+                            </span><span class="p">],</span><span class="w">
+                            </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                                </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2156283988"</span><span class="p">,</span><span class="w">
+                                </span><span class="s2">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2156283988"</span><span class="p">,</span><span class="w">
+                                </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Product2"</span><span class="p">,</span><span class="w">
+                                </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://product_webite.html"</span><span class="p">,</span><span class="w">
+                                </span><span class="s2">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tees"</span><span class="p">,</span><span class="w">
+                                </span><span class="s2">"gender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"female"</span><span class="p">,</span><span class="w">
+                                </span><span class="s2">"age_group"</span><span class="p">:</span><span class="w"> </span><span class="s2">"adults"</span><span class="p">,</span><span class="w">
+                                </span><span class="s2">"stock"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                                </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="mi">339</span><span class="p">,</span><span class="w">
+                                </span><span class="s2">"sale_price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"118"</span><span class="p">,</span><span class="w">
+                                </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USD"</span><span class="w">
+                            </span><span class="p">},</span><span class="w">
+                            </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-12-10T18:09:12.117Z"</span><span class="p">,</span><span class="w">
+                            </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-12-10T23:05:16.949Z"</span><span class="w">
+                        </span><span class="p">},</span><span class="w">
+                        </span><span class="p">{</span><span class="w">
+                            </span><span class="s2">"_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CatalogItem"</span><span class="p">,</span><span class="w">
+                            </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5defdc67956117002ff8d6ee"</span><span class="p">,</span><span class="w">
+                            </span><span class="s2">"schema"</span><span class="p">:</span><span class="w"> </span><span class="s2">"product"</span><span class="p">,</span><span class="w">
+                            </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.9104684257507324</span><span class="p">,</span><span class="w">
+                            </span><span class="s2">"neighbor"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                                </span><span class="s2">"vector_hash"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3ea97b55cbd5a9abb7adcc440357855a"</span><span class="p">,</span><span class="w">
+                                </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.9104684257507324</span><span class="p">,</span><span class="w">
+                                </span><span class="s2">"catalog"</span><span class="p">:</span><span class="w"> </span><span class="s2">"catalog3"</span><span class="p">,</span><span class="w">
+                                </span><span class="s2">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tees"</span><span class="p">,</span><span class="w">
+                                </span><span class="s2">"gender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"female"</span><span class="p">,</span><span class="w">
+                                </span><span class="s2">"view"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                                </span><span class="s2">"age_group"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                                </span><span class="s2">"related_matches_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+                            </span><span class="p">},</span><span class="w">
+                            </span><span class="s2">"catalog"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                                </span><span class="s2">"_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Catalog"</span><span class="p">,</span><span class="w">
+                                </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5de96225cce3a80031e3c875"</span><span class="p">,</span><span class="w">
+                                </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"catalog3"</span><span class="w">
+                            </span><span class="p">},</span><span class="w">
+                            </span><span class="s2">"images"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                                </span><span class="p">{</span><span class="w">
+                                    </span><span class="s2">"_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Image"</span><span class="p">,</span><span class="w">
+                                    </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                                    </span><span class="s2">"uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://product-3.jpg"</span><span class="p">,</span><span class="w">
+                                    </span><span class="s2">"width"</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="p">,</span><span class="w">
+                                    </span><span class="s2">"height"</span><span class="p">:</span><span class="w"> </span><span class="mi">375</span><span class="w">
+                                </span><span class="p">}</span><span class="w">
+                            </span><span class="p">],</span><span class="w">
+                            </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                                </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"847941004700"</span><span class="p">,</span><span class="w">
+                                </span><span class="s2">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3082046"</span><span class="p">,</span><span class="w">
+                                </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Product3"</span><span class="p">,</span><span class="w">
+                                </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://product_webite.html"</span><span class="p">,</span><span class="w">
+                                </span><span class="s2">"color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jet black"</span><span class="p">,</span><span class="w">
+                                </span><span class="s2">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Women"</span><span class="p">,</span><span class="w">
+                                </span><span class="s2">"gender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"female"</span><span class="p">,</span><span class="w">
+                                </span><span class="s2">"age_group"</span><span class="p">:</span><span class="w"> </span><span class="s2">"adults"</span><span class="p">,</span><span class="w">
+                                </span><span class="s2">"stock"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                                </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="mi">29</span><span class="p">,</span><span class="w">
+                                </span><span class="s2">"brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ingrid &amp; Isabel"</span><span class="p">,</span><span class="w">
+                                </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USD"</span><span class="w">
+                            </span><span class="p">},</span><span class="w">
+                            </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-12-10T17:56:55.811Z"</span><span class="p">,</span><span class="w">
+                            </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-12-11T20:43:18.609Z"</span><span class="w">
+                        </span><span class="p">}</span><span class="w">
+                    </span><span class="p">]</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">]</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+<p>Search a video - detect and retreive products based on visual features/similarity.</p>
+
+<aside class="notice">
+    This operation requires a valid <code>access_token</code> - see <a href="#authentication">Authentication</a>.
+</aside>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST https://catalog.markable.ai/video/search</code></p>
+
+<h3 id="http-headers">HTTP Headers</h3>
+
+<table><thead>
+<tr>
+<th>Header</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">Authorization</code></td>
+<td><a href="https://tools.ietf.org/html/rfc6750">HTTP Bearer Token</a> for authorizing the request. <br><br>Format is <code class="prettyprint">Bearer :access_token</code>, where <code class="prettyprint">access_token</code> is given by <a href="#authentication">Authentication</a>. <strong><small>required</small></strong></td>
+</tr>
+</tbody></table>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">page</code></td>
+<td>integer</td>
+<td>Default is 0</td>
+</tr>
+<tr>
+<td><code class="prettyprint">pageLimit</code></td>
+<td>integer</td>
+<td>Frame results per page. Default is 5</td>
+</tr>
+</tbody></table>
+
+<h3 id="body">Body</h3>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">data</code></td>
+<td><a href="#the-video-search-query-object">VideoSearchQuery</a></td>
+<td>A valid video search object.</td>
+</tr>
+</tbody></table>
+
       </div>
       <div class="dark-box">
           <div class="lang-selector">
