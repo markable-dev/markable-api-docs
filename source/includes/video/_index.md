@@ -1,6 +1,11 @@
 
 # Video Search
 
+## Video Search alpha <img src="images/video_api_demo.png" alt="product-search" height="auto" width="100%" align="center">
+
+Our **Video Product Search** returns the most visually relevant products for static videos under 30 seconds.  
+
+
 ## <img src="images/video-search_icon.png" alt="video-search_icon" width="28px" height="auto"> The Video Search Query Object
 
 > **Example:** Video Search Query Object
