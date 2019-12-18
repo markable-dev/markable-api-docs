@@ -906,7 +906,7 @@ Search a video - detect and retreive products based on visual features/similarit
 
 ### HTTP Request
 
-`POST https://catalog.markable.ai/video/search`
+`POST https://video.markable.ai/video/search`
 
 
 ### HTTP Headers
