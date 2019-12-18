@@ -57,6 +57,8 @@ includes:
 
   - video/index
   - video/search
+  - video/constraints
+  
 
 search: true
 ---
