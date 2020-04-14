@@ -6390,9 +6390,9 @@ catalog of schema <code class="prettyprint">style</code>.</p>
 
           <h1 id="video-search">Video Search</h1>
 
-<h2 id="video-search-alpha">Video Search alpha <img src="images/video_api_demo.png" alt="product-search" height="auto" width="100%" align="center"></h2>
+<h2 id="moment-api">Moment API <img src="images/video_api_demo.png" alt="product-search" height="auto" width="100%" align="center"></h2>
 
-<p>Our <strong>Video Product Search</strong> returns the most visually relevant products for static videos under 30 seconds.  </p>
+<p>Our <strong>Video Product Search</strong> returns the most visually relevant products for pre-processed static videos.  </p>
 
 <h2 id="the-video-search-query-object"><img src="images/video-search_icon.png" alt="video-search_icon" width="28px" height="auto"> The Video Search Query Object</h2>
 
@@ -6400,7 +6400,7 @@ catalog of schema <code class="prettyprint">style</code>.</p>
 <p><strong>Example:</strong> Video Search Query Object</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/videos/1.mp4"</span><span class="w">
+    </span><span class="s2">"uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/videos/1.mp4"</span><span class="p">,</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>A <strong>Video Search Query</strong> (object) defines a visual search query for a video.</p>
@@ -6417,8 +6417,42 @@ catalog of schema <code class="prettyprint">style</code>.</p>
 <td>String</td>
 <td>A valid video URI. <strong><small>required</small></strong></td>
 </tr>
+<tr>
+<td><code class="prettyprint">force</code></td>
+<td>Boolean</td>
+<td>Re-indexes a previously processed video</td>
+</tr>
+<tr>
+<td><code class="prettyprint">options</code></td>
+<td>Object</td>
+<td>A list of options that we support. Currently we support the options below</td>
+</tr>
 </tbody></table>
 
+<blockquote>
+<p><strong>Example:</strong> Video Search Query Object with Options</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/videos/1.mp4"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"options"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> 
+        </span><span class="s2">"limit"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="w">
+        </span><span class="s2">"relevance"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.80</span><span class="w">
+        </span><span class="s2">"family_search"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+        </span><span class="s2">"deduplication"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+        </span><span class="s2">"human_detection"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+        </span><span class="s2">"specific_match"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+        </span><span class="s2">"catalogs"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"catalog_example"</span><span class="p">,</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="s2">"track"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">30</span><span class="p">]</span><span class="w">
+        </span><span class="s2">"seek"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+        </span><span class="s2">"precision"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+        </span><span class="s2">"framesPerSecond"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="w"> 
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 <h3 id="options-for-search">Options for Search</h3>
 
 <p>These options give you the flexibility to control how our visual search is performed.</p>
@@ -6431,14 +6465,59 @@ catalog of schema <code class="prettyprint">style</code>.</p>
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">force</code></td>
-<td>Boolean</td>
-<td>Reprocesses and reindexes a previously processed video</td>
+<td><code class="prettyprint">limit</code></td>
+<td>Number</td>
+<td>Maximum number of result matches to return per detection. Default <code class="prettyprint">15</code></td>
 </tr>
 <tr>
-<td><code class="prettyprint">refresh</code></td>
+<td><code class="prettyprint">relevance</code></td>
+<td>Number</td>
+<td>Similarity confidence of results. Default <code class="prettyprint">.80</code>. This takes precedence over <code class="prettyprint">limit</code></td>
+</tr>
+<tr>
+<td><code class="prettyprint">family_search</code></td>
 <td>Boolean</td>
-<td>Updates product matches and database retrievals for a previously processed video</td>
+<td>Searches similar items in related taxanomy groups. Default is <code class="prettyprint">true</code>.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">deduplication</code></td>
+<td>Boolean</td>
+<td>Returns only one product in catalogs where a product image is used in multiple products. Default is <code class="prettyprint">true</code>.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">human_detection</code></td>
+<td>Boolean</td>
+<td>Return bounding boxes for human detections.  Default is <code class="prettyprint">false</code>.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">specific_match</code></td>
+<td>Boolean</td>
+<td>When a catalog item contains multiple images of the product, this option will <strong>only</strong> return the specific image selected by similarity search.  Default is <code class="prettyprint">false</code>.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">seek</code></td>
+<td>Number</td>
+<td>The timestamp at which search query is performed.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">track</code></td>
+<td>Array</td>
+<td>The timestamp relative to seek timestamp. Both seek and track values will be used to calculate an absolute timestamp for which detections are tracked and merged during search operations.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">precision</code></td>
+<td>Number</td>
+<td>The number used to round &ldquo;seek&rdquo; and &ldquo;track&rdquo; to a human readable number. Default value is <code class="prettyprint">1</code></td>
+</tr>
+<tr>
+<td><code class="prettyprint">framesPerSecond</code></td>
+<td>Number</td>
+<td>The number of frames per second at which the video is pre-processed. Default and Max value is <code class="prettyprint">5</code></td>
+</tr>
+<tr>
+<td><code class="prettyprint">catalogs</code></td>
+<td>Array</td>
+<td>List of <code class="prettyprint">product</code> catalogs (public or private) included in the visual search scope.  Accounts can be updated with Default catalogs to perform search without explicitly specifying the catalog name or ID.</td>
 </tr>
 </tbody></table>
 
@@ -6466,18 +6545,6 @@ catalog of schema <code class="prettyprint">style</code>.</p>
 <span class="s">        "force": true</span>
 <span class="s">    }</span>
 <span class="s">}</span>
-</code></pre>
-<blockquote>
-<p><strong>Example:</strong> Request Refresh Options</p>
-</blockquote>
-<pre class="highlight http tab-http"><code><span class="nf">POST</span> <span class="nn">http://video.markable.ai/video/search?page=0&amp;pageLimit=2</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
-<span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer 123abc</span>
-<span class="s">{</span>
-<span class="s">    "data": {</span>
-<span class="s">        "uri": "https://example.com/videos/1.mp4",</span>
-<span class="s">        "refresh": true</span>
-<span class="s">    }</span>
-<span class="s">}</span>
 </code></pre><pre class="highlight shell tab-shell"><code>curl -X POST http://video.markable.ai/video/search?page<span class="o">=</span>0&amp;pageLimit<span class="o">=</span>2 <span class="se">\</span>
 -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 -H <span class="s1">'Authorization: Bearer 123abc'</span> <span class="se">\</span>
@@ -6490,289 +6557,196 @@ catalog of schema <code class="prettyprint">style</code>.</p>
 '</span>
 </code></pre>
 <blockquote>
-<p><strong>Example:</strong> Response - Pending Indexing, Force, Or Refresh</p>
+<p><strong>Example:</strong> Response - Pending Indexing, Force</p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+<pre class="highlight json tab-json"><code><span class="w">    </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"service"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"markable-video-service"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.0.0-alpha+01"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"environment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"default"</span><span class="w">
+            </span><span class="s2">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.1.1"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"environment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"production"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="s2">"request"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="s2">"protocol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"POST"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/video/search?page=2"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"route"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/video/search"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"params"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
-            </span><span class="s2">"query"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"page"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="w">
-            </span><span class="p">}</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="s2">"exists"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"configure"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"download"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"snapshot"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"publish"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"cv"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"nn"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"db"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"map"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"store"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pending"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"configure"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"started"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"ended"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"succeeded"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"failed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-            </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"started"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"ended"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"succeeded"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"failed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-            </span><span class="s2">"download"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"started"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"ended"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"succeeded"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"failed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-            </span><span class="s2">"snapshot"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"started"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"ended"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"succeeded"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"failed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-            </span><span class="s2">"publish"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"started"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"ended"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"succeeded"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"failed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-            </span><span class="s2">"cv"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"started"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"ended"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"succeeded"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"failed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-            </span><span class="s2">"nn"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"started"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"ended"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"succeeded"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"failed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-            </span><span class="s2">"db"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"started"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"ended"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"succeeded"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"failed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-            </span><span class="s2">"map"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"started"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"ended"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"succeeded"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"failed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-            </span><span class="s2">"store"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"started"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"ended"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"succeeded"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"failed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
-            </span><span class="p">}</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="s2">"enqueued"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"pagination"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"page"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"pageBy"</span><span class="p">:</span><span class="w"> </span><span class="s2">"index"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"pageLimit"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"pageFrom"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"pageTo"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"pageSize"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="s2">"statuses"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-            </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"step"</span><span class="p">:</span><span class="w"> </span><span class="s2">"config"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"unit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"configurations"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-                </span><span class="s2">"completed"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"startedAt"</span><span class="p">:</span><span class="w"> </span><span class="mi">1576612942669</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"endedAt"</span><span class="p">:</span><span class="w"> </span><span class="mi">1576612942857</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"elapsedTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">188</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"totalTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">188</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"eachTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">188</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"rate"</span><span class="p">:</span><span class="w"> </span><span class="mf">5.319148936170213</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-            </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"step"</span><span class="p">:</span><span class="w"> </span><span class="s2">"meta"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"unit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"metas"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-                </span><span class="s2">"completed"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"startedAt"</span><span class="p">:</span><span class="w"> </span><span class="mi">1576612942880</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"endedAt"</span><span class="p">:</span><span class="w"> </span><span class="mi">1576612944127</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"elapsedTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">1247</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"totalTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">1247</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"eachTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">1247</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"rate"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.8019246190858058</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-            </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"step"</span><span class="p">:</span><span class="w"> </span><span class="s2">"download"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"unit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bytes"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-                </span><span class="s2">"completed"</span><span class="p">:</span><span class="w"> </span><span class="mi">2323481</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">2323481</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"startedAt"</span><span class="p">:</span><span class="w"> </span><span class="mi">1576612944126</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"endedAt"</span><span class="p">:</span><span class="w"> </span><span class="mi">1576612944395</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"elapsedTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">269</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"totalTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">269</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"eachTime"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.00011577456411307</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"rate"</span><span class="p">:</span><span class="w"> </span><span class="mf">8637475.836431226</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-            </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"step"</span><span class="p">:</span><span class="w"> </span><span class="s2">"snapshot"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"unit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"frames"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-                </span><span class="s2">"completed"</span><span class="p">:</span><span class="w"> </span><span class="mi">139</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">139</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"startedAt"</span><span class="p">:</span><span class="w"> </span><span class="mi">1576612944414</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"endedAt"</span><span class="p">:</span><span class="w"> </span><span class="mi">1576612950222</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"elapsedTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">5808</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"totalTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">5808</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"eachTime"</span><span class="p">:</span><span class="w"> </span><span class="mf">41.78417266187051</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"rate"</span><span class="p">:</span><span class="w"> </span><span class="mf">23.93250688705234</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-            </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"step"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cv"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"unit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"frames"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-                </span><span class="s2">"completed"</span><span class="p">:</span><span class="w"> </span><span class="mi">139</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">139</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"startedAt"</span><span class="p">:</span><span class="w"> </span><span class="mi">1576612984881</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"endedAt"</span><span class="p">:</span><span class="w"> </span><span class="mi">1576613082815</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"elapsedTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">97934</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"totalTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">97934</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"eachTime"</span><span class="p">:</span><span class="w"> </span><span class="mf">704.5611510791367</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"rate"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.4193232176772113</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-            </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"step"</span><span class="p">:</span><span class="w"> </span><span class="s2">"nn"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"unit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"frames"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-                </span><span class="s2">"completed"</span><span class="p">:</span><span class="w"> </span><span class="mi">139</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">139</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"startedAt"</span><span class="p">:</span><span class="w"> </span><span class="mi">1576613081082</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"endedAt"</span><span class="p">:</span><span class="w"> </span><span class="mi">1576613266125</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"elapsedTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">185043</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"totalTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">185043</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"eachTime"</span><span class="p">:</span><span class="w"> </span><span class="mf">1331.2446043165467</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"rate"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.7511767535113459</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-            </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"step"</span><span class="p">:</span><span class="w"> </span><span class="s2">"db"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"unit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"frames"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-                </span><span class="s2">"completed"</span><span class="p">:</span><span class="w"> </span><span class="mi">139</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">139</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"startedAt"</span><span class="p">:</span><span class="w"> </span><span class="mi">1576613081094</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"endedAt"</span><span class="p">:</span><span class="w"> </span><span class="mi">1576613271699</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"elapsedTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">190605</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"totalTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">190605</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"eachTime"</span><span class="p">:</span><span class="w"> </span><span class="mf">1371.2589928057555</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"rate"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.7292568400619082</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-            </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"step"</span><span class="p">:</span><span class="w"> </span><span class="s2">"map"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"unit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"frames"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-                </span><span class="s2">"completed"</span><span class="p">:</span><span class="w"> </span><span class="mi">139</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">139</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"startedAt"</span><span class="p">:</span><span class="w"> </span><span class="mi">1576613081115</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"endedAt"</span><span class="p">:</span><span class="w"> </span><span class="mi">1576613271811</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"elapsedTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">190696</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"totalTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">190696</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"eachTime"</span><span class="p">:</span><span class="w"> </span><span class="mf">1371.913669064748</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"rate"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.7289088391995637</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-            </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"step"</span><span class="p">:</span><span class="w"> </span><span class="s2">"store"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"unit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"frames"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-                </span><span class="s2">"completed"</span><span class="p">:</span><span class="w"> </span><span class="mi">139</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">139</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"startedAt"</span><span class="p">:</span><span class="w"> </span><span class="mi">1576613081121</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"endedAt"</span><span class="p">:</span><span class="w"> </span><span class="mi">1576613271812</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"elapsedTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">190691</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"totalTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">190691</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"eachTime"</span><span class="p">:</span><span class="w"> </span><span class="mf">1371.8776978417266</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"rate"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.7289279515026929</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
-            </span><span class="p">}</span><span class="w">
-        </span><span class="p">],</span><span class="w">
-        </span><span class="s2">"job"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://video_1.m4v"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"refresh"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"options"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"page"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"legacy"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8b03244a15ff3a2073befe93f93d9094"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="s2">"jobs"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"pending"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-            </span><span class="s2">"successful"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-            </span><span class="s2">"failed"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<blockquote>
-<p><strong>Example:</strong> Response - Fully indexed video with product results</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"service"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"markable-video-service"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.0.0-alpha+01"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"environment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"default"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="s2">"request"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"protocol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"POST"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/video/search?page=0&amp;pageLimit=2"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/video/search?page=0&amp;pageLimit=30"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"route"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/video/search"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"params"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
             </span><span class="s2">"query"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
                 </span><span class="s2">"page"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"pageLimit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="w">
+                </span><span class="s2">"pageLimit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"30"</span><span class="w">
             </span><span class="p">}</span><span class="w">
         </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"pagination"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"page"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"pageBy"</span><span class="p">:</span><span class="w"> </span><span class="s2">"index"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"pageLimit"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"pageFrom"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"pageTo"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"pageSize"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"catalogs"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"requested"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="s2">"exmaple"</span><span class="w">
+            </span><span class="p">],</span><span class="w">
+            </span><span class="s2">"searched"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+            </span><span class="s2">"rejected"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="s2">"exmaple"</span><span class="w">
+            </span><span class="p">]</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"track"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"trackStartAtTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"trackEndAtTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"trackStartAtIndex"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"trackEndAtIndex"</span><span class="p">:</span><span class="w"> </span><span class="mi">90</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"trackSize"</span><span class="p">:</span><span class="w"> </span><span class="mi">90</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"precision"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"seek"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"statuses"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VideoJobStatus"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"step"</span><span class="p">:</span><span class="w"> </span><span class="s2">"config"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"startedAt"</span><span class="p">:</span><span class="w"> </span><span class="mi">1585669803256</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"endedAt"</span><span class="p">:</span><span class="w"> </span><span class="mi">1585669803385</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"completed"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"unit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"configurations"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"elapsedTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">129</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"eachTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">129</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"elapsedTimeString"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00:00:00.129"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"eachTimeString"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00:00:00.129"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"totalTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">129</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"totalTimeString"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00:00:00.129"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VideoJobStatus"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"step"</span><span class="p">:</span><span class="w"> </span><span class="s2">"meta"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"startedAt"</span><span class="p">:</span><span class="w"> </span><span class="mi">1585669803994</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"endedAt"</span><span class="p">:</span><span class="w"> </span><span class="mi">1585669806193</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"completed"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"unit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"metas"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"elapsedTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">2199</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"eachTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">2199</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"elapsedTimeString"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00:00:02.199"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"eachTimeString"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00:00:02.199"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"totalTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">2199</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"totalTimeString"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00:00:02.199"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VideoJobStatus"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"step"</span><span class="p">:</span><span class="w"> </span><span class="s2">"download"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"startedAt"</span><span class="p">:</span><span class="w"> </span><span class="mi">1585669806275</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"endedAt"</span><span class="p">:</span><span class="w"> </span><span class="mi">1585669850566</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"completed"</span><span class="p">:</span><span class="w"> </span><span class="mi">553283420</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">553283420</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"unit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bytes"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"elapsedTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">44291</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"eachTime"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0000800511969073644</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"elapsedTimeString"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00:00:44.291"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"eachTimeString"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00:00:00.000"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"fingerprint"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b6a941d11dea83c84fb23c143aa4ebaa"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"totalTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">44291</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"rate"</span><span class="p">:</span><span class="w"> </span><span class="mf">12492005.599331694</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"totalTimeString"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00:00:44.291"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VideoJobStatus"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"step"</span><span class="p">:</span><span class="w"> </span><span class="s2">"snapshot"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"startedAt"</span><span class="p">:</span><span class="w"> </span><span class="mi">1585670660247</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"endedAt"</span><span class="p">:</span><span class="w"> </span><span class="mi">1585671758487</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"completed"</span><span class="p">:</span><span class="w"> </span><span class="mi">7945</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">7945</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"unit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"frames"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"elapsedTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">1098240</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"eachTime"</span><span class="p">:</span><span class="w"> </span><span class="mf">138.23033354310888</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"elapsedTimeString"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00:18:18.240"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"eachTimeString"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00:00:00.138"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"totalTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">1098240</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"rate"</span><span class="p">:</span><span class="w"> </span><span class="mf">7.234302156177156</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"totalTimeString"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00:18:18.240"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VideoJobStatus"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VideoJobStatus"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"step"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cv"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"startedAt"</span><span class="p">:</span><span class="w"> </span><span class="mi">1585670673768</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"endedAt"</span><span class="p">:</span><span class="w"> </span><span class="mi">1586210046233</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">7945</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"unit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"frames"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"completed"</span><span class="p">:</span><span class="w"> </span><span class="mi">7945</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"elapsedTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">539372465</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"totalTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">539372465</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"eachTime"</span><span class="p">:</span><span class="w"> </span><span class="mf">67888.29011957206</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"rate"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.01473008081715851</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"elapsedTimeString"</span><span class="p">:</span><span class="w"> </span><span class="s2">"05:49:32.465"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"eachTimeString"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00:01:07.888"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"totalTimeString"</span><span class="p">:</span><span class="w"> </span><span class="s2">"05:49:32.465"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VideoJobStatus"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"step"</span><span class="p">:</span><span class="w"> </span><span class="s2">"track"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"startedAt"</span><span class="p">:</span><span class="w"> </span><span class="mi">1586880237515</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"endedAt"</span><span class="p">:</span><span class="w"> </span><span class="mi">1586880237650</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">90</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"completed"</span><span class="p">:</span><span class="w"> </span><span class="mi">90</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"unit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"frames"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"elapsedTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">135</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"eachTime"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.5</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"totalTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">135</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"elapsedTimeString"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00:00:00.135"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"eachTimeString"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00:00:00.001"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"totalTimeString"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00:00:00.135"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VideoJobStatus"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"step"</span><span class="p">:</span><span class="w"> </span><span class="s2">"nn"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"startedAt"</span><span class="p">:</span><span class="w"> </span><span class="mi">1586880237673</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"endedAt"</span><span class="p">:</span><span class="w"> </span><span class="mi">1586880237707</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"completed"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"unit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"neighbors"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"elapsedTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">34</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"eachTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">34</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"totalTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">34</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"elapsedTimeString"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00:00:00.034"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"eachTimeString"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00:00:00.034"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"totalTimeString"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00:00:00.034"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VideoJobStatus"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"step"</span><span class="p">:</span><span class="w"> </span><span class="s2">"db"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"startedAt"</span><span class="p">:</span><span class="w"> </span><span class="mi">1586880237710</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"endedAt"</span><span class="p">:</span><span class="w"> </span><span class="mi">1586880237710</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"completed"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"unit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"lookup"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"elapsedTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"eachTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"totalTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"elapsedTimeString"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00:00:00.000"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"eachTimeString"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00:00:00.000"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"totalTimeString"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00:00:00.000"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
         </span><span class="s2">"exists"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="s2">"configure"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
             </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
             </span><span class="s2">"download"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
             </span><span class="s2">"snapshot"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"publish"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
             </span><span class="s2">"cv"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"track"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
             </span><span class="s2">"nn"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"db"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"map"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"store"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+            </span><span class="s2">"db"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
         </span><span class="p">},</span><span class="w">
-        </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"complete"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="s2">"configure"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
                 </span><span class="s2">"started"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
@@ -6798,13 +6772,13 @@ catalog of schema <code class="prettyprint">style</code>.</p>
                 </span><span class="s2">"succeeded"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"failed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
             </span><span class="p">},</span><span class="w">
-            </span><span class="s2">"publish"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"started"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"ended"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"succeeded"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"cv"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"started"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"ended"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"succeeded"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"failed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
             </span><span class="p">},</span><span class="w">
-            </span><span class="s2">"cv"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"track"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
                 </span><span class="s2">"started"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"ended"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"succeeded"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
@@ -6812,172 +6786,33 @@ catalog of schema <code class="prettyprint">style</code>.</p>
             </span><span class="p">},</span><span class="w">
             </span><span class="s2">"nn"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
                 </span><span class="s2">"started"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"ended"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"succeeded"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"ended"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"succeeded"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"failed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
             </span><span class="p">},</span><span class="w">
             </span><span class="s2">"db"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
                 </span><span class="s2">"started"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"ended"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"succeeded"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"failed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-            </span><span class="s2">"map"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"started"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"ended"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"succeeded"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"failed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-            </span><span class="s2">"store"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"started"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"ended"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"succeeded"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"ended"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"succeeded"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"failed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
             </span><span class="p">}</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="s2">"enqueued"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"pagination"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"page"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"pageBy"</span><span class="p">:</span><span class="w"> </span><span class="s2">"index"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"pageLimit"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"pageFrom"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"pageTo"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"pageSize"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="s2">"statuses"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-            </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"step"</span><span class="p">:</span><span class="w"> </span><span class="s2">"config"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"unit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"configurations"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-                </span><span class="s2">"completed"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"startedAt"</span><span class="p">:</span><span class="w"> </span><span class="mi">1576535995185</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"endedAt"</span><span class="p">:</span><span class="w"> </span><span class="mi">1576536908363</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"elapsedTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">913178</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"totalTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">913178</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"eachTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">913178</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"rate"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.001095076753929683</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-            </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"step"</span><span class="p">:</span><span class="w"> </span><span class="s2">"meta"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"unit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"metas"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-                </span><span class="s2">"completed"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"startedAt"</span><span class="p">:</span><span class="w"> </span><span class="mi">1576535995256</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"endedAt"</span><span class="p">:</span><span class="w"> </span><span class="mi">1576536908386</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"elapsedTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">913130</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"totalTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">913130</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"eachTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">913130</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"rate"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0010951343182241302</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-            </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"step"</span><span class="p">:</span><span class="w"> </span><span class="s2">"download"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"unit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bytes"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-                </span><span class="s2">"completed"</span><span class="p">:</span><span class="w"> </span><span class="mi">42783321</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">42783321</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"startedAt"</span><span class="p">:</span><span class="w"> </span><span class="mi">1576535996510</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"endedAt"</span><span class="p">:</span><span class="w"> </span><span class="mi">1576536908409</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"elapsedTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">911899</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"totalTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">911899</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"eachTime"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.021314357527317713</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"rate"</span><span class="p">:</span><span class="w"> </span><span class="mf">46916.73200650511</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-            </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"step"</span><span class="p">:</span><span class="w"> </span><span class="s2">"snapshot"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"unit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"frames"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-                </span><span class="s2">"completed"</span><span class="p">:</span><span class="w"> </span><span class="mi">84</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">84</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"startedAt"</span><span class="p">:</span><span class="w"> </span><span class="mi">1576535997022</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"endedAt"</span><span class="p">:</span><span class="w"> </span><span class="mi">1576536908448</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"elapsedTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">911426</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"totalTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">911426</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"eachTime"</span><span class="p">:</span><span class="w"> </span><span class="mf">10850.309523809523</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"rate"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.09216326942615198</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-            </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"step"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cv"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"unit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"frames"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-                </span><span class="s2">"completed"</span><span class="p">:</span><span class="w"> </span><span class="mi">84</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">84</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"startedAt"</span><span class="p">:</span><span class="w"> </span><span class="mi">1576536007632</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"endedAt"</span><span class="p">:</span><span class="w"> </span><span class="mi">1576536909243</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"elapsedTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">901611</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"totalTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">901611</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"eachTime"</span><span class="p">:</span><span class="w"> </span><span class="mf">10733.464285714286</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"rate"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.09316656518165817</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-            </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"step"</span><span class="p">:</span><span class="w"> </span><span class="s2">"nn"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"unit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"frames"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-                </span><span class="s2">"completed"</span><span class="p">:</span><span class="w"> </span><span class="mi">37</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">84</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"startedAt"</span><span class="p">:</span><span class="w"> </span><span class="mi">1576536994216</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"endedAt"</span><span class="p">:</span><span class="w"> </span><span class="mi">1576536994228</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"elapsedTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"totalTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"eachTime"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.32432432432432434</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"rate"</span><span class="p">:</span><span class="w"> </span><span class="mf">3083.3333333333335</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.44047619047619047</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-            </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"step"</span><span class="p">:</span><span class="w"> </span><span class="s2">"db"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"unit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"frames"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-                </span><span class="s2">"completed"</span><span class="p">:</span><span class="w"> </span><span class="mi">19</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">84</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"startedAt"</span><span class="p">:</span><span class="w"> </span><span class="mi">1576537000023</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"endedAt"</span><span class="p">:</span><span class="w"> </span><span class="mi">1576537000293</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"elapsedTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">270</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"totalTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">270</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"eachTime"</span><span class="p">:</span><span class="w"> </span><span class="mf">14.210526315789474</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"rate"</span><span class="p">:</span><span class="w"> </span><span class="mf">70.37037037037037</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.2261904761904762</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-            </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"step"</span><span class="p">:</span><span class="w"> </span><span class="s2">"map"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"unit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"frames"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-                </span><span class="s2">"completed"</span><span class="p">:</span><span class="w"> </span><span class="mi">19</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">84</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"startedAt"</span><span class="p">:</span><span class="w"> </span><span class="mi">1576537000356</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"endedAt"</span><span class="p">:</span><span class="w"> </span><span class="mi">1576537000382</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"elapsedTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">26</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"totalTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">26</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"eachTime"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.368421052631579</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"rate"</span><span class="p">:</span><span class="w"> </span><span class="mf">730.7692307692308</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.2261904761904762</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-            </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"step"</span><span class="p">:</span><span class="w"> </span><span class="s2">"store"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"unit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"frames"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-                </span><span class="s2">"completed"</span><span class="p">:</span><span class="w"> </span><span class="mi">19</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">84</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"startedAt"</span><span class="p">:</span><span class="w"> </span><span class="mi">1576537000368</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"endedAt"</span><span class="p">:</span><span class="w"> </span><span class="mi">1576537000395</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"elapsedTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">27</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"totalTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">27</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"eachTime"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.4210526315789473</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"rate"</span><span class="p">:</span><span class="w"> </span><span class="mf">703.7037037037037</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.2261904761904762</span><span class="w">
-            </span><span class="p">}</span><span class="w">
-        </span><span class="p">],</span><span class="w">
         </span><span class="s2">"job"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://video_2.mp4"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5e8366ab611d5f001019d663"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example_video.mp4"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-03-31T15:50:03.470Z"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-04-06T21:54:06.245Z"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Video"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example_video.mp4"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"options"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"page"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"pageLimit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"legacy"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+                </span><span class="s2">"fingerprint"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b6a941d11dea83c84fb23c143aa4ebaa"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"framesPerSecond"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"catalogs"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                    </span><span class="p">{</span><span class="w">
+                        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"exmaple_catalog"</span><span class="w">
+                    </span><span class="p">}</span><span class="w">
+                </span><span class="p">]</span><span class="w">
             </span><span class="p">}</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="s2">"jobs"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -6986,6 +6821,12 @@ catalog of schema <code class="prettyprint">style</code>.</p>
             </span><span class="s2">"failed"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">},</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p><strong>Example:</strong> Response - Fully indexed video with product results</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">   
+    </span><span class="s2">"meta"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="s2">"...."</span><span class="p">},</span><span class="w">
     </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="s2">"_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Frame"</span><span class="p">,</span><span class="w">
@@ -7366,12 +7207,12 @@ catalog of schema <code class="prettyprint">style</code>.</p>
 <tr>
 <td><code class="prettyprint">page</code></td>
 <td>integer</td>
-<td>Default is 0</td>
+<td>Default value is <code class="prettyprint">0</code></td>
 </tr>
 <tr>
 <td><code class="prettyprint">pageLimit</code></td>
 <td>integer</td>
-<td>Frame results per page. Default is 5</td>
+<td>Frame results per page. Default value is <code class="prettyprint">5</code></td>
 </tr>
 </tbody></table>
 
@@ -7396,8 +7237,7 @@ catalog of schema <code class="prettyprint">style</code>.</p>
 <p>We have constraints on video we search on. </p>
 
 <ol>
-<li><p>We support static video </p></li>
-<li><p>Maximum video length size = <code class="prettyprint">30</code> seconds</p></li>
+<li>We support static video </li>
 </ol>
 
       </div>
