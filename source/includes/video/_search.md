@@ -27,20 +27,6 @@ Authorization: Bearer 123abc
 ```
 
 
-> **Example:** Request Refresh Options
-
-```http
-POST http://video.markable.ai/video/search?page=0&pageLimit=2 HTTP/1.1
-Authorization: Bearer 123abc
-{
-    "data": {
-        "uri": "https://example.com/videos/1.mp4",
-        "refresh": true
-    }
-}
-```
-
-
 ```shell
 curl -X POST http://video.markable.ai/video/search?page=0&pageLimit=2 \
 -H 'Content-Type: application/json' \
@@ -54,39 +40,197 @@ curl -X POST http://video.markable.ai/video/search?page=0&pageLimit=2 \
 '
 ```
 
-> **Example:** Response - Pending Indexing, Force, Or Refresh
+> **Example:** Response - Pending Indexing, Force
 
 ```json
-{
     "meta": {
         "service": {
             "name": "markable-video-service",
-            "version": "2.0.0-alpha+01",
-            "environment": "default"
+            "version": "2.1.1",
+            "environment": "production"
         },
         "request": {
             "protocol": "http",
             "method": "POST",
-            "url": "/video/search?page=2",
+            "url": "/video/search?page=0&pageLimit=30",
             "route": "/video/search",
             "params": {},
             "query": {
-                "page": "2"
+                "page": "0",
+                "pageLimit": "30"
             }
         },
+        "pagination": {
+            "page": 0,
+            "pageBy": "index",
+            "pageLimit": 30,
+            "pageFrom": 0,
+            "pageTo": 30,
+            "pageSize": 30
+        },
+        "catalogs": {
+            "requested": [
+                "exmaple"
+            ],
+            "searched": [],
+            "rejected": [
+                "exmaple"
+            ]
+        },
+        "track": {
+            "trackStartAtTime": 0,
+            "trackEndAtTime": 30,
+            "trackStartAtIndex": 0,
+            "trackEndAtIndex": 90,
+            "trackSize": 90,
+            "precision": 1,
+            "seek": 0
+        },
+        "statuses": [
+            {
+                "type": "VideoJobStatus",
+                "step": "config",
+                "startedAt": 1585669803256,
+                "endedAt": 1585669803385,
+                "completed": 1,
+                "total": 1,
+                "unit": "configurations",
+                "status": 1,
+                "elapsedTime": 129,
+                "eachTime": 129,
+                "elapsedTimeString": "00:00:00.129",
+                "eachTimeString": "00:00:00.129",
+                "totalTime": 129,
+                "totalTimeString": "00:00:00.129"
+            },
+            {
+                "type": "VideoJobStatus",
+                "step": "meta",
+                "startedAt": 1585669803994,
+                "endedAt": 1585669806193,
+                "completed": 1,
+                "total": 1,
+                "unit": "metas",
+                "status": 1,
+                "elapsedTime": 2199,
+                "eachTime": 2199,
+                "elapsedTimeString": "00:00:02.199",
+                "eachTimeString": "00:00:02.199",
+                "totalTime": 2199,
+                "totalTimeString": "00:00:02.199"
+            },
+            {
+                "type": "VideoJobStatus",
+                "step": "download",
+                "startedAt": 1585669806275,
+                "endedAt": 1585669850566,
+                "completed": 553283420,
+                "total": 553283420,
+                "unit": "bytes",
+                "status": 1,
+                "elapsedTime": 44291,
+                "eachTime": 0.0000800511969073644,
+                "elapsedTimeString": "00:00:44.291",
+                "eachTimeString": "00:00:00.000",
+                "fingerprint": "b6a941d11dea83c84fb23c143aa4ebaa",
+                "totalTime": 44291,
+                "rate": 12492005.599331694,
+                "totalTimeString": "00:00:44.291"
+            },
+            {
+                "type": "VideoJobStatus",
+                "step": "snapshot",
+                "startedAt": 1585670660247,
+                "endedAt": 1585671758487,
+                "completed": 7945,
+                "total": 7945,
+                "unit": "frames",
+                "status": 1,
+                "elapsedTime": 1098240,
+                "eachTime": 138.23033354310888,
+                "elapsedTimeString": "00:18:18.240",
+                "eachTimeString": "00:00:00.138",
+                "totalTime": 1098240,
+                "rate": 7.234302156177156,
+                "totalTimeString": "00:18:18.240"
+            },
+            {
+                "_type": "VideoJobStatus",
+                "type": "VideoJobStatus",
+                "step": "cv",
+                "startedAt": 1585670673768,
+                "endedAt": 1586210046233,
+                "total": 7945,
+                "unit": "frames",
+                "completed": 7945,
+                "elapsedTime": 539372465,
+                "totalTime": 539372465,
+                "eachTime": 67888.29011957206,
+                "rate": 0.01473008081715851,
+                "elapsedTimeString": "05:49:32.465",
+                "eachTimeString": "00:01:07.888",
+                "totalTimeString": "05:49:32.465",
+                "status": 1
+            },
+            {
+                "type": "VideoJobStatus",
+                "step": "track",
+                "startedAt": 1586880237515,
+                "endedAt": 1586880237650,
+                "total": 90,
+                "completed": 90,
+                "unit": "frames",
+                "status": 1,
+                "elapsedTime": 135,
+                "eachTime": 1.5,
+                "totalTime": 135,
+                "elapsedTimeString": "00:00:00.135",
+                "eachTimeString": "00:00:00.001",
+                "totalTimeString": "00:00:00.135"
+            },
+            {
+                "type": "VideoJobStatus",
+                "step": "nn",
+                "startedAt": 1586880237673,
+                "endedAt": 1586880237707,
+                "total": 1,
+                "completed": 1,
+                "unit": "neighbors",
+                "status": 1,
+                "elapsedTime": 34,
+                "eachTime": 34,
+                "totalTime": 34,
+                "elapsedTimeString": "00:00:00.034",
+                "eachTimeString": "00:00:00.034",
+                "totalTimeString": "00:00:00.034"
+            },
+            {
+                "type": "VideoJobStatus",
+                "step": "db",
+                "startedAt": 1586880237710,
+                "endedAt": 1586880237710,
+                "total": 1,
+                "completed": 1,
+                "unit": "lookup",
+                "status": 1,
+                "elapsedTime": 0,
+                "eachTime": 0,
+                "totalTime": 0,
+                "elapsedTimeString": "00:00:00.000",
+                "eachTimeString": "00:00:00.000",
+                "totalTimeString": "00:00:00.000"
+            }
+        ],
         "exists": {
             "configure": true,
             "meta": true,
             "download": true,
             "snapshot": true,
-            "publish": false,
             "cv": true,
+            "track": true,
             "nn": true,
-            "db": true,
-            "map": true,
-            "store": true
+            "db": true
         },
-        "status": "pending",
         "state": {
             "configure": {
                 "started": true,
@@ -112,13 +256,13 @@ curl -X POST http://video.markable.ai/video/search?page=0&pageLimit=2 \
                 "succeeded": true,
                 "failed": false
             },
-            "publish": {
-                "started": false,
-                "ended": false,
-                "succeeded": false,
+            "cv": {
+                "started": true,
+                "ended": true,
+                "succeeded": true,
                 "failed": false
             },
-            "cv": {
+            "track": {
                 "started": true,
                 "ended": true,
                 "succeeded": true,
@@ -135,165 +279,25 @@ curl -X POST http://video.markable.ai/video/search?page=0&pageLimit=2 \
                 "ended": true,
                 "succeeded": true,
                 "failed": false
-            },
-            "map": {
-                "started": true,
-                "ended": true,
-                "succeeded": true,
-                "failed": false
-            },
-            "store": {
-                "started": true,
-                "ended": true,
-                "succeeded": true,
-                "failed": false
             }
         },
-        "enqueued": true,
-        "pagination": {
-            "page": 2,
-            "pageBy": "index",
-            "pageLimit": 5,
-            "pageFrom": 10,
-            "pageTo": 15,
-            "pageSize": 5
-        },
-        "statuses": [
-            {
-                "step": "config",
-                "unit": "configurations",
-                "errors": [],
-                "completed": 1,
-                "total": 1,
-                "startedAt": 1576612942669,
-                "endedAt": 1576612942857,
-                "elapsedTime": 188,
-                "totalTime": 188,
-                "eachTime": 188,
-                "rate": 5.319148936170213,
-                "status": 1
-            },
-            {
-                "step": "meta",
-                "unit": "metas",
-                "errors": [],
-                "completed": 1,
-                "total": 1,
-                "startedAt": 1576612942880,
-                "endedAt": 1576612944127,
-                "elapsedTime": 1247,
-                "totalTime": 1247,
-                "eachTime": 1247,
-                "rate": 0.8019246190858058,
-                "status": 1
-            },
-            {
-                "step": "download",
-                "unit": "bytes",
-                "errors": [],
-                "completed": 2323481,
-                "total": 2323481,
-                "startedAt": 1576612944126,
-                "endedAt": 1576612944395,
-                "elapsedTime": 269,
-                "totalTime": 269,
-                "eachTime": 0.00011577456411307,
-                "rate": 8637475.836431226,
-                "status": 1
-            },
-            {
-                "step": "snapshot",
-                "unit": "frames",
-                "errors": [],
-                "completed": 139,
-                "total": 139,
-                "startedAt": 1576612944414,
-                "endedAt": 1576612950222,
-                "elapsedTime": 5808,
-                "totalTime": 5808,
-                "eachTime": 41.78417266187051,
-                "rate": 23.93250688705234,
-                "status": 1
-            },
-            {
-                "step": "cv",
-                "unit": "frames",
-                "errors": [],
-                "completed": 139,
-                "total": 139,
-                "startedAt": 1576612984881,
-                "endedAt": 1576613082815,
-                "elapsedTime": 97934,
-                "totalTime": 97934,
-                "eachTime": 704.5611510791367,
-                "rate": 1.4193232176772113,
-                "status": 1
-            },
-            {
-                "step": "nn",
-                "unit": "frames",
-                "errors": [],
-                "completed": 139,
-                "total": 139,
-                "startedAt": 1576613081082,
-                "endedAt": 1576613266125,
-                "elapsedTime": 185043,
-                "totalTime": 185043,
-                "eachTime": 1331.2446043165467,
-                "rate": 0.7511767535113459,
-                "status": 1
-            },
-            {
-                "step": "db",
-                "unit": "frames",
-                "errors": [],
-                "completed": 139,
-                "total": 139,
-                "startedAt": 1576613081094,
-                "endedAt": 1576613271699,
-                "elapsedTime": 190605,
-                "totalTime": 190605,
-                "eachTime": 1371.2589928057555,
-                "rate": 0.7292568400619082,
-                "status": 1
-            },
-            {
-                "step": "map",
-                "unit": "frames",
-                "errors": [],
-                "completed": 139,
-                "total": 139,
-                "startedAt": 1576613081115,
-                "endedAt": 1576613271811,
-                "elapsedTime": 190696,
-                "totalTime": 190696,
-                "eachTime": 1371.913669064748,
-                "rate": 0.7289088391995637,
-                "status": 1
-            },
-            {
-                "step": "store",
-                "unit": "frames",
-                "errors": [],
-                "completed": 139,
-                "total": 139,
-                "startedAt": 1576613081121,
-                "endedAt": 1576613271812,
-                "elapsedTime": 190691,
-                "totalTime": 190691,
-                "eachTime": 1371.8776978417266,
-                "rate": 0.7289279515026929,
-                "status": 1
-            }
-        ],
+        "enqueued": false,
         "job": {
-            "uri": "https://video_1.m4v",
-            "refresh": true,
+            "_id": "5e8366ab611d5f001019d663",
+            "url": "https://example_video.mp4",
+            "created_at": "2020-03-31T15:50:03.470Z",
+            "updated_at": "2020-04-06T21:54:06.245Z",
+            "_type": "Video",
+            "uri": "https://example_video.mp4",
             "options": {
-                "page": "2",
-                "legacy": true
-            },
-            "id": "8b03244a15ff3a2073befe93f93d9094"
+                "fingerprint": "b6a941d11dea83c84fb23c143aa4ebaa",
+                "framesPerSecond": 3,
+                "catalogs": [
+                    {
+                        "name": "exmaple_catalog"
+                    }
+                ]
+            }
         },
         "jobs": {
             "pending": [],
@@ -301,257 +305,13 @@ curl -X POST http://video.markable.ai/video/search?page=0&pageLimit=2 \
             "failed": []
         }
     },
-    "data": null
-}
 ```
 
 > **Example:** Response - Fully indexed video with product results
 
 ```json
-{
-    "meta": {
-        "service": {
-            "name": "markable-video-service",
-            "version": "2.0.0-alpha+01",
-            "environment": "default"
-        },
-        "request": {
-            "protocol": "http",
-            "method": "POST",
-            "url": "/video/search?page=0&pageLimit=2",
-            "route": "/video/search",
-            "params": {},
-            "query": {
-                "page": "0",
-                "pageLimit": "2"
-            }
-        },
-        "exists": {
-            "configure": true,
-            "meta": true,
-            "download": true,
-            "snapshot": true,
-            "publish": false,
-            "cv": true,
-            "nn": true,
-            "db": true,
-            "map": true,
-            "store": true
-        },
-        "status": "complete",
-        "state": {
-            "configure": {
-                "started": true,
-                "ended": true,
-                "succeeded": true,
-                "failed": false
-            },
-            "meta": {
-                "started": true,
-                "ended": true,
-                "succeeded": true,
-                "failed": false
-            },
-            "download": {
-                "started": true,
-                "ended": true,
-                "succeeded": true,
-                "failed": false
-            },
-            "snapshot": {
-                "started": true,
-                "ended": true,
-                "succeeded": true,
-                "failed": false
-            },
-            "publish": {
-                "started": false,
-                "ended": false,
-                "succeeded": false,
-                "failed": false
-            },
-            "cv": {
-                "started": true,
-                "ended": true,
-                "succeeded": true,
-                "failed": false
-            },
-            "nn": {
-                "started": true,
-                "ended": false,
-                "succeeded": false,
-                "failed": false
-            },
-            "db": {
-                "started": true,
-                "ended": false,
-                "succeeded": false,
-                "failed": false
-            },
-            "map": {
-                "started": true,
-                "ended": false,
-                "succeeded": false,
-                "failed": false
-            },
-            "store": {
-                "started": true,
-                "ended": false,
-                "succeeded": false,
-                "failed": false
-            }
-        },
-        "enqueued": false,
-        "pagination": {
-            "page": 0,
-            "pageBy": "index",
-            "pageLimit": 2,
-            "pageFrom": 0,
-            "pageTo": 2,
-            "pageSize": 2
-        },
-        "statuses": [
-            {
-                "step": "config",
-                "unit": "configurations",
-                "errors": [],
-                "completed": 1,
-                "total": 1,
-                "startedAt": 1576535995185,
-                "endedAt": 1576536908363,
-                "elapsedTime": 913178,
-                "totalTime": 913178,
-                "eachTime": 913178,
-                "rate": 0.001095076753929683,
-                "status": 1
-            },
-            {
-                "step": "meta",
-                "unit": "metas",
-                "errors": [],
-                "completed": 1,
-                "total": 1,
-                "startedAt": 1576535995256,
-                "endedAt": 1576536908386,
-                "elapsedTime": 913130,
-                "totalTime": 913130,
-                "eachTime": 913130,
-                "rate": 0.0010951343182241302,
-                "status": 1
-            },
-            {
-                "step": "download",
-                "unit": "bytes",
-                "errors": [],
-                "completed": 42783321,
-                "total": 42783321,
-                "startedAt": 1576535996510,
-                "endedAt": 1576536908409,
-                "elapsedTime": 911899,
-                "totalTime": 911899,
-                "eachTime": 0.021314357527317713,
-                "rate": 46916.73200650511,
-                "status": 1
-            },
-            {
-                "step": "snapshot",
-                "unit": "frames",
-                "errors": [],
-                "completed": 84,
-                "total": 84,
-                "startedAt": 1576535997022,
-                "endedAt": 1576536908448,
-                "elapsedTime": 911426,
-                "totalTime": 911426,
-                "eachTime": 10850.309523809523,
-                "rate": 0.09216326942615198,
-                "status": 1
-            },
-            {
-                "step": "cv",
-                "unit": "frames",
-                "errors": [],
-                "completed": 84,
-                "total": 84,
-                "startedAt": 1576536007632,
-                "endedAt": 1576536909243,
-                "elapsedTime": 901611,
-                "totalTime": 901611,
-                "eachTime": 10733.464285714286,
-                "rate": 0.09316656518165817,
-                "status": 1
-            },
-            {
-                "step": "nn",
-                "unit": "frames",
-                "errors": [],
-                "completed": 37,
-                "total": 84,
-                "startedAt": 1576536994216,
-                "endedAt": 1576536994228,
-                "elapsedTime": 12,
-                "totalTime": 12,
-                "eachTime": 0.32432432432432434,
-                "rate": 3083.3333333333335,
-                "status": 0.44047619047619047
-            },
-            {
-                "step": "db",
-                "unit": "frames",
-                "errors": [],
-                "completed": 19,
-                "total": 84,
-                "startedAt": 1576537000023,
-                "endedAt": 1576537000293,
-                "elapsedTime": 270,
-                "totalTime": 270,
-                "eachTime": 14.210526315789474,
-                "rate": 70.37037037037037,
-                "status": 0.2261904761904762
-            },
-            {
-                "step": "map",
-                "unit": "frames",
-                "errors": [],
-                "completed": 19,
-                "total": 84,
-                "startedAt": 1576537000356,
-                "endedAt": 1576537000382,
-                "elapsedTime": 26,
-                "totalTime": 26,
-                "eachTime": 1.368421052631579,
-                "rate": 730.7692307692308,
-                "status": 0.2261904761904762
-            },
-            {
-                "step": "store",
-                "unit": "frames",
-                "errors": [],
-                "completed": 19,
-                "total": 84,
-                "startedAt": 1576537000368,
-                "endedAt": 1576537000395,
-                "elapsedTime": 27,
-                "totalTime": 27,
-                "eachTime": 1.4210526315789473,
-                "rate": 703.7037037037037,
-                "status": 0.2261904761904762
-            }
-        ],
-        "job": {
-            "uri": "http://video_2.mp4",
-            "options": {
-                "page": "0",
-                "pageLimit": "2",
-                "legacy": true
-            }
-        },
-        "jobs": {
-            "pending": [],
-            "successful": [],
-            "failed": []
-        }
-    },
+{   
+    "meta" : {"...."},
     "data": [
         {
             "_type": "Frame",
@@ -920,9 +680,8 @@ Header              | Description
 
 Parameter       | Type                                                      | Description
 -------         | ----------                                                | -------
-`page`          | integer                                                   | Default is 0
-`pageLimit`     | integer                                                   | Frame results per page. Default is 5
-
+`page`          | integer                                                   | Default value is `0`
+`pageLimit`     | integer                                                   | Frame results per page. Default value is `5`
 
 
 ### Body
