@@ -6492,34 +6492,21 @@ catalog of schema <code class="prettyprint">style</code>.</p>
 <tr>
 <td><code class="prettyprint">specific_match</code></td>
 <td>Boolean</td>
-<td>When a catalog item contains multiple images of the product, this option will <strong>only</strong> return the specific image selected by similarity search.  Default is <code class="prettyprint">false</code>.</td>
+<td>When a catalog item contains multiple images of the product, this option will <strong>only</strong> return the specific image selected by similarity search.</td>
 </tr>
 <tr>
-<td><code class="prettyprint">seek</code></td>
-<td>Number</td>
-<td>The timestamp at which search query is performed.</td>
-</tr>
-<tr>
-<td><code class="prettyprint">track</code></td>
-<td>Array</td>
-<td>The timestamp relative to seek timestamp. Both seek and track values will be used to calculate an absolute timestamp for which detections are tracked and merged during search operations.</td>
-</tr>
-<tr>
-<td><code class="prettyprint">precision</code></td>
-<td>Number</td>
-<td>The number used to round &ldquo;seek&rdquo; and &ldquo;track&rdquo; to a human readable number. Default value is <code class="prettyprint">1</code></td>
-</tr>
-<tr>
-<td><code class="prettyprint">framesPerSecond</code></td>
-<td>Number</td>
-<td>The number of frames per second at which the video is pre-processed. Default and Max value is <code class="prettyprint">5</code></td>
-</tr>
-<tr>
-<td><code class="prettyprint">catalogs</code></td>
-<td>Array</td>
-<td>List of <code class="prettyprint">product</code> catalogs (public or private) included in the visual search scope.  Accounts can be updated with Default catalogs to perform search without explicitly specifying the catalog name or ID.</td>
+<td><code class="prettyprint">attributes</code></td>
+<td>Boolean</td>
+<td>Return merged attributes for tracks.</td>
 </tr>
 </tbody></table>
+
+<p>Default is <code class="prettyprint">false</code>.
+<code class="prettyprint">seek</code>                  | Number                                | The timestamp at which search query is performed. 
+<code class="prettyprint">track</code>                 | Array                                 | The timestamp relative to seek timestamp. Both seek and track values will be used to calculate an absolute timestamp for which detections are tracked and merged during search operations. 
+<code class="prettyprint">precision</code>             | Number                                | The number used to round &ldquo;seek&rdquo; and &ldquo;track&rdquo; to a human readable number. Default value is <code class="prettyprint">1</code>
+<code class="prettyprint">framesPerSecond</code>       | Number                                | The number of frames per second at which the video is pre-processed. Default and Max value is <code class="prettyprint">5</code>
+<code class="prettyprint">catalogs</code>              | Array                                 | List of <code class="prettyprint">product</code> catalogs (public or private) included in the visual search scope.  Accounts can be updated with Default catalogs to perform search without explicitly specifying the catalog name or ID.   </p>
 
           <h2 id="search"><img src="images/search-video_icon.png" alt="search-video_icon" width="28px" height="auto"> Search</h2>
 
