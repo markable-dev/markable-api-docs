@@ -62,7 +62,9 @@ Attribute               | Type                                  | Description
 `family_search`         | Boolean                               | Searches similar items in related taxanomy groups. Default is `true`. 
 `deduplication`         | Boolean                               | Returns only one product in catalogs where a product image is used in multiple products. Default is `true`.
 `human_detection`       | Boolean                               | Return bounding boxes for human detections.  Default is `false`. 
-`specific_match`        | Boolean                               | When a catalog item contains multiple images of the product, this option will __only__ return the specific image selected by similarity search.  Default is `false`.
+`specific_match`        | Boolean                               | When a catalog item contains multiple images of the product, this option will __only__ return the specific image selected by similarity search.  
+`attributes`            | Boolean                               | Return merged attributes for tracks. 
+Default is `false`.
 `seek`                  | Number                                | The timestamp at which search query is performed. 
 `track`                 | Array                                 | The timestamp relative to seek timestamp. Both seek and track values will be used to calculate an absolute timestamp for which detections are tracked and merged during search operations. 
 `precision`             | Number                                | The number used to round "seek" and "track" to a human readable number. Default value is `1`
