@@ -5256,12 +5256,12 @@ print(response.text)
 <tr>
 <td><code class="prettyprint">human_detection</code></td>
 <td>Boolean</td>
-<td>Return bounding boxes for human detections.  Default is <code class="prettyprint">false</code>.</td>
+<td>Return bounding boxes for human detections. Default is <code class="prettyprint">false</code>.</td>
 </tr>
 <tr>
 <td><code class="prettyprint">centerness_filter</code></td>
 <td>Boolean</td>
-<td>Applies heuristics to return detections and results from the center of an image.  Default is <code class="prettyprint">false</code>.</td>
+<td>Applies heuristics to return detections and results from the center of an image. Default is <code class="prettyprint">false</code>.</td>
 </tr>
 <tr>
 <td><code class="prettyprint">return_specific_nn_match</code></td>
@@ -5271,12 +5271,32 @@ print(response.text)
 <tr>
 <td><code class="prettyprint">family_search</code></td>
 <td>Boolean</td>
-<td>Searches similar items in related taxanomy groups.  Default is <code class="prettyprint">true</code>.</td>
+<td>Searches similar items in related taxanomy groups. Default is <code class="prettyprint">true</code>.</td>
 </tr>
 <tr>
 <td><code class="prettyprint">unique_products</code></td>
 <td>Boolean</td>
-<td>Returns only one product in catalogs where a product image is used in multiple products.  Default is <code class="prettyprint">false</code>.</td>
+<td>Returns only one product in catalogs where a product image is used in multiple products. Default is <code class="prettyprint">false</code>.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">commission_ranking</code></td>
+<td>Object</td>
+<td>Return nearest neighbor results sorted by highest commission value when available.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">commission_ranking: enabled</code></td>
+<td>Boolean</td>
+<td>Will activate ranking by commission value. Default is <code class="prettyprint">true</code> when commission_ranking option is passed.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">commission_ranking: max_items_ranked</code></td>
+<td>Number</td>
+<td>Number of items ranked by commission value. The remaining results are sorted by similiarty score.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">commission_ranking: max_items_returned</code></td>
+<td>Number</td>
+<td>Number of results to return. This setting overrides limit settings in Lens AP</td>
 </tr>
 </tbody></table>
 
@@ -6384,8 +6404,9 @@ catalog of schema <code class="prettyprint">style</code>.</p>
 <ol>
 <li><p>We support <code class="prettyprint">.jpg</code>, <code class="prettyprint">.jpeg</code>, <code class="prettyprint">.png</code></p></li>
 <li><p>Minimum image size = <code class="prettyprint">100</code> px</p></li>
-<li><p>Maximum image size = <code class="prettyprint">5000</code> px</p></li>
+<li><p>Maximum image size = <code class="prettyprint">6000</code> px</p></li>
 <li><p>Maximum image memory size = <code class="prettyprint">10485760</code> b</p></li>
+<li><p>Minimum &amp; Maximum image size ratio = [<code class="prettyprint">0.4, 2.5</code>]</p></li>
 </ol>
 
           <h1 id="video-search">Video Search</h1>
