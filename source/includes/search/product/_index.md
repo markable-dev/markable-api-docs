@@ -105,8 +105,12 @@ Attribute               | Type                                  | Description
 `relevance`             | Number                                | How relevant you want the results to be. Default `50`. This takes precedence over `limit`
 `auto_detect_gender`    | Boolean                               | Automatically detect gender and return detected gender based results. Note that this option defaults to `true` if gender is __not__ specified in the request, and `false` if gender is provided. 
 `attributes`            | Boolean                               | Return [attributes](#supported-attributes) for every [catalogItem](#catalog-items), for both the searched input image and the images in the results. Note that this option will introduce a few 100ms in search. There is no guarantee that the attributes will be common between the input image and the result images; however, its highly likely that they will be.
-`human_detection`       | Boolean                               | Return bounding boxes for human detections.  Default is `false`. 
-`centerness_filter`       | Boolean                               | Applies heuristics to return detections and results from the center of an image.  Default is `false`. 
+`human_detection`       | Boolean                               | Return bounding boxes for human detections. Default is `false`. 
+`centerness_filter`       | Boolean                               | Applies heuristics to return detections and results from the center of an image. Default is `false`. 
 `return_specific_nn_match`       | Boolean                               | When a catalog item contains multiple images of the product or item, this option will __only__ return the specific image selected by similarity search.  Default is `false`. 
-`family_search`       | Boolean                               | Searches similar items in related taxanomy groups.  Default is `true`. 
-`unique_products`       | Boolean                               | Returns only one product in catalogs where a product image is used in multiple products.  Default is `false`. 
+`family_search`       | Boolean                               | Searches similar items in related taxanomy groups. Default is `true`. 
+`unique_products`       | Boolean                               | Returns only one product in catalogs where a product image is used in multiple products. Default is `false`. 
+`commission_ranking`      | Object                               | Return nearest neighbor results sorted by highest commission value when available.  
+`commission_ranking: enabled` | Boolean | Will activate ranking by commission value. Default is `true` when commission_ranking option is passed. 
+`commission_ranking: max_items_ranked` | Number | Number of items ranked by commission value. The remaining results are sorted by similiarty score. 
+`commission_ranking: max_items_returned`  | Number |  Number of results to return. This setting overrides limit settings in Lens AP
