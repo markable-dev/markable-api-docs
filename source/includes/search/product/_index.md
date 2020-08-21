@@ -113,4 +113,4 @@ Attribute               | Type                                  | Description
 `commission_ranking`      | Object                               | Return nearest neighbor results sorted by highest commission value when available.  
 `commission_ranking: enabled` | Boolean | Will activate ranking by commission value. Default is `true` when commission_ranking option is passed. 
 `commission_ranking: max_items_ranked` | Number | Number of items ranked by commission value. The remaining results are sorted by similiarty score. 
-`commission_ranking: max_items_returned`  | Number |  Number of results to return. This setting overrides limit settings in Lens AP
+`commission_ranking: max_items_returned`  | Number |  Number of results to return. This setting overrides limit settings in Lens API.
