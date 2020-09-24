@@ -5266,7 +5266,7 @@ print(response.text)
 <tr>
 <td><code class="prettyprint">return_specific_nn_match</code></td>
 <td>Boolean</td>
-<td>When a catalog item contains multiple images of the product or item, this option will <strong>only</strong> return the specific image selected by similarity search.  Default is <code class="prettyprint">false</code>.</td>
+<td>When a catalog item contains multiple images of the product or item, this option will <strong>only</strong> return the specific image selected by similarity search. Default is <code class="prettyprint">false</code>.</td>
 </tr>
 <tr>
 <td><code class="prettyprint">family_search</code></td>
@@ -5297,6 +5297,22 @@ print(response.text)
 <td><code class="prettyprint">commission_ranking: max_items_returned</code></td>
 <td>Number</td>
 <td>Number of results to return. This setting overrides limit settings in Lens API.</td>
+</tr>
+</tbody></table>
+
+<h3 id="beta-options-for-search">Beta Options for Search</h3>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">attributes_only</code></td>
+<td>Boolean</td>
+<td>Will return detections and atttributes for input image. This option will not perform similarity search.</td>
 </tr>
 </tbody></table>
 
